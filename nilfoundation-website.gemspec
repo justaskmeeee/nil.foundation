@@ -1,12 +1,12 @@
 # coding: utf-8
 
 Gem::Specification.new do |spec|
-  spec.name                    = "freelancer-theme-jekyll"
+  spec.name                    = "nilfoundation-website"
   spec.version                 = "1.0.0"
-  spec.authors                 = ["Start Bootstrap"]
+  spec.authors                 = ["Mikhail Komarov"]
 
-  spec.summary                 = %q{Freelancer is a one page Bootstrap portfolio theme for freelancers.}
-  spec.homepage                = "https://github.com/jeromelachaud/freelancer-theme"
+  spec.summary                 = %q{Nil Foundation's Website}
+  spec.homepage                = "https://github.com/nemothenoone/nil.foundation"
   spec.licenses                = ["MIT"]
 
   spec.metadata["plugin_type"] = "theme"
@@ -23,6 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-data", "~> 1.0"
   spec.add_runtime_dependency "jemoji", "~> 0.8"
 
-  spec.add_development_dependency "bundler", "~> 1.12"
+  spec.add_development_dependency "bundler", "~> 2.0.2"
   spec.add_development_dependency "rake", "~> 10.0"
 end
