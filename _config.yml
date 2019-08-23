@@ -1,9 +1,16 @@
 # Site settings
-title: Nil Foundation
-email: nemo@nil.foundation
-url: https://nil.foundation
+title: "<span style='font-family:Menlo, Courier, monospace'>=nil;</span> Foundation"
+email: "nemo@nil.foundation"
+url: "https://nil.foundation"
 description: ""
-skills: ""
+areas: "<div style='float: left; margin-right: 0.5em;'>We support projects in:</div>
+<div id='ticker'>
+    <ul>
+        <li>Data Storage Software</li>
+        <li>Cryptography</li>
+        <li>Financial Services</li>
+    </ul>
+</div>"
 meta_author: Mikhail Komarov
 
 # Google webmaster tools
@@ -20,14 +27,25 @@ contact: static
 
 # If you use disqus you need disqus shortname
 # https://help.disqus.com/customer/portal/articles/466208
-disqus_shortname: nemo 
+# disqus_shortname: nemo 
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  primary: 222222 #80B3FF
-  primary-rgb: "37,37,37" #"128,179,255"
-  secondary: 111111 #FD6E8A
-  secondary-dark: 111111 #A2122F
+  text-color: F4F4ED
+  background-color: 222222
+  navbar-color: 8E8581
+  footer-above-color: 8E8581
+  footer-below-color: 8E8581
+  secondary: 757E71
+  secondary-dark: 9A6064
+
+  background-color-rgb: "37,37,37"
+
+  primary: 8e8581
+  info: 232423
+  success: 60a25f
+  warning: dd9227
+  danger: f44336
 
 # Footer settings
 footer:
