@@ -33,7 +33,7 @@ contact: static
 color:
   text-color: F4F4ED
   background-color: 222222
-  navbar-color: 8E8581
+  navbar-color: 222222
   footer-above-color: 8E8581
   footer-below-color: 8E8581
   secondary: 757E71

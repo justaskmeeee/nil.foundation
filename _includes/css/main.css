@@ -42,7 +42,8 @@ hr.star-primary {
 
 hr.star-light:after,
 hr.star-primary:after {
-    content: "\f005";
+/*    content: "\f005";*/
+    content: "=";
     display: inline-block;
     position: relative;
     top: -.8em;
@@ -61,7 +62,7 @@ hr.star-light:after {
 }
 
 hr.star-primary {
-    border-color: #{{ site.color.background-color }};
+    border-color:#{{ site.color.background-color }};
 }
 
 hr.star-primary:after {
@@ -157,12 +158,11 @@ header .intro-text .skills {
 }
 
 .navbar-default {
-    border: 0;
     background-color: #{{ site.color.navbar-color }};
 }
 
 .navbar-inverse {
-    border: 0;
+    background-color: #{{ site.color.navbar-color }};
 }
 
 section {
@@ -177,6 +177,10 @@ section h2 {
 section.success {
     color: #{{ site.color.background-color }};
     background: #{{ site.color.text-color }};
+}
+
+section.success h2 {
+    color: #{{ site.color.background-color }} !important;
 }
 
 @media(max-width:767px) {
