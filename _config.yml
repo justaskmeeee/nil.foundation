@@ -31,20 +31,20 @@ contact: static
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  text-color: F4F4ED
+  text-color: F5F2F1
   background-color: 222222
   navbar-color: 222222
-  footer-above-color: 8E8581
-  footer-below-color: 8E8581
-  secondary: 757E71
-  secondary-dark: 9A6064
+  footer-above-color: 222222
+  footer-below-color: 222222
+  secondary: 907F8F
+  secondary-dark: 776475
 
   background-color-rgb: "37,37,37"
 
-  primary: 8e8581
-  info: 232423
-  success: 60a25f
-  warning: dd9227
+  primary: 725C70
+  info: 232125
+  success: 57965a
+  warning: d58622
   danger: f44336
 
 # Footer settings
