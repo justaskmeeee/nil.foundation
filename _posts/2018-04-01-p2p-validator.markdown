@@ -6,8 +6,8 @@ img: p2p_logo.png
 alt: image-alt
 project-date: September 2018
 client: P2P Validator
-category: Cryptography
+category: Partner 
 tag: partner
-description: Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!
+description: P2P Validator was established in 2018 after the same team of chaincode developers and crypto enthusiasts delivered some highly successful projects. From testnets to mainnets, our mission is to promote the value of the blockchain assets and give people access to the new emerging economy in compliance with the Validators Manifest.
 
 ---
