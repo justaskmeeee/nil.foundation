@@ -202,6 +202,15 @@ section.partners h2 {
     }
 }
 
+#projects .panel {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#projects .panel-body {
+    padding: 0;
+}
+
 #projects .projects-item {
     right: 0;
     margin: 0 0 15px;

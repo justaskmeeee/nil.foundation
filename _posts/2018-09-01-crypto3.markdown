@@ -4,10 +4,12 @@ modal-id: 1
 date: 2018-09-01
 img: safe.png
 alt: image-alt
+name: Crypto3 Cryptography Suite
+link: https://crypto3.nil.foundation
 project-date: September 2018
-client: Nil Foundation's Cryptography Development Team 
+client: =nil; Foundation 
 category: Cryptography
 tag: project
-description: Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!
+description: 
 
 ---
