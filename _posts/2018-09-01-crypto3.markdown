@@ -1,13 +1,10 @@
 ---
 layout: default
-modal-id: 1
 date: 2018-09-01
 img: safe.png
 alt: image-alt
 name: Crypto3 Cryptography Suite
 link: https://crypto3.nil.foundation
-project-date: September 2018
-client: =nil; Foundation 
 category: Cryptography
 tag: project
 description: 
