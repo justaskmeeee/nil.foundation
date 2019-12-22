@@ -49,7 +49,7 @@ color:
 
 # Footer settings
 footer:
-  copyright: Nil Foundation
+  copyright: =nil; Foundation
   location: Location
   social: Around the Web
   credits: Credits
