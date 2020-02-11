@@ -10,9 +10,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="breadcrumb">
-                <a class="navbar-brand" href="#page-top">{{ site.title }}</a>
-            </div>
+            <ol class="navbar-brand breadcrumb">
+                {% for item in site.titles %}
+                {% if item == site.titles.first %}
+                <li class="first">
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ol>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

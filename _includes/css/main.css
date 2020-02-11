@@ -130,15 +130,21 @@ header .intro-text .skills {
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
+        float: initial;
     }
 
     .navbar-fixed-top.navbar-shrink {
-        padding: 0px;
+        padding: 10px 0;
     }
 
     .navbar-fixed-top.navbar-shrink .navbar-brand {
         font-size: 1.5em;
+        float: initial;
     }
+}
+
+.navbar-brand {
+    padding: 0px;
 }
 
 .navbar {
@@ -542,6 +548,29 @@ footer .footer-below {
 }
 
 .breadcrumb {
-    padding: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
     margin-bottom: 0px;
+}
+
+
+.breadcrumb>li {
+    margin: 0px;
+    padding: 15px;
+    padding-left: 0px;
+}
+
+
+.breadcrumb> .first {
+    margin: 0px;
+    padding: 15px;
+}
+
+.breadcrumb>li:hover {
+    background-color: #{{ site.color.secondary-dark }} !important;
+}
+
+.breadcrumb>li>a, a:hover, a:focus, a:active, a.active {
+    outline: 0;
+    color: #{{ site.color.text-color }};
 }
