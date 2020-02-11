@@ -256,7 +256,7 @@ section.success h2 {
 
 @media(min-width:767px) {
     #partners .partners-item {
-        margin: 0 0 30px;
+        margin: 0 5px 30px 5px;
     }
 }
 
@@ -271,7 +271,7 @@ section.success h2 {
 
 #partners .partners-item {
     right: 0;
-    margin: 0 0 15px;
+    margin: 0 5px 15px 5px;
 }
 
 #partners .partners-item .partners-link {
@@ -319,12 +319,6 @@ section.success h2 {
 
 #partners * {
     z-index: 2;
-}
-
-@media(min-width:767px) {
-    #partners .partners-item {
-        margin: 0 0 30px;
-    }
 }
 
 section.partners {
