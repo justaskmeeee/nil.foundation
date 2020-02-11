@@ -193,6 +193,12 @@ section.success h2 {
     }
 }
 
+@media(min-width:767px) {
+    #projects .projects-item {
+        margin: 35px 5px 0px 5px;
+    }
+}
+
 #projects .panel {
     padding-left: 0;
     padding-right: 0;
@@ -204,7 +210,7 @@ section.success h2 {
 
 #projects .projects-item {
     right: 0;
-    margin: 0 0 15px;
+    margin: 35px 5px 0px 5px;
 }
 
 #projects .projects-item .projects-link {
@@ -256,7 +262,7 @@ section.success h2 {
 
 @media(min-width:767px) {
     #partners .partners-item {
-        margin: 0px 5px 0px 5px;
+        margin: 35px 5px 0px 5px;
     }
 }
 
@@ -271,7 +277,7 @@ section.success h2 {
 
 #partners .partners-item {
     right: 0;
-    margin: 0 5px 0px 5px;
+    margin: 35px 5px 0px 5px;
 }
 
 #partners .partners-item .partners-link {

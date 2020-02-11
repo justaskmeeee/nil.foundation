@@ -1,9 +1,9 @@
 ---
 layout: default
 date: 2018-09-01
-img: safe.png
+img: crypto3.png
 alt: image-alt
-name: Crypto3 Cryptography Suite
+name: Crypto3 Cryptography Team
 link: https://crypto3.nil.foundation
 category: Cryptography
 tag: project
