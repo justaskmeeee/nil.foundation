@@ -3,7 +3,7 @@ layout: default
 date: 2018-09-01
 img: database.png
 alt: image-alt
-name: Database Team
+name: =nil; Database
 link: https://database.nil.foundation
 category: Database
 tag: project
