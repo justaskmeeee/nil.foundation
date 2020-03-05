@@ -5,8 +5,8 @@ img: chia_logo.png
 alt: image-alt
 name: Chia Network
 link: https://chia.net
-category: Partner 
-tag: partner
+category: supporter
+tag: supporter
 description: 
 
 ---
