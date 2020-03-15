@@ -12,15 +12,9 @@
             </button>
             <ol class="navbar-brand breadcrumb">
                 {% for item in site.titles %}
-                {% if item == site.titles.first %}
-                <li class="first">
-                    <a href="{{ item.url }}">{{ item.title }}</a>
-                </li>
-                {% else %}
                 <li>
                     <a href="{{ item.url }}">{{ item.title }}</a>
                 </li>
-                {% endif %}
                 {% endfor %}
             </ol>
         </div>

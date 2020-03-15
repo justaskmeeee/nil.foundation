@@ -19,6 +19,15 @@ a.active {
     color: #{{ site.color.background-color }};
 }
 
+a.list-group-item {
+    color: #888;
+}
+
+a.list-group-item:hover,
+a.list-group-item:active {
+    color: #{{ site.color.text-color }};;
+}
+
 hr.star-light,
 hr.star-primary {
     margin: 25px auto 30px;
@@ -543,24 +552,22 @@ footer .footer-below {
     margin-bottom: 0px;
 }
 
-
-.breadcrumb>li {
+.breadcrumb > li {
     margin: 0px;
     padding: 15px;
     padding-left: 0px;
 }
 
-
-.breadcrumb> .first {
+.breadcrumb > li:first-child {
     margin: 0px;
     padding: 15px;
 }
 
-.breadcrumb>li:hover {
+.breadcrumb > li:hover {
     background-color: #{{ site.color.secondary-dark }} !important;
 }
 
-.breadcrumb>li>a, a:hover, a:focus, a:active, a.active {
+.breadcrumb > li > a, a:hover, a:focus, a:active, a.active {
     outline: 0;
     color: #{{ site.color.text-color }};
 }
