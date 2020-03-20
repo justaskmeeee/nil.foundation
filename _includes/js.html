@@ -20,12 +20,27 @@
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/freelancer.js" }}"></script>
 
-<!-- Vertical Scroller JavaScript -->
-<script src="{{ "/js/jquery.vticker.js" }}"></script>
+<!-- Text Scrambler -->
+<script src="{{ "/js/scramble.js" }}"></script>
 <script>
-    $(function() {
-        $('#ticker').vTicker();
-    });
+    const phrases = [
+        {% for item in site.areas %}
+        {% if site.areas.last == item %}'{{ item }}'{% else %}'{{ item }}',{% endif %}
+        {% endfor %}
+    ];
+
+    const el = document.querySelector('.text-scrmb');
+    const fx = new TextScramble(el);
+
+    let counter = 0;
+    const next = () => {
+        fx.setText(phrases[counter]).then(() => {
+            setTimeout(next, 1600);
+        });
+        counter = (counter + 1) % phrases.length;
+    };
+
+    next();
 </script>
 
 {% if site.contact == "disqus" %}

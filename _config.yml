@@ -2,18 +2,14 @@
 titles: 
     - title: "<span style='font-family:Menlo, Courier, monospace'>=nil;</span> Foundation"
       url: "#page-top"
-
 email: "nemo@nil.foundation"
 url: "https://nil.foundation"
 description: ""
-areas: "<div style='float: left; margin-right: 0.5em;'>We support projects in:</div>
-<div id='ticker'>
-    <ul>
-        <li>Data Storage Software</li>
-        <li>Cryptography</li>
-        <li>Financial Services</li>
-    </ul>
-</div>"
+subtitle: "<div style='float: left; margin-right: 0.5em;'>We support projects in:</div>"
+areas: 
+    - "Data Storage Software"
+    - "Cryptography"
+    - "Financial Services"
 meta_author: Mikhail Komarov
 
 # Google webmaster tools
