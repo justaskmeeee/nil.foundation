@@ -6,7 +6,7 @@ alt: image-alt
 name: =nil; Protocol
 link: https://protocol.nil.foundation
 category: Protocol
-tag: project
+tag: partner
 description:
 
 ---

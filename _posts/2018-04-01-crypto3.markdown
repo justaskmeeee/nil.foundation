@@ -6,7 +6,7 @@ alt: image-alt
 name: =nil; Crypto3
 link: https://crypto3.nil.foundation
 category: Cryptography
-tag: project
+tag: partner
 description: 
 
 ---

@@ -6,7 +6,7 @@ alt: image-alt
 name: =nil; Database
 link: https://database.nil.foundation
 category: Database
-tag: project
+tag: partner
 description: 
 
 ---

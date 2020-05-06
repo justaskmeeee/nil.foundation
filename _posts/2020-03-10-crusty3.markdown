@@ -1,0 +1,11 @@
+---
+layout: default
+date: 2020-03-01
+name: Crusty3 Cryptography Suite
+link: https://crypto3.nil.foundation/projects/crusty3
+img: crypto3.png
+category: Cryptography
+tag: project
+description: Modern cryptography suite implemented in Rust. Uses the same architecture type traits as Crypto3 along with the same backend implementation in YASM. Includes permutative, public key, zero-knowledge cryptograhy along with verifiable delay functions, threshold schemes and cryptographic accumulators.
+
+---
