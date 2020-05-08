@@ -1,0 +1,12 @@
+---
+layout: default
+date: 2020-05-07
+img: freeton.png
+alt: image-alt
+name: FreeTON
+link: https://freeton.org
+category: Partner 
+tag: partner
+description: 
+
+---

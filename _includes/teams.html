@@ -1,0 +1,28 @@
+<!-- Projects Grid Section -->
+<section id="teams">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Teams</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <div class="jumbotron">
+                <div class="list-group">
+                    {% for post in site.posts %}
+                    {% if post.tag == "team" %}
+                    <a class="list-group-item" href="{{ post.link }}">
+                        <div class="well">
+                            <img src="img/teams/{{ post.img }}" class="img-responsive" alt="{{ post.alt }}">
+                        </div>
+                        <h4 class="list-group-item-heading">{{ post.name }}</h4>
+                        <p class="list-group-item-text">{{ post.description }}</p>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

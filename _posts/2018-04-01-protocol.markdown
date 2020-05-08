@@ -3,10 +3,10 @@ layout: default
 date: 2018-09-01
 img: protocol.png
 alt: image-alt
-name: =nil; Protocol
+name: <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Protocol
 link: https://protocol.nil.foundation
 category: Protocol
-tag: partner
-description:
+tag: team
+description: <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Protocol team is dedicated to communication and database replication protocol design and development.
 
 ---

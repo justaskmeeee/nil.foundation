@@ -3,10 +3,10 @@ layout: default
 date: 2018-09-01
 img: database.png
 alt: image-alt
-name: =nil; Database
+name: <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Database
 link: https://database.nil.foundation
 category: Database
-tag: partner
-description: 
+tag: team
+description: <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Database team is dedicated to data storage system architecture research, design and development.
 
 ---
