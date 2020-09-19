@@ -1,7 +1,7 @@
 ---
 layout: default
 date: 2018-09-01
-name: Crypto3 Cryptography Suite
+name: <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Crypto3 Cryptography Suite
 link: https://crypto3.nil.foundation/projects/crypto3
 img: crypto3.png
 category: Cryptography
