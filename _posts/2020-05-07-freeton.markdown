@@ -1,7 +1,7 @@
 ---
 layout: default
 date: 2020-05-07
-img: freeton.png
+img: freeton.svg
 alt: image-alt
 name: FreeTON
 link: https://freeton.org
