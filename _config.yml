@@ -63,6 +63,8 @@ social:
     #    url: http://stackoverflow.com/questions/tagged/jekyll
     #  - title: bitbucket
     #    url: http://bitbucket.org/jekyll
+  - title: linkedin
+    url: https://www.linkedin.com/company/nil-foundation
   - title: github
     url: http://github.com/nilfoundation
 
