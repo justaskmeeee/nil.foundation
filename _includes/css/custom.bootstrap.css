@@ -471,6 +471,10 @@ section h2 {
     color: #{{ site.color.background-color }};
 }
 
+#contact h3 {
+    color: #{{ site.color.background-color }};
+}
+
 @media(min-width:767px) {
     #contact .contact-item {
         margin: 35px 5px 0px 5px;
