@@ -6,6 +6,6 @@ link: https://freeton.nil.foundation
 img: freeton.svg
 category: Data Storage
 tag: project
-description: FreeTON is successor of Telegram Open Network initially announced and developed by Telegram Inc. After the inital TON was cancelled, independent developers community launched its own Telegram Open Network-based project called FreeTON. <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Foundation has supported this initiative with becoming one of the initial members along with development and expertise of several projects for FreeTON community.
+description: FreeTON is successor of Telegram Open Network initially announced and developed by Telegram Inc. After the inital TON was cancelled, independent developers community launched its own Telegram Open Network-based project called FreeTON. <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Foundation has supported this initiative with becoming one of the initial members and with providing development and expertise for several projects for FreeTON community.
 
 ---
