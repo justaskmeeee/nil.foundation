@@ -1,0 +1,11 @@
+---
+layout: default
+date: 2021-09-30
+name: Solana
+link: https://solana.nil.foundation
+img: solana.png
+category: Data Storage
+tag: project
+description: Solana claims to provide a performance-oriented cluster with a Berkley Packet Filter-based virtualization mechanism. <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Foundation facilitated Solana cluster with the in-EVM "Light Client" state verification mechanism to pave the way to the trustless zero-knowledge proof-based bridge.
+
+---
