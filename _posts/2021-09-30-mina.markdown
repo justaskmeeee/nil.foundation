@@ -6,6 +6,6 @@ link: https://mina.nil.foundation
 img: mina.png
 category: Data Storage
 tag: project
-description: Mina is building a gateway between the real world and crypto — and the infrastructure for the secure, democratic future we all deserve. By design, the entire Mina database is possible to be packed into a Pickles SNARK proof, which size is about 22kb – literally the size of a couple of tweets. So participants can quickly sync and verify the whole state. <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Foundation facilitated Mina Protocol with the in-EVM Pickles SNARK proof verification mechanism paving the way to the bridge with Ethereum database.
+description: Mina is building a gateway between the real world and crypto — and the infrastructure for the secure, democratic future we all deserve. By design, the entire Mina database is possible to be packed into a Pickles SNARK proof, which size is about 22kb – literally the size of a couple of tweets. So participants can quickly sync and verify the whole state. <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Foundation's Crypto3 team has facilitated Mina Protocol with the in-EVM Pickles SNARK proof verification mechanism paving the way to the bridge with Ethereum.
 
 ---
