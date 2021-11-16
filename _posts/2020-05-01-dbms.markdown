@@ -2,7 +2,7 @@
 layout: default
 date: 2020-05-01
 name: <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Database Management System
-link: https://github.com/nilfoundation/dbms
+link: https://dbms.nil.foundation
 img: crypto3.png
 category: Data Storage
 tag: project
