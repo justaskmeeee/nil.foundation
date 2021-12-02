@@ -6,6 +6,6 @@ link: https://dbms.nil.foundation
 img: crypto3.png
 category: Data Storage
 tag: project
-description: Extremely configurable database management system which can be turned into document storage, column storage, graph storage or even authenticated transaction log storage.
+description: Database Management System providing a fault-tolerant replication mechanism for newly created databases and handling different kinds of fault-tolerant replication protocols for existing ones. Puts replication protocol to the database level, introduces swappable query languages and sub-clustering.
 
 ---
