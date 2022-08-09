@@ -72,6 +72,10 @@ social:
 address:
     #  - line: Artemis House, 67 Forth Street
     #  - line: PO Box 2775, Grand Cayman KY1-1111, Cayman Islands
+  - title: nil, a Cayman Islands company
+    location: P.O. box 2775, Artemis House, 67 Fort Street, Grand Cayman, KY1-1111, Cayman Islands
+  - title: Nil (Cyprus) Limited
+    location: Vasileiou Makedonos, 59, 3040, Limassol, Cyprus
 
 # Credits content
 credits: ''
