@@ -193,3 +193,7 @@ li.select2-results__option--highlighted {
 #freshteam-widget input[type="checkbox"] {
     accent-color: #{{ site.color.primary }}!important;
 }
+
+#freshteam-widget .job-list .job-title {
+    color: #{{ site.color.text-color }}!important;
+}
