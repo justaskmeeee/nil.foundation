@@ -1,7 +1,7 @@
 # Site settings
 titles: 
     - title: "<span style='font-family:Menlo, Courier, monospace'>=nil;</span> Foundation"
-      url: "#page-top"
+      url: "/#page-top"
 email: "nemo@nil.foundation"
 url: "https://nil.foundation"
 description: ""
