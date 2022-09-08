@@ -30,19 +30,42 @@
                     <a href="https://blog.nil.foundation">Blog</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="#about">About</a>
+                    {% if page.url == "/" %}
+                        <a href="#about">About</a>
+                    {% else %}
+                        <a href="/#about">About</a>
+                    {% endif %}
                 </li>
                 <li class="page-scroll">
-                    <a href="#projects">Projects</a>
+                    {% if page.url == "/" %}
+                        <a href="#projects">Projects</a>
+                    {% else %}
+                        <a href="/#projects">Projects</a>
+                    {% endif %}
                 </li>
                 <li class="page-scroll">
-                    <a href="#partners">Partners</a>
+                    {% if page.url == "/" %}
+                        <a href="#partners">Partners</a>
+                    {% else %}
+                        <a href="/#partners">Partners</a>
+                    {% endif %}
                 </li>
                 <li class="page-scroll">
-                    <a href="#teams">Teams</a>
+                    {% if page.url == "/" %}
+                        <a href="#teams">Teams</a>
+                    {% else %}
+                        <a href="/#teams">Teams</a>
+                    {% endif %}
+                </li>
+                <li>
+                    <a href="/careers">Careers</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="#contact">Contact</a>
+                    {% if page.url == "/" %}
+                        <a href="#contact">Contact</a>
+                    {% else %}
+                        <a href="/#contact">Contact</a>
+                    {% endif %}
                 </li>
             </ul>
         </div>
