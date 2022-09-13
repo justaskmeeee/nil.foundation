@@ -4,7 +4,7 @@ import Header from '../components/Header/Header'
 import type { NextPage } from 'next'
 
 /**
- * Main page.
+ * Index page.
  * 
  * @returns NextPage.
  */
