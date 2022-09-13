@@ -1,4 +1,3 @@
-import { ReactElement } from 'react';
 import { NavList } from '@nilfoundation/react-components';
 import navigationLinks from './navigationLinks';
 
@@ -7,7 +6,7 @@ import navigationLinks from './navigationLinks';
  * 
  * @returns React component. 
  */
-const Navigation = (): ReactElement =>
+const Navigation = (): JSX.Element =>
     <NavList className="navbar-right navbar-nav">
         {
             navigationLinks.map(({title, path}) =>

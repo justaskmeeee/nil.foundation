@@ -1,5 +1,4 @@
-import { ReactElement } from 'react';
-import { Container, NavList, Navbar } from '@nilfoundation/react-components';
+import { Container, Navbar } from '@nilfoundation/react-components';
 import Navigation from '../Navigation/Navigation';
 
 /**
@@ -7,7 +6,7 @@ import Navigation from '../Navigation/Navigation';
  * 
  * @returns React component. 
  */
-const Header = (): ReactElement =>
+const Header = (): JSX.Element =>
     <Navbar>
         <Container>
             <a
