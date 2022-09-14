@@ -1,25 +1,22 @@
 import { Container, Navbar } from '@nilfoundation/react-components';
+import Link from 'next/link';
 import Navigation from '../Navigation/Navigation';
 
 /**
  * Header component.
- * 
- * @returns React component. 
+ *
+ * @returns React component.
  */
 const Header = (): JSX.Element =>
     <Navbar>
         <Container>
-            <a
-                rel="noreferrer"
-                target="_blank"
-                href="https://nil.foundation"
-            >
+            <Link href="/">
                 <ol className="navbar-brand breadcrumb">
                     <li>
                         <code>=nil;</code>Foundation
                     </li>
                 </ol>
-            </a>
+            </Link>
             <Navigation />
         </Container>
     </Navbar>;
