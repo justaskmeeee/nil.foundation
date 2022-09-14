@@ -12,7 +12,7 @@ import Footer from '../components/Footer/Footer';
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <Layout
-            navbar={<Header />}
+            header={<Header />}
             footer={<Footer />}
         >
             <Component {...pageProps} />
