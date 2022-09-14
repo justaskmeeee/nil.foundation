@@ -10,7 +10,7 @@ type SocialIconModel = {
 /**
  * Social icons.
  */
-const socialIconsSettings: SocialIconModel[] = [
+const communitySettings: SocialIconModel[] = [
     {
         title: 'Twitter',
         icon: 'twitter',
@@ -38,4 +38,4 @@ const socialIconsSettings: SocialIconModel[] = [
     },
 ];
 
-export default socialIconsSettings;
+export default communitySettings;
