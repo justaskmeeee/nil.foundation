@@ -7,7 +7,7 @@ import Navigation from '../Navigation/Navigation';
  *
  * @returns React component.
  */
-const Header = (): JSX.Element =>
+const Header = (): JSX.Element => (
     <Navbar>
         <Container>
             <Link href="/">
@@ -19,6 +19,7 @@ const Header = (): JSX.Element =>
             </Link>
             <Navigation />
         </Container>
-    </Navbar>;
+    </Navbar>
+);
 
 export default Header;

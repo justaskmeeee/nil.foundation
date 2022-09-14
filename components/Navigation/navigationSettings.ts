@@ -4,7 +4,7 @@
 type LinkModel = {
     title: string;
     path: string;
-}
+};
 
 /**
  * Navigation links.
@@ -12,20 +12,20 @@ type LinkModel = {
 const navigationSettings: LinkModel[] = [
     {
         title: 'Ecosystem',
-        path: '/ecosystem'
+        path: '/ecosystem',
     },
     {
         title: 'Dev',
-        path: '/dev'
+        path: '/dev',
     },
     {
         title: 'Research',
-        path: '/research'
+        path: '/research',
     },
     {
         title: 'Blog',
-        path: '/blog'
-    }
+        path: '/blog',
+    },
 ];
 
 export default navigationSettings;

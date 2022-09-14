@@ -6,17 +6,17 @@ import navigationSettings from './navigationSettings';
  *
  * @returns React component.
  */
-const Navigation = (): JSX.Element =>
+const Navigation = (): JSX.Element => (
     <NavList className="navbar-right navbar-nav">
-        {
-            navigationSettings.map(({title, path}) =>
-                <NavList.Link
-                    key={title}
-                    href={path}
-                >
-                    {title}
-                </NavList.Link>)
-        }
-    </NavList>;
+        {navigationSettings.map(({ title, path }) => (
+            <NavList.Link
+                key={title}
+                href={path}
+            >
+                {title}
+            </NavList.Link>
+        ))}
+    </NavList>
+);
 
 export default Navigation;

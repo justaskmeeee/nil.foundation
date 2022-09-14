@@ -1,6 +1,6 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
 import { Col, Container, Row } from '@nilfoundation/react-components';
-import Head from 'next/head'
+import Head from 'next/head';
 
 /**
  * Index page.
@@ -8,18 +8,16 @@ import Head from 'next/head'
  * @returns NextPage.
  */
 const IndexPage: NextPage = () => {
-  return (
-    <Container>
-        <Head>
-            <title>=nil; Foundation</title>
-        </Head>
-        <Row>
-            <Col>
-                Nil Foundation
-            </Col>
-        </Row>
-    </Container>
-  )
-}
+    return (
+        <Container>
+            <Head>
+                <title>=nil; Foundation</title>
+            </Head>
+            <Row>
+                <Col>Nil Foundation</Col>
+            </Row>
+        </Container>
+    );
+};
 
-export default IndexPage
+export default IndexPage;

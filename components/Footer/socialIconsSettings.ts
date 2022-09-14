@@ -5,7 +5,7 @@ type SocialIconModel = {
     title: string;
     icon: string;
     url: string;
-}
+};
 
 /**
  * Social icons.

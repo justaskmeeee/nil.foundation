@@ -1,5 +1,5 @@
 import { Layout } from '@nilfoundation/react-components';
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
@@ -20,4 +20,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     );
 }
 
-export default MyApp
+export default MyApp;
