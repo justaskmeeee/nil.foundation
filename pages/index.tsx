@@ -1,19 +1,25 @@
-import { Layout } from '@nilfoundation/react-components'
-import Head from '../components/Head/Head'
-import Header from '../components/Header/Header'
 import type { NextPage } from 'next'
+import { Col, Container, Row } from '@nilfoundation/react-components';
+import Head from 'next/head'
 
 /**
  * Index page.
- * 
+ *
  * @returns NextPage.
  */
-const Home: NextPage = () => {
+const IndexPage: NextPage = () => {
   return (
-    <Layout navbar={<Header />}>
-      <Head />
-    </Layout>
+    <Container>
+        <Head>
+            <title>=nil; Foundation</title>
+        </Head>
+        <Row>
+            <Col>
+                Nil Foundation
+            </Col>
+        </Row>
+    </Container>
   )
 }
 
-export default Home
+export default IndexPage
