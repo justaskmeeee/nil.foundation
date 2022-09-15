@@ -1,10 +1,4 @@
-/**
- * Footer link model.
- */
-type FooterLink = {
-    title: string;
-    path: string;
-};
+import FooterLink from './FooterLink';
 
 /**
  * General section settings.

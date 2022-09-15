@@ -1,40 +1,25 @@
-/**
- * Social icon model.
- */
-type SocialIconModel = {
-    title: string;
-    icon: string;
-    url: string;
-};
+import FooterLink from './FooterLink';
+import socialMediaSettings from './socialMediaSettings';
 
 /**
  * Social icons.
  */
-const communitySettings: SocialIconModel[] = [
+const communitySettings: FooterLink[] = [
     {
         title: 'Twitter',
-        icon: 'twitter',
-        url: 'https://twitter.com/nil_foundation',
-    },
-    {
-        title: 'LinkedIn',
-        icon: 'linkedin',
-        url: 'https://www.linkedin.com/company/nil-foundation',
+        path: socialMediaSettings.twitter.url,
     },
     {
         title: 'Telegram',
-        icon: 'telegram',
-        url: 'https://t.me/nilfoundation',
-    },
-    {
-        title: 'Github',
-        icon: 'github',
-        url: 'http://github.com/nilfoundation',
+        path: socialMediaSettings.telegram.url,
     },
     {
         title: 'Discord',
-        icon: 'discord',
-        url: 'https://discord.gg/TUz2GTfg',
+        path: socialMediaSettings.discord.url,
+    },
+    {
+        title: 'Blog',
+        path: '/blog',
     },
 ];
 

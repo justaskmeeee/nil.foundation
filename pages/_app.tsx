@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <Layout
                 header={<Header />}
                 footer={<Footer />}
+                stickyHeader
             >
                 <Component {...pageProps} />
             </Layout>
