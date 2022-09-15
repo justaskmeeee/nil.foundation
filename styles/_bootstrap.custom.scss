@@ -1,0 +1,14 @@
+/**
+Bootstrap default styles overrides.
+*/
+
+.navbar-default {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: var(--base-border);
+}
+
+.jumbotron {
+  background-color: var(--c-base);
+}
