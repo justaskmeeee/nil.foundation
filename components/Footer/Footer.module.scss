@@ -1,7 +1,22 @@
 @import '/styles/mixins';
 
+@mixin styledLink {
+  color: var(--c-primary-lighter);
+  transition: color 0.1s ease;
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover {
+      color: var(--c-secondary);
+    }
+  }
+}
+
 .footerContainer {
   padding: 80px 0;
+
+  address {
+    color: var(--c-primary-lighter);
+  }
 }
 
 .copyright {
@@ -14,15 +29,34 @@
 
   > li {
     padding: 4px 0;
+
+    > a {
+      @include styledLink;
+    }
   }
 }
 
 .socialButtons {
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -14px;
+  display: flex;
 
   @include responsive(sm) {
     position: block;
+  }
+
+  > a {
+    @include styledLink;
+    font-size: 32px;
+    width: 50px;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(0.95);
+      }
+    }
   }
 }

@@ -65,16 +65,17 @@ const Footer = (): JSX.Element => {
                             const { icon, url } = socialMediaSettings[key];
 
                             return (
-                                <Button
+                                <Link
                                     key={icon}
                                     href={url}
-                                    rounded
                                 >
-                                    <Icon
-                                        iconName={`fa-brands fa-${icon}`}
-                                        srOnlyText={`${key} link`}
-                                    />
-                                </Button>
+                                    <a>
+                                        <Icon
+                                            iconName={`fa-brands fa-${icon}`}
+                                            srOnlyText={`${key} link`}
+                                        />
+                                    </a>
+                                </Link>
                             );
                         })}
                     </div>
