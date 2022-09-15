@@ -1,0 +1,59 @@
+name: Build
+
+on:
+  # Triggers the workflow on pull request
+  push:
+   branches:
+     - "master"
+  # Allows to trigger workflow manually
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    name: Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Cache dependencies
+        id: cache-node-modules
+        uses: actions/cache@v3
+        env:
+          CACHE_NAME: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-cache-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run : npm ci --ignore-scripts
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build static
+        run: npm run build-static
+
+        # Update staging
+      - name: Install SSH keys
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          known_hosts: ${{secrets.STAGING_KNOWN_HOSTS}}
+          if_key_exists: ignore
+
+      - name: Deploy on staging
+        env:
+          HOST: ${{ secrets.STAGING_HOST }}
+          USER: ${{ secrets.STAGING_USER }}
+          TARGET_DIR: '/home/staging/nil.foundation'
+          OPTIONS: '-az --progress --delete'
+        run: rsync ${{ env.OPTIONS }} out/ ${{ env.USER }}@${{ env.HOST }}:${{ env.TARGET_DIR }}
