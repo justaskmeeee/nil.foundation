@@ -8,6 +8,15 @@
   padding-top: 60px;
 }
 
+.list {
+  list-style: none;
+  padding-inline-start: 0;
+
+  > li {
+    padding: 4px 0;
+  }
+}
+
 .socialButtons {
   position: absolute;
   left: 0;

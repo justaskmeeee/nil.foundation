@@ -15,9 +15,9 @@ import styles from './Footer.module.scss';
  */
 const Footer = (): JSX.Element => {
     const renderFooterLink = ({ title, path }: FooterLink) => (
-        <p key={title}>
+        <li key={title}>
             <Link href={path}>{title}</Link>
-        </p>
+        </li>
     );
 
     return (
@@ -28,21 +28,21 @@ const Footer = (): JSX.Element => {
                     sm={12}
                 >
                     <h4>General</h4>
-                    {generalSettings.map(renderFooterLink)}
+                    <ul className={styles.list}>{generalSettings.map(renderFooterLink)}</ul>
                 </Col>
                 <Col
                     md={3}
                     sm={12}
                 >
                     <h4>Developers</h4>
-                    {developersSettings.map(renderFooterLink)}
+                    <ul className={styles.list}>{developersSettings.map(renderFooterLink)}</ul>
                 </Col>
                 <Col
                     md={3}
                     sm={12}
                 >
                     <h4>Community</h4>
-                    {communitySettings.map(renderFooterLink)}
+                    <ul className={styles.list}>{communitySettings.map(renderFooterLink)}</ul>
                 </Col>
                 <Col
                     md={3}
@@ -68,8 +68,12 @@ const Footer = (): JSX.Element => {
                                 <Button
                                     key={icon}
                                     href={url}
+                                    rounded
                                 >
-                                    <Icon iconName={`fa-brands fa-${icon}`} />
+                                    <Icon
+                                        iconName={`fa-brands fa-${icon}`}
+                                        srOnlyText={`${key} link`}
+                                    />
                                 </Button>
                             );
                         })}
