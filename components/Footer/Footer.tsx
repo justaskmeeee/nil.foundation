@@ -3,6 +3,7 @@ import Link from 'next/link';
 import generalSettings from './generalSettings';
 import communitySettings from './communitySettings';
 import locationSettings from './locationSettings';
+import styles from './Footer.module.scss';
 
 /**
  * Footer component.
@@ -10,7 +11,7 @@ import locationSettings from './locationSettings';
  * @returns React component.
  */
 const Footer = (): JSX.Element => (
-    <Container>
+    <Container className={styles.footerContainer}>
         <Row>
             <Col
                 md={4}
@@ -28,8 +29,11 @@ const Footer = (): JSX.Element => (
                 sm={12}
             >
                 <h4>Community</h4>
-                {communitySettings.map(({ title, icon }) => (
-                    <Button key={title}>
+                {communitySettings.map(({ title, icon, url }) => (
+                    <Button
+                        key={title}
+                        href={url}
+                    >
                         <Icon iconName={`fa-brands fa-${icon}`} />
                     </Button>
                 ))}
@@ -46,7 +50,7 @@ const Footer = (): JSX.Element => (
                 ))}
             </Col>
         </Row>
-        <Row>
+        <Row className={styles.copyright}>
             <Col className="text-center">
                 <small>{`Copyright © =nil; Foundation ${new Date().getFullYear()}`}</small>
             </Col>
