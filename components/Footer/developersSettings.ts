@@ -12,6 +12,10 @@ const generalSettings: FooterLink[] = [
         title: 'Github',
         path: 'http://github.com/nilfoundation',
     },
+    {
+        title: 'Papers',
+        path: '/research',
+    },
 ];
 
 export default generalSettings;
