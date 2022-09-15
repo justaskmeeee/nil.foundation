@@ -1,11 +1,9 @@
 name: Build
 
 on:
-  # Triggers the workflow on pull request
   push:
    branches:
      - "master"
-  # Allows to trigger workflow manually
   workflow_dispatch:
 
 jobs:
