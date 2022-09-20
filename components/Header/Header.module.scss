@@ -20,6 +20,10 @@
       position: relative;
     }
 
+    code {
+      font-family: Courier, monospace;;
+    }
+
     &::before {
       position:absolute;
       top: 0;
