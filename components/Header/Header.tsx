@@ -1,6 +1,7 @@
-import { Container, Navbar } from '@nilfoundation/react-components';
-import Link from 'next/link';
-import Navigation from '../Navigation/Navigation';
+import { Col, Container, Navbar, Row } from '@nilfoundation/react-components';
+import Navigation from './Navigation';
+import Breadcrumbs from './Breadcrumbs';
+import styles from './Header.module.scss';
 
 /**
  * Header component.
@@ -10,14 +11,12 @@ import Navigation from '../Navigation/Navigation';
 const Header = (): JSX.Element => (
     <Navbar>
         <Container>
-            <Link href="/">
-                <ol className="navbar-brand breadcrumb">
-                    <li>
-                        <code>=nil;</code>Foundation
-                    </li>
-                </ol>
-            </Link>
-            <Navigation />
+            <Row>
+                <Col className={styles.headerContainer}>
+                    <Breadcrumbs />
+                    <Navigation />
+                </Col>
+            </Row>
         </Container>
     </Navbar>
 );

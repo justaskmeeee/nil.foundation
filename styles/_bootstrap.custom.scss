@@ -3,10 +3,21 @@ Bootstrap default styles overrides.
 */
 
 .navbar-default {
-  background-color: transparent;
+  background-color: var(--c-base);
   border: none;
   border-radius: 0;
   border-bottom: var(--base-border);
+
+  .navbar-nav > li > a {
+    color: var(--c-primary-lighter);
+
+    @media (prefers-reduced-motion: no-preference) {
+      &:hover,
+      &:focus {
+        color: var(--c-secondary);
+      }
+    }
+  }
 }
 
 .jumbotron {
