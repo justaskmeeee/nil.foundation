@@ -44,8 +44,6 @@
     width: 50px;
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: transform 0.3s ease;
-
       &:hover {
         transform: scale(0.95);
       }
