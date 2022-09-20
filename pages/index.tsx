@@ -9,7 +9,7 @@ import Head from 'next/head';
  */
 const IndexPage: NextPage = () => {
     return (
-        <Container>
+        <Container as="main">
             <Head>
                 <title>=nil; Foundation</title>
             </Head>
