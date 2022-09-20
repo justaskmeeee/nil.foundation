@@ -25,7 +25,6 @@ Bootstrap default styles overrides.
   padding-top: 12px;
 
   li > a {
-    @include styledLink;
     color: var(--c-secondary);
   }
 }

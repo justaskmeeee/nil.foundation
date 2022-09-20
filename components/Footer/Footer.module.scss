@@ -19,10 +19,6 @@
 
   > li {
     padding: 4px 0;
-
-    > a {
-      @include styledLink;
-    }
   }
 }
 
@@ -39,7 +35,6 @@
   }
 
   > a {
-    @include styledLink;
     font-size: 32px;
     width: 50px;
 

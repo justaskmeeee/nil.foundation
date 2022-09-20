@@ -1,3 +1,5 @@
+@import 'styles/mixins';
+
 html,
 body {
   padding: 0;
@@ -28,6 +30,8 @@ a {
   &:focus {
     text-decoration: none;
   }
+
+  @include styledLink;
 }
 
 footer {
