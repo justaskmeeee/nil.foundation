@@ -1,0 +1,11 @@
+@mixin styledLink {
+  color: var(--c-primary-lighter);
+  transition: color var(--anchor-transition);
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover,
+    &:focus {
+      color: var(--c-secondary);
+    }
+  }
+}

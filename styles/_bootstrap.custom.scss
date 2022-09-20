@@ -2,6 +2,8 @@
 Bootstrap default styles overrides.
 */
 
+@import '/styles/mixins';
+
 .navbar-default {
   background-color: var(--c-base);
   border: none;
@@ -9,14 +11,7 @@ Bootstrap default styles overrides.
   border-bottom: var(--base-border);
 
   .navbar-nav > li > a {
-    color: var(--c-primary-lighter);
-
-    @media (prefers-reduced-motion: no-preference) {
-      &:hover,
-      &:focus {
-        color: var(--c-secondary);
-      }
-    }
+    @include styledLink;
   }
 }
 
@@ -27,4 +22,10 @@ Bootstrap default styles overrides.
 .breadcrumb {
   background: var(--c-base);
   margin-bottom: 0;
+  padding-top: 12px;
+
+  li > a {
+    @include styledLink;
+    color: var(--c-secondary);
+  }
 }

@@ -1,4 +1,5 @@
 import { Breadcrumbs as NativeBreadcrumbs } from '@nilfoundation/react-components';
+import styles from './Header.module.scss';
 
 /**
  * Breadcrumbs component.
@@ -7,9 +8,11 @@ import { Breadcrumbs as NativeBreadcrumbs } from '@nilfoundation/react-component
  */
 const Breadcrumbs = (): JSX.Element => {
     return (
-        <NativeBreadcrumbs>
+        <NativeBreadcrumbs className={styles.headerBreadcrumb}>
             <NativeBreadcrumbs.Item href="/">
-                <code>=nil; </code>Foundation
+                <span>
+                    <code>=nil;</code>Foundation
+                </span>
             </NativeBreadcrumbs.Item>
         </NativeBreadcrumbs>
     );
