@@ -2,7 +2,7 @@
 
 @mixin styledLink {
   color: var(--c-primary-lighter);
-  transition: color 0.1s ease;
+  transition: var(--anchor-transition);
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover {
@@ -12,7 +12,8 @@
 }
 
 .footerContainer {
-  padding: 80px 0;
+  padding-top: 80px;
+  padding-bottom: 80px;
 
   address {
     color: var(--c-primary-lighter);
@@ -41,9 +42,11 @@
   left: 0;
   bottom: -14px;
   display: flex;
+  justify-content: center;
 
   @include responsive(sm) {
-    position: block;
+    position:static;
+    margin-bottom: 14px;
   }
 
   > a {
