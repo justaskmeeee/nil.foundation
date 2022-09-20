@@ -12,3 +12,8 @@ Bootstrap default styles overrides.
 .jumbotron {
   background-color: var(--c-base);
 }
+
+.breadcrumb {
+  background: var(--c-base);
+  margin-bottom: 0;
+}

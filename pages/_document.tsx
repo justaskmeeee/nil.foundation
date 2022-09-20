@@ -14,6 +14,10 @@ export default function Document() {
                     content="#222222"
                 />
                 <meta
+                    name="msapplication-TileColor"
+                    content="#222222"
+                />
+                <meta
                     name="author"
                     content="=nil; Foundation"
                 />
