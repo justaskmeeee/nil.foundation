@@ -25,28 +25,28 @@ const Footer = (): JSX.Element => {
             <Row>
                 <Col
                     md={3}
-                    sm={12}
+                    sm={6}
                 >
                     <h4>General</h4>
                     <ul className={styles.list}>{generalSettings.map(renderFooterLink)}</ul>
                 </Col>
                 <Col
                     md={3}
-                    sm={12}
+                    sm={6}
                 >
                     <h4>Developers</h4>
                     <ul className={styles.list}>{developersSettings.map(renderFooterLink)}</ul>
                 </Col>
                 <Col
                     md={3}
-                    sm={12}
+                    sm={6}
                 >
                     <h4>Community</h4>
                     <ul className={styles.list}>{communitySettings.map(renderFooterLink)}</ul>
                 </Col>
                 <Col
                     md={3}
-                    sm={12}
+                    sm={6}
                 >
                     <h4>Location</h4>
                     {locationSettings.map(({ title, address }) => (
