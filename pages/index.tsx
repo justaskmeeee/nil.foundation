@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { Col, Container, Row } from '@nilfoundation/react-components';
 import Head from 'next/head';
+import ContactForm from '../components/ContactForm/ContactForm';
 
 /**
  * Index page.
@@ -9,14 +10,12 @@ import Head from 'next/head';
  */
 const IndexPage: NextPage = () => {
     return (
-        <Container as="main">
+        <main>
             <Head>
                 <title>=nil; Foundation</title>
             </Head>
-            <Row>
-                <Col>Nil Foundation</Col>
-            </Row>
-        </Container>
+            <ContactForm />
+        </main>
     );
 };
 
