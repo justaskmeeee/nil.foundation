@@ -31,6 +31,10 @@ a {
     text-decoration: none;
   }
 
+  i {
+    font-size: 75%;
+  }
+
   @include styledLink;
 }
 
