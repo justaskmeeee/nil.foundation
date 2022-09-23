@@ -16,7 +16,7 @@ Bootstrap default styles overrides.
 }
 
 .jumbotron {
-  background-color: var(--c-base);
+  background-color: var(--c-base-darker);
 }
 
 .breadcrumb {
@@ -27,4 +27,10 @@ Bootstrap default styles overrides.
   li > a {
     color: var(--c-secondary);
   }
+}
+
+.form-control {
+  background-color: var(--c-base);
+  border: var(--input-base-border);
+  color: inherit;
 }
