@@ -31,10 +31,6 @@ a {
     text-decoration: none;
   }
 
-  i {
-    font-size: 75%;
-  }
-
   @include styledLink;
 }
 
@@ -44,8 +40,12 @@ footer {
 
 section {
   margin-bottom: 32px;
-}
 
-.anchor {
-  margin-bottom: 28px;
+  .anchor {
+    margin-bottom: 28px;
+
+    i {
+      font-size: 75%;
+    }
+  }
 }
