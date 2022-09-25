@@ -57,7 +57,9 @@ footer:
 social:
   - title: twitter
     url: https://twitter.com/nil_foundation
-  - title: paper-plane
+  - title: linkedin
+    url: https://www.linkedin.com/company/nil-foundation
+  - title: telegram
     url: https://t.me/nilfoundation
     #  - title: facebook
     #    url:
@@ -65,10 +67,10 @@ social:
     #    url: http://stackoverflow.com/questions/tagged/jekyll
     #  - title: bitbucket
     #    url: http://bitbucket.org/jekyll
-  - title: linkedin
-    url: https://www.linkedin.com/company/nil-foundation
   - title: github
     url: http://github.com/nilfoundation
+  - title: discord
+    url: https://discord.gg/XM8jBPx6xp
 
 # Postal address (add as many lines as necessary)
 address:
