@@ -15,7 +15,7 @@ const navigationSettings: LinkModel[] = [
         path: '/ecosystem',
     },
     {
-        title: 'Dev',
+        title: 'Developers',
         path: '/dev',
     },
     {
