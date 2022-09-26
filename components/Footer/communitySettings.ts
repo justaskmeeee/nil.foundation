@@ -2,7 +2,7 @@ import FooterLink from './FooterLink';
 import socialMediaSettings from './socialMediaSettings';
 
 /**
- * Social icons.
+ * Community settings.
  */
 const communitySettings: FooterLink[] = [
     {

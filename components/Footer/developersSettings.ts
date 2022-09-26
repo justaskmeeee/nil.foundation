@@ -1,7 +1,7 @@
 import FooterLink from './FooterLink';
 
 /**
- * General section settings.
+ * Developers settings.
  */
 const generalSettings: FooterLink[] = [
     {
