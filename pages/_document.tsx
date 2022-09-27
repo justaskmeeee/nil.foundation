@@ -9,6 +9,11 @@ export default function Document() {
     return (
         <Html>
             <Head>
+                <meta charSet="utf-8" />
+                <meta
+                    name="robots"
+                    content="follow, index"
+                />
                 <meta
                     name="theme-color"
                     content="#222222"
