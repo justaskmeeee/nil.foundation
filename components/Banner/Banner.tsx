@@ -1,6 +1,6 @@
 import { Col, Container, Row } from '@nilfoundation/react-components';
 import { useRef } from 'react';
-import { useScrumble } from './useScrumble';
+import { useScrumble } from '../../hooks/useScrumble';
 import scamblePhrases from './scamblePhrases';
 import styles from './Banner.module.scss';
 

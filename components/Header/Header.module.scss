@@ -41,6 +41,7 @@
       &:hover,
       &:focus {
         text-decoration: underline 1.5px;
+
         &::before {
           transform: scaleY(1);
           opacity: 0.9;
