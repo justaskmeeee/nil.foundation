@@ -1,4 +1,4 @@
-import { NavList } from '@nilfoundation/react-components';
+import { Nav } from '@nilfoundation/react-components';
 import navigationSettings from './navigationSettings';
 import styles from './Header.module.scss';
 
@@ -8,17 +8,17 @@ import styles from './Header.module.scss';
  * @returns React component.
  */
 const Navigation = (): JSX.Element => (
-    <NavList className="navbar-nav">
+    <Nav className="navbar-nav">
         {navigationSettings.map(({ title, path }) => (
-            <NavList.Link
+            <Nav.Item
                 key={title}
                 href={path}
                 className={styles.navLink}
             >
                 {title}
-            </NavList.Link>
+            </Nav.Item>
         ))}
-    </NavList>
+    </Nav>
 );
 
 export default Navigation;

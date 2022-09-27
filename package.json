@@ -13,7 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@nilfoundation/react-components": "^0.3.0",
+    "@nilfoundation/react-components": "^0.4.0",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
