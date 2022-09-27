@@ -1,0 +1,40 @@
+@import '/styles/mixins';
+
+.banner {
+  padding-top: 6rem;
+  min-height: calc(100vh - 80px);
+
+  code {
+    font-family: Courier, monospace;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+
+  h2 {
+    margin-top: 4px;
+    font-size: 2.5rem;
+    font-weight: normal;
+    overflow: hidden;
+    @include unselectable;
+
+    > .scramble {
+      padding-left: 0.5em;
+    }
+  }
+
+  @include responsive(sm) {
+    padding-top: 1rem;
+    min-height: auto;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
-import { Col, Container, Row } from '@nilfoundation/react-components';
 import Head from 'next/head';
 import ContactForm from '../components/ContactForm/ContactForm';
+import Banner from '../components/Banner/Banner';
 
 /**
  * Index page.
@@ -14,6 +14,7 @@ const IndexPage: NextPage = () => {
             <Head>
                 <title>=nil; Foundation</title>
             </Head>
+            <Banner />
             <ContactForm />
         </main>
     );
