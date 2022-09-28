@@ -1,4 +1,5 @@
 import { RefObject, useEffect, useRef } from 'react';
+import { useOnScreen } from '@nilfoundation/react-components';
 
 /**
  * Hook settings.
@@ -22,9 +23,14 @@ export const useScrumble = <T extends HTMLElement>(
         throw new Error('At list one phrase should be provided!');
     }
 
+    const isVisible = useOnScreen(ref, false);
     const phraseIndex = useRef(0);
 
     useEffect(() => {
+        if (!isVisible) {
+            return;
+        }
+
         const callback = () => {
             if (phraseIndex.current === phrases.length - 1) {
                 phraseIndex.current = 0;
@@ -44,7 +50,7 @@ export const useScrumble = <T extends HTMLElement>(
             clearInterval(scrambleInterval);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [isVisible, ref]);
 };
 
 /**
