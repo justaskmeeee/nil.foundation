@@ -14,7 +14,7 @@ const generalSettings: FooterLink[] = [
     },
     {
         title: 'Contact',
-        path: '/contact',
+        path: '/#contact',
     },
     {
         title: 'Careers',

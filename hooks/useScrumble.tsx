@@ -18,9 +18,9 @@ export const useScrumble = <T extends HTMLElement>(
     ref: RefObject<T>,
     { interval = 3000, phrases }: UseScrambleSettings,
 ) => {
-    // if (!phrases?.length) {
-    //     throw new Error('At list one phrase should be provided!');
-    // }
+    if (!phrases?.length) {
+        throw new Error('At list one phrase should be provided!');
+    }
 
     const phraseIndex = useRef(0);
 
