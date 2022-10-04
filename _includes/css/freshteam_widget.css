@@ -197,3 +197,12 @@ li.select2-results__option--highlighted {
 #freshteam-widget .job-list .job-title {
     color: #{{ site.color.text-color }}!important;
 }
+
+#freshteam-widget a {
+    color: #{{ site.color.primary }}!important;
+}
+
+#freshteam-widget a:focus,
+#freshteam-widget a:hover {
+    color: #483a46!important;
+}
