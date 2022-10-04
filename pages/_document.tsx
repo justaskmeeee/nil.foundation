@@ -23,6 +23,10 @@ export default function Document() {
                     content="#222222"
                 />
                 <meta
+                    name="msapplication-TileImage"
+                    content="/ms-icon-144x144.png"
+                />
+                <meta
                     name="author"
                     content="=nil; Foundation"
                 />

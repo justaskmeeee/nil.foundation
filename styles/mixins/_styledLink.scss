@@ -1,5 +1,5 @@
 @mixin styledLink {
-  color: var(--c-primary-lighter);
+  color: var(--c-secondary-darker);
   transition: color var(--anchor-transition);
 
   @media (prefers-reduced-motion: no-preference) {

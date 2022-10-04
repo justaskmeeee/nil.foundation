@@ -26,6 +26,10 @@ const navigationSettings: LinkModel[] = [
         title: 'Blog',
         path: '/blog',
     },
+    {
+        title: 'Careers',
+        path: 'https://nil.freshteam.com/jobs',
+    },
 ];
 
 export default navigationSettings;
