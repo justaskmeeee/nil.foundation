@@ -1,6 +1,8 @@
 import type { NextPage } from 'next';
 import { Col, Container, Row } from '@nilfoundation/react-components';
 import Head from 'next/head';
+import products from 'components/Ecosystem/ProductCard/productsConfig';
+import ProductCard from 'components/Ecosystem/ProductCard/ProductCard';
 
 /**
  * Index page.
@@ -9,12 +11,22 @@ import Head from 'next/head';
  */
 const IndexPage: NextPage = () => {
     return (
-        <main>
+        <Container as="main">
             <Head>
-                <title>=nil; Foundation</title>
+                <title>=nil; Foundation - Ecosystem</title>
             </Head>
-            djjdjddjjdjdj
-        </main>
+            <Row>
+                {products.map(x => (
+                    <Col
+                        key={x.title}
+                        xs={12}
+                        sm={4}
+                    >
+                        <ProductCard {...x} />
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 };
 

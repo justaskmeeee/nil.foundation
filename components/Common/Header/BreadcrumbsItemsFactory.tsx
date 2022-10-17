@@ -1,6 +1,7 @@
 import { Breadcrumbs } from '@nilfoundation/react-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import capitalizeFirstLetter from 'utils/capitalizeFirstLetter';
 
 /**
  * Breadcrumbs item factory component.
@@ -19,7 +20,7 @@ const BreadcrumbsItemsFactory = (): JSX.Element => {
                     renderLink={() => (
                         <Link href={`/`}>
                             <a>
-                                <span>{title}</span>
+                                <span>{capitalizeFirstLetter(title)}</span>
                             </a>
                         </Link>
                     )}
