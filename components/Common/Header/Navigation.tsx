@@ -19,7 +19,7 @@ const Navigation = (): JSX.Element => (
                         <a {...props}>{title}</a>
                     </Link>
                 )}
-            ></Nav.Item>
+            />
         ))}
     </Nav>
 );

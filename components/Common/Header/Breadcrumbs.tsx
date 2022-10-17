@@ -21,7 +21,7 @@ const Breadcrumbs = (): JSX.Element => {
                         </a>
                     </Link>
                 )}
-            ></NativeBreadcrumbs.Item>
+            />
             <BreadcrumbsItemsFactory />
         </NativeBreadcrumbs>
     );
