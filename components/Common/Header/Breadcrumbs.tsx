@@ -1,4 +1,5 @@
 import { Breadcrumbs as NativeBreadcrumbs } from '@nilfoundation/react-components';
+import Link from 'next/link';
 import BreadcrumbsItemsFactory from './BreadcrumbsItemsFactory';
 import styles from './Header.module.scss';
 
@@ -10,11 +11,17 @@ import styles from './Header.module.scss';
 const Breadcrumbs = (): JSX.Element => {
     return (
         <NativeBreadcrumbs className={styles.headerBreadcrumb}>
-            <NativeBreadcrumbs.Item href="/">
-                <span>
-                    <code>=nil;</code>Foundation
-                </span>
-            </NativeBreadcrumbs.Item>
+            <NativeBreadcrumbs.Item
+                renderLink={() => (
+                    <Link href="/">
+                        <a>
+                            <span>
+                                <code>=nil;</code>Foundation
+                            </span>
+                        </a>
+                    </Link>
+                )}
+            ></NativeBreadcrumbs.Item>
             <BreadcrumbsItemsFactory />
         </NativeBreadcrumbs>
     );

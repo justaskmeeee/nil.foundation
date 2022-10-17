@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import ContactForm from '../components/ContactForm/ContactForm';
-import Banner from '../components/Banner/Banner';
+import ContactSection from 'components/Main/ContactSection/ContactSection';
+import Banner from 'components/Main/Banner/Banner';
 
 /**
  * Index page.
@@ -15,7 +15,7 @@ const IndexPage: NextPage = () => {
                 <title>=nil; Foundation</title>
             </Head>
             <Banner />
-            <ContactForm />
+            <ContactSection />
         </main>
     );
 };

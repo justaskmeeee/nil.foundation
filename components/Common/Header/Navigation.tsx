@@ -1,4 +1,5 @@
 import { Nav } from '@nilfoundation/react-components';
+import Link from 'next/link';
 import navigationSettings from './navigationSettings';
 import styles from './Header.module.scss';
 
@@ -12,11 +13,13 @@ const Navigation = (): JSX.Element => (
         {navigationSettings.map(({ title, path }) => (
             <Nav.Item
                 key={title}
-                href={path}
                 className={styles.navLink}
-            >
-                {title}
-            </Nav.Item>
+                renderLink={({ href, ...props }) => (
+                    <Link href={path}>
+                        <a {...props}>{title}</a>
+                    </Link>
+                )}
+            ></Nav.Item>
         ))}
     </Nav>
 );

@@ -1,9 +1,9 @@
 import { Layout } from '@nilfoundation/react-components';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import '../styles/index.scss';
+import Header from 'components/Common/Header/Header';
+import Footer from 'components/Common/Footer/Footer';
+import 'styles/index.scss';
 
 /**
  * Custom App. Provides global styles and layout for all pages.

@@ -1,38 +1,9 @@
-@import 'styles/mixins';
-
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
-    Droid Sans, Helvetica Neue, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--c-base);
-  color: var(--c-secondary);
-}
-
-input,
-textarea {
-  font-family: inherit;
-}
+@import "styles/mixins";
 
 code {
   background-color: transparent;
   color: inherit;
   font-family: Courier, monospace;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
-
-  @include styledLink;
 }
 
 footer {
@@ -49,4 +20,8 @@ section {
       font-size: 75%;
     }
   }
+}
+
+html {
+  scroll-padding-top: 100px;
 }

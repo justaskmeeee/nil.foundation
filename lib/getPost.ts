@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { Post } from '../models/Post';
 
 const postsDirectory = join(process.cwd(), '_posts');
-const markdownFilesExtension = 'markdown';
+const markdownFilesExtension = 'md';
 
 /**
  * Gets content of postsDirectory.

@@ -1,0 +1,11 @@
+.contactForm {
+  textarea {
+    font-size: 18px;
+  }
+}
+
+.errorMessage {
+  height: 20px;
+  margin-top: 10px;
+  color: var(--c-danger);
+}

@@ -1,11 +1,11 @@
 @mixin styledLink {
-  color: var(--c-secondary-darker);
+  color: var(--c-secondary-darker) !important;
   transition: color var(--anchor-transition);
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
     &:focus {
-      color: var(--c-secondary);
+      color: var(--c-secondary) !important;
     }
   }
 }

@@ -13,13 +13,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@nilfoundation/react-components": "^0.4.0",
+    "@nilfoundation/react-components": "^0.6.3",
     "date-fns": "^2.29.3",
     "gray-matter": "^4.0.3",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.36.0",
+    "react-transition-group": "^4.4.5",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1"
   },
@@ -28,6 +29,7 @@
     "@types/node": "18.7.16",
     "@types/react": "18.0.19",
     "@types/react-dom": "18.0.6",
+    "@types/react-transition-group": "^4.4.5",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.0",
     "eslint-plugin-import": "^2.26.0",

@@ -1,4 +1,4 @@
-@import '/styles/mixins';
+@import "/styles/mixins";
 
 .headerContainer {
   display: flex;
@@ -13,6 +13,8 @@
 
 .headerBreadcrumb {
   padding-left: 0;
+  margin-bottom: 0 !important;
+  padding-top: 12px !important;
 
   > li > a {
     padding: 15px;
@@ -24,12 +26,18 @@
       position: relative;
     }
 
+    &:not(:first-child) {
+      @include responsive(xs) {
+        display: none;
+      }
+    }
+
     &::before {
-      position:absolute;
+      position: absolute;
       top: 0;
       left: 0;
       transition: all var(--anchor-transition);
-      content: '';
+      content: "";
       width: 100%;
       height: 100%;
       background-color: var(--c-primary);
@@ -52,6 +60,7 @@
 .navLink {
   a {
     font-size: 18px;
+    @include styledLink;
   }
 
   &:last-child a {

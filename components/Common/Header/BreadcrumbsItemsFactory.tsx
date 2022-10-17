@@ -1,4 +1,5 @@
 import { Breadcrumbs } from '@nilfoundation/react-components';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 /**
@@ -8,19 +9,21 @@ import { useRouter } from 'next/router';
  */
 const BreadcrumbsItemsFactory = (): JSX.Element => {
     const { pathname } = useRouter();
-    const breadcrumbsItemsTitles = pathname.split('/');
-
-    console.log(pathname);
+    const breadcrumbsItemsTitles = pathname.split('/').filter(x => !!x);
 
     return (
         <>
             {breadcrumbsItemsTitles.map(title => (
                 <Breadcrumbs.Item
-                    href={'/'}
                     key={title}
-                >
-                    <span>{title}</span>
-                </Breadcrumbs.Item>
+                    renderLink={() => (
+                        <Link href={`/`}>
+                            <a>
+                                <span>{title}</span>
+                            </a>
+                        </Link>
+                    )}
+                ></Breadcrumbs.Item>
             ))}
         </>
     );
