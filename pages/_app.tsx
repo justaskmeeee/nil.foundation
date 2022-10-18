@@ -1,9 +1,15 @@
-import { Layout } from '@nilfoundation/react-components';
+/**
+ * @file Custom _app.
+ * @copyright Yury Korotovskikh 2022 <u.korotovskiy@nil.foundation>
+ */
+
+import { Layout, NotificationProvider, Spinner } from '@nilfoundation/react-components';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Header from 'components/Common/Header/Header';
 import Footer from 'components/Common/Footer/Footer';
 import 'styles/index.scss';
+import { useRouteChanging } from 'hooks/useRouteChanging';
 
 /**
  * Custom App. Provides global styles and layout for all pages.
@@ -12,8 +18,10 @@ import 'styles/index.scss';
  * @returns - React component.
  */
 function MyApp({ Component, pageProps }: AppProps) {
+    const routeCahnging = useRouteChanging();
+
     return (
-        <>
+        <NotificationProvider>
             <Head>
                 <meta
                     name="viewport"
@@ -25,9 +33,10 @@ function MyApp({ Component, pageProps }: AppProps) {
                 footer={<Footer />}
                 stickyHeader
             >
+                {routeCahnging && <Spinner grow />}
                 <Component {...pageProps} />
             </Layout>
-        </>
+        </NotificationProvider>
     );
 }
 
