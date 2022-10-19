@@ -1,4 +1,9 @@
 /**
+ * @file Navigation links to render in header.
+ * @copyright Yury Korotovskikh 2022 <u.korotovskiy@nil.foundation>
+ */
+
+/**
  * Navigation link model.
  */
 type LinkModel = {

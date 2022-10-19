@@ -1,3 +1,8 @@
+/**
+ * @file Counts distance to now.
+ * @copyright Yury Korotovskikh 2022 <u.korotovskiy@nil.foundation>
+ */
+
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict';
 
 /**

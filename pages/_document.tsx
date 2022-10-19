@@ -1,3 +1,8 @@
+/**
+ * @file Custom _document.
+ * @copyright Yury Korotovskikh 2022 <u.korotovskiy@nil.foundation>
+ */
+
 import { Html, Head, Main, NextScript } from 'next/document';
 
 /**

@@ -1,3 +1,8 @@
+/**
+ * @file Next page.
+ * @copyright Yury Korotovskikh 2022 <u.korotovskiy@nil.foundation>
+ */
+
 import type { NextPage } from 'next';
 import { Col, Container, Row } from '@nilfoundation/react-components';
 import Head from 'next/head';

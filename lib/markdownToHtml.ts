@@ -1,3 +1,8 @@
+/**
+ * @file Markdown to html helper.
+ * @copyright Yury Korotovskikh 2022 <u.korotovskiy@nil.foundation>
+ */
+
 import { remark } from 'remark';
 import html from 'remark-html';
 

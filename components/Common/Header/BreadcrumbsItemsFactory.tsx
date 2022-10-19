@@ -1,3 +1,8 @@
+/**
+ * @file React component.
+ * @copyright Yury Korotovskikh 2022 <u.korotovskiy@nil.foundation>
+ */
+
 import { Breadcrumbs } from '@nilfoundation/react-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

@@ -16,20 +16,21 @@
   margin-bottom: 0 !important;
   padding-top: 12px !important;
 
+  > li:not(:first-child) {
+    @include responsive(sm) {
+      display: none;
+    }
+  }
+
   > li > a {
     padding: 15px;
     font-size: 20px;
     position: relative;
+    color: var(--c-secondary);
 
     > span {
       z-index: 2;
       position: relative;
-    }
-
-    &:not(:first-child) {
-      @include responsive(xs) {
-        display: none;
-      }
     }
 
     &::before {
@@ -61,9 +62,5 @@
   a {
     font-size: 18px;
     @include styledLink;
-  }
-
-  &:last-child a {
-    margin-right: -15px;
   }
 }

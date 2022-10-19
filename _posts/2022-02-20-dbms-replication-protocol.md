@@ -1,6 +1,5 @@
 ---
 title: <span style='font-family:Menlo, Courier, monospace'>=nil;</span>'s Trustless Data Management.
-layout: post
 date: 2022-05-31
 excerpt: What total trustless data accessibility leads to.
 author: Mikhail Komarov. <br> Special thanks to Luke Pearson, Yuan Han Li and Ryan Sproule for discussion, adjustments and comments.

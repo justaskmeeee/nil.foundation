@@ -1,6 +1,5 @@
 ---
 title: <span style='font-family:Menlo, Courier, monospace'>=nil;</span> Crypto3 Cryptography Suite.
-layout: post
 date: 2021-10-25
 excerpt: Cryptography Suite for zk-Rollups, zk-Bridges and much more.
 author: Mikhail Komarov
@@ -10,7 +9,7 @@ comments: false
 
 ## What is this about?
 
-This post is a response to the question we've received about isn't it too much 
+This post is a response to the question we've received about isn't it too much
 to try to build two pretty complex zk-bridges at the same time.
 
 The answer is No.
@@ -24,26 +23,26 @@ So, can I start?
 
 ## Okay. Go on.
 
-As it can be noticed, all of the bridges of ours use pretty much the same approach: 
-wrapping a heavy proof verification (or some heavy data set verification) into a 
-verification of a lighter proof, which proves the successfull verification of the 
+As it can be noticed, all of the bridges of ours use pretty much the same approach:
+wrapping a heavy proof verification (or some heavy data set verification) into a
+verification of a lighter proof, which proves the successfull verification of the
 initial heavier proof.
 
-This allows complicated data structures (in Solana's case it is a "light-client" 
-state, in Mina's case it is a Pickles SNARK proof) to be succesfully verified on 
-EVM by verifying a lighter proof which proves the initial data correct verification. 
+This allows complicated data structures (in Solana's case it is a "light-client"
+state, in Mina's case it is a Pickles SNARK proof) to be succesfully verified on
+EVM by verifying a lighter proof which proves the initial data correct verification.
 So the whole construction stays formally secure and correct.
 
-Such approach combined with the [LPC commitment scheme](https://eprint.iacr.org/2019/1400.pdf) 
-gives the transparency properties, which in practice means the absence of a need 
-for a proof system trusted setup, which in its turn makes such bridges completely 
+Such approach combined with the [LPC commitment scheme](https://eprint.iacr.org/2019/1400.pdf)
+gives the transparency properties, which in practice means the absence of a need
+for a proof system trusted setup, which in its turn makes such bridges completely
 trustless.
 
 Sounds like the approach for a framework, right?
 
 ## Yes. Sounds like that.
 
-That is why we decided to wrap this approach into the framework based on the 
+That is why we decided to wrap this approach into the framework based on the
 cryptography suite of ours.
 
 ## Which is?
@@ -67,7 +66,7 @@ Well, first of all, its size. It is not just a library, it is a suite, which con
 
 ## What for?
 
-Well, all the projects we've accomplished were either based on top or eventually ended up inside of the cryptography suite of ours. Those old [Chia Network VDF](https://www.chia.net/2019/07/18/chia-vdf-competition-round-2-results-and-announcements.en.html) and [ProofOfSpace](https://github.com/Chia-Network/proofofspaceresults) competitions results found their place among VDF's implementations within the [Crypto3.VDF](https://github.com/NilFoundation/crypto3-vdf) module of ours In particular: [https://github.com/NilFoundation/crypto3-vdf/blob/master/include/nil/crypto3/vdf/chia.hpp](https://github.com/NilFoundation/crypto3-vdf/blob/master/include/nil/crypto3/vdf/chia.hpp). 
+Well, all the projects we've accomplished were either based on top or eventually ended up inside of the cryptography suite of ours. Those old [Chia Network VDF](https://www.chia.net/2019/07/18/chia-vdf-competition-round-2-results-and-announcements.en.html) and [ProofOfSpace](https://github.com/Chia-Network/proofofspaceresults) competitions results found their place among VDF's implementations within the [Crypto3.VDF](https://github.com/NilFoundation/crypto3-vdf) module of ours In particular: [https://github.com/NilFoundation/crypto3-vdf/blob/master/include/nil/crypto3/vdf/chia.hpp](https://github.com/NilFoundation/crypto3-vdf/blob/master/include/nil/crypto3/vdf/chia.hpp).
 
 Our Filecoin-related effors (proof generation performance speed-ups and C++ Filecoin Proofs implementation) eventually found their place among the developments based on top of the cryptography suite: [https://github.com/NilFoundation/crypto3-fil-proofs](https://github.com/NilFoundation/crypto3-fil-proofs) (not finished and will probably not be finished, but anyway).
 
@@ -86,12 +85,12 @@ To minimize complexities induced by such a toolchain usage, we decided to:
   >
   >     #include <boost/crypto3/block/aes.hpp>
   >     #include <boost/crypto3/block/algorithm/encrypt.hpp>
-  >     
+  >
   >     #include <string>
   >     #include <cassert>
-  >     
+  >
   >     using namespace boost::crypto3;
-  >     
+  >
   >     int main() {
   >         std::string input =
   >             "\x6b\xc1\xbe\xe2\x2e\x40\x9f\x96"
@@ -102,16 +101,16 @@ To minimize complexities induced by such a toolchain usage, we decided to:
   >             "\xe5\xfb\xc1\x19\x1a\x0a\x52\xef"
   >             "\xf6\x9f\x24\x45\xdf\x4f\x9b\x17"
   >             "\xad\x2b\x41\x7b\xe6\x6c\x37\x10";
-  >     
+  >
   >         std::string key =
   >             "\x2b\x7e\x15\x16\x28\xae\xd2\xa6"
   >             "\xab\xf7\x15\x88\x09\xcf\x4f\x3c";
-  >     
-  >         std::string out = encrypt<block::aes<128>>(input.begin(), 
-  >                                                    input.end(), 
-  >                                                    key.begin(), 
+  >
+  >         std::string out = encrypt<block::aes<128>>(input.begin(),
+  >                                                    input.end(),
+  >                                                    key.begin(),
   >                                                    key.end());
-  >     
+  >
   >         return (out ==
   >                "3ad77bb40d7a3660a89ecaf32466ef97f5d3d58503b9699de785895a96fdbaaf"
   >                "43b1cd7f598ece23881b00e3ed0306887b0c785e27e8ad3f8223207104725dd4");
@@ -132,16 +131,16 @@ Another example is an [LPC](https://github.com/NilFoundation/crypto3-zk/blob/20-
 Sure. Any of currently existing bridges repositories ([https://github.com/nilfoundation/evm-mina-verification.git](https://github.com/nilfoundation/evm-mina-verification.git) or [https://github.com/nilfoundation/evm-solana-verification.git](https://github.com/nilfoundation/evm-solana-verification.git)) can be reused for the purpose of creating a new bridge.
 
 All of them consist of several parts:
-1. Wrapping proof generator. Usually emplaced in `bin` directory. Uses RedShift 
-   (or any other) proof system and FRI/LPC commitment scheme (or any other) definitions 
+1. Wrapping proof generator. Usually emplaced in `bin` directory. Uses RedShift
+   (or any other) proof system and FRI/LPC commitment scheme (or any other) definitions
    from [Crypto3.ZK](https://github.com/nilfoundation/crypto3-zk.git).
 2. Circuit definition done with [Crypto3.Blueprint](https://github.com/nilfoundation/crypto3-blueprint.git).
 3. Proof verification logic. In-EVM one most often. Sometimes other virtual machines get involved as well.
 4. [Crypto3](https://github.com/nilfoudation/crypto3) libraries introduced as
    submodules in `libs` directory.
 
-This results in a executable (not matter if it is native or not) generating a 
-RedShift proof for a circuit, defined with a 
+This results in a executable (not matter if it is native or not) generating a
+RedShift proof for a circuit, defined with a
 [Crypto3.Blueprint](https://github.com/nilfoundation/crypto3-blueprint.git)
 library, which complies with the virtualized verification logic input format,
 defined within the same repository in Solidity files. Same architecture for every

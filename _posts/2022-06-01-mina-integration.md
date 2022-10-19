@@ -1,6 +1,5 @@
 ---
 title: Bridging Mina with <span style='font-family:Menlo, Courier, monospace'>=nil;</span>.
-layout: post
 date: 2022-06-28
 excerpt: How will a Mina Protocol's bridge become bi-directional?
 author: Mikhail Komarov, Aleksey Sofronov <br> Special thanks to Luke Pearson for discussion, adjustments and comments.

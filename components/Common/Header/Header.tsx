@@ -1,3 +1,8 @@
+/**
+ * @file React component.
+ * @copyright Yury Korotovskikh 2022 <u.korotovskiy@nil.foundation>
+ */
+
 import { Col, Container, Navbar, Row } from '@nilfoundation/react-components';
 import Navigation from './Navigation';
 import Breadcrumbs from './Breadcrumbs';

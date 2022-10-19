@@ -1,3 +1,8 @@
+/**
+ * @file React hook.
+ * @copyright Yury Korotovskikh 2022 <u.korotovskiy@nil.foundation>
+ */
+
 import { RefObject, useEffect, useRef } from 'react';
 import { useOnScreen } from '@nilfoundation/react-components';
 

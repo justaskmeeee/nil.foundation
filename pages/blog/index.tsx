@@ -1,15 +1,19 @@
-import { Col, Container, Row } from '@nilfoundation/react-components';
+/**
+ * @file Next page.
+ * @copyright Yury Korotovskikh 2022 <u.korotovskiy@nil.foundation>
+ */
+
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import Posts from '../../components/Blog/Posts/Posts';
-import { getAllPosts } from '../../lib/getPost';
-import { Post } from '../../models/Post';
+import PostsContainer from 'components/Blog/PostsContainer/PostsContainer';
+import { getAllPosts } from 'lib/getPost';
+import Post from 'models/Blog/Post';
 
 /**
  * Props.
  */
 type BlogPageProps = {
-    allPosts: Post[];
+    allPosts: Partial<Post>[];
 };
 
 /**
@@ -20,17 +24,12 @@ type BlogPageProps = {
  */
 const BlogPage: NextPage<BlogPageProps> = ({ allPosts }: BlogPageProps) => {
     return (
-        <Container as="main">
+        <main>
             <Head>
                 <title>=nil; Foundation - Blog</title>
             </Head>
-            <Row>
-                <Col xs={12}>
-                    <h1>Blog</h1>
-                </Col>
-            </Row>
-            <Posts allPosts={allPosts} />
-        </Container>
+            <PostsContainer allPosts={allPosts} />
+        </main>
     );
 };
 
