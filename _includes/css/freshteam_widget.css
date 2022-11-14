@@ -198,11 +198,11 @@ li.select2-results__option--highlighted {
     color: #{{ site.color.text-color }}!important;
 }
 
-#freshteam-widget a {
+#freshteam-widget a:not(.btn) {
     color: #{{ site.color.primary }}!important;
 }
 
-#freshteam-widget a:focus,
-#freshteam-widget a:hover {
+#freshteam-widget a:not(.btn):focus,
+#freshteam-widget a:not(.btn):hover {
     color: #483a46!important;
 }
