@@ -5,7 +5,7 @@ titles:
 email: "nemo@nil.foundation"
 url: "https://nil.foundation"
 description: ""
-subtitle: "<div style='float: left; margin-right: 0.5em;'>We support projects in:</div>"
+subtitle: "<div style='float: left; margin-right: 0.5em;'>Facilitating =nil;'s Ecosystem Projects in:</div>"
 areas: 
     - "Data Storage Software"
     - "Cryptography"
@@ -65,8 +65,6 @@ social:
     #    url:
     #  - title: stack-overflow
     #    url: http://stackoverflow.com/questions/tagged/jekyll
-    #  - title: bitbucket
-    #    url: http://bitbucket.org/jekyll
   - title: github
     url: http://github.com/nilfoundation
   - title: discord
