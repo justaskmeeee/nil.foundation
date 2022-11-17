@@ -83,3 +83,6 @@ credits: ''
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+# Google Analytics
+google_analytics_id: G-CB8D65YWRZ
