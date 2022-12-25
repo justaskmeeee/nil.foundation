@@ -1,10 +1,10 @@
 ---
 layout: default
-date: 2022-01-01
-img: p2p_logo.png
+date: 2020-01-03
+img: dao5.png
 alt: image-alt
-name: P2P Validator
-link: https://p2p.org
+name: DAO5
+link: https://dao5.com
 category: Partner 
 tag: partner
 description: 
