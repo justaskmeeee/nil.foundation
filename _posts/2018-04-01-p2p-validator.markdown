@@ -1,6 +1,6 @@
 ---
 layout: default
-date: 2022-01-01
+date: 2018-01-01
 img: p2p_logo.png
 alt: image-alt
 name: P2P Validator
