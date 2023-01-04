@@ -5,11 +5,11 @@ titles:
 email: "nemo@nil.foundation"
 url: "https://nil.foundation"
 description: ""
-subtitle: "<div style='float: left; margin-right: 0.5em;'>We support projects in:</div>"
+subtitle: "<div style='float: left; margin-right: 0.5em;'>Trustless data accessibility for:</div>"
 areas: 
-    - "Data Storage Software"
-    - "Cryptography"
-    - "Financial Services"
+    - "Protocols"
+    - "Applications"
+    - "Bridges"
 meta_author: Mikhail Komarov
 
 # Google webmaster tools
