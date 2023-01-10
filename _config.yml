@@ -90,12 +90,14 @@ google_analytics_id: G-CB8D65YWRZ
 
 products:
   - title: PROOF MARKET
-    description: "<p>Proof market</p>"
+    description: "<p>Market for zero knowledge/non-interactive proofs</p>"
     link: https://proof.market.nil.foundation/
-  - title: ZKLLVMs
-    description: "<p>Proof market</p>"
-    link: 
+  - title: zkLLVM
+    description: "<p>Compile zero knowledge proof systems in high-level programming languages</p>"
+    link: https://docs.nil.foundation/zkllvm/
   - title: drop-database
-    description: "<p>Proof market</p>"
+    description: "<p></p>"
+    link: https://docs.nil.foundation/dbms/
   - title: Crypto3
-    description: "<p>Proof market</p>"
+    description: "<p>It is a suite, which consists of over 17 libraries, representing every major field of modern applied cryptography.</p>"
+    link: https://docs.nil.foundation/crypto3/

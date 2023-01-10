@@ -26,46 +26,24 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
+                <li class="relative">
+                    <div class="sub-menu">
+                        <span>Products</span>
+                        <ul class="sub-navbar">
+                            {% for post in site.products %}
+                            <li>
+                                <a href="{{ post.link }}">{{ post.title }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                </li>
                 <li>
                     <a href="https://blog.nil.foundation">Blog</a>
                 </li>
-                <li class="page-scroll">
-                    {% if page.url == "/" %}
-                        <a href="#about">About</a>
-                    {% else %}
-                        <a href="/#about">About</a>
-                    {% endif %}
-                </li>
-                <li class="page-scroll">
-                    {% if page.url == "/" %}
-                        <a href="#projects">Projects</a>
-                    {% else %}
-                        <a href="/#projects">Projects</a>
-                    {% endif %}
-                </li>
-                <li class="page-scroll">
-                    {% if page.url == "/" %}
-                        <a href="#partners">Partners</a>
-                    {% else %}
-                        <a href="/#partners">Partners</a>
-                    {% endif %}
-                </li>
-                <li class="page-scroll">
-                    {% if page.url == "/" %}
-                        <a href="#teams">Teams</a>
-                    {% else %}
-                        <a href="/#teams">Teams</a>
-                    {% endif %}
-                </li>
                 <li>
                     <a href="/careers">Careers</a>
-                </li>
-                <li class="page-scroll">
-                    {% if page.url == "/" %}
-                        <a href="#contact">Contact</a>
-                    {% else %}
-                        <a href="/#contact">Contact</a>
-                    {% endif %}
                 </li>
             </ul>
         </div>
