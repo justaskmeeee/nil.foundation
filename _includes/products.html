@@ -1,0 +1,31 @@
+<!-- Projects Grid Section -->
+<section id="products">
+  <div class="stripe">
+    {% for post in site.products %}
+      {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+      {% if thecycle == "odd" %}
+        <div class="stripe__item stripe__item_right">
+          <div class="stripe__content">
+            <a class="container stripe__container" href="{{ post.link }}">
+              <div class="stripe__icon">{{ post.title }}</div>
+              <div class="stripe__text">
+                {{ post.description }}
+              </div>
+            </a>
+          </div>
+        </div>
+      {% else %}
+      <div class="stripe__item">
+        <div class="stripe__content">
+          <a class="container stripe__container" href="{{ post.link }}">
+            <div class="stripe__icon">{{ post.title }}</div>
+            <div class="stripe__text">
+              {{ post.description }}
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
