@@ -26,18 +26,11 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-                <li class="relative">
-                    <div class="sub-menu">
-                        <span>Products</span>
-                        <ul class="sub-navbar">
-                            {% for post in site.products %}
-                            <li>
-                                <a href="{{ post.link }}">{{ post.title }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    
+                <li class="nav-item dropdown">
+                    <a href="#products">Products</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#about">About</a>
                 </li>
                 <li>
                     <a href="https://blog.nil.foundation">Blog</a>

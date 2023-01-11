@@ -5,7 +5,7 @@ titles:
 email: "nemo@nil.foundation"
 url: "https://nil.foundation"
 description: ""
-subtitle: "We are building infrastructure and tools to power trustless data management.\r\n\r\nTeam of cryptographers, mathematicians, researchers and engineers building compilers , market places , libraries for modern cryptographic applications powering zero knowledge systems."
+subtitle: "We are building infrastructure and tools to power trustless data management.\r\n\r\nTeam of cryptographers, mathematicians, researchers and engineers building compilers, market places, libraries for modern cryptographic applications powering zero knowledge systems."
 areas: 
     - "Protocols"
     - "Applications"
@@ -96,8 +96,8 @@ products:
     description: "<p>Compile zero knowledge proof systems in high-level programming languages</p>"
     link: https://docs.nil.foundation/zkllvm/
   - title: drop-database
-    description: "<p></p>"
+    description: "<p>Puts replication protocol to the database level, introduces swappable query languages and sub-clustering</p>"
     link: https://docs.nil.foundation/dbms/
   - title: Crypto3
-    description: "<p>It is a suite, which consists of over 17 libraries, representing every major field of modern applied cryptography.</p>"
+    description: "<p>It is a suite, which consists of over 17 libraries, representing every major field of modern applied cryptography</p>"
     link: https://docs.nil.foundation/crypto3/
