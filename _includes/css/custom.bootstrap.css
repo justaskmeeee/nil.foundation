@@ -858,6 +858,7 @@ footer .footer-below {
     text-align: center;
     font-size: 3em;
     font-weight: 700;
+    color: #{{ site.color.text-color }};
 }
 
 .stripe__text {
@@ -866,13 +867,13 @@ footer .footer-below {
     text-align: left;
     font-size: 2em;
     text-align: center;
-    color: #{{ site.color.background-color }};
+    color: #{{ site.color.text-color }};
     padding: 15px;
 }
 
 #products {
     background: #{{ site.color.text-color }};
-    color: #{{ site.color.background-color }};
+    color: #{{ site.color.text-color }};
     padding: 0;
 }
 
