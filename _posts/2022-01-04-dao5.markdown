@@ -5,7 +5,7 @@ img: dao5.png
 alt: image-alt
 name: DAO5
 link: https://dao5.com
-category: Partner 
+category: partner 
 tag: partner
 description: 
 

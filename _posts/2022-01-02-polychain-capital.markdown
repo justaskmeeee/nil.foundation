@@ -5,7 +5,7 @@ img: polychain.png
 alt: image-alt
 name: Polychain Capital
 link: https://polychain.capital
-category: Partner 
+category: partner 
 tag: partner
 description: 
 

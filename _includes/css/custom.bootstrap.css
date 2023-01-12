@@ -841,8 +841,6 @@ footer .footer-below {
     color: #{{ site.color.text-color }};
 }
 
-
-
 .stripe__item_right {
     align-self: flex-end;
 }
@@ -850,7 +848,6 @@ footer .footer-below {
 .stripe__item_right .stripe__container {
     flex-direction: row;
 }
-
 
 .stripe__icon {
     height: 100%;

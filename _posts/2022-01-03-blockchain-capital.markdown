@@ -5,7 +5,7 @@ img: bcap.png
 alt: image-alt
 name: Blockchain Capital
 link: https://blockchain.capital
-category: Partner 
+category: partner 
 tag: partner
 description: 
 

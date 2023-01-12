@@ -1,11 +1,11 @@
 # Site settings
 titles: 
-    - title: "=nil; Foundation"
-      url: "/#page-top"
+    - title: "<span style='font-family:Menlo, Courier, monospace'>=nil;</span> Foundation"
+      url: "https://nil.foundation"
 email: "nemo@nil.foundation"
 url: "https://nil.foundation"
 description: ""
-subtitle: "We are building infrastructure and tools to power trustless data management.\r\n\r\nTeam of cryptographers, mathematicians, researchers and engineers building compilers, market places, libraries for modern cryptographic applications powering zero knowledge systems."
+subtitle: ""
 areas: 
     - "Protocols"
     - "Applications"
@@ -95,7 +95,7 @@ products:
   - title: zkLLVM
     description: "<p>Compile zero knowledge proof systems in high-level programming languages</p>"
     link: https://docs.nil.foundation/zkllvm/
-  - title: drop-database
+  - title: "`DROP DATABASE *"
     description: "<p>Puts replication protocol to the database level, introduces swappable query languages and sub-clustering</p>"
     link: https://docs.nil.foundation/dbms/
   - title: Crypto3

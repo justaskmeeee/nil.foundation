@@ -5,7 +5,7 @@ img: starkware.png
 alt: image-alt
 name: StarkWare
 link: https://starkware.co
-category: Partner 
+category: partner 
 tag: partner
 description: 
 
