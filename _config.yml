@@ -37,7 +37,7 @@ color:
   footer-below-color: 222222
   secondary: 907F8F
   secondary-dark: 776475
-  secondary-darker: 222222
+  secondary-darker: d3d3d3
 
   background-color-rgb: "37,37,37"
 
