@@ -1,7 +1,8 @@
 <!-- Projects Grid Section -->
 <section id="products">
   <div class="stripe">
-    {% for post in site.products %}
+    {% for post in site.posts %}
+      {% if post.tag == "product" %}
       {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
       {% if thecycle == "odd" %}
         <div class="stripe__item stripe__item_right jumbotron">
@@ -25,6 +26,7 @@
           </a>
         </div>
       </div>
+      {% endif %}
       {% endif %}
     {% endfor %}
   </div>

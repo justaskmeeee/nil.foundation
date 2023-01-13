@@ -1,0 +1,12 @@
+---
+layout: default
+date: 2020-01-03
+img: mina.png
+alt: image-alt
+name: Mina Foundation
+link: https://minaprotocol.com
+category: partner 
+tag: partner
+description: 
+
+---

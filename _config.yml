@@ -87,17 +87,3 @@ permalink: pretty
 
 # Google Analytics
 google_analytics_id: G-CB8D65YWRZ
-
-products:
-  - title: PROOF MARKET
-    description: "<p>Market for zero knowledge/non-interactive proofs</p>"
-    link: https://proof.market.nil.foundation/
-  - title: zkLLVM
-    description: "<p>Compile zero knowledge proof systems in high-level programming languages</p>"
-    link: https://docs.nil.foundation/zkllvm/
-  - title: "`DROP DATABASE *"
-    description: "<p>Puts replication protocol to the database level, introduces swappable query languages and sub-clustering</p>"
-    link: https://docs.nil.foundation/dbms/
-  - title: Crypto3
-    description: "<p>It is a suite, which consists of over 17 libraries, representing every major field of modern applied cryptography</p>"
-    link: https://docs.nil.foundation/crypto3/
