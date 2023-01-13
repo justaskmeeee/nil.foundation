@@ -101,7 +101,7 @@ header .intro-text .skills {
     margin-top: 1.25em;
     font-size: 1.25em;
     font-weight: 300;
-    white-space: pre-wrap;
+    float: left;
 }
 
 @media(min-width:768px) {
@@ -907,4 +907,8 @@ footer .footer-below {
     .stripe__text {
         font-size: 1.5em;
     }
+}
+
+.text-scrmb {
+    float: right;
 }
