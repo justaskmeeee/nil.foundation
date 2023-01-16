@@ -851,7 +851,7 @@ footer .footer-below {
 
 .stripe__icon {
     height: 100%;
-    flex: 1 0;
+    flex: 2 0;
     text-align: center;
     font-size: 3em;
     font-weight: 700;
@@ -859,7 +859,7 @@ footer .footer-below {
 
 .stripe__text {
     height: 100%;
-    flex: 2 0;
+    flex: 5 0;
     text-align: left;
     font-size: 2em;
     text-align: center;

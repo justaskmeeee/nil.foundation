@@ -3,7 +3,7 @@ layout: default
 date: 2023-01-02
 img: nil.png
 alt: image-alt
-name: \`DROP DATABASE \*
+name: "`DROP DATABASE *"
 link: https://dbms.nil.foundation
 category: product
 tag: product
