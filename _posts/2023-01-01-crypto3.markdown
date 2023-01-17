@@ -7,6 +7,6 @@ name: Crypto3
 link: https://github.com/nilfoundation/crypto3
 category: product
 tag: product
-description: Cryptography suite in C++17 desined for cryptographers by cryptographers to enable fast and safe prototyping of novel cryptographic primitives
+description: Cryptography suite in C++17 designed for cryptographers by cryptographers to enable fast and safe prototyping of novel cryptographic primitives
 
 ---
