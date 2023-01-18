@@ -912,3 +912,59 @@ footer .footer-below {
 .text-scrmb {
     float: right;
 }
+
+.research-item{ 
+    /* background: #{{ site.color.text-color }}; */
+}
+
+.research-item__title{ 
+    font-size: 20px;
+}
+.research-item__date{
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+.research-item__description{
+    font-size: 14px;
+}
+.research-item__description p {
+    font-size: 14px;
+}
+
+.research-item__link{
+    color: #{{ site.color.text-color }};
+    text-align: right;
+    
+}
+
+.research-item__link a{
+    color: #{{ site.color.text-color }};
+    border-left: 1px solid #{{ site.color.text-color }};
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.topic-container{
+    position: relative;
+}
+
+.topic-list{
+    position: sticky;
+    top: 80px;
+}
+
+.topic-list__title{
+    font-size: 18px;
+}
+
+@media screen and (max-width: 1024px) {
+    .topic-list{
+        position: static;
+        top: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.research-back {
+    color: #{{ site.color.text-color }};
+}

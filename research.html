@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+
+<section class="container" id="research">
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="page-header">
+              <h1>Research </h1>
+            </div>
+      </div>
+  </div>
+  <div class="row topic-container">
+    <div class="col-lg-4 topic-list">
+      <div class="topic-list__title">Topics</div>
+      {% for topic in site.data.research %}
+        <a class="topic badge" href="/research/topic/{{ topic | slug }}">{{ topic }}</a>
+      {% endfor %}
+    </div>
+    <div class="col-lg-8">
+      {% for post in site.posts %}
+      {% if post.tag == "research" %}
+        {% include research_item.html %}
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+</section>
