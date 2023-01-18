@@ -88,6 +88,9 @@ permalink: pretty
 # Google Analytics
 google_analytics_id: G-CB8D65YWRZ
 
+collections:
+  - papers
+
 defaults:
   - scope:
       type: categories  # select all category pages

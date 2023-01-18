@@ -5,21 +5,18 @@ module ResearchCategory
     def generate(site)
       topics = Set.new
 
-      
-      site.posts.docs.each do |post|
-        if post.data['tag'] == 'research'
-          post.data['topics'].each do |topic|
-            topics.add(topic)
-          end
+      site.collections['papers'].docs.each do |post|
+        post.data['topics'].each do |topic|
+          topics.add(topic)
         end
       end
       site.data['research'] = topics.to_a
 
       topics = topics.to_a
-      
+
       topics.each do |topic|
-        posts = site.posts.docs.select do |post|
-           post.data['tag'] == 'research' && post.data['topics'].include?(topic)
+        posts = site.collections['papers'].docs.select do |post|
+           post.data['topics'].include?(topic)
         end
         site.pages << CategoryPage.new(site, topic, posts)
       end
