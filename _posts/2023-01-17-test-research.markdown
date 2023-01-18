@@ -6,7 +6,7 @@ alt: image-alt
 name: Placeholder
 link: https://crypto3.nil.foundation/papers/placeholder.pdf
 tag: research
-topics: [crypto3]
+topics: [crypto3, dbms]
 description: "<p>Proof systems evolution brought a wide variety of ways to provide a short description of a computation
 performed. Each of them brings different trade-offs between proving time, proof size, verification
 complexity, absence or presence of a zero-knowledge properties, recursion friendliness in the various

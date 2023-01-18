@@ -25,8 +25,16 @@ a.list-group-item {
     color: #888;
 }
 
+.list-group-item h5{
+    color: #888;
+}
+
 a.list-group-item:hover,
 a.list-group-item:active {
+    color: #{{ site.color.text-color }};;
+}
+
+.list-group-item:hover h5, .list-group-item:active h5 {
     color: #{{ site.color.text-color }};;
 }
 
@@ -966,5 +974,57 @@ footer .footer-below {
 }
 
 .research-back {
+    color: #{{ site.color.text-color }};
+}
+
+.bs-component {
+    position: relative;
+    font-size: 16px;
+}
+
+.bs-component+.bs-component {
+    margin-top: 1rem
+}
+
+.bs-component .card {
+    margin-bottom: 1rem
+}
+
+
+.bs-component .popover {
+    position: relative;
+    display: inline-block;
+    width: 220px;
+    margin: 20px
+}
+
+.bs-component h2 {
+    font-size: 2rem
+}
+
+.bs-component h3 {
+    font-size: 1.3rem
+}
+
+#res {
+    padding-top: 60px;
+    font-size: 16px;
+}
+
+#res .jumbotron {
+    padding: 64px 32px;
+}
+
+.d-flex{ 
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.justify-content-between{
+    justify-content: space-between;
+}
+
+a.selected-tag{
+    background: #{{ site.color.secondary }};
     color: #{{ site.color.text-color }};
 }
