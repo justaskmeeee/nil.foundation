@@ -26,11 +26,18 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="#products">Products</a>
+                <li class="nav-item">
+                    {% if page.url == "/" %}
+                        <a href="#products">Products</a>
+                    {% else %}
+                        <a href="/#products">Products</a>
+                    {% endif %}
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item">
                     <a href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/research">Research</a>
                 </li>
                 <li>
                     <a href="https://blog.nil.foundation">Blog</a>

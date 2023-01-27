@@ -1,0 +1,56 @@
+---
+layout: default
+title: Research
+---
+<div class="container" id="res">
+  <div class="page-header">
+    <div class="row">
+        <div class="col-lg-8 col-md-7 col-sm-6">
+            <h1>{{ page.title }}</h1>
+
+            {% if page.excerpt %}
+            <p class="lead">{{ page.excerpt }}</p>
+            {% endif %}
+        </div>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-lg-9">
+      <div class="bs-component">
+          <div class="jumbotron">		
+            <div class="list-group">
+              {% for post in site.papers %}
+              {% if post.tag == "research" %}
+                <a href="{{ post.link }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ post.name }}</h5>
+                    <small>{{ post.date | date_to_string }}</small>
+                  </div>
+                 <small>Author: {{ post.author }}</small>
+                 
+                </a>
+              {% endif %}
+              {% endfor %}
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-lg-3">
+      <div class="bs-component">
+          <div class="jumbotron">
+              <div class="list-group">
+                  {% for tag in site.data.research %}
+                  {% assign t = tag | first %}
+
+                  <a class="list-group-item list-group-item-action flex-column align-items-start" href="/research/topic/{{ tag }}">
+                      {{ tag  }}
+                  </a>
+                  {% endfor %}
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+
