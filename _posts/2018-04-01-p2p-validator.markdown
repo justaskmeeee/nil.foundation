@@ -5,7 +5,7 @@ img: p2p_logo.png
 alt: image-alt
 name: P2P Validator
 link: https://p2p.org
-category: partner 
+category: partner
 tag: partner
 description: 
 

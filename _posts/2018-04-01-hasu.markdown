@@ -1,10 +1,10 @@
 ---
 layout: default
-date: 2019-02-05
-img: iosg.png
+date: 2018-01-02
+img: hasu.jpg
 alt: image-alt
-name: IOSG Ventures
-link: https://iosg.vc
+name: Hasu
+link: https://twitter.com/hasufl
 category: partner 
 tag: partner
 description: 

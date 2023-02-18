@@ -1,0 +1,12 @@
+---
+layout: default
+date: 2018-01-02
+img: mirana.png
+alt: image-alt
+name: Mirana
+link: https://mirana.xyz
+category: partner 
+tag: partner
+description: 
+
+---
