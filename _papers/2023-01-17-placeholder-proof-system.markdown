@@ -3,10 +3,10 @@ layout: default
 date: 2023-01-07
 img: nil.png
 alt: image-alt
-name: Placeholder
+name: Placeholder Proof System
 link: https://crypto3.nil.foundation/papers/placeholder.pdf
 tag: research
-topics: [crypto3, dbms]
+topics: [placeholder, crypto3]
 description: "<p>Proof systems evolution brought a wide variety of ways to provide a short description of a computation
 performed. Each of them brings different trade-offs between proving time, proof size, verification
 complexity, absence or presence of a zero-knowledge properties, recursion friendliness in the various
