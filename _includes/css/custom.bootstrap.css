@@ -1028,3 +1028,9 @@ a.selected-tag{
     background: #{{ site.color.secondary }};
     color: #{{ site.color.text-color }};
 }
+
+.partner-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
