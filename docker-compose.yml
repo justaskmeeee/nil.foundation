@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    image: nilfoundation/jekyll-builder:main
+    ports:
+      # webserver
+      - "22050:22050"
+      # livereload
+      - "24000:24000"
+    platform: "linux/amd64"
+    volumes:
+      - "./:/srv/jekyll"
+    command: |
+      jekyll serve \
+        --incremental \
+        --port 22050 \
+        --strict_front_matter \
+        --livereload \
+        --livereload-min-delay 5 \
+        --livereload-port 24000 
