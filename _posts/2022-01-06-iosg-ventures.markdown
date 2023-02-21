@@ -6,7 +6,7 @@ alt: image-alt
 name: IOSG Ventures
 link: https://iosg.vc
 category: partner
-tag: partner_disabled
+tag: partner
 description: 
 
 ---
