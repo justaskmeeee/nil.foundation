@@ -5,10 +5,9 @@ var path = require('path');
 const cheerio = require('cheerio');
 const axios = require('axios')
 const qs = require('qs')
+const sanitizeHtml = require('sanitize-html');
+const mime = require('mime');
 
-const sleep = (ms) => {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 var siteDir = path.join(__dirname, 'blog/_site/');
 const client = axios.create({
@@ -46,6 +45,17 @@ const processPosts = async (posts) => {
 }
 
 const uploadPost = async (title, date, tags, author, slug, body) => {
+  const $ = cheerio.load(body, {
+    xmlMode: false,
+    decodeEntities: false,
+  })
+  const images = $('img')
+  for (const img of images) {
+    const src = $(img).attr('src')
+    const newSrc = await uploadImage(src)
+    $(img).attr('src', newSrc)
+  }
+  const content = $('body').html()
   const splittedTags = tags.split(' ').map(x => x.trim()).filter(x => x.length > 0)
   const tagIds = []
   for (const tag of splittedTags) {
@@ -58,13 +68,25 @@ const uploadPost = async (title, date, tags, author, slug, body) => {
       date,
       author,
       slug,
-      content: body,
+      content,
       tags: tagIds
     }
   })
 
 }
+const uploadImage = async (src) => {
+  const file = fs.readFileSync(path.join(__dirname, 'blog/_site/', src.slice(1)))
+  const form = new FormData();
 
+  const name = src.split('/').slice(-1)[0]
+  const ext = name.split('.').slice(-1)[0]
+  const type = mime.getType(ext)
+          
+  form.append('files', new Blob([file], { type }), name);
+  const res = await client.post('/api/upload', form)
+  const data = res.data[0]
+  return data.url
+}
 const readMd = (fileName) => {
   const postsDir = path.join(__dirname, 'blog/_posts/');
   const dirNames = fileName.split('/')
@@ -104,14 +126,15 @@ for (const year of yearDirs) {
         const tags = md.match(/tags: (.*)/)[1]
         const author = md.match(/author: (.*)/)[1]
         const slug = file.split('.')[0]
-        console.log('slug', slug)
         addContent.push({
-          title,
+          title: sanitizeHtml(title, {
+            allowedTags: [],
+          }),
           date,
           tags,
           author,
           slug,
-          body
+          body,
         })
       }
     }
