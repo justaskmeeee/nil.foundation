@@ -11,5 +11,3 @@ RUN apk add --no-cache \
 	py3-passlib
 
 WORKDIR /ansible
-
-CMD [ "ansible-playbok", "playbok.yml" ]
