@@ -1,0 +1,41 @@
+@use '~styles/colors' as *;
+@use '~styles/text' as *;
+@use '~styles/mixins' as *;
+@use '~styles/helpers' as *;
+
+@import './freshteamWidget';
+@import './fonts';
+
+:root {
+  --screen-size: #{$baseScreenSize};
+
+  @include mobile {
+    --screen-size: #{$mobileScreenSize};
+  }
+}
+
+html {
+  font-size: 1vw;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $black;
+  color: $white;
+  overscroll-behavior: none;
+
+  @include fontType(H);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}

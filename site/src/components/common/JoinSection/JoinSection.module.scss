@@ -1,0 +1,91 @@
+@import 'src/styles/typography';
+@import 'src/styles/helpers';
+@import 'src/styles/colors';
+@import 'src/styles/mixins';
+
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @include mobile {
+    overflow: hidden;
+  }
+}
+
+.line {
+  @include mobile {
+    display: none;
+  }
+}
+
+.lineMobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.headingWrapper {
+  width: size(544);
+  padding-bottom: size(30);
+  margin-bottom: -1px;
+  background-color: $black;
+
+  @include mobile {
+    width: 100%;
+    padding-bottom: size(70);
+  }
+}
+
+.heading {
+  padding: size(30);
+
+  @include mobile {
+    padding: size(20) size(10);
+  }
+}
+
+.contentWrapper {
+  width: size(272);
+  background-color: $black;
+  margin-bottom: -1px;
+
+  @include mobile {
+    width: calc(50% + 2px);
+    margin-right: -1px;
+    margin-left: -1px;
+  }
+}
+
+.contentWrapperLeft {
+  composes: contentWrapper;
+  margin-top: size(210);
+
+  @include mobile {
+    margin-top: 0;
+    margin-bottom: size(140);
+  }
+}
+
+.contentWrapperRight {
+  composes: contentWrapper;
+  margin-top: size(300);
+
+  @include mobile {
+    margin-top: 0;
+    padding-top: size(50);
+    margin-bottom: auto;
+  }
+}
+
+.text {
+  @include paragraph;
+  padding: size(30);
+
+  @include mobile {
+    padding: size(10);
+  }
+}

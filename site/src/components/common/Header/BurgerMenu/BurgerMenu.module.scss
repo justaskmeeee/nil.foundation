@@ -1,0 +1,102 @@
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/colors' as *;
+
+.root {
+  position: fixed;
+  top: size(60);
+  left: 0;
+  height: get-real-vh(100);
+  width: 100%;
+  z-index: -1;
+  background-color: $black;
+  justify-content: space-between;
+  transform: translateY(calc(-150% - size(30)));
+  transition: transform 1s ease;
+}
+
+.burgerOpen {
+  transform: translateY(size(-40));
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  padding: size(40) size(30);
+}
+
+.mainLink {
+  &:not(:last-child) {
+    margin-bottom: size(15);
+  }
+
+  @include heading-02;
+}
+
+.activeLink {
+  position: relative;
+  color: $white;
+
+  &::before {
+    position: absolute;
+    display: block;
+    flex-shrink: 0;
+    top: 30%;
+    left: size(-20);
+    width: size(8);
+    height: size(8);
+    content: '';
+    background-color: $white;
+  }
+}
+
+.activeMainLink {
+  &::before {
+    display: none;
+    color: $white;
+  }
+}
+
+.content {
+  background: url('/icons/dots.svg'), repeat;
+
+  display: flex;
+}
+
+.right {
+  padding: 0 size(53) size(20) size(30);
+  background-color: $black;
+}
+
+.link {
+  &:not(:last-child) {
+    margin-bottom: size(16);
+  }
+
+  @include sm-paragraph;
+}
+
+.box1 {
+  margin-bottom: size(100);
+}
+
+.box2 {
+  width: 70%;
+}
+
+.box3 {
+  width: 30%;
+  height: 45%;
+  background: $black;
+  display: flex;
+  align-items: flex-end;
+}
+
+.left {
+  width: 100%;
+  display: flex;
+}

@@ -1,0 +1,8 @@
+@mixin fontType($point) {
+  @if $point == H {
+    font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  }
+  // @else if $point == R {
+  //   font-family: Roboto Mono, Helvetica, Arial, sans-serif;
+  // }
+}

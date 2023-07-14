@@ -1,0 +1,78 @@
+@use '~styles/mixins' as *;
+@use '~styles/helpers' as *;
+
+@mixin glob-font-style {
+  letter-spacing: -0.03em;
+}
+
+@mixin heading-01 {
+  font-size: size(60);
+  line-height: size(54);
+
+  @include glob-font-style;
+
+  @include mobile {
+    font-size: size(45);
+    line-height: size(40.5);
+  }
+}
+
+@mixin heading-02 {
+  font-size: size(30);
+  line-height: size(30);
+
+  @include glob-font-style;
+
+  @include mobile {
+    font-size: size(24);
+    line-height: size(24);
+  }
+}
+
+@mixin paragraph {
+  font-size: size(18);
+  line-height: size(18);
+
+  @include glob-font-style;
+
+  @include mobile {
+    font-size: size(15);
+    line-height: size(15);
+  }
+}
+
+@mixin p-article {
+  font-size: size(18);
+  line-height: size(21.6);
+
+  @include glob-font-style;
+
+  @include mobile {
+    font-size: size(15);
+    line-height: size(18);
+  }
+}
+
+@mixin button {
+  font-size: size(16);
+  line-height: size(16);
+
+  @include glob-font-style;
+
+  @include mobile {
+    font-size: size(12);
+    line-height: size(12);
+  }
+}
+
+@mixin sm-paragraph {
+  font-size: size(15);
+  line-height: size(15);
+
+  @include glob-font-style;
+
+  @include mobile {
+    font-size: size(12);
+    line-height: size(12);
+  }
+}

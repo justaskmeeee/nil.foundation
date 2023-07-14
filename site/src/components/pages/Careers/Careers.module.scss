@@ -1,0 +1,45 @@
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.container {
+  position: relative;
+}
+
+.root {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+
+  @include mobile {
+    display: flex;
+    padding: 0;
+  }
+}
+
+.sideNavigation {
+  left: size(40);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.pageTitle {
+  @include heading-02;
+}
+
+.content {
+  background: url(/icons/dots.svg), repeat;
+  grid-column: span 4/6;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.footerSection {
+  @include mobile {
+    display: none;
+  }
+}

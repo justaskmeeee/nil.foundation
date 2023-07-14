@@ -1,0 +1,68 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: size(129);
+
+  @include mobile {
+    flex-direction: column;
+    margin-bottom: size(60);
+  }
+}
+
+.left,
+.right {
+  width: 50%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.right {
+  margin-top: size(180);
+
+  @include mobile {
+    margin-top: 0;
+  }
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: size(30) size(30) size(46);
+  background-color: $black;
+  gap: size(36);
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: size(60) size(10) size(20);
+    gap: size(10);
+  }
+}
+
+.item {
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button {
+  padding-top: size(104);
+  padding-bottom: size(24);
+  background-color: $black;
+
+  @include mobile {
+    padding-top: size(58);
+    padding-bottom: size(10);
+  }
+}

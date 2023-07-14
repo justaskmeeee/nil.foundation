@@ -1,0 +1,11 @@
+[Unit]
+Description=Site admin
+
+[Service]
+ExecStart=/app/site/site/start.sh
+ExecStop=/app/site/site/stop.sh
+Restart=always
+WorkingDirectory=/app/site/admin
+
+[Install]
+WantedBy=multi-user.target

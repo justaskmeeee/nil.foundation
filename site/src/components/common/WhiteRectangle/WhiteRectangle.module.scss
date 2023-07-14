@@ -1,0 +1,14 @@
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  flex-shrink: 0;
+  width: 100%;
+  height: size(30);
+  background-color: $white;
+
+  @include mobile {
+    height: size(20);
+  }
+}

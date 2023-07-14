@@ -1,0 +1,334 @@
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.container {
+  position: relative;
+}
+
+.sideNavigation {
+  left: size(40);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  @include mobile {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.centerItems {
+  display: flex;
+  align-items: center;
+}
+
+.mobileHead {
+  margin-top: size(20);
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 size(10);
+  }
+}
+
+.arrow {
+  transform: rotate(270deg);
+  width: size(18);
+  height: size(14);
+  margin-right: size(6);
+}
+
+.social {
+  margin-bottom: size(24);
+
+  @include mobile {
+    margin-bottom: size(20);
+  }
+}
+
+.socialLink {
+  width: size(60);
+  height: size(60);
+  padding: size(11);
+
+  &:not(:last-child) {
+    margin-right: size(12);
+  }
+
+  margin-top: size(12);
+}
+
+.paragraph {
+  @include paragraph;
+}
+
+.tag {
+  margin-right: size(5);
+
+  @include sm-paragraph;
+
+  @include mobile {
+    margin-right: 0;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 / 2;
+
+  @include mobile {
+    width: size(370);
+  }
+}
+
+.head {
+  padding: 0 size(30) size(30);
+
+  @include mobile {
+    padding: 0;
+  }
+}
+
+.wrapper {
+  @include mobile {
+    padding: 0 size(10);
+  }
+}
+
+.info {
+  display: flex;
+}
+
+.type {
+  @include paragraph;
+
+  margin-right: size(10);
+
+  @include mobile {
+    margin-right: 0;
+    margin-top: size(20);
+  }
+}
+
+.marginBlock {
+  margin-bottom: size(20);
+}
+
+.title {
+  @include heading-01;
+}
+
+.blogTitle {
+  width: size(785);
+
+  @include mobile {
+    width: 100%;
+    margin-bottom: size(70);
+  }
+}
+
+.otherBlogsTitle {
+  padding: size(30) 0;
+}
+
+.moreBlogsWrapper {
+  padding: 0 size(30);
+  background-color: $black;
+
+  @include mobile {
+    padding: 0 size(10);
+  }
+}
+
+.joinSection {
+  margin-bottom: size(180);
+
+  @include mobile {
+    margin-bottom: size(60);
+  }
+}
+
+.whiteRecatngle {
+  margin-bottom: size(140);
+
+  @include mobile {
+    margin-bottom: size(60);
+  }
+}
+
+.subtitle {
+  @include heading-02;
+
+  width: size(500);
+
+  @include mobile {
+    width: 100%;
+    margin-bottom: size(70);
+  }
+}
+
+.author {
+  margin-right: size(10);
+}
+
+.date {
+  color: $grey;
+}
+
+.blog {
+  margin: 0;
+
+  &:not(:last-child) {
+    margin-bottom: size(20);
+  }
+}
+
+.moreSection {
+  background: url(/icons/dots.svg), repeat;
+
+  @include mobile {
+  }
+}
+
+.tagsWrapper {
+  display: flex;
+
+  @include mobile {
+    flex-wrap: wrap;
+    gap: size(8);
+    margin-top: size(20);
+  }
+}
+
+.types {
+  @include mobile {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.main {
+  width: size(816);
+  padding: 0 size(30);
+
+  @include mobile {
+    width: 100%;
+    padding: 0 size(10);
+  }
+
+  h2 {
+    @include heading-02;
+
+    margin-bottom: size(30);
+  }
+
+  a {
+    @include p-article;
+
+    width: max-content;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: size(16);
+
+    &::after {
+      content: url('/icons/arrow.svg');
+      position: absolute;
+      right: size(-30);
+      top: -10%;
+      transform: rotate(135deg) scale(0.7);
+    }
+
+    @include mobile {
+      white-space: nowrap;
+    }
+  }
+
+  p {
+    @include p-article;
+
+    margin-bottom: size(30);
+    color: $grey;
+
+    a {
+      color: $white;
+      text-decoration: underline;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+      }
+    }
+  }
+
+  li {
+    @include p-article;
+
+    margin: 0 0 size(30) size(20);
+    color: $grey;
+
+    a {
+      color: $white;
+      text-decoration: underline;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+      }
+    }
+  }
+
+  ol {
+    li {
+      list-style-type: number;
+    }
+  }
+
+  ul {
+    li {
+      list-style-type: disc;
+    }
+  }
+
+  img {
+    margin-bottom: size(5);
+    width: 100%;
+  }
+
+  h5 {
+    @include sm-paragraph;
+
+    color: $grey;
+    margin-bottom: size(30);
+  }
+}
+
+.footerSection {
+  @include mobile {
+    display: none;
+  }
+}
+
+.lastSection {
+  display: none;
+
+  @include mobile {
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.lastSectionWrapper {
+  width: calc(100% + 4px);
+  margin-left: -2px;
+  margin-right: -2px;
+}

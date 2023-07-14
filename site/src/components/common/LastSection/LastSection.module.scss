@@ -1,0 +1,39 @@
+@use '~styles/typography' as *;
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+@use '~styles/colors' as *;
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.background {
+  background: url(/icons/dots.svg), repeat;
+}
+
+.box {
+  background-color: $black;
+}
+
+.box1 {
+  width: 50%;
+  margin-top: size(235);
+  height: size(325);
+
+  @include mobile {
+    width: 100%;
+    margin-top: size(60);
+    height: auto;
+  }
+}
+
+.box2 {
+  width: 25%;
+  margin-top: size(437);
+}
+
+.box3 {
+  width: 25%;
+  margin-top: size(320);
+}

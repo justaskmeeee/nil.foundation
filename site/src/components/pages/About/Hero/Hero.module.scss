@@ -1,0 +1,160 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.box {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.line {
+  width: 50%;
+}
+
+.info {
+  p {
+    padding: size(30);
+    background-color: $black;
+
+    @include paragraph;
+  }
+
+  @include mobile {
+    p {
+      padding: size(10);
+    }
+  }
+}
+
+.right {
+  display: grid;
+  width: 50%;
+  margin-top: size(265);
+  grid-template-columns: 1fr 1fr;
+
+  @include mobile {
+    width: 100%;
+    margin-top: size(60);
+  }
+}
+
+.rectWrapper {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+  background-color: $black;
+}
+
+.rect {
+  margin-top: size(270);
+
+  @include mobile {
+    margin-top: 0;
+  }
+}
+
+.content {
+  display: grid;
+  background-color: $black;
+  grid-column: span 2;
+  gap: size(60);
+
+  @include mobile {
+    gap: size(20);
+  }
+}
+
+.card {
+  display: grid;
+  padding: size(30);
+  grid-template-columns: 1fr 1fr;
+
+  &.grey {
+    color: $grey;
+  }
+
+  @include mobile {
+    padding: size(30) size(10);
+  }
+}
+
+.title {
+  @include heading-02;
+}
+
+.desc {
+  p {
+    @include paragraph;
+
+    &:not(:last-of-type) {
+      margin-bottom: size(20);
+    }
+  }
+}
+
+.footer {
+  @include mobile {
+    // .wRect {
+    //   margin: 0 size(-10);
+    //   width: calc(100% + #{size(20)});
+    // }
+  }
+}
+
+.footerWrapper {
+  display: flex;
+  align-items: center;
+  padding: size(30);
+  gap: size(61);
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: size(30) size(10);
+    gap: size(0);
+  }
+}
+
+.socials {
+  display: flex;
+  gap: size(10);
+}
+
+.socialButton {
+  @include mobile {
+    width: size(40);
+    height: size(40);
+    padding: size(9);
+  }
+}
+
+.inTouch {
+  width: size(181);
+
+  @include heading-02;
+
+  @include mobile {
+    width: size(170);
+  }
+}
