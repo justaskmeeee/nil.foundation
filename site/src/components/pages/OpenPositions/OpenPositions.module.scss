@@ -1,0 +1,39 @@
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+@use '~styles/typography' as *;
+@use '~styles/colors' as *;
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  min-height: 100vh;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.content {
+  background: url('/icons/dots.svg'), repeat;
+  grid-column: span 4 / 6;
+  min-height: 100vh;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: size(6);
+
+  @include paragraph;
+
+  @include mobile {
+    margin: size(10) size(20) size(18) size(12);
+  }
+}
+
+.arrow {
+  transform: rotate(270deg);
+  width: size(18);
+  height: size(14);
+}

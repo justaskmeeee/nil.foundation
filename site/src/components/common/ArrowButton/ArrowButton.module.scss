@@ -1,0 +1,24 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 size(24);
+
+  @include button;
+
+  @include mobile {
+    padding: 0 size(10);
+  }
+}
+
+.icon {
+  width: size(14);
+  height: size(14);
+  transform: rotate(45deg);
+}

@@ -1,0 +1,24 @@
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/mixins' as *;
+
+
+.root {
+  display: block;
+  width: size(80);
+  height: size(80);
+  padding: size(20);
+  border-radius: 50%;
+  background-color: $white;
+  transition: opacity 0.3s ease;
+
+  @include mobile {
+    width: size(60);
+    height: size(60);
+    padding: size(15);
+  }
+
+  @include hover {
+    opacity: 0.5;
+  }
+}

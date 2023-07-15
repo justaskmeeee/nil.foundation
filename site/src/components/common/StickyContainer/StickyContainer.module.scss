@@ -1,0 +1,16 @@
+@use '~styles/helpers' as *;
+
+.root {
+  position: sticky;
+  top: size(60);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: size(272);
+  height: calc(100vh - #{size(60)});
+}
+
+.whiteRectangle {
+  position: absolute;
+  bottom: 0;
+}

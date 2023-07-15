@@ -1,0 +1,96 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.left,
+.right {
+  width: 50%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.right {
+  margin-top: size(150);
+
+  @include mobile {
+    margin-top: 0;
+  }
+}
+
+.content {
+  background-color: $black;
+
+  @include mobile {
+    padding-top: size(40);
+  }
+}
+
+.box {
+  padding: size(30);
+
+  &:not(:last-of-type) {
+    margin-bottom: size(20);
+  }
+
+  @include mobile {
+    padding: size(20) size(10);
+  }
+}
+
+.title {
+  width: size(358);
+  margin-bottom: size(80);
+
+  @include heading-02;
+
+  @include mobile {
+    max-width: size(291);
+    margin-bottom: size(40);
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: size(36);
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: size(20);
+  }
+}
+
+.item {
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button {
+  padding-top: size(104);
+  padding-bottom: size(24);
+  background-color: $black;
+
+  @include mobile {
+    padding-top: size(58);
+    padding-bottom: size(10);
+  }
+}

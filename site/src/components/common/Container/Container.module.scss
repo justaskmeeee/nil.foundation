@@ -1,0 +1,11 @@
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  padding: 0 size(40);
+
+  @include mobile {
+    padding: 0;
+    // padding: 0 size(10);
+  }
+}

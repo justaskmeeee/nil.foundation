@@ -1,0 +1,24 @@
+- name: clone application
+  ansible.builtin.git:
+    repo: https://github.com/nilFoundation/nil.foundation
+    version: new-site-scripts 
+    dest: /app/site/
+
+- name: install dependencies
+  ansible.builtin.npm:
+    path: /app/site/admin
+    state: present
+
+- name: Install systemd conf
+  template: >
+    src=systemd.conf.j2
+    dest=/etc/systemd/system/site-admin.service
+    owner=root
+    group=root
+    mode=0755
+
+- name: Make sure we reload services
+  command: systemctl daemon-reload
+
+- name: Ensure services are started and enabled on boot
+  service: name=site-admin state=started enabled=yes

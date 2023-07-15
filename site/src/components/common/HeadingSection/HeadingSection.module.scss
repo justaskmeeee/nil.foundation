@@ -1,0 +1,48 @@
+@use '~styles/typography' as *;
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-height: size(420);
+  padding: size(30);
+  background-color: $black;
+  word-break: break-word;
+
+  @include mobile {
+    min-height: auto;
+    padding: size(10) size(10);
+  }
+}
+
+.title {
+  @include heading-01;
+}
+
+.description {
+  width: 100%;
+  max-width: size(241);
+  margin-top: size(64);
+  word-break: break-word;
+
+  @include paragraph;
+
+  @include mobile {
+    max-width: 50%;
+    margin-top: size(40);
+  }
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: size(8);
+
+  @include mobile {
+    margin-top: size(60);
+  }
+}

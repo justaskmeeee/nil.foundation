@@ -1,0 +1,6 @@
+- hosts: all
+  user: "{{ site_user }}"
+  roles:
+    - nodejs
+    - site
+    - admin

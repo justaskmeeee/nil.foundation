@@ -1,0 +1,84 @@
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  height: size(30);
+  color: $grey;
+
+  @include mobile {
+    height: size(20);
+  }
+}
+
+.wrapper {
+  display: grid;
+  padding: size(6) size(12);
+  background-color: $white;
+  grid-template-columns: repeat(5, 1fr);
+
+  @include mobile {
+    padding: size(3) size(11);
+  }
+}
+
+.logo {
+  width: size(141.7);
+  color: $black;
+
+  @include mobile {
+    width: size(115);
+  }
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: size(29);
+  grid-column: span 2;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+
+  .square {
+    width: size(8);
+    height: size(8);
+    margin-right: size(22);
+    background-color: transparent;
+  }
+}
+
+.isActive {
+  color: $black;
+
+  .square {
+    background-color: $black;
+  }
+}
+
+.burgerBtn {
+  position: absolute;
+  top: size(3);
+  right: size(11);
+  width: size(14);
+  height: size(14);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.isBurgerOpen {
+  opacity: 1;
+}
+
+.hidden {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}

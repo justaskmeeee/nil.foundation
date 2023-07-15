@@ -1,0 +1,276 @@
+@use '~styles/colors' as *;
+@use '~styles/text' as *;
+@use '~styles/mixins' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+
+#freshteam-widget {
+  width: 100% !important;
+  min-height: 100vh;
+  background-color: $black !important;
+  color: $grey !important;
+
+  @include mobile {
+    display: flex;
+    justify-content: center;
+  }
+
+  @include fontType(H);
+
+  .advanced-search .select2-container--default,
+  #freshteam-widget .advanced-search .form-control {
+    @include mobile {
+      margin-bottom: size(21);
+    }
+  }
+
+  h5 {
+    color: $grey !important;
+  }
+
+  .search-fields .clear-button > button {
+    font-weight: 500 !important;
+  }
+
+  .select2-container--default {
+    &.select2-container--focus {
+      .select2-selection--multiple {
+        border-color: $white !important;
+      }
+    }
+
+    .select2-selection--multiple {
+      border-color: $grey !important;
+
+      .select2-selection__rendered {
+        li:nth-last-child(2) {
+          &.select2-selection__choice {
+            background-color: transparent !important;
+            color: $white;
+          }
+        }
+      }
+
+      .select2-selection__clear {
+        margin-top: size(1) !important;
+
+        @include mobile {
+          margin-top: 0 !important;
+        }
+      }
+    }
+  }
+
+  .search-fields .clear-button > button {
+    font-weight: 500 !important;
+  }
+
+  .select2-dropdown .select2-results__options li label {
+    margin-top: 0;
+  }
+
+  .select2-dropdown
+    .select2-results__options
+    li.select2-results__option--highlighted {
+    background-color: $grey !important;
+  }
+
+  .select2-dropdown
+    .select2-results__options
+    li.select2-results__option[aria-selected='true'] {
+    color: $white !important;
+    background-color: $grey !important;
+  }
+
+  .job-details-header {
+    background-color: $black !important;
+  }
+
+  .btn-primary {
+    border: size(1) solid $white !important;
+    background: $black !important;
+    transition: all 0.1s ease-in-out !important;
+
+    @include hover {
+      background: $white !important;
+      color: $black !important;
+    }
+  }
+}
+
+#freshteam-careers {
+  padding-bottom: size(20) !important;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: size(340);
+    padding-bottom: size(30) !important;
+  }
+
+  .advanced-search {
+    background-color: $black !important;
+
+    @include mobile {
+      max-width: size(340);
+      padding: 0 !important;
+    }
+
+    .input-field {
+      svg {
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+
+  .content {
+    width: 100% !important;
+
+    .title-and-clear {
+      margin-bottom: size(20) !important;
+    }
+
+    .page-title {
+      @include fontType(H);
+
+      @include heading-01;
+
+      height: size(180);
+      padding: size(30) !important;
+      margin-bottom: 0 !important;
+      font-weight: normal !important;
+      color: $white;
+
+      @include mobile {
+        height: size(60);
+        padding: 0 !important;
+        margin-bottom: size(40) !important;
+      }
+    }
+  }
+}
+
+.role-count {
+  background-color: $fullBlack !important;
+  color: $white;
+}
+
+.select2-container {
+  @include mobile {
+    max-width: size(340);
+  }
+}
+
+.select2-results {
+  &__options {
+    background-color: $black !important;
+  }
+}
+
+.select2-dropdown {
+  overflow-y: auto;
+}
+
+.select2-dropdown--below {
+  border: size(1) solid $grey !important;
+}
+
+.select2-search__field {
+  @include mobile {
+    padding-left: size(24) !important;
+  }
+}
+
+.select2-selection--multiple {
+  color: $grey !important;
+  background-color: $black !important;
+}
+
+.icon-tick {
+  fill: $white !important;
+}
+
+.remote-toggle-mobile {
+  span {
+    color: $grey !important;
+  }
+
+  @include mobile {
+    margin-bottom: size(20) !important;
+  }
+}
+
+.clear-button-mobile {
+  display: none !important;
+}
+
+.mobile-role-count {
+  color: $grey !important;
+  opacity: 0.1;
+}
+
+.role-title {
+  @include mobile {
+    margin-bottom: size(10) !important;
+  }
+
+  h5 {
+    @include mobile {
+      padding-left: size(10) !important;
+      text-align: left !important;
+    }
+  }
+}
+
+.setlect2-container--open {
+  background: 4px solid green !important;
+}
+
+.select2-results__option--highlighted {
+  color: $white !important;
+}
+
+.form-control {
+  border-color: $grey !important;
+  color: $white !important;
+  background-color: $black !important;
+
+  &:focus {
+    border-color: $white !important;
+  }
+}
+
+.remote-toggle {
+  span {
+    color: $white !important;
+  }
+}
+
+.clear-button {
+  button {
+    color: $white !important;
+  }
+}
+
+.job-list {
+  li {
+    @include fontType(H);
+
+    background: $black !important;
+    box-shadow: 0 0 2px 0 rgba(255, 255, 255, 1) !important;
+  }
+}
+
+.job-title {
+  color: $white !important;
+}
+
+.job-desc {
+  color: $grey !important;
+}
+
+.icon-arrow-right {
+  fill: $grey !important;
+}
