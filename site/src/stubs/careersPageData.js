@@ -10,26 +10,27 @@ export const careersPageData = {
       'Join us to contribute to our cutting-edge toolchain, enabling secure and cost-effective implementation of trustless data management.',
     cards: [
       {
-        linkTo: '',
+        // TODO: add blog link
+        linkTo: '/blog/post/database-management-system',
         title: '`DROP DATABASE *',
         description: 'Trustless cloud computing and data management',
         text: 'Layer protocol allowing decentralized operation of Proof Market or any other application',
       },
       {
-        linkTo: '/',
+        linkTo: 'https://github.com/NilFoundation/proof-market-toolchain',
         title: 'Proof Market',
         description: 'Decentralized marketplace for zero-knowledge proofs',
         text: 'Outsourcing zkProof generation to optimize time & cost of zk implementation',
       },
       {
-        linkTo: '/zkLLVM',
+        linkTo: 'https://github.com/NilFoundation/zkllvm',
         title: 'zkLLVM',
         description:
           'Circuit compiler from C++, Rust, or other mainstream languages',
         text: 'Automatic generation of high-performance circuits for multiple protocols',
       },
       {
-        linkTo: '/',
+        linkTo: 'https://github.com/NilFoundation/crypto3',
         title: 'Placeholder & Crypto3 suite',
         description:
           'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping',

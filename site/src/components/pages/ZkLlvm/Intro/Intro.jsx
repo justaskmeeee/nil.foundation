@@ -1,6 +1,7 @@
 import React from 'react';
 import IntroAnimation, { IntroDescription } from 'components/IntroAnimation';
 import { useViewport } from 'hooks/useViewport';
+import WhiteRectangle from 'components/WhiteRectangle';
 import s from './Intro.module.scss';
 import { animatedItemList, animatedItemMobileList } from './data';
 
@@ -40,6 +41,7 @@ const Intro = () => {
           items={animatedItemList}
         />
       )}
+      <WhiteRectangle className={s.underPatternLine} />
     </section>
   );
 };

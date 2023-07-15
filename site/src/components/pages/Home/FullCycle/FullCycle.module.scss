@@ -23,7 +23,22 @@
 }
 
 .right {
+  position: relative;
   margin-top: size(180);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
 
   @include mobile {
     margin-top: 0;

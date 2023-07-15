@@ -102,6 +102,10 @@ const IntroAnimation = ({
           items={items}
           isVisible={isVisible}
           timeline={isMobile ? timelineInstance : undefined}
+          scrollTriggerProps={{
+            start: 'top top',
+            end: `bottom bottom`,
+          }}
         />
       </div>
       {typeof children === 'function'

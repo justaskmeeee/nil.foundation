@@ -28,6 +28,26 @@ export const rebuildBlog = data => {
   });
 };
 
+export const rebuildBlogAndMeta = data => {
+  const blogs = data.data.map(item => {
+    const { id, attributes: at } = item;
+
+    return {
+      id,
+      title: at.title || '',
+      description: at.subtitle || '',
+      author: at.author || '',
+      slug: at.slug || null,
+      date: dayjs(at.date).format('DD MMM YYYY'),
+      tags: getAttributes(at.tags),
+      category: getAttribute(at.category?.data) || null,
+      isFeature: at.isFeature || false,
+    };
+  });
+
+  return { blogs, meta: data.meta.pagination };
+};
+
 export const rebuildResearch = data => {
   return data.map(item => {
     const { id, attributes: at } = item;
@@ -56,5 +76,6 @@ export const rebuildSinglePost = data => {
     tags: getAttributes(at.tags),
     category: getAttribute(at.category?.data) || null,
     content: getHtml(at.content) || null,
+    recommendedPosts: rebuildBlog(at.recommendedBlogs.data) || null,
   };
 };

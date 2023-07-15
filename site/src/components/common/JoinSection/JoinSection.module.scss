@@ -49,9 +49,24 @@
 }
 
 .contentWrapper {
+  position: relative;
   width: size(272);
   background-color: $black;
   margin-bottom: -1px;
+
+    &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
 
   @include mobile {
     width: calc(50% + 2px);

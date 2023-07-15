@@ -4,6 +4,7 @@
 @use '~styles/mixins' as *;
 
 .root {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -13,7 +14,36 @@
   background-color: $black;
   word-break: break-word;
 
+    &:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: -1px;
+    width: 4px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+    &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
   @include mobile {
+    position: static;
     min-height: auto;
     padding: size(10) size(10);
   }

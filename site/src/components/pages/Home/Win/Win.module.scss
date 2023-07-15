@@ -30,7 +30,22 @@
 }
 
 .content {
+  position: relative;
   background-color: $black;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
 
   @include mobile {
     padding-top: size(40);

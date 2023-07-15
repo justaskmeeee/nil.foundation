@@ -82,7 +82,7 @@ export const aboutPageData = {
       {
         title: '`DROP DATABASE *',
         description: 'Trustless cloud computing and data management',
-        link: '',
+        link: '/blog/post/database-management-system',
         list: [
           {
             title:
@@ -93,7 +93,7 @@ export const aboutPageData = {
       {
         title: 'Proof Market',
         description: 'Decentralized marketplace for zero-knowledge proofs',
-        link: '/',
+        link: 'https://github.com/NilFoundation/proof-market-toolchain',
         list: [
           {
             title:
@@ -105,7 +105,7 @@ export const aboutPageData = {
         title: 'zkLLVM',
         description:
           'Circuit compiler from C++, Rust, or other mainstream languages',
-        link: '/zkLLVM',
+        link: 'https://github.com/NilFoundation/zkllvm',
         list: [
           {
             title:
@@ -117,7 +117,7 @@ export const aboutPageData = {
         title: 'Placeholder & Crypto3 suite',
         description:
           'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping',
-        link: '/',
+        link: 'https://github.com/NilFoundation/crypto3',
         list: [
           {
             title:
@@ -218,7 +218,7 @@ export const aboutPageData = {
       'Learn more about our team and discover current open positions.',
     button: {
       text: 'Go to Careers page',
-      link: '/',
+      link: '/careers',
     },
   },
 

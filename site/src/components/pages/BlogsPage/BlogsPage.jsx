@@ -1,98 +1,168 @@
-/* eslint-disable no-nested-ternary */
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { arrayOf, bool, number, shape, string } from 'prop-types';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import cx from 'classnames';
+import axios from 'axios';
 
 import { useViewport } from 'hooks/useViewport';
+import { useRouter } from 'next/router';
+import { useScroll } from 'hooks/useScroll';
 
 import Container from 'components/Container';
 import PostCard from 'components/PostCard';
 import TagButton from 'components/TagButton';
 import Button from 'components/Button';
-
-import FooterAnimationSection from 'components/FooterAnimationSection';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useScroll } from 'hooks/useScroll';
 import BlogNavigation from 'pages/BlogsPage/BlogNavigation';
+import FooterAnimationSection from 'components/FooterAnimationSection';
+import ArticlesNotFound from './ArticlesNotFound';
+
 import s from './BlogsPage.module.scss';
 
 const BlogsPage = ({ data }) => {
   const { isMobile } = useViewport();
   const { scrollToTop } = useScroll();
-
-  const sortPostsByType = useCallback(posts => {
-    posts.sort((prev, current) =>
-      new Date(current.date) < new Date(prev.date)
-        ? -1
-        : new Date(current.date) > new Date(prev.date)
-        ? 1
-        : 0
-    );
-    return posts.sort((prev, current) =>
-      prev.isFeature ? -1 : current.isFeature ? 1 : 0
-    );
-  }, []);
+  const router = useRouter();
 
   const [activeCategory, setActiveCategory] = useState('All');
-  const [activeTags, setActiveTag] = useState([]);
-  const [currentPosts, setCurrentPosts] = useState(sortPostsByType(data.posts));
+  const [activeTag, setActiveTag] = useState('');
+
+  const [currentBlogs, setCurrentBlogs] = useState(data.posts);
+  const [currentMeta, setCurrentMeta] = useState(data.meta);
+
+  const currentMetaPage = useMemo(() => {
+    return currentMeta.page;
+  }, [currentMeta]);
+
+  const hasMoreBlogs = useMemo(() => {
+    return currentMetaPage < currentMeta.pageCount;
+  }, [currentMeta.pageCount, currentMetaPage]);
+
+  const getFilters = useCallback(
+    value => {
+      const isCategory = data.categories.some(item => item.name === value);
+
+      const filterBy = {
+        [isCategory ? 'category' : 'tags']: {
+          name: {
+            $eq: value,
+          },
+        },
+      };
+
+      if (value === '' || value === 'All') {
+        return {};
+      }
+
+      return filterBy;
+    },
+    [data.categories]
+  );
+
+  const handleLoadMore = async () => {
+    if (!hasMoreBlogs) return;
+
+    const filters = getFilters(
+      router.query.category || router.query.slug || ''
+    );
+
+    const newBlogs = await axios.post(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
+      {
+        page: currentMetaPage + 1,
+        filters,
+      }
+    );
+
+    setCurrentBlogs([...currentBlogs, ...newBlogs.data.blogs]);
+    setCurrentMeta(newBlogs.data.meta);
+  };
+
+  const fethCurrentBlogs = useCallback(
+    async value => {
+      if (currentMetaPage === 1) {
+        const filters = getFilters(value);
+
+        const newBlogs = await axios.post(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
+          {
+            page: 1,
+            filters,
+          }
+        );
+
+        setCurrentBlogs(newBlogs.data.blogs);
+        setCurrentMeta(newBlogs.data.meta);
+      }
+    },
+    [currentMetaPage, getFilters]
+  );
 
   useEffect(() => {
-    if (isMobile) {
-      return;
-    }
     setTimeout(() => {
       ScrollTrigger.refresh();
     }, 100);
-  }, [activeCategory, activeTags, isMobile]);
+  }, [currentBlogs]);
+
+  const setCurrentCategory = useCallback(
+    category => {
+      setActiveCategory(category);
+      fethCurrentBlogs(category);
+    },
+    [fethCurrentBlogs]
+  );
+
+  const setCurrentTag = useCallback(
+    tag => {
+      setActiveTag(tag);
+      fethCurrentBlogs(tag);
+    },
+    [fethCurrentBlogs]
+  );
+
+  const onCategoryClick = useCallback(
+    category => {
+      setActiveTag('');
+      scrollToTop();
+      setCurrentMeta({ page: 1 });
+      router.push({ pathname: '/blog', query: { category } }, '/blog');
+    },
+    [router, scrollToTop]
+  );
 
   const onTagClick = useCallback(
     tag => {
       setActiveCategory('All');
       scrollToTop();
+      setCurrentMeta({ page: 1 });
+      router.push(`/blog/tag/${tag}`);
 
-      let tags = [];
-      if (activeTags.includes(tag)) {
-        tags = activeTags.filter(active => active !== tag);
-      } else {
-        tags = [...activeTags, tag];
+      if (tag === activeTag) {
+        onCategoryClick('All');
       }
-      setActiveTag(tags);
-
-      let filteredByTags = [...data.posts];
-      if (tags.length > 0) {
-        filteredByTags = filteredByTags.filter(post =>
-          post.tags.some(item => tags.includes(item.name))
-        );
-      }
-      setCurrentPosts(sortPostsByType(filteredByTags));
     },
-    [activeTags, data.posts, sortPostsByType]
+    [activeTag, onCategoryClick, router, scrollToTop]
   );
 
-  const onCategoryClick = useCallback(
-    category => {
-      setActiveTag([]);
-      scrollToTop();
-      setActiveCategory(category);
-
-      let filteredByCategory = [...data.posts];
-      if (category !== 'All') {
-        filteredByCategory = filteredByCategory.filter(
-          post => category === post.category?.name
-        );
-      }
-      setCurrentPosts(sortPostsByType(filteredByCategory));
-    },
-    [data.posts, sortPostsByType]
-  );
+  useEffect(() => {
+    if (router.query.slug) {
+      setCurrentTag(router.query.slug);
+    }
+    if (router.query.category) {
+      setCurrentCategory(router.query.category);
+    }
+  }, [
+    router.query.slug,
+    router.query.category,
+    setCurrentCategory,
+    setCurrentTag,
+  ]);
 
   return (
     <Container className={s.container}>
       <BlogNavigation
         onTagClick={onTagClick}
         onCategoryClick={onCategoryClick}
-        activeTags={activeTags}
+        activeTags={[activeTag]}
         activeCategory={activeCategory}
         {...data}
       />
@@ -136,7 +206,7 @@ const BlogsPage = ({ data }) => {
                     {data.tags.map(tag => (
                       <TagButton
                         className={cx({
-                          [s.activeTag]: activeTags.includes(tag.name),
+                          [s.activeTag]: activeTag === tag.name,
                         })}
                         key={tag.id}
                         tag={tag.name}
@@ -149,20 +219,24 @@ const BlogsPage = ({ data }) => {
             )}
           </div>
           <div className={cx(s.content, s.centeredItems)}>
-            {currentPosts.map(post => (
-              <PostCard
-                key={post.id}
-                className={s.blogPost}
-                linkTo={`/blog/${post.slug}`}
-                content={post}
-              />
-            ))}
+            {currentBlogs && currentBlogs.length > 0 ? (
+              currentBlogs.map(post => (
+                <PostCard
+                  key={post.id}
+                  className={s.blogPost}
+                  linkTo={`/blog/post/${post.slug}`}
+                  content={post}
+                />
+              ))
+            ) : (
+              <ArticlesNotFound title="Articles not found" />
+            )}
           </div>
         </div>
       </div>
       <FooterAnimationSection
-        linkText="Load more"
-        onLinkClick={() => {}}
+        linkText={hasMoreBlogs ? 'Load more' : ''}
+        onLinkClick={handleLoadMore}
         className={s.footerSection}
       />
     </Container>

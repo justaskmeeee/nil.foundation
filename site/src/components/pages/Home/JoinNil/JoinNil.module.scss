@@ -38,9 +38,24 @@
 }
 
 .box {
+  position: relative;
   width: 50%;
   margin-top: size(180);
   background-color: $black;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
 
   &:last-of-type {
     margin-top: size(270);
@@ -59,12 +74,16 @@
 
 .text {
   padding: size(30) size(30) size(138);
+  height: size(240);
 
   @include paragraph;
 
   @include mobile {
+    margin-bottom: unset;
     max-height: size(180);
     padding: size(0) size(10) size(10);
+    margin-bottom: 0px;
+    height: initial;
   }
 }
 

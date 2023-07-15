@@ -1,8 +1,8 @@
 export const seo = {
-  title: 'nil Foundation',
+  title: '=nil; Foundation',
   //   TODO: add current description
-  description: 'q',
-  url: 'https://nilfoundation.snp.agency',
+  description: '',
+  url: 'https://nil.foundation',
   image: '/og.jpg',
   theme: '#212121',
 };

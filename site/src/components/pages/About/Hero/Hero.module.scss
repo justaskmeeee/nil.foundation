@@ -33,6 +33,36 @@
 }
 
 .info {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: 0px;
+    height: 2px;
+    width: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
   p {
     padding: size(30);
     background-color: $black;
@@ -60,10 +90,25 @@
 }
 
 .rectWrapper {
+  position: relative;
   display: flex;
   align-items: flex-start;
   height: 100%;
   background-color: $black;
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: -1px;
+    height: 2px;
+    width: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
 }
 
 .rect {
@@ -75,10 +120,25 @@
 }
 
 .content {
+  position: relative;
   display: grid;
   background-color: $black;
   grid-column: span 2;
   gap: size(60);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
 
   @include mobile {
     gap: size(20);
@@ -139,14 +199,6 @@
 .socials {
   display: flex;
   gap: size(10);
-}
-
-.socialButton {
-  @include mobile {
-    width: size(40);
-    height: size(40);
-    padding: size(9);
-  }
 }
 
 .inTouch {

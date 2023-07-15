@@ -29,7 +29,7 @@ export const homePageData = {
     ],
     footer: {
       text: 'See Proof Market docs',
-      link: '/',
+      link: 'https://docs.nil.foundation/proof-market',
     },
   },
   zkProof: {
@@ -72,7 +72,7 @@ export const homePageData = {
     ],
     footer: {
       text: 'Discover zkLLVM',
-      link: '/',
+      link: '/zkLLVM',
     },
   },
   joinNil: {
@@ -95,7 +95,7 @@ export const homePageData = {
       '=nil; Foundation is a pioneer in zero-knowledge technology dedicated to making zkProofs more accessible for developers.',
     button: {
       text: 'Learn more',
-      link: '/',
+      link: '/about',
     },
   },
 };

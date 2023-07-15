@@ -1,5 +1,6 @@
-@import '../../../styles/helpers';
-@import '../../../styles/mixins';
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+@use '~styles/colors' as *;
 
 .container {
   padding: 0;

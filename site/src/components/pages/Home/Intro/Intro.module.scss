@@ -6,10 +6,15 @@
 .container {
   position: relative;
   background-color: $black;
+  height: 130vh;
+  margin-bottom: -10vh;
 
   @include mobile {
     height: calc(100vh - #{size(30)});
     padding-top: 0;
+    padding-bottom: size(20);
+    box-sizing: content-box;
+    margin-bottom: 0;
   }
 }
 
@@ -63,6 +68,22 @@
   }
 }
 
+.descriptionItem {
+  margin-top: size(16);
+}
+
 .link {
   margin-bottom: size(10);
+}
+
+.underPatternLine {
+  display: none;
+
+  @include mobile {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: block;
+  }
 }

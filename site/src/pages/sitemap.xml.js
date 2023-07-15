@@ -2,7 +2,11 @@ import fs from 'fs';
 import flatten from 'lodash.flatten';
 import { getAllPath } from 'src/strapi';
 
-const pagesArr = [{ type: 'blogs', url: '/blog' }];
+const pagesArr = [
+  { type: 'blogs', url: '/blog/post' },
+  { type: 'tags', url: '/blog/tag' },
+];
+const otherPaths = [{ url: 'careers/jobs' }];
 
 const Sitemap = () => {};
 
@@ -68,12 +72,18 @@ export const getServerSideProps = async ({ res }) => {
           })
           .join('')}
 
+          ${otherPaths
+            .map(
+              el => `
           <url>
-            <loc>${process.env.NEXT_PUBLIC_BASE_URL}/careers/jobs</loc>
+            <loc>${process.env.NEXT_PUBLIC_BASE_URL}/${el.url}</loc>
             <lastmod>${new Date().toISOString()}</lastmod>
             <changefreq>monthly</changefreq>
             <priority>1.0</priority>
           </url>
+          `
+            )
+            .join('')}
     </urlset>
   `;
 

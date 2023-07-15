@@ -24,10 +24,6 @@ const Careers = ({ data }) => {
           <Intro data={data.intro} />
           <JoinUs data={data.joinUs} />
           <Jobs data={data.jobs} />
-          <Jobs
-            data={data.test}
-            isSkillsSection
-          />
           <JoinSection {...getJoinSectionProps(data)} />
         </div>
       </div>

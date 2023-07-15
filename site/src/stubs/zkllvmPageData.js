@@ -51,7 +51,7 @@ export const zkllvmPageData = {
     ],
     footer: {
       text: 'See documentation',
-      link: '/',
+      link: 'https://docs.nil.foundation/zkllvm',
     },
   },
   zkProof: {
@@ -117,7 +117,7 @@ export const zkllvmPageData = {
       '=nil; Foundation is a pioneer in zero-knowledge technology dedicated to making zkProofs more accessible for developers.',
     button: {
       text: 'Learn more',
-      link: '/',
+      link: '/about',
     },
   },
 };

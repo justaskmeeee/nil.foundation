@@ -46,38 +46,35 @@ const Header = ({ className }) => {
             className={s.logo}
           />
         </Button>
-
-        {!isMobile &&
-          links.main.map(el => (
+        {links.main.map(el => (
+          <Button
+            key={el.name}
+            className={cx(s.btn, {
+              [s.isActive]: router.asPath === el.link,
+            })}
+            href={el.link}
+          >
+            <div className={s.square} />
+            {el.name}
+          </Button>
+        ))}
+        <div className={s.box}>
+          {links.other.map(el => (
             <Button
               key={el.name}
-              className={cx(s.btn, {
-                [s.isActive]: router.asPath === el.link,
-              })}
               href={el.link}
+              className={cx({ [s.isActive]: router.asPath === el.link })}
             >
-              <div className={s.square} />
               {el.name}
             </Button>
           ))}
-
-        {!isMobile && (
-          <div className={s.box}>
-            {links.other.map(el => (
-              <Button
-                key={el.name}
-                href={el.link}
-                className={cx({ [s.isActive]: router.asPath === el.link })}
-              >
-                {el.name}
-              </Button>
-            ))}
-          </div>
-        )}
-
+        </div>
         {isMobile && (
           <>
-            <div onClick={handleClickBurger}>
+            <div
+              className={s.buttonsWrapper}
+              onClick={handleClickBurger}
+            >
               <Icon
                 className={cx(s.burgerBtn, {
                   [s.isBurgerOpen]: isBurgerOpen,

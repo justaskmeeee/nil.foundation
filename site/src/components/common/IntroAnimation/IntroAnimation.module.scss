@@ -21,6 +21,35 @@
   position: relative;
   grid-area: 2 / 2;
 
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
   @include mobile {
     grid-area: unset;
     overflow: hidden;

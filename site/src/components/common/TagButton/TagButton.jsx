@@ -15,7 +15,12 @@ const TagButton = ({ tag, className, onClick }) => {
       {tag}
     </Button>
   ) : (
-    <div className={cx(s.root, className)}>{tag}</div>
+    <Button
+      className={cx(s.root, className)}
+      href={`/blog/tag/${tag}`}
+    >
+      {tag}
+    </Button>
   );
 };
 

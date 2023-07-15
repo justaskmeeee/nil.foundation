@@ -6,8 +6,10 @@
 .root {
   display: flex;
   align-items: flex-start;
+  margin-bottom: size(-1);
 
   @include mobile {
+    margin-bottom: unset;
     flex-direction: column;
   }
 }
@@ -22,7 +24,23 @@
 }
 
 .right {
+  position: relative;
   margin-top: size(180);
+  height: 100%;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
 
   @include mobile {
     margin-top: 0;
@@ -36,6 +54,7 @@
   @include heading-02;
 
   @include mobile {
+    margin-bottom: 0;
     padding: size(60) size(10) size(20);
   }
 }

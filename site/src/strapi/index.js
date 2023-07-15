@@ -17,6 +17,20 @@ export const getCollection = async (type, params = {}) => {
   return serializeList(collection.data.data, type);
 };
 
+export const getCollectionAndMeta = async (type, params = {}) => {
+  const collection = await Req.GET({
+    url: `/${type}/`,
+    params: {
+      populate: '*',
+      ...params,
+    },
+    paramsSerializer: qs.stringify,
+    withToken: true,
+  });
+
+  return serializeList(collection.data, `${type}+meta`);
+};
+
 export const getSingle = async (type, params = {}) => {
   const document = await Req.GET({
     url: `/${type}/`,

@@ -1,6 +1,8 @@
 import React from 'react';
-import IntroAnimation, { IntroDescription } from 'components/IntroAnimation';
+import IntroAnimation from 'components/IntroAnimation';
 import { useViewport } from 'hooks/useViewport';
+import WhiteRectangle from 'components/WhiteRectangle/WhiteRectangle';
+import IntroDescriptionWidget from 'pages/Home/Intro/IntroDescriptionWidget';
 import s from './Intro.module.scss';
 import { animatedItemList, animatedItemMobileList } from './data';
 
@@ -27,13 +29,7 @@ const Intro = () => {
           className={s.animationWidgetMobile}
           items={animatedItemMobileList}
         >
-          {isVisible => (
-            <IntroDescription
-              className={s.descriptionMobile}
-              text="Get Ethereum-verifiable proofs tailored to your application requirements. Benefit from decentralized network of proof producers with the first marketplace for zkProof generation."
-              isVisible={isVisible}
-            />
-          )}
+          {isVisible => <IntroDescriptionWidget isVisible={isVisible} />}
         </IntroAnimationWidget>
       ) : (
         <IntroAnimationWidget
@@ -42,6 +38,7 @@ const Intro = () => {
           items={animatedItemList}
         />
       )}
+      <WhiteRectangle className={s.underPatternLine} />
     </section>
   );
 };

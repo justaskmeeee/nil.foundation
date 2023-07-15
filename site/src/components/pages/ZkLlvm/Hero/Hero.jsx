@@ -41,6 +41,7 @@ const Hero = ({ className, data: { title, description, info, list } }) => {
         <div className={s.box}>
           {!isMobile && <WhiteRectangle className={s.line} />}
           <div className={s.info}>
+            <p className={s.descriptionMobile}>{description}</p>
             <p>{info}</p>
             {!isMobile && <WhiteRectangle />}
           </div>

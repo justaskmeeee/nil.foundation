@@ -11,7 +11,7 @@
   color: $grey;
 
   @include mobile {
-    height: size(20);
+    width: 100vw;
   }
 }
 
@@ -22,7 +22,7 @@
   grid-template-columns: repeat(5, 1fr);
 
   @include mobile {
-    padding: size(3) size(11);
+    padding: size(5) size(10);
   }
 }
 
@@ -31,7 +31,7 @@
   color: $black;
 
   @include mobile {
-    width: size(115);
+    width: size(150);
   }
 }
 
@@ -41,11 +41,19 @@
   align-items: center;
   margin-right: size(29);
   grid-column: span 2;
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .btn {
   display: flex;
   align-items: center;
+
+  @include mobile {
+    display: none;
+  }
 
   .square {
     width: size(8);
@@ -63,12 +71,18 @@
   }
 }
 
+.buttonsWrapper {
+  position: relative;
+  grid-column: 5;
+}
+
 .burgerBtn {
   position: absolute;
-  top: size(3);
-  right: size(11);
-  width: size(14);
-  height: size(14);
+  top: 0;
+  right: 0;
+  width: size(18);
+  height: size(18);
+  overflow: auto;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -81,4 +95,6 @@
 .hidden {
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
+  touch-action: none;
+  -ms-touch-action: none;
 }

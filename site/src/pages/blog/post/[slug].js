@@ -8,7 +8,7 @@ import { REVALIDATE } from 'constants/common';
 import { postPage } from 'stubs/postPageData';
 
 const Post = ({ data, recommendedPosts, content }) => (
-  <MetaLayout seo={{ title: data.title, description: data.description }}>
+  <MetaLayout seo={{ title: data.title, description: data.title }}>
     <PostPage
       post={data}
       recommendedPosts={recommendedPosts}
@@ -19,12 +19,31 @@ const Post = ({ data, recommendedPosts, content }) => (
 
 export async function getStaticProps({ params: { slug } }) {
   const [posts, articles] = await Promise.all([
-    getCollection('blogs'),
+    getCollection('blogs', {
+      filters: {
+        $or: [
+          {
+            slug: {
+              $notIn: slug,
+            },
+            $and: [{ isFeature: { $ne: true } }],
+          },
+        ],
+      },
+      pagination: {
+        start: 0,
+        limit: 3,
+      },
+      sort: ['date:desc'],
+    }),
     getSingleBySlug('blogs', slug, {
       tags: {
         populate: '*',
       },
       category: {
+        populate: '*',
+      },
+      recommendedBlogs: {
         populate: '*',
       },
     }),
@@ -40,7 +59,10 @@ export async function getStaticProps({ params: { slug } }) {
     revalidate: REVALIDATE,
     props: {
       data: articles,
-      recommendedPosts: posts,
+      recommendedPosts:
+        articles.recommendedPosts.length > 0
+          ? articles.recommendedPosts
+          : posts,
       content: postPage,
     },
   };

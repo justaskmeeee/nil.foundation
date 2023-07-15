@@ -40,6 +40,7 @@ const MyApp = ({ Component, pageProps }) => {
         <meta
           name="description"
           content={seo.description}
+          key="description"
         />
         {/* TODO: add current keywords */}
         <meta
@@ -53,6 +54,7 @@ const MyApp = ({ Component, pageProps }) => {
         <meta
           property="og:title"
           content={seo.title}
+          key="og:title"
         />
         <meta
           property="og:type"
@@ -61,14 +63,17 @@ const MyApp = ({ Component, pageProps }) => {
         <meta
           property="og:description"
           content={seo.description}
+          key="og:description"
         />
         <meta
           property="og:url"
           content={`${seo.url}${router.asPath}`}
+          key="og:url"
         />
         <meta
           property="og:image"
           content={`${seo.url}${seo.image}`}
+          key="og:image"
         />
         {/* TODO: add current creator */}
         <meta
@@ -86,22 +91,27 @@ const MyApp = ({ Component, pageProps }) => {
         <meta
           property="twitter:url"
           content={`${seo.url}${router.asPath}`}
+          key="twitter:url"
         />
         <meta
           name="twitter:title"
           content={seo.title}
+          key="twitter:title"
         />
         <meta
           name="twitter:description"
           content={seo.description}
+          key="twitter:description"
         />
         <meta
           name="twitter:image"
           content={`${seo.url}${seo.image}`}
+          key="twitter:image"
         />
         <link
           rel="canonical"
           href={`${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`}
+          key="canonical"
         />
         <link
           rel="icon"

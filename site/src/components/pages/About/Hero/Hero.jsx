@@ -65,7 +65,6 @@ const Hero = ({
             <div className={s.socials}>
               {footer.socials.map(el => (
                 <SocialButton
-                  className={s.socialButton}
                   key={el.icon}
                   icon={el.icon}
                   href={el.link}

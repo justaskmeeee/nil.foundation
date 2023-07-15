@@ -36,13 +36,18 @@ const PostPage = ({ post, recommendedPosts, content }) => {
   const { isMobile } = useViewport();
 
   const stubSocialLinks = [
-    // TODO: add current link for shared in linkedin
-    { icon: 'linkedin', link: '/' },
+    {
+      icon: 'linkedin',
+      link: `https://www.linkedin.com/shareArticle?mini=true&url=${process.env.NEXT_PUBLIC_BASE_URL}${routes.asPath}&title=${post.title}`,
+    },
     {
       icon: 'telegram',
-      link: `https://t.me/share/url?url=http://localhost:3000${routes.asPath}`,
+      link: `https://t.me/share/url?url=${process.env.NEXT_PUBLIC_BASE_URL}${routes.asPath}`,
     },
-    { icon: 'twitter', link: 'https://twitter.com/intent/tweet' },
+    {
+      icon: 'twitter',
+      link: `https://twitter.com/intent/tweet?text=${post.title} ${process.env.NEXT_PUBLIC_BASE_URL}${routes.asPath}`,
+    },
   ];
 
   return (
@@ -146,7 +151,7 @@ const PostPage = ({ post, recommendedPosts, content }) => {
               </h1>
               {recommendedPosts.map(item => (
                 <PostCard
-                  linkTo={`/blog/${item.slug}`}
+                  linkTo={`/blog/post/${item.slug}`}
                   key={item.id}
                   className={s.blog}
                   isBlogPost

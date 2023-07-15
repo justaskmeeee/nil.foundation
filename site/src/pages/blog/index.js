@@ -1,5 +1,5 @@
 import { REVALIDATE } from 'constants/common';
-import { getCollection } from 'src/strapi';
+import { getCollection, getCollectionAndMeta } from 'src/strapi';
 
 import BlogPage from 'pages/BlogsPage';
 import MetaLayout from 'components/MetaLayout';
@@ -14,7 +14,13 @@ const Blogs = ({ cms, seo }) => (
 
 export async function getStaticProps() {
   const [posts, tags, categories] = await Promise.all([
-    getCollection('blogs'),
+    getCollectionAndMeta('blogs', {
+      sort: ['date:desc', 'isFeature:desc'],
+      pagination: {
+        page: 1,
+        pageSize: 10,
+      },
+    }),
     getCollection('tags'),
     getCollection('categories'),
   ]);
@@ -23,9 +29,10 @@ export async function getStaticProps() {
     revalidate: REVALIDATE,
     props: {
       cms: {
-        posts,
+        posts: posts.blogs,
         tags,
         categories,
+        meta: posts.meta,
       },
       seo: seoData,
     },

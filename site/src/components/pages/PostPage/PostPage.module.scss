@@ -31,12 +31,15 @@
 }
 
 .mobileHead {
+  position: relative;
+  z-index: 3;
   margin-top: size(20);
 
   @include mobile {
     flex-direction: column;
     align-items: flex-start;
     padding: 0 size(10);
+    z-index: 0;
   }
 }
 
@@ -138,11 +141,14 @@
 }
 
 .otherBlogsTitle {
-  padding: size(30) 0;
+  padding: size(30);
+
+  @include mobile {
+    padding: size(30) 0;
+  }
 }
 
 .moreBlogsWrapper {
-  padding: 0 size(30);
   background-color: $black;
 
   @include mobile {
@@ -227,18 +233,38 @@
   }
 
   h2 {
-    @include heading-02;
-
     margin-bottom: size(30);
+
+    @include heading-02;
+  }
+
+  h3 {
+    margin-bottom: size(30);
+
+    @include heading-03;
+  }
+
+  pre {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: size(10);
+    margin: 0 0 size(30) 0;
+    border: size(1) solid $grey;
+    border-radius: size(2);
+    background-color: $fullBlack;
+    color: $white;
+    word-wrap: normal;
+
+    @include paragraph;
   }
 
   a {
-    @include p-article;
-
-    width: max-content;
     position: relative;
+    width: max-content;
     cursor: pointer;
     margin-bottom: size(16);
+
+    @include p-article;
 
     &::after {
       content: url('/icons/arrow.svg');
@@ -254,10 +280,10 @@
   }
 
   p {
-    @include p-article;
-
     margin-bottom: size(30);
     color: $grey;
+
+    @include p-article;
 
     a {
       color: $white;
@@ -267,14 +293,18 @@
       &::after {
         content: '';
       }
+
+      @include mobile {
+        white-space: break-spaces;
+      }
     }
   }
 
   li {
-    @include p-article;
-
     margin: 0 0 size(30) size(20);
     color: $grey;
+
+    @include p-article;
 
     a {
       color: $white;
@@ -305,10 +335,31 @@
   }
 
   h5 {
-    @include sm-paragraph;
-
     color: $grey;
     margin-bottom: size(30);
+
+    @include sm-paragraph;
+  }
+
+  blockquote {
+    border-left: size(4) solid $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: size(10) 0 size(10) size(20);
+    margin-bottom: size(30);
+
+    p {
+      margin-bottom: 0;
+
+      &:not(:last-child) {
+        margin-bottom: size(30);
+      }
+
+      @include mobile {
+        word-wrap: break-word;
+      }
+    }
   }
 }
 
