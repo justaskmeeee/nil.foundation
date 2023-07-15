@@ -36,6 +36,23 @@
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "inversedBy": "blogs"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category",
+      "inversedBy": "blog"
+    },
+    "isFeature": {
+      "type": "boolean"
+    },
+    "recommendedBlogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
     }
   }
 }
