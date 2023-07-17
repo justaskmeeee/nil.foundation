@@ -41,6 +41,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0 size(30);
+  grid-gap: 10px;
 
   @include mobile {
     padding: 0 size(10);

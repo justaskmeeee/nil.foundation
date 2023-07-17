@@ -132,29 +132,35 @@ export const aboutPageData = {
     title: 'Partners',
     content: [
       {
-        title: 'Investment partners',
+        title: 'Partners',
         logos: [
           {
-            url: '/images/partners/1.svg',
+            url: '/images/partners/starkware.png',
           },
           {
-            url: '/images/partners/2.svg',
+            url: '/images/partners/mina.png',
           },
           {
-            url: '/images/partners/3.svg',
+            url: '/images/partners/polychain.png',
           },
           {
-            url: '/images/partners/4.svg',
+            url: '/images/partners/bcap.png',
           },
           {
-            url: '/images/partners/5.svg',
+            url: '/images/partners/hasu.jpg',
           },
           {
-            url: '/images/partners/6.svg',
+            url: '/images/partners/dao5.png',
           },
           {
-            url: '/images/partners/7.svg',
+            url: '/images/partners/mirana.png',
           },
+          {
+            url: '/images/partners/iosg.png',
+          },
+          {
+            url: '/images/partners/p2p_logo.png',
+          }
         ],
       },
       {
@@ -168,44 +174,6 @@ export const aboutPageData = {
           },
           {
             url: '/images/partners/10.svg',
-          },
-        ],
-      },
-      {
-        title: 'Partners',
-        logos: [
-          {
-            url: '/images/partners/11.svg',
-          },
-          {
-            url: '/images/partners/12.svg',
-          },
-          {
-            url: '/images/partners/13.svg',
-          },
-          {
-            url: '/images/partners/14.svg',
-          },
-          {
-            url: '/images/partners/15.svg',
-          },
-          {
-            url: '/images/partners/16.svg',
-          },
-          {
-            url: '/images/partners/17.svg',
-          },
-          {
-            url: '/images/partners/18.svg',
-          },
-          {
-            url: '/images/partners/19.svg',
-          },
-          {
-            url: '/images/partners/20.svg',
-          },
-          {
-            url: '/images/partners/21.svg',
           },
         ],
       },
