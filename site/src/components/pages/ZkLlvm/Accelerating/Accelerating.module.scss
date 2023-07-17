@@ -74,6 +74,11 @@
   margin-bottom: size(8);
   padding: 0;
   gap: size(8);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: -.03em;
 }
 
 .description {

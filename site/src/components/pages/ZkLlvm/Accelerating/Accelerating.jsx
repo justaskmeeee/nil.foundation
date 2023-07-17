@@ -41,11 +41,9 @@ const Accelerating = ({
                 name={el.icon}
                 className={s.icon}
               />
-              <Button
+              <span
                 className={s.title}
-                text={el.title}
-                href={el.link}
-              />
+              >{el.title}</span>
               <p className={s.description}>{el.description}</p>
             </div>
           ))}
