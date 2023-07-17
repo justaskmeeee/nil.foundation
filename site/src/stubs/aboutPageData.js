@@ -160,6 +160,9 @@ export const aboutPageData = {
           },
           {
             url: '/images/partners/p2p_logo.png',
+          },
+          {
+            url: '/images/partners/fabric_logo.svg',
           }
         ],
       },
@@ -170,10 +173,10 @@ export const aboutPageData = {
             url: '/images/partners/8.svg',
           },
           {
-            url: '/images/partners/9.svg',
+            url: '/images/partners/mina.png',
           },
           {
-            url: '/images/partners/10.svg',
+            url: '/images/partners/solana.png',
           },
         ],
       },
