@@ -1,0 +1,4 @@
+site_admin_port: 1337
+site_admin_domain: nil.foundation
+site_app_dir: /app/site
+site_cms_domain: cms.nil.foundation

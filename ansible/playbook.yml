@@ -2,5 +2,5 @@
   user: "{{ site_user }}"
   roles:
     - nodejs
-    - site
+    - nginx
     - admin

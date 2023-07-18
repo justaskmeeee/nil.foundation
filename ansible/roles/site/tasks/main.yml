@@ -2,23 +2,37 @@
   ansible.builtin.git:
     repo: https://github.com/nilFoundation/nil.foundation
     version: new-site-scripts 
-    dest: /app/site/
+    dest: {{ site_app_dir }}
+
 
 - name: install dependencies
-  ansible.builtin.npm:
-    path: /app/site/site
-    state: present
+  shell: >
+    . {{ ansible_env.HOME }}/.nvm/nvm.sh && cd {{ site_app_dir }}/site && npm ci
 
+
+- name: build repo
+  shell: >
+    . {{ ansible_env.HOME }}/.nvm/nvm.sh && cd {{ site_app_dir }}/site && npm run build
+  
 - name: Install systemd conf
   template: >
     src=systemd.conf.j2
-    dest=/etc/systemd/system/site-admin.service
+    dest=/etc/systemd/system/{{ site_app_domain }}.service
     owner=root
     group=root
     mode=0755
 
-- name: Make sure we reload services
-  command: systemctl daemon-reload
-
 - name: Ensure services are started and enabled on boot
-  service: name=site-admin state=started enabled=yes
+  become: yes
+  become_user: root
+  ansible.builtin.systemd:
+    name: {{ site_app_domain }}
+    state: restarted
+    daemon_reload: true
+
+- name: config site
+  become: yes
+  become_user: root
+  template:
+    src: site.conf.j2
+    dest: /etc/nginx/sites-enabled/{{ site_app_domain }}.conf

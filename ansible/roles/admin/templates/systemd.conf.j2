@@ -2,10 +2,10 @@
 Description=Site admin
 
 [Service]
-ExecStart=/app/site/admin/start.sh
-ExecStop=/app/site/admin/stop.sh
+User={{ site_user }}
+ExecStart=node {{ site_app_dir }}/admin/node_modules/.bin/strapi start
 Restart=always
-WorkingDirectory=/app/site/admin
+WorkingDirectory={{ site_app_dir }}/admin
 
 [Install]
 WantedBy=multi-user.target

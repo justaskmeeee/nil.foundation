@@ -1,0 +1,8 @@
+server {
+	listen 80;
+	server_name {{ site_admin_domain }};
+	
+	location / {
+		proxy_pass http://127.0.0.1:{{ site_admin_port }};
+	}
+}

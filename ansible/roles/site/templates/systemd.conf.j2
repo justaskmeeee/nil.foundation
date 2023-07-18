@@ -2,10 +2,10 @@
 Description=Site admin
 
 [Service]
-ExecStart=/app/site/site/start.sh
-ExecStop=/app/site/site/stop.sh
+ExecStart=node {{ site_app_dir }}/site/node_modules/.bin/next start
+User={{ site_user }}
 Restart=always
-WorkingDirectory=/app/site/admin
+WorkingDirectory={{ site_app_dir }}/site
 
 [Install]
 WantedBy=multi-user.target
