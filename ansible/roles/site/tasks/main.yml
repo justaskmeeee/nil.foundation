@@ -1,7 +1,7 @@
 - name: clone application
   ansible.builtin.git:
-    repo: https://github.com/nilFoundation/nil.foundation
-    version: new-site-scripts 
+    repo: https://{{ site_git_token }}@{{ site_repo }}
+    version: {{ site_branch }} 
     dest: {{ site_app_dir }}
 
 
@@ -33,6 +33,7 @@
 - name: config site
   become: yes
   become_user: root
+  notify: restart nginx
   template:
     src: site.conf.j2
     dest: /etc/nginx/sites-enabled/{{ site_app_domain }}.conf

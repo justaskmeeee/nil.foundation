@@ -1,3 +1,6 @@
 site_app_dir: /app/site
 site_app_domain: nil.foundation
 site_app_port: 3000
+site_admin_domain: cms.nil.foundation
+site_branch: new-site-scripts
+site_repo: github.com/NilFoundation/nil.foundation.git

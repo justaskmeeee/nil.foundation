@@ -2,3 +2,5 @@ site_admin_port: 1337
 site_admin_domain: nil.foundation
 site_app_dir: /app/site
 site_cms_domain: cms.nil.foundation
+site_branch: new-site-scripts
+site_repo: github.com/NilFoundation/nil.foundation.git

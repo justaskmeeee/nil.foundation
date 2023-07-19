@@ -2,6 +2,11 @@
 Description=Site admin
 
 [Service]
+Enviroment=STRAPI_API_KEY={{ strapi_api_key }}
+Enviroment=NEXT_PUBLIC_BASE_URL=https://{{ site_app_domain }}
+Enviroment=STRAPI_URL=https://{{ site_admin_domain }}
+Enviroment=STRAPI_API_URL=https://{{ site_admin_domain }}/api
+Enviroment=PORT={{ site_app_port }}
 ExecStart=node {{ site_app_dir }}/site/node_modules/.bin/next start
 User={{ site_user }}
 Restart=always
