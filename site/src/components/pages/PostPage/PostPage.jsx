@@ -1,52 +1,46 @@
-import cx from 'classnames';
-import { arrayOf, number, shape, string } from 'prop-types';
-import { useRouter } from 'next/router';
+import cx from "classnames";
+import { arrayOf, number, shape, string } from "prop-types";
+import { useRouter } from "next/router";
 
-import { useViewport } from 'hooks/useViewport';
+import { useViewport } from "hooks/useViewport";
 
-import Container from 'components/Container';
-import PostCard from 'components/PostCard';
-import Icon from 'components/Icon';
-import SocialButton from 'components/SocialButton';
-import Button from 'components/Button';
-import TagButton from 'components/TagButton';
-import JoinNil from 'pages/Home/JoinNil';
-import WhiteRectangle from 'components/WhiteRectangle';
+import Container from "components/Container";
+import PostCard from "components/PostCard";
+import Icon from "components/Icon";
+import SocialButton from "components/SocialButton";
+import Button from "components/Button";
+import TagButton from "components/TagButton";
+import JoinNil from "pages/Home/JoinNil";
+import WhiteRectangle from "components/WhiteRectangle";
 
-import SideNavigation from 'components/SideNavigation';
-import FooterAnimationSection from 'components/FooterAnimationSection';
-import LastSection from 'components/LastSection';
-import s from './PostPage.module.scss';
+import SideNavigation from "components/SideNavigation";
+import FooterAnimationSection from "components/FooterAnimationSection";
+import LastSection from "components/LastSection";
+import s from "./PostPage.module.scss";
 
 const ArrowButton = () => (
-  <Button
-    href="/blog"
-    className={s.centerItems}
-  >
-    <Icon
-      name="arrow-up"
-      className={s.arrow}
-    />
+  <Button href="/blog" className={s.centerItems}>
+    <Icon name="arrow-up" className={s.arrow} />
     <p className={s.paragraph}>Blog</p>
   </Button>
 );
 
 const PostPage = ({ post, recommendedPosts, content }) => {
-  const routes = useRouter();
+  const router = useRouter();
   const { isMobile } = useViewport();
 
   const stubSocialLinks = [
     {
-      icon: 'linkedin',
-      link: `https://www.linkedin.com/shareArticle?mini=true&url=${process.env.NEXT_PUBLIC_BASE_URL}${routes.asPath}&title=${post.title}`,
+      icon: "linkedin",
+      link: `https://www.linkedin.com/shareArticle?mini=true&url=${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}&title=${post.title}`,
     },
     {
-      icon: 'telegram',
-      link: `https://t.me/share/url?url=${process.env.NEXT_PUBLIC_BASE_URL}${routes.asPath}`,
+      icon: "telegram",
+      link: `https://t.me/share/url?url=${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`,
     },
     {
-      icon: 'twitter',
-      link: `https://twitter.com/intent/tweet?text=${post.title} ${process.env.NEXT_PUBLIC_BASE_URL}${routes.asPath}`,
+      icon: "twitter",
+      link: `https://twitter.com/intent/tweet?text=${post.title} ${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`,
     },
   ];
 
@@ -60,7 +54,7 @@ const PostPage = ({ post, recommendedPosts, content }) => {
         <div className={s.social}>
           <p className={s.paragraph}>Share this post</p>
           <div className={s.info}>
-            {stubSocialLinks.map(item => (
+            {stubSocialLinks.map((item) => (
               <SocialButton
                 className={s.socialLink}
                 key={item.icon}
@@ -76,14 +70,8 @@ const PostPage = ({ post, recommendedPosts, content }) => {
           <div className={cx(s.head, s.marginBlock)}>
             <div className={cx(s.centerItems, s.marginBlock, s.mobileHead)}>
               {isMobile && (
-                <Button
-                  href="/blog"
-                  className={s.centerItems}
-                >
-                  <Icon
-                    name="arrow-up"
-                    className={s.arrow}
-                  />
+                <Button href="/blog" className={s.centerItems}>
+                  <Icon name="arrow-up" className={s.arrow} />
                   <p className={s.paragraph}>Blog</p>
                 </Button>
               )}
@@ -92,12 +80,8 @@ const PostPage = ({ post, recommendedPosts, content }) => {
                   <p className={s.type}>{post.category.name}</p>
                 )}
                 <div className={s.tagsWrapper}>
-                  {post.tags.map(tag => (
-                    <TagButton
-                      key={tag.id}
-                      className={s.tag}
-                      tag={tag.name}
-                    />
+                  {post.tags.map((tag) => (
+                    <TagButton key={tag.id} className={s.tag} tag={tag.name} />
                   ))}
                 </div>
               </div>
@@ -115,7 +99,7 @@ const PostPage = ({ post, recommendedPosts, content }) => {
                 <div className={s.social}>
                   <p className={s.paragraph}>Share this post</p>
                   <div className={s.info}>
-                    {stubSocialLinks.map(item => (
+                    {stubSocialLinks.map((item) => (
                       <SocialButton
                         className={s.socialLink}
                         key={item.icon}
@@ -140,16 +124,13 @@ const PostPage = ({ post, recommendedPosts, content }) => {
           />
           <div className={s.moreSection}>
             <WhiteRectangle className={s.whiteRecatngle} />
-            <JoinNil
-              data={content.joinNil}
-              className={s.joinSection}
-            />
+            <JoinNil data={content.joinNil} className={s.joinSection} />
             <WhiteRectangle />
             <div className={s.moreBlogsWrapper}>
               <h1 className={cx(s.title, s.otherBlogsTitle)}>
                 Read other articles
               </h1>
-              {recommendedPosts.map(item => (
+              {recommendedPosts.map((item) => (
                 <PostCard
                   linkTo={`/blog/post/${item.slug}`}
                   key={item.id}
