@@ -1,0 +1,170 @@
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/colors' as *;
+
+.container {
+  position: relative;
+}
+
+.sideNavigation {
+  left: size(40);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding-top: size(30);
+
+  @include mobile {
+    padding-top: size(20);
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.pageContent {
+  grid-column: 2 / 2;
+  margin-bottom: size(30);
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    max-width: size(355);
+    margin-bottom: 0;
+  }
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: size(20);
+
+  @include mobile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: size(20);
+  }
+}
+
+.textWrapper {
+  max-width: size(544);
+  min-height: size(210);
+  padding: 0 size(30) size(30) size(30);
+
+  @include mobile {
+    display: flex;
+    flex-flow: column;
+    align-self: flex-start;
+    min-height: auto;
+    padding: 0;
+  }
+}
+
+.pageTitle {
+  @include heading-01;
+  max-width: size(280);
+
+  @include mobile {
+    max-width: size(204);
+  }
+}
+
+.pageSubtitle {
+  @include heading-02;
+
+  @include mobile {
+    max-width: size(320);
+  }
+}
+
+.glossaryContainer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include mobile {
+    justify-content: space-between;
+  }
+}
+
+.primer {
+  width: size(272);
+
+  @include mobile {
+    width: size(160);
+
+    &:nth-child(2n)::after {
+      content: '';
+      position: absolute;
+      left: 0 !important;
+      width: 100% !important;
+      height: 4px;
+      background: url('/icons/doted-line.svg'), repeat;
+    }
+  }
+
+  &:nth-child(4n)::after {
+    content: '';
+    position: absolute;
+    left: size(30);
+    width: 97%;
+    height: 4px;
+    background: url('/icons/doted-line.svg'), repeat;
+  }
+
+  &:last-child::after {
+    display: none;
+  }
+}
+
+.primerContainer {
+  padding: size(30) 0 size(30) size(30);
+  height: 100%;
+
+  @include mobile {
+    width: 100%;
+    padding: size(40) 0;
+  }
+}
+
+.letter {
+  @include heading-01;
+  margin-bottom: size(20);
+}
+
+.word {
+  display: block;
+  @include p-article;
+  color: $grey;
+
+  &:not(:last-child) {
+    margin-bottom: size(20);
+  }
+}
+
+.lastSection {
+  display: none;
+
+  @include mobile {
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.lastSectionWrapper {
+  width: calc(100% + 4px);
+  margin-left: -2px;
+  margin-right: -2px;
+}
+
+.footerSection {
+  @include mobile {
+    display: none;
+  }
+}
