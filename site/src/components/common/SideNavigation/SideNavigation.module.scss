@@ -1,7 +1,7 @@
-@import 'src/styles/typography';
-@import 'src/styles/helpers';
-@import 'src/styles/colors';
-@import 'src/styles/mixins';
+@import "src/styles/typography";
+@import "src/styles/helpers";
+@import "src/styles/colors";
+@import "src/styles/mixins";
 
 .container {
   position: absolute;
@@ -80,4 +80,8 @@
   @include mobile {
     padding-left: size(10);
   }
+}
+
+.bottomLine {
+  width: calc(100% + 2px);
 }

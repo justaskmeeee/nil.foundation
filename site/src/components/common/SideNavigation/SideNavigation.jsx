@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { useViewport } from 'hooks/useViewport';
-import RevealText from 'components/RevealText';
-import ArrowButton from 'components/ArrowButton';
-import WhiteRectangle from 'components/WhiteRectangle';
-import { useSideNavigationTimeline } from 'components/SideNavigation/useSideNavigationTimeline';
-import s from './SideNavigation.module.scss';
+import React, { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { useViewport } from "hooks/useViewport";
+import RevealText from "components/RevealText";
+import ArrowButton from "components/ArrowButton";
+import WhiteRectangle from "components/WhiteRectangle";
+import { useSideNavigationTimeline } from "components/SideNavigation/useSideNavigationTimeline";
+import s from "./SideNavigation.module.scss";
 
 const SideNavigation = ({
   title,
@@ -42,8 +42,8 @@ const SideNavigation = ({
 
     const timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
+        trigger: "body",
+        start: "top top",
         invalidateOnRefresh: true,
         end: `+=80%`,
         scrub: 0.5,
@@ -51,8 +51,8 @@ const SideNavigation = ({
     });
 
     timeline.to(titleElement, {
-      scale: '0.48',
-      ease: 'expo.out',
+      scale: "0.48",
+      ease: "expo.out",
     });
 
     return () => {
@@ -64,10 +64,7 @@ const SideNavigation = ({
   }, [titleRef, isMobile, titleAnimation]);
 
   return (
-    <aside
-      ref={sidebarRef}
-      className={classNames(s.container, className)}
-    >
+    <aside ref={sidebarRef} className={classNames(s.container, className)}>
       <div
         ref={titleRef}
         className={classNames(
@@ -89,13 +86,9 @@ const SideNavigation = ({
       <div className={s.linkWrapper}>
         {children}
         {linkText && (
-          <ArrowButton
-            href={link}
-            className={s.link}
-            text={linkText}
-          />
+          <ArrowButton href={link} className={s.link} text={linkText} />
         )}
-        <WhiteRectangle />
+        <WhiteRectangle className={s.bottomLine} />
       </div>
     </aside>
   );

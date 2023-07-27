@@ -1,7 +1,7 @@
-@import 'src/styles/typography';
-@import 'src/styles/helpers';
-@import 'src/styles/colors';
-@import 'src/styles/mixins';
+@import "src/styles/typography";
+@import "src/styles/helpers";
+@import "src/styles/colors";
+@import "src/styles/mixins";
 
 .container {
   position: relative;
@@ -11,7 +11,8 @@
 
   @include mobile {
     height: calc(100vh - #{size(30)});
-    padding-top: size(20);
+    padding-top: 0;
+    padding-bottom: size(20);
     margin-bottom: 0;
     box-sizing: content-box;
   }
