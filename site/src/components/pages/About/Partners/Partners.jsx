@@ -9,6 +9,7 @@ import { useViewport } from 'hooks/useViewport';
 import HeadingSection from 'components/HeadingSection';
 import WhiteRectangle from 'components/WhiteRectangle';
 
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import s from './Partners.module.scss';
 import Item from './Item';
 
@@ -19,15 +20,23 @@ const Partners = ({ className, data: { title, content } }) => {
   const toggleItem = useCallback(
     index => {
       setActiveIndex(index === activeIndex ? -1 : index);
+      if (!isMobile) {
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 400);
+      }
     },
-    [activeIndex]
+    [activeIndex, isMobile]
   );
 
   return (
     <div className={cx(s.root, className)}>
       <div className={s.left}>
         <WhiteRectangle />
-        <HeadingSection title={title} />
+        <HeadingSection
+          className={s.title}
+          title={title}
+        />
         {!isMobile && <WhiteRectangle />}
       </div>
 
