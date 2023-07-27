@@ -14,71 +14,71 @@ import s from './Partners.module.scss';
 import Item from './Item';
 
 const Partners = ({ className, data: { title, content } }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const { isMobile } = useViewport();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const { isMobile } = useViewport();
 
-    const toggleItem = useCallback(
-        index => {
-            setActiveIndex(index === activeIndex ? -1 : index);
-            if (!isMobile) {
-                setTimeout(() => {
-                    ScrollTrigger.refresh();
-                }, 400);
-            }
-        },
-        [activeIndex, isMobile]
-    );
+  const toggleItem = useCallback(
+    index => {
+      setActiveIndex(index === activeIndex ? -1 : index);
+      if (!isMobile) {
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 400);
+      }
+    },
+    [activeIndex, isMobile]
+  );
 
-    return (
-        <div className={cx(s.root, className)}>
-            <div className={s.left}>
-                <WhiteRectangle />
-                <HeadingSection
-                    className={s.title}
-                    title={title}
-                />
-                {!isMobile && <WhiteRectangle />}
-            </div>
+  return (
+    <div className={cx(s.root, className)}>
+      <div className={s.left}>
+        <WhiteRectangle />
+        <HeadingSection
+          className={s.title}
+          title={title}
+        />
+        {!isMobile && <WhiteRectangle />}
+      </div>
 
-            <div className={s.right}>
-                {!isMobile && <WhiteRectangle />}
-                <div className={s.content}>
-                    {content.map((el, index) => (
-                        <Item
-                            key={el.title}
-                            title={el.title}
-                            index={index}
-                            activeIndex={activeIndex}
-                            onClick={toggleItem}
-                        >
-                            <div className={s.box}>
-                                {el.logos.map(logo => (
-                                    <div
-                                        key={logo.url}
-                                        className={s.imageWrapper}
-                                    >
-                                        <Image
-                                            src={logo.url}
-                                            fill
-                                            alt="logo"
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                        </Item>
-                    ))}
-                </div>
-                <WhiteRectangle />
-            </div>
+      <div className={s.right}>
+        {!isMobile && <WhiteRectangle />}
+        <div className={s.content}>
+          {content.map((el, index) => (
+            <Item
+              key={el.title}
+              title={el.title}
+              index={index}
+              activeIndex={activeIndex}
+              onClick={toggleItem}
+            >
+              <div className={s.box}>
+                {el.logos.map(logo => (
+                  <div
+                    key={logo.url}
+                    className={s.imageWrapper}
+                  >
+                    <Image
+                      src={logo.url}
+                      fill
+                      alt="logo"
+                    />
+                  </div>
+                ))}
+              </div>
+            </Item>
+          ))}
         </div>
-    );
+        <WhiteRectangle />
+      </div>
+    </div>
+  );
 };
 Partners.propTypes = {
-    className: string,
-    data: shape({
-        title: string,
-        description: string,
-    }),
+  className: string,
+  data: shape({
+    title: string,
+    description: string,
+  }),
 };
 
 export default Partners;

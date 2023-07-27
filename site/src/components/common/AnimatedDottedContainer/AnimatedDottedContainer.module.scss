@@ -1,6 +1,6 @@
-@import "src/styles/helpers";
-@import "src/styles/colors";
-@import "src/styles/mixins";
+@import 'src/styles/helpers';
+@import 'src/styles/colors';
+@import 'src/styles/mixins';
 
 .container {
   overflow: hidden;
@@ -29,7 +29,7 @@
   justify-content: flex-end;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     left: -1px;
     bottom: size(30);
@@ -43,7 +43,7 @@
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     right: -1px;
     bottom: size(30);
@@ -61,7 +61,7 @@
   justify-content: flex-start;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     left: -1px;
     top: size(30);
@@ -71,7 +71,7 @@
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     right: -1px;
     top: size(30);
