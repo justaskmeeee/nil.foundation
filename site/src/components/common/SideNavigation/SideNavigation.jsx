@@ -95,7 +95,7 @@ const SideNavigation = ({
             text={linkText}
           />
         )}
-        <WhiteRectangle />
+        <WhiteRectangle className={s.bottomLine} />
       </div>
     </aside>
   );
