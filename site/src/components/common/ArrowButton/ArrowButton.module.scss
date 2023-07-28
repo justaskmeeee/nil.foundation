@@ -10,6 +10,7 @@
   align-items: center;
   width: 100%;
   padding: 0 size(24);
+  transition: color 0.3s ease;
 
     &:after {
     content: '';
@@ -37,6 +38,10 @@
     @include mobile {
       display: none;
     }
+  }
+
+  @include hover {
+    color: rgba($color: $white, $alpha: 0.5);
   }
 
   @include button;

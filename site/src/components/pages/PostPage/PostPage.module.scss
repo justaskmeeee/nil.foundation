@@ -263,8 +263,13 @@
     width: max-content;
     cursor: pointer;
     margin-bottom: size(16);
+    transition: opacity 0.3s ease;
 
     @include p-article;
+
+    @include hover {
+      opacity: 0.5;
+    }
 
     &::after {
       content: url('/icons/arrow.svg');

@@ -52,6 +52,12 @@
 
   .item {
     margin-bottom: size(8);
+    transition: opacity 0.3s ease;
+
+    @include hover {
+      opacity: 0.5;
+      cursor: pointer;
+    }
   }
 
   @include mobile {
@@ -127,6 +133,14 @@
 
   @include mobile {
     margin-bottom: size(15);
+  }
+}
+
+.creators {
+  transition: opacity 0.3s ease;
+
+  @include hover {
+    opacity: 0.5;
   }
 }
 

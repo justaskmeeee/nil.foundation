@@ -60,4 +60,9 @@
 
 .link {
   text-decoration: underline;
+  transition: opacity 0.3s ease;
+
+  @include hover {
+    opacity: 0.5;
+  }
 }
