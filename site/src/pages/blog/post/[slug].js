@@ -26,7 +26,6 @@ export async function getStaticProps({ params: { slug } }) {
             slug: {
               $notIn: slug,
             },
-            $and: [{ isFeature: { $ne: true } }],
           },
         ],
       },
