@@ -1,9 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useViewport } from 'hooks/useViewport';
+import { useRouter } from 'next/router';
 
 export const useSideNavigationTimeline = (containerRef, options) => {
   const { isMobile } = useViewport();
+  const router = useRouter();
+  const timelineRef = useRef(null);
 
   useEffect(() => {
     const sidebar = containerRef.current;
@@ -12,10 +16,8 @@ export const useSideNavigationTimeline = (containerRef, options) => {
       return;
     }
 
-    let currentTimeline;
-
     setTimeout(() => {
-      currentTimeline = gsap.timeline({
+      timelineRef.current = gsap.timeline({
         scrollTrigger: {
           trigger: 'body',
           start: 'top top',
@@ -30,10 +32,16 @@ export const useSideNavigationTimeline = (containerRef, options) => {
     }, 20);
 
     return () => {
-      if (currentTimeline) {
-        currentTimeline.scrollTrigger.kill();
-        currentTimeline.kill();
+      if (timelineRef.current) {
+        timelineRef.current?.scrollTrigger?.kill?.();
+        timelineRef.current.kill();
       }
     };
   }, [containerRef, isMobile]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+  }, [router.asPath]);
 };
