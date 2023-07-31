@@ -6,7 +6,7 @@ import RevealText from 'components/RevealText';
 import classNames from 'classnames';
 import s from './IntroAnimation.module.scss';
 
-const IntroDescription = ({ text, delay, isVisible, className }) => {
+const IntroDescription = ({ text, delay, isVisible, duration, className }) => {
   const ref = useRef(null);
   const timelineRef = useRef(null);
   const { isMobile } = useViewport();
@@ -67,6 +67,7 @@ const IntroDescription = ({ text, delay, isVisible, className }) => {
         isVisible
         className={classNames(s.description)}
         delay={delay}
+        duration={duration}
       >
         {text}
       </RevealText>
@@ -78,6 +79,7 @@ IntroDescription.propTypes = {
   text: PropTypes.node.isRequired,
   isVisible: PropTypes.bool,
   delay: PropTypes.number,
+  duration: PropTypes.number,
   className: PropTypes.string,
 };
 IntroDescription.defaultProps = {

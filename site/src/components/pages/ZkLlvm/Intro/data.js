@@ -106,10 +106,18 @@ export const animatedItemMobileList = [
     id: 'm2',
     ySourceValue: '-60%',
     yTransformValue: '-50%',
+    yTransformValueList: [
+      { value: '-50%', duration: 0.8 },
+      { value: '-92%', duration: 0.8 },
+    ],
   },
   {
     id: 'm3',
     ySourceValue: '-40%',
     yTransformValue: '-90%',
+    yTransformValueList: [
+      { value: '-90%', duration: 0.8 },
+      { value: '-65%', duration: 0.8 },
+    ],
   },
 ];
