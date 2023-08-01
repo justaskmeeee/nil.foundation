@@ -29,11 +29,6 @@
   transition: 0.4s opacity;
   margin-top: size(20);
   will-change: transform, opacity;
-  transform: opacity 0.3s ease;
-
-  @include hover {
-    opacity: 0.5;
-  }
 
   @include mobile {
     position: absolute;
