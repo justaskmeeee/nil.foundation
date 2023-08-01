@@ -8,32 +8,31 @@
   grid-template-columns: repeat(5, 1fr);
   width: 100%;
   margin-top: size(20);
-  
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: size(10);
-      background-color: $black;
-      z-index: 4;
 
-      @include mobile {
-        display: none;
-      }
-    }
-  
-    @include mobile {
-      grid-template-columns: 1fr;
-    }
+  @include mobile {
+    grid-template-columns: 1fr;
   }
-
+}
 
 .content {
+  position: relative;
   background: url('/icons/dots.svg'), repeat;
   grid-column: span 4 / 6;
-  z-index: 4;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 2px);
+    height: size(10);
+    background-color: $black;
+    z-index: 4;
+
+    @include mobile {
+      display: none;
+    }
+  }
 
   @include mobile {
     grid-column: unset;

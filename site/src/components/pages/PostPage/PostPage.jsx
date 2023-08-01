@@ -32,21 +32,21 @@ const ArrowButton = () => (
 );
 
 const PostPage = ({ post, recommendedPosts, content }) => {
-  const routes = useRouter();
+  const router = useRouter();
   const { isMobile } = useViewport();
 
   const stubSocialLinks = [
     {
       icon: 'linkedin',
-      link: `https://www.linkedin.com/shareArticle?mini=true&url=${process.env.NEXT_PUBLIC_BASE_URL}${routes.asPath}&title=${post.title}`,
+      link: `https://www.linkedin.com/shareArticle?mini=true&url=${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}&title=${post.title}`,
     },
     {
       icon: 'telegram',
-      link: `https://t.me/share/url?url=${process.env.NEXT_PUBLIC_BASE_URL}${routes.asPath}`,
+      link: `https://t.me/share/url?url=${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`,
     },
     {
       icon: 'twitter',
-      link: `https://twitter.com/intent/tweet?text=${post.title} ${process.env.NEXT_PUBLIC_BASE_URL}${routes.asPath}`,
+      link: `https://twitter.com/intent/tweet?text=${post.title} ${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`,
     },
   ];
 
@@ -155,7 +155,7 @@ const PostPage = ({ post, recommendedPosts, content }) => {
                   key={item.id}
                   className={s.blog}
                   isBlogPost
-                  content={item}
+                  content={{ ...item, isFeature: false }}
                 />
               ))}
             </div>
