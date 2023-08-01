@@ -1,6 +1,0 @@
-- hosts: all
-  user: "{{ site_user }}"
-  roles:
-    - nodejs
-    - nginx
-    - admin
