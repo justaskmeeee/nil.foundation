@@ -144,7 +144,7 @@ const PostPage = ({ post, recommendedPosts, content }) => {
                   key={item.id}
                   className={s.blog}
                   isBlogPost
-                  content={item}
+                  content={{ ...item, isFeature: false }}
                 />
               ))}
             </div>
