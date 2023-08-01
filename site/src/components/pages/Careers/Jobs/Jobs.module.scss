@@ -86,6 +86,10 @@
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @include mobile {
+    margin-bottom: size(60);
+  }
 }
 
 .button {

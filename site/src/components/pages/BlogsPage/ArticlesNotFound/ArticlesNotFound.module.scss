@@ -7,6 +7,10 @@
   width: 100%;
   border: size(4) dashed $grey;
   color: $grey;
+
+  @media (orientation: landscape) {
+    margin-bottom: size(30);
+  }
 }
 
 .text {
