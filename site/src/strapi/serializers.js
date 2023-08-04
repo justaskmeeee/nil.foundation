@@ -4,6 +4,8 @@ import {
   rebuildBlog,
   rebuildResearch,
   rebuildBlogAndMeta,
+  rebuildGlossaries,
+  rebuildSingleWord,
 } from './rebuildCollection';
 
 export const serializeList = (data, type) => {
@@ -15,6 +17,8 @@ export const serializeList = (data, type) => {
 
     case 'research':
       return rebuildResearch(data);
+    case 'glossaries':
+      return rebuildGlossaries(data);
     default:
       return rebuildList(data);
   }
@@ -24,6 +28,8 @@ export const serializeSingle = (data, type) => {
   switch (type) {
     case 'blogs':
       return rebuildSinglePost(data);
+    case 'glossaries':
+      return rebuildSingleWord(data);
     default:
       return {
         id: data.id,

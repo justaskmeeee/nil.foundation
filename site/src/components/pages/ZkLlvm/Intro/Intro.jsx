@@ -29,6 +29,8 @@ const Intro = () => {
           {isVisible => (
             <IntroDescription
               className={s.descriptionMobile}
+              duration={700}
+              delay={500}
               isVisible={isVisible}
               text="Get high-performance circuits straight from C++, Rust, or other mainstream code using this powerful tool designed for developers."
             />

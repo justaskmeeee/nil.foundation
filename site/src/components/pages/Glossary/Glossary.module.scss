@@ -10,10 +10,6 @@
 .sideNavigation {
   left: size(40);
 
-  aside {
-    overflow: hidden;
-  }
-
   @include mobile {
     display: none;
   }
@@ -23,7 +19,6 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   padding-top: size(30);
-  min-height: 100vh;
 
   @include mobile {
     padding-top: size(20);
@@ -32,47 +27,15 @@
   }
 }
 
-.stickySideTitle {
-  @include heading-02;
-}
-
-.tagsWrapper {
-  position: absolute;
-  bottom: size(30);
-
-  @include mobile {
-    position: sticky;
-    z-index: 4;
-    top: size(20);
-    overflow-x: auto;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-}
-
-.tagsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: size(8);
-  padding: size(24) size(24) size(24) 0;
-
-  @include mobile {
-    gap: size(10);
-    width: max-content;
-    padding: size(20) 0 size(10);
-    background-color: $black;
-  }
-}
-
 .pageContent {
   grid-column: 2 / 2;
+  margin-bottom: size(30);
 
   @include mobile {
     display: flex;
     flex-direction: column;
     max-width: size(355);
+    margin-bottom: 0;
   }
 }
 
@@ -86,13 +49,7 @@
     display: flex;
     flex-direction: column;
     gap: size(20);
-    margin-bottom: size(40);
   }
-}
-
-.activeTag {
-  background-color: $white;
-  color: $black;
 }
 
 .textWrapper {
@@ -109,30 +66,13 @@
   }
 }
 
-.cards {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: size(30);
-  margin-bottom: size(40);
-
-  @include mobile {
-    gap: size(20);
-    margin-top: size(20);
-  }
-}
-
-.card {
-  max-width: size(529);
-  min-height: size(234);
-
-  @include mobile {
-    min-height: auto;
-  }
-}
-
 .pageTitle {
   @include heading-01;
+  max-width: size(280);
+
+  @include mobile {
+    max-width: size(204);
+  }
 }
 
 .pageSubtitle {
@@ -143,9 +83,68 @@
   }
 }
 
-.footerSection {
+.glossaryContainer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+
   @include mobile {
+    justify-content: space-between;
+  }
+}
+
+.primer {
+  width: size(272);
+
+  @include mobile {
+    width: size(160);
+
+    &:nth-child(2n)::after {
+      content: '';
+      position: absolute;
+      left: 0 !important;
+      width: 100% !important;
+      height: 4px;
+      background: url('/icons/doted-line.svg'), repeat;
+    }
+  }
+
+  &:nth-child(4n)::after {
+    content: '';
+    position: absolute;
+    left: size(30);
+    width: 97%;
+    height: 4px;
+    background: url('/icons/doted-line.svg'), repeat;
+  }
+
+  &:last-child::after {
     display: none;
+  }
+}
+
+.primerContainer {
+  padding: size(30) 0 size(30) size(30);
+  height: 100%;
+
+  @include mobile {
+    width: 100%;
+    padding: size(40) 0;
+  }
+}
+
+.letter {
+  @include heading-01;
+  margin-bottom: size(20);
+}
+
+.word {
+  display: block;
+  @include p-article;
+  color: $grey;
+
+  &:not(:last-child) {
+    margin-bottom: size(20);
   }
 }
 
@@ -162,4 +161,10 @@
   width: calc(100% + 4px);
   margin-left: -2px;
   margin-right: -2px;
+}
+
+.footerSection {
+  @include mobile {
+    display: none;
+  }
 }

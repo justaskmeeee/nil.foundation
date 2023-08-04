@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_word_paragraphs",
+  "info": {
+    "displayName": "Paragraphs",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "Paragraph": {
+      "type": "text"
+    }
+  }
+}

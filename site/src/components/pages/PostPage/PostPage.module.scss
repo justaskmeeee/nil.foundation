@@ -43,6 +43,20 @@
   }
 }
 
+.mobileArrowButton {
+  display: none;
+  transition: opacity 0.3s ease;
+
+  @include hover {
+    opacity: 0.5;
+  }
+
+  @include mobile {
+    width: 100%;
+    display: inline-flex;
+  }
+}
+
 .arrow {
   transform: rotate(270deg);
   width: size(18);
@@ -263,8 +277,13 @@
     width: max-content;
     cursor: pointer;
     margin-bottom: size(16);
+    transition: opacity 0.3s ease;
 
     @include p-article;
+
+    @include hover {
+      opacity: 0.5;
+    }
 
     &::after {
       content: url('/icons/arrow.svg');

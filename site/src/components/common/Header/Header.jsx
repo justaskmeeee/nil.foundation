@@ -63,7 +63,9 @@ const Header = ({ className }) => {
             <Button
               key={el.name}
               href={el.link}
-              className={cx({ [s.isActive]: router.asPath === el.link })}
+              className={cx(s.otherLink, {
+                [s.isActive]: router.asPath === el.link,
+              })}
             >
               {el.name}
             </Button>

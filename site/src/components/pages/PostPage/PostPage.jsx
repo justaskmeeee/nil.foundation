@@ -18,10 +18,10 @@ import FooterAnimationSection from 'components/FooterAnimationSection';
 import LastSection from 'components/LastSection';
 import s from './PostPage.module.scss';
 
-const ArrowButton = () => (
+const ArrowButton = ({ className }) => (
   <Button
     href="/blog"
-    className={s.centerItems}
+    className={cx(s.centerItems, className)}
   >
     <Icon
       name="arrow-up"
@@ -75,18 +75,7 @@ const PostPage = ({ post, recommendedPosts, content }) => {
         <div className={s.content}>
           <div className={cx(s.head, s.marginBlock)}>
             <div className={cx(s.centerItems, s.marginBlock, s.mobileHead)}>
-              {isMobile && (
-                <Button
-                  href="/blog"
-                  className={s.centerItems}
-                >
-                  <Icon
-                    name="arrow-up"
-                    className={s.arrow}
-                  />
-                  <p className={s.paragraph}>Blog</p>
-                </Button>
-              )}
+              <ArrowButton className={s.mobileArrowButton} />
               <div className={cx(s.centerItems, s.types)}>
                 {post.category && (
                   <p className={s.type}>{post.category.name}</p>

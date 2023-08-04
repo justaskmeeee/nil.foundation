@@ -24,8 +24,13 @@
   display: flex;
   align-items: center;
   gap: size(6);
+  transition: opacity 0.3s ease;
 
   @include paragraph;
+
+  @include hover {
+    opacity: 0.5;
+  }
 
   @include mobile {
     margin: size(10) size(20) size(18) size(12);

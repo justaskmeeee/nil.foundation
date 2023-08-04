@@ -26,6 +26,10 @@
     }
   }
 
+  @include hover {
+    color: rgba($color: $white, $alpha: 0.5);
+  }
+
   @include button;
 
   @include mobile {
