@@ -1,0 +1,90 @@
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: size(15);
+  cursor: pointer;
+  transition: border 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+  border: size(1) solid $grey;
+  color: $grey;
+  overflow: hidden;
+
+  @include hover {
+    border: size(1) solid $white;
+    color: $white;
+
+    .tag {
+      border: size(1) solid $white;
+    }
+  }
+}
+
+.info {
+  display: flex;
+
+  p {
+    &:not(:last-child) {
+      margin-right: size(10);
+
+      @include mobile {
+        color: $white;
+      }
+    }
+
+    @include sm-paragraph;
+  }
+}
+
+.content {
+  display: flex;
+  margin-top: size(40);
+}
+
+.title {
+  margin: size(30) 0;
+
+  @include heading-02;
+
+  @include mobile {
+    color: $white;
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: size(15);
+  right: size(15);
+  width: size(12);
+  height: size(12);
+  transform: rotate(45deg);
+
+  @include mobile {
+    color: $white;
+  }
+}
+
+.tags {
+  display: flex;
+  width: max-content;
+}
+
+.tag {
+  transition: border 0.3s ease;
+  border: size(1) solid $grey;
+
+  &:not(:last-child) {
+    margin-right: size(10);
+  }
+
+  @include mobile {
+    border: size(1) solid $white;
+    color: $white;
+  }
+}

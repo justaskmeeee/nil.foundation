@@ -1,0 +1,120 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: size(182);
+  z-index: 2;
+
+  @include mobile {
+    flex-direction: column;
+    padding-bottom: size(60);
+    margin-top: 0;
+  }
+}
+
+.heading {
+  @include mobile {
+    p {
+      display: none;
+    }
+  }
+}
+
+.left,
+.right {
+  width: 50%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.line {
+  width: 50%;
+}
+
+.info {
+  background-color: $black;
+
+  p {
+    @include paragraph;
+    padding: 0 size(30) size(30);
+  }
+
+  @include mobile {
+    display: flex;
+    align-items: flex-start;
+    padding: size(40) size(10) 0;
+
+    p {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.descriptionMobile {
+  display: none;
+
+  @include mobile {
+    display: inline-block;
+    margin-right: size(10);
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  padding-top: size(30);
+  background-color: $black;
+
+  @include mobile {
+    padding-top: size(30);
+  }
+}
+
+.lottieWrapper {
+  width: 100%;
+  height: size(710);
+
+  @include mobile {
+    height: size(470);
+  }
+}
+
+.list {
+  padding: size(30);
+  display: flex;
+  flex-wrap: wrap;
+  gap: size(36);
+  margin-bottom: size(30);
+
+  @include mobile {
+    padding: size(45) size(10) size(20);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: size(10);
+  }
+}
+
+.item {
+  @include mobile {
+    width: 100%;
+  }
+}

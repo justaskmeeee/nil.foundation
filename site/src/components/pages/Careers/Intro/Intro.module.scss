@@ -1,0 +1,56 @@
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/colors' as *;
+@use '~styles/mixins' as *;
+
+.wrapper {
+  display: flex;
+}
+
+.head {
+  @include mobile {
+    width: 100%;
+    padding: size(20) size(10) size(10);
+  }
+}
+
+.main {
+  @include mobile {
+    height: max-content;
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @include mobile {
+    margin-bottom: size(60);
+  }
+}
+
+.text {
+  background-color: $black;
+  padding: 0 size(30) size(30);
+
+  @include paragraph;
+
+  @include mobile {
+    padding: 0 size(10) size(10);
+    margin-top: size(-20);
+  }
+}
+
+.box {
+  width: size(272);
+  background-color: $black;
+}
+
+.box1 {
+  margin-top: size(265);
+  height: size(325);
+}
+
+.box2 {
+  margin-top: size(560);
+}

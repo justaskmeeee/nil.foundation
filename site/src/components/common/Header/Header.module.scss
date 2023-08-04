@@ -1,0 +1,123 @@
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  height: size(30);
+  color: $grey;
+
+  @include mobile {
+    width: 100vw;
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: size(262) repeat(2, size(270)) 1fr;
+  padding: size(6) size(12);
+  background-color: $white;
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    padding: size(5) size(10);
+  }
+}
+
+.logo {
+  width: size(141.7);
+  color: $black;
+
+  @include mobile {
+    width: size(150);
+  }
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: size(28);
+  margin-left: size(30);
+  margin-right: size(29);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+
+  @include mobile {
+    display: none;
+  }
+
+  .square {
+    width: size(8);
+    height: size(8);
+    margin-right: size(22);
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+
+  @include hover {
+    color: $black;
+    transition: color 0.3s ease;
+
+    .square {
+      background-color: $black;
+      transition: background-color 0.3s ease;
+    }
+  }
+}
+
+.otherLink {
+  transition: color 0.3s ease;
+
+  @include hover {
+    color: $black;
+    transition: color 0.3s ease;
+  }
+}
+
+.isActive {
+  color: $black;
+
+  .square {
+    background-color: $black;
+  }
+}
+
+.buttonsWrapper {
+  position: relative;
+  grid-column: 5;
+}
+
+.burgerBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: size(18);
+  height: size(18);
+  overflow: auto;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.isBurgerOpen {
+  opacity: 1;
+}
+
+.hidden {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: none;
+  -ms-touch-action: none;
+}

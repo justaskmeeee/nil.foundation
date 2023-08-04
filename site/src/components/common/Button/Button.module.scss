@@ -1,0 +1,11 @@
+@use '~styles/colors' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  cursor: pointer;
+
+  &:disabled {
+    color: $grey;
+    cursor: not-allowed;
+  }
+}

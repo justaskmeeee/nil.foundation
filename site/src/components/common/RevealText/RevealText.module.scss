@@ -1,0 +1,16 @@
+.root {
+}
+
+.element {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  line-height: 1.18;
+}
+
+.innerElement {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}

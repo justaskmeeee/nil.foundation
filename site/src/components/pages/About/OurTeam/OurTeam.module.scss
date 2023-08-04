@@ -1,0 +1,78 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  display: grid;
+  margin-bottom: size(186);
+  grid-template-columns: 1fr 1fr;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    margin-bottom: size(60);
+  }
+}
+
+.head {
+  @include mobile {
+    min-height: auto;
+  }
+}
+
+.left {
+  max-height: size(480);
+}
+
+.right {
+  position: relative;
+  margin-top: size(180);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    margin-top: 0;
+  }
+}
+
+.title {
+  min-height: size(240);
+  padding: size(30) size(162) size(120) size(30);
+  background-color: $black;
+  word-break: break-word;
+
+  @include heading-02;
+
+  @include mobile {
+    min-height: auto;
+    padding: size(60) size(10) size(10);
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button {
+  padding-top: size(104);
+  padding-bottom: size(24);
+  background-color: $black;
+
+  @include mobile {
+    padding-top: size(58);
+    padding-bottom: size(10);
+  }
+}

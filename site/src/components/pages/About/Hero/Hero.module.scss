@@ -1,0 +1,212 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.box {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.line {
+  width: 50%;
+}
+
+.info {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: 0px;
+    height: 2px;
+    width: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  p {
+    padding: size(30);
+    background-color: $black;
+
+    @include paragraph;
+  }
+
+  @include mobile {
+    p {
+      padding: size(10);
+    }
+  }
+}
+
+.right {
+  display: grid;
+  width: 50%;
+  margin-top: size(265);
+  grid-template-columns: 1fr 1fr;
+
+  @include mobile {
+    width: 100%;
+    margin-top: size(60);
+  }
+}
+
+.rectWrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+  background-color: $black;
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: -1px;
+    height: 2px;
+    width: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+}
+
+.rect {
+  margin-top: size(270);
+
+  @include mobile {
+    margin-top: 0;
+  }
+}
+
+.content {
+  position: relative;
+  display: grid;
+  background-color: $black;
+  grid-column: span 2;
+  gap: size(60);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    gap: size(20);
+  }
+}
+
+.card {
+  display: grid;
+  padding: size(30);
+  grid-template-columns: 1fr 1fr;
+
+  &.grey {
+    color: $grey;
+  }
+
+  @include mobile {
+    padding: size(30) size(10);
+  }
+}
+
+.title {
+  @include heading-02;
+}
+
+.desc {
+  p {
+    @include paragraph;
+
+    &:not(:last-of-type) {
+      margin-bottom: size(20);
+    }
+  }
+}
+
+.footer {
+  @include mobile {
+    // .wRect {
+    //   margin: 0 size(-10);
+    //   width: calc(100% + #{size(20)});
+    // }
+  }
+}
+
+.footerWrapper {
+  display: flex;
+  align-items: center;
+  padding: size(30);
+  gap: size(61);
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: size(30) size(10);
+    gap: size(0);
+  }
+}
+
+.socials {
+  display: flex;
+  gap: size(10);
+}
+
+.inTouch {
+  width: size(181);
+
+  @include heading-02;
+
+  @include mobile {
+    width: size(170);
+  }
+}

@@ -1,0 +1,53 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: size(182);
+  position: relative;
+
+  @include mobile {
+    flex-direction: column;
+    padding-bottom: size(60);
+    margin-top: 0;
+  }
+}
+
+.left,
+.right {
+  width: 50%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  padding-top: size(30);
+  background-color: $black;
+
+  @include mobile {
+    padding-top: size(20);
+  }
+}
+
+.lottieWrapper {
+  width: 100%;
+  height: size(710);
+  padding-bottom: size(30);
+
+  @include mobile {
+    height: size(470);
+    margin-bottom: size(20);
+    padding-bottom: size(15);
+  }
+}

@@ -1,0 +1,160 @@
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/colors' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  color: $white;
+
+  @include sm-paragraph;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  padding: size(53) size(40) size(25);
+  gap: size(13);
+
+  svg {
+    height: size(180);
+  }
+
+  @include mobile {
+    padding: 0 0 size(20);
+
+    svg {
+      padding: 0 size(10);
+      height: size(50);
+    }
+  }
+}
+
+.wrapper {
+  @include mobile {
+    padding: 0 size(10);
+  }
+}
+
+.center {
+  display: grid;
+  padding-bottom: size(48);
+  grid-template-columns: repeat(5, 1fr);
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.linksWrapper {
+  &:not(:last-of-type) {
+    margin-bottom: size(20);
+  }
+
+  .item {
+    margin-bottom: size(8);
+    transition: opacity 0.3s ease;
+
+    @include hover {
+      opacity: 0.5;
+      cursor: pointer;
+    }
+  }
+
+  @include mobile {
+    &:not(:last-of-type) {
+      margin-bottom: size(66);
+    }
+  }
+}
+
+.title {
+  margin-bottom: size(15);
+  color: $grey;
+}
+
+.socials {
+  grid-column: span 2 / 4;
+}
+
+.socialWrapper {
+  &:not(:last-of-type) {
+    margin-bottom: size(24);
+  }
+}
+
+.icons {
+  display: flex;
+  gap: size(10);
+
+  @include mobile {
+    flex-wrap: wrap;
+  }
+}
+
+.address {
+  grid-column: span 2;
+
+  @include mobile {
+    margin-top: size(40);
+  }
+}
+
+.addressWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: size(10);
+}
+
+.place {
+  width: size(233);
+
+  @include paragraph;
+
+  @include mobile {
+    width: 100%;
+    max-width: size(164);
+  }
+}
+
+.bottom {
+  position: relative;
+  display: grid;
+  margin-bottom: size(30);
+  grid-template-columns: repeat(5, 1fr);
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: size(20);
+  }
+}
+
+.copyright {
+  grid-column: span 3;
+
+  @include mobile {
+    margin-bottom: size(15);
+  }
+}
+
+.creators {
+  transition: opacity 0.3s ease;
+
+  @include hover {
+    opacity: 0.5;
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: 0;
+  width: size(20);
+  height: size(20);
+
+  @include mobile {
+    top: unset;
+    bottom: size(20);
+    right: size(18);
+    width: size(18);
+    height: size(18);
+  }
+}

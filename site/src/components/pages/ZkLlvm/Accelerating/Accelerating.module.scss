@@ -1,0 +1,109 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+
+.root {
+  display: flex;
+  align-items: flex-start;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.left,
+.right {
+  width: 50%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.right {
+  margin-top: size(150);
+
+  @include mobile {
+    margin-top: 0;
+  }
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $black;
+
+  @include mobile {
+    padding-top: size(40);
+  }
+}
+
+.box {
+  padding: size(30);
+  width: 50%;
+
+  &:not(:last-of-type) {
+    margin-bottom: size(20);
+  }
+
+  @include paragraph;
+
+  @include mobile {
+    padding: size(20) size(10);
+
+    &:not(:last-of-type) {
+      margin-bottom: size(10);
+    }
+  }
+}
+
+.icon {
+  width: size(80);
+  height: size(80);
+  margin-bottom: size(40);
+
+  @include mobile {
+    margin-bottom: size(32);
+  }
+}
+
+.title {
+  width: min-content;
+  margin-bottom: size(8);
+  padding: 0;
+  gap: size(8);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: -.03em;
+}
+
+.description {
+  color: $grey;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: size(30);
+  gap: size(36);
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button {
+  padding-top: size(104);
+  padding-bottom: size(24);
+  background-color: $black;
+
+  @include mobile {
+    padding-top: size(58);
+    padding-bottom: size(10);
+  }
+}

@@ -1,0 +1,68 @@
+@import 'src/styles/typography';
+@import 'src/styles/helpers';
+@import 'src/styles/colors';
+@import 'src/styles/mixins';
+
+.container {
+  background-color: $black;
+}
+
+.dottedCard {
+  position: relative;
+  padding-bottom: size(264);
+
+  @include mobile {
+    padding-bottom: size(60);
+  }
+}
+
+.line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.bottomLine {
+  composes: line;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleWrapper {
+  position: relative;
+  width: 50%;
+  padding: size(30) size(30) size(60);
+  margin-top: size(-30);
+  background-color: $black;
+
+  @include mobile {
+    padding: size(2) size(10) size(40);
+    margin-top: size(-22);
+  }
+}
+
+.title {
+  @include heading-02;
+
+  @include mobile {
+    font-size: 15px;
+    line-height: 100%;
+  }
+}
+
+.link {
+  text-decoration: underline;
+  transition: opacity 0.3s ease;
+
+  @include hover {
+    opacity: 0.5;
+  }
+}

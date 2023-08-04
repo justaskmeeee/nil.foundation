@@ -1,0 +1,26 @@
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  width: 100%;
+  border: size(4) dashed $grey;
+  color: $grey;
+
+  @media (orientation: landscape) {
+    margin-bottom: size(30);
+  }
+}
+
+.text {
+  padding: size(30);
+
+  @include heading-01;
+
+  @include mobile {
+    padding: size(20);
+
+    @include heading-02;
+  }
+}

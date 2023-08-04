@@ -1,0 +1,76 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: size(-1);
+
+  @include mobile {
+    margin-bottom: unset;
+    flex-direction: column;
+  }
+}
+
+.left,
+.right {
+  width: 50%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.right {
+  position: relative;
+  margin-top: size(180);
+  height: 100%;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $black;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    margin-top: 0;
+  }
+}
+
+.description {
+  padding: size(30) size(160) size(60) size(30);
+  background-color: $black;
+
+  @include heading-02;
+
+  @include mobile {
+    margin-bottom: 0;
+    padding: size(60) size(10) size(20);
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button {
+  padding-top: size(104);
+  padding-bottom: size(24);
+  background-color: $black;
+
+  @include mobile {
+    padding-top: size(58);
+    padding-bottom: size(10);
+  }
+}

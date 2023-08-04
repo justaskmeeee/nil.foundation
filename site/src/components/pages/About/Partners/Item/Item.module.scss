@@ -1,0 +1,56 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: size(30);
+  cursor: pointer;
+
+  @include heading-02;
+
+  @include mobile {
+    padding: size(23) size(10);
+  }
+}
+
+.plus {
+  position: relative;
+  width: size(17.5);
+  height: size(17.5);
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: size(2.5);
+    content: '';
+    transition: transform 0.3s ease;
+    transform: translateY(-50%);
+    background-color: $white;
+  }
+
+  &::after {
+    transform: translateY(-50%) rotate(-90deg);
+  }
+}
+
+.opened {
+  .plus {
+    &::after {
+      transform: translateY(-50%) rotate(0deg);
+    }
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+  will-change: max-height;
+}

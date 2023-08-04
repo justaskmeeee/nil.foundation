@@ -1,0 +1,27 @@
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+@use '~styles/colors' as *;
+
+.container {
+  padding: 0;
+}
+
+.animatedContainer {
+  height: size(600);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  @include mobile {
+    height: size(170);
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.arrowButton {
+  width: 100%;
+  margin-bottom: size(24);
+
+  @include mobile {
+    margin-bottom: size(10);
+  }
+}
