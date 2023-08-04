@@ -79,3 +79,28 @@ export const rebuildSinglePost = data => {
     recommendedPosts: rebuildBlog(at.recommendedBlogs.data) || null,
   };
 };
+
+export const rebuildGlossaries = data => {
+  return data.map(item => {
+    const { attributes: at } = item;
+
+    return {
+      letter: at.letter || '',
+      word: at.word || '',
+      slug: at.slug || '',
+      description: at.description || '',
+      paragraphs: at.paragraphs || null,
+    };
+  });
+};
+
+export const rebuildSingleWord = data => {
+  const { id, attributes: at } = data;
+
+  return {
+    id,
+    word: at.word || '',
+    description: at.description || '',
+    paragraphs: at.paragraphs || null,
+  };
+};

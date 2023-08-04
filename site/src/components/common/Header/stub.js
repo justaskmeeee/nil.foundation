@@ -12,7 +12,6 @@ export const links = {
     { name: 'Research', link: '/research' },
     { name: 'About', link: '/about' },
     { name: 'Careers', link: '/careers' },
-    // TODO: return after create this page
-    // { name: 'Glossary', link: '/glossary' },
+    { name: 'Glossary', link: '/glossary' },
   ],
 };

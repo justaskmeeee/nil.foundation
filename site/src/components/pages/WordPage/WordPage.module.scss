@@ -1,0 +1,177 @@
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/colors' as *;
+
+.container {
+  position: relative;
+}
+
+.sideNavigation {
+  left: size(40);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.centerItems {
+  display: flex;
+  align-items: center;
+
+  @include mobile {
+    margin-bottom: size(20);
+  }
+}
+.arrow {
+  transform: rotate(270deg);
+  width: size(18);
+  height: size(14);
+  margin-right: size(6);
+}
+
+.social {
+  margin-bottom: size(24);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.socialMobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+    margin-bottom: size(20);
+    padding: 0 size(10);
+  }
+}
+
+.socialInfo {
+  display: flex;
+}
+
+.socialLink {
+  width: size(60);
+  height: size(60);
+  padding: size(11);
+
+  &:not(:last-child) {
+    margin-right: size(12);
+  }
+
+  margin-top: size(12);
+
+  @include mobile {
+    margin-top: size(20);
+  }
+}
+
+.paragraph {
+  @include paragraph;
+}
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding-top: size(30);
+  min-height: 100vh;
+
+  @include mobile {
+    padding-top: size(20);
+    display: flex;
+    justify-content: center;
+    margin-bottom: size(20);
+    min-height: unset;
+  }
+}
+
+.pageContent {
+  grid-column: 2 / 2;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    max-width: size(355);
+  }
+}
+
+.backButton {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include mobile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: size(40);
+  }
+}
+
+.textWrapper {
+  max-width: size(544);
+  min-height: size(210);
+  padding: 0 size(30);
+
+  @include mobile {
+    display: flex;
+    flex-flow: column;
+    align-self: flex-start;
+    min-height: auto;
+    padding: 0;
+  }
+}
+
+.pageTitle {
+  @include heading-01;
+  max-width: size(280);
+}
+
+.pageSubtitle {
+  @include heading-02;
+  margin-bottom: size(30);
+
+  @include mobile {
+    margin-bottom: size(20);
+  }
+}
+
+.pageParagraph {
+  @include p-article;
+  color: $grey;
+  margin-bottom: size(30);
+
+  @include mobile {
+    margin-bottom: size(20);
+  }
+}
+
+.lastSection {
+  display: none;
+
+  @include mobile {
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.lastSectionWrapper {
+  width: calc(100% + 4px);
+  margin-left: -2px;
+  margin-right: -2px;
+}
+
+.footerSection {
+  @include mobile {
+    display: none;
+  }
+}
