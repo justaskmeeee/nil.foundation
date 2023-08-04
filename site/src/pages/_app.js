@@ -12,10 +12,20 @@ import Layout from 'components/Layout';
 import useCalcVh from 'hooks/useCalcVh';
 
 import { seo } from 'constants/seo';
+import Hotjar from '@hotjar/browser';
+
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   useCalcVh();
+
+  // using hotjar analytics. currently it's on
+  useEffect(() => {
+    const siteId = 3596146;
+    const hotjarVersion = 6;
+
+    Hotjar.init(siteId, hotjarVersion);
+  }, []);
 
   useEffect(() => {
     const handleRouteChange = url => {

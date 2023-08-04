@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hotjar/browser": "^1.0.9",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.9",
