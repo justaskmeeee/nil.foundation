@@ -8,7 +8,7 @@ import { REVALIDATE } from 'constants/common';
 import { postPage } from 'stubs/postPageData';
 
 const Post = ({ data, recommendedPosts, content }) => (
-  <MetaLayout seo={{ title: data.title, description: data.subtitle }}>
+  <MetaLayout seo={{ title: data.title, description: data.description || '' }}>
     <PostPage
       post={data}
       recommendedPosts={recommendedPosts}
