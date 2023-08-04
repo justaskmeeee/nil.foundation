@@ -118,3 +118,15 @@ build
 pidfile
 run.pid
 programm.log
+
+
+# config files
+.env
+.api_token
+.keys
+.secret
+.admin_secret
+.salt
+
+# backups
+export*.tar.gz.enc
