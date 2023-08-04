@@ -93,7 +93,10 @@ const Footer = ({ className }) => {
             © All rights reserved. =nil; Foundation {getYear}
           </div>
           {stub.creators.map(el => (
-            <div key={el.name}>
+            <div 
+              className={s.creators}
+              key={el.name}
+            >
               <Button href={el.link}>{el.name}</Button>
             </div>
           ))}
