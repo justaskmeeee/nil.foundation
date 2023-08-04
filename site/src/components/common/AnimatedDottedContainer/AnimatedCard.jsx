@@ -10,11 +10,43 @@ export const ANIMATION_CARD_ALIGNMENT = Object.freeze({
   bottom: 'bottom',
 });
 
+const getTimelineWithMultipleTransform = (
+  timeline,
+  transformValueList,
+  container
+) => {
+  const firstValue = transformValueList[0];
+  timeline.to(
+    container,
+    firstValue.duration ?? 1,
+    {
+      y: firstValue.value,
+      ease: 'sine.out',
+    },
+    0
+  );
+  for (let index = 1; index < transformValueList.length; ++index) {
+    const currentValue = transformValueList[index];
+    const previousValue = transformValueList[index - 1];
+    timeline.to(
+      container,
+      currentValue.duration ?? 1,
+      {
+        y: currentValue.value,
+        ease: 'sine.out',
+        delay: previousValue.duration + 0.3,
+      },
+      0
+    );
+  }
+};
+
 const AnimatedCard = ({
   alignment,
   duration,
   ySourceValue,
   yTransformValue,
+  yTransformValueList,
   timeline,
   onComplete,
   isVisible,
@@ -57,7 +89,20 @@ const AnimatedCard = ({
   useEffect(() => {
     const container = containerRef.current;
 
-    if (timeline && container && isCompleted && yTransformValue) {
+    if (
+      timeline &&
+      container &&
+      isCompleted &&
+      (yTransformValue || yTransformValueList)
+    ) {
+      if (yTransformValueList) {
+        getTimelineWithMultipleTransform(
+          timeline,
+          yTransformValueList,
+          container
+        );
+        return;
+      }
       timeline.to(
         container,
         {
@@ -67,7 +112,7 @@ const AnimatedCard = ({
         '<'
       );
     }
-  }, [timeline, isCompleted, yTransformValue]);
+  }, [timeline, isCompleted, yTransformValue, yTransformValueList]);
 
   return (
     <div className={s.cardWrapper}>
@@ -91,6 +136,7 @@ AnimatedCard.propTypes = {
   duration: PropTypes.number,
   ySourceValue: PropTypes.string,
   yTransformValue: PropTypes.string,
+  yTransformValueList: PropTypes.array,
   timeline: PropTypes.any,
   alignment: PropTypes.oneOf(Object.values(ANIMATION_CARD_ALIGNMENT)),
   onComplete: PropTypes.func,

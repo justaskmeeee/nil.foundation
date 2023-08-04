@@ -50,7 +50,13 @@ const IntroAnimation = ({
     });
     timeline.paused();
 
-    timeline.to(sideNavigation, {
+    const navigationTimeline = gsap.timeline({
+      repeat: 0,
+      delay: 1,
+      defaults: { duration: 1.2 },
+    });
+
+    navigationTimeline.to(sideNavigation, {
       scale: '0.52',
       ease: 'expo.out',
     });
@@ -63,6 +69,9 @@ const IntroAnimation = ({
     return () => {
       if (timeline) {
         timeline?.kill?.();
+      }
+      if (navigationTimeline) {
+        navigationTimeline?.kill?.();
       }
     };
   }, [isMobile, isVisible, sideNavigationRef]);
