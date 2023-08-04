@@ -42,9 +42,9 @@
     },
     "category": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::category.category",
-      "inversedBy": "blog"
+      "inversedBy": "blogs"
     },
     "isFeature": {
       "type": "boolean"
