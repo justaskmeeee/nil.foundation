@@ -14,7 +14,6 @@ import useCalcVh from 'hooks/useCalcVh';
 import { seo } from 'constants/seo';
 import Hotjar from '@hotjar/browser';
 
-
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   useCalcVh();
@@ -39,6 +38,8 @@ const MyApp = ({ Component, pageProps }) => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router]);
+
+  const getLayout = Component.getLayout || (page => page);
 
   return (
     <>
@@ -129,7 +130,7 @@ const MyApp = ({ Component, pageProps }) => {
         />
       </Head>
       <Layout withFooter={router.pathname !== '/404'}>
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
       </Layout>
     </>
   );
