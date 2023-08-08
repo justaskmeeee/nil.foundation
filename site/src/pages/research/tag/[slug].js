@@ -1,6 +1,6 @@
 import { REVALIDATE } from 'constants/common';
 
-import Research, { ResearchLayout } from 'pages/research/index';
+import Research, { ResearchLayout } from 'pages/Research';
 import MetaLayout from 'components/MetaLayout';
 
 import { getCollection, getAllPath } from 'src/strapi';
