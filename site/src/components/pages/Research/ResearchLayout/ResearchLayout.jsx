@@ -15,6 +15,15 @@ const ResearchLayout = ({ children, tags }) => {
 
   const activeTagSlug = router.query?.slug ?? '';
 
+  const onTagClickHandler = async tagItem => {
+    if (tagItem.slug === activeTagSlug) {
+      await router.push(`/research`);
+      return;
+    }
+
+    await router.push(`/research/tag/${tagItem.slug}`);
+  };
+
   return (
     <Container className={s.container}>
       <SideNavigation
@@ -25,6 +34,7 @@ const ResearchLayout = ({ children, tags }) => {
         <TagList
           tags={tags}
           activeTagSlug={activeTagSlug}
+          onTagClick={onTagClickHandler}
         />
       </SideNavigation>
       <div className={s.wrapper}>
@@ -41,6 +51,7 @@ const ResearchLayout = ({ children, tags }) => {
             <TagList
               tags={tags}
               activeTagSlug={activeTagSlug}
+              onTagClick={onTagClickHandler}
             />
           </section>
           {children}

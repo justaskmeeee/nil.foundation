@@ -1,11 +1,11 @@
 import React from 'react';
 import s from './ResearchLayout.module.scss';
 import TagButton from 'components/TagButton';
-import { arrayOf, string } from 'prop-types';
+import { arrayOf, func, string } from 'prop-types';
 import { Tag } from 'entities/tag';
 import cx from 'classnames';
 
-const TagList = ({ tags, activeTagSlug, className }) => {
+const TagList = ({ tags, activeTagSlug, onTagClick, className }) => {
   return (
     <ul className={cx(s.tagList, className)}>
       {tags.map(tagItem => (
@@ -14,7 +14,7 @@ const TagList = ({ tags, activeTagSlug, className }) => {
             className={s.tabItem}
             tag={tagItem.name}
             isActive={activeTagSlug === tagItem.slug.toString()}
-            href={`/research/tag/${tagItem.name}`}
+            onClick={() => onTagClick?.(tagItem)}
           />
         </li>
       ))}
@@ -26,6 +26,7 @@ TagList.propTypes = {
   tags: arrayOf(Tag).isRequired,
   activeTagSlug: string,
   className: string,
+  onTagClick: func,
 };
 
 export default TagList;
