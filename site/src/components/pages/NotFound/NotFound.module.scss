@@ -122,8 +122,12 @@
 }
 
 .box1 {
-  height: calc(get-real-vh(100) - size(335));
+  height: calc(100vh - #{size(335)});
   margin-top: size(305);
+
+  @include mobile {
+    height: calc(get-real-vh(100) - size(335));
+  }
 }
 
 .box2 {
