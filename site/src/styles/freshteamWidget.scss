@@ -110,6 +110,24 @@
       color: $black !important;
     }
   }
+
+  .section-header > .section-description {
+    display: none !important;
+  }
+  
+  .section-title::after {
+    display: block;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    content: 'Provide us with links to know about your previous work (Git/Blog/Medium/LinkedIn)';
+  }
+
+  .job-details-content span,
+  .job-details-content li,
+  .job-details-content p,
+  .job-details-content strong {
+    color: $white !important;
+  }
 }
 
 #freshteam-careers {
