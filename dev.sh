@@ -81,6 +81,6 @@ echo $! > site.pid
 
 # wait till ctrl+c is pressed
 
-( trap "kill $(cat strapi.pid) $(cat site.pid) && exit" SIGINT ; read -r -d '' _ </dev/tty ) ## wait for Ctrl-C
+( trap "kill $(cat strapi.pid) $(cat site.pid); exit" SIGINT ; read -r -d '' _ </dev/tty ) ## wait for Ctrl-C
 
 echo "Press Ctrl+C to stop"

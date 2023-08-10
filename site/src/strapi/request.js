@@ -1,10 +1,10 @@
 import axios from 'axios';
 import config from './config';
 
-const METHODS = ['GET', 'DELETE', 'HEAD', 'POST', 'PUT', 'PATCH'] as const;
+const METHODS = ['GET', 'DELETE', 'HEAD', 'POST', 'PUT', 'PATCH'];
 
-const sidedRequest = (opts: any) => {
-    const headers: { [key: string]: string } = {};
+const sidedRequest = (opts) => {
+    const headers = {};
 
     if (opts.withToken) {
         headers.authorization = `bearer ${config.TOKEN}`;
