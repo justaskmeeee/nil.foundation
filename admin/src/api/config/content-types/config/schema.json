@@ -13,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "isGlossaryOn": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "isResearchTagsOn": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     }
   }
 }
