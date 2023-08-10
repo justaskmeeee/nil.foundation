@@ -128,7 +128,7 @@ const MyApp = ({ Component, pageProps }) => {
           href="/favicon.ico"
         />
       </Head>
-      <Layout withFooter={router.pathname !== '/404'}>
+      <Layout withFooter={router.pathname !== '/404'} {...pageProps}>
         <Component {...pageProps} />
       </Layout>
     </>

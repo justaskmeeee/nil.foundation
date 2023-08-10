@@ -40,6 +40,7 @@ export async function getStaticProps({ params: { slug } }) {
 export async function getStaticPaths() {
   const words = await getAllPath('glossaries');
 
+
   const paths = words.map(word => ({
     params: { slug: word.slug },
   }));
