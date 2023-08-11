@@ -80,3 +80,6 @@ export const getAllPath = async type => {
 
   return rebuildList(collection.data.data, type);
 };
+
+
+export { getSiteConfig } from './getSiteConfig';

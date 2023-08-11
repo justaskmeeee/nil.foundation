@@ -3,7 +3,7 @@ import { REVALIDATE } from 'constants/common';
 import Research from 'pages/Research';
 import MetaLayout from 'components/MetaLayout';
 
-import { getCollection } from 'src/strapi';
+import { getCollection, getSiteConfig } from 'src/strapi';
 import { getCurrentTags } from 'src/strapi/utils';
 import { seoData } from 'stubs/researchCards';
 
@@ -14,6 +14,7 @@ const ResearchPage = ({ cms, seo }) => (
 );
 
 export async function getStaticProps() {
+  const config = await getSiteConfig();
   const posts = await getCollection('research', {
     tags: {
       populate: '*',
@@ -28,6 +29,7 @@ export async function getStaticProps() {
         tags: getCurrentTags(posts),
       },
       seo: seoData,
+      config,
     },
   };
 }
