@@ -34,7 +34,7 @@ echo "wait for strapi to start"
 while true; do
   sleep 1
   echo "try curl"
-  curl http://localhost:1337/admin -v
+  curl http://localhost:1337/admin
   if [ $? -eq 0 ]; then
     break
   fi
