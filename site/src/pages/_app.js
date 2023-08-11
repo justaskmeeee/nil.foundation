@@ -14,7 +14,6 @@ import useCalcVh from 'hooks/useCalcVh';
 import { seo } from 'constants/seo';
 import Hotjar from '@hotjar/browser';
 
-
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   useCalcVh();
@@ -130,7 +129,10 @@ const MyApp = ({ Component, pageProps }) => {
           href="/favicon.ico"
         />
       </Head>
-      <Layout withFooter={router.pathname !== '/404'} config={pageProps.config}>
+      <Layout
+        withFooter={router.pathname !== '/404'}
+        config={pageProps.config}
+      >
         {getLayout(<Component {...pageProps} />)}
       </Layout>
     </>

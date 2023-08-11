@@ -3,7 +3,7 @@ import { REVALIDATE } from 'constants/common';
 import Research, { ResearchLayout } from 'pages/Research';
 import MetaLayout from 'components/MetaLayout';
 
-import { getCollection, getAllPath } from 'src/strapi';
+import { getCollection, getAllPath, getSiteConfig } from 'src/strapi';
 import { seoData } from 'stubs/researchCards';
 
 const TagPage = ({ cms, seo }) => (
@@ -18,7 +18,7 @@ TagPage.getLayout = page => {
 };
 
 export async function getStaticProps({ params: { slug } }) {
-  const [posts, tags] = await Promise.all([
+  const [posts, tags, config] = await Promise.all([
     getCollection('research', {
       filters: {
         tags: {
@@ -37,6 +37,7 @@ export async function getStaticProps({ params: { slug } }) {
         },
       },
     }),
+    await getSiteConfig(),
   ]);
 
   return {
@@ -46,6 +47,7 @@ export async function getStaticProps({ params: { slug } }) {
         posts,
         tags,
       },
+      config,
       seo: seoData,
     },
   };
