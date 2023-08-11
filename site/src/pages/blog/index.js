@@ -5,6 +5,7 @@ import BlogPage from 'pages/BlogsPage';
 import MetaLayout from 'components/MetaLayout';
 
 import { seoData } from 'stubs/blogs';
+import { getSiteConfig } from 'src/strapi/getSiteConfig';
 
 const Blogs = ({ cms, seo }) => (
   <MetaLayout seo={seo}>
@@ -13,7 +14,7 @@ const Blogs = ({ cms, seo }) => (
 );
 
 export async function getStaticProps() {
-  const [posts, tags, categories] = await Promise.all([
+  const [posts, tags, categories, config] = await Promise.all([
     getCollectionAndMeta('blogs', {
       sort: ['date:desc', 'isFeature:desc'],
       pagination: {
@@ -23,6 +24,7 @@ export async function getStaticProps() {
     }),
     getCollection('tags'),
     getCollection('categories'),
+    getSiteConfig(),
   ]);
 
   return {
@@ -35,6 +37,7 @@ export async function getStaticProps() {
         meta: posts.meta,
       },
       seo: seoData,
+      config,
     },
   };
 }

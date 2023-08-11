@@ -81,3 +81,6 @@ export const getAllPath = async (type, params = {}) => {
 
   return rebuildList(collection.data.data, type);
 };
+
+
+export { getSiteConfig } from './getSiteConfig';
