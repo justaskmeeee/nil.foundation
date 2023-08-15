@@ -1,4 +1,4 @@
-import { REVALIDATE } from 'constants/common';
+import { REVALIDATE, BLOG_PAGE_SIZE, BLOG_POST_SORT } from 'constants/common';
 import { getCollection, getCollectionAndMeta } from 'src/strapi';
 
 import BlogPage from 'pages/BlogsPage';
@@ -16,10 +16,10 @@ const Blogs = ({ cms, seo }) => (
 export async function getStaticProps() {
   const [posts, tags, categories, config] = await Promise.all([
     getCollectionAndMeta('blogs', {
-      sort: ['date:desc', 'isFeature:desc'],
+      sort: BLOG_POST_SORT,
       pagination: {
         page: 1,
-        pageSize: 10,
+        pageSize: BLOG_PAGE_SIZE,
       },
     }),
     getCollection('tags', {
