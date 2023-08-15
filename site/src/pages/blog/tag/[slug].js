@@ -1,5 +1,10 @@
 import { REVALIDATE } from 'constants/common';
-import { getAllPath, getCollection, getCollectionAndMeta, getSiteConfig } from 'src/strapi';
+import {
+  getAllPath,
+  getCollection,
+  getCollectionAndMeta,
+  getSiteConfig,
+} from 'src/strapi';
 
 import BlogPage from 'pages/BlogsPage';
 import MetaLayout from 'components/MetaLayout';
@@ -28,9 +33,17 @@ export async function getStaticProps({ params: { slug } }) {
         pageSize: 10,
       },
     }),
-    getCollection('tags'),
+    getCollection('tags', {
+      filters: {
+        blogs: {
+          id: {
+            $notNull: true,
+          },
+        },
+      },
+    }),
     getCollection('categories'),
-    getSiteConfig()
+    getSiteConfig(),
   ]);
 
   return {
