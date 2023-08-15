@@ -19,7 +19,7 @@ export async function getStaticProps() {
       sort: ['isFeature:desc', 'date:desc'],
       pagination: {
         page: 1,
-        pageSize: 10,
+        pageSize: 3,
       },
     }),
     getCollection('tags'),
