@@ -72,7 +72,7 @@ npm run build --prefix site
 
 # run in another thread
 
-npm run start --prefix site &
+npm run dev --prefix site &
 
 echo "run site on http://localhost:3000"
 # save pid of site
