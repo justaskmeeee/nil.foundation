@@ -1,21 +1,21 @@
-import { bool } from 'prop-types';
-import cx from 'classnames';
-import { useRouter } from 'next/router';
+import { bool } from 'prop-types'
+import cx from 'classnames'
+import { useRouter } from 'next/router'
 
-import Button from 'components/Button';
-import WhiteRectangle from 'components/WhiteRectangle';
+import Button from 'components/Button'
+import WhiteRectangle from 'components/WhiteRectangle'
 
-import { links } from '../stub';
+import { links } from '../stub'
 
-import s from './BurgerMenu.module.scss';
+import s from './BurgerMenu.module.scss'
 
 const BurgerMenu = ({ isOpen }) => {
-  const { asPath } = useRouter();
+  const { asPath } = useRouter()
 
   return (
     <div className={cx(s.root, s.links, { [s.burgerOpen]: isOpen })}>
       <div className={cx(s.links, s.head)}>
-        {links.main.map(link => (
+        {links.main.map((link) => (
           <Button
             key={link.name}
             className={cx(s.mainLink, {
@@ -30,7 +30,7 @@ const BurgerMenu = ({ isOpen }) => {
       <div className={s.content}>
         <div>
           <div className={cx(s.links, s.right)}>
-            {links.other.map(link => (
+            {links.other.map((link) => (
               <Button
                 key={link.name}
                 className={cx(s.link, s.activeMainLink, {
@@ -54,11 +54,11 @@ const BurgerMenu = ({ isOpen }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 BurgerMenu.propTypes = {
   isOpen: bool,
-};
+}
 
-export default BurgerMenu;
+export default BurgerMenu

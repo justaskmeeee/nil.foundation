@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
-import { gsap } from 'gsap';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
+import { gsap } from 'gsap'
 
-import { getWords, getAnimationProps, getTimings } from './utils';
+import { getWords, getAnimationProps, getTimings } from './utils'
 
-import s from './RevealText.module.scss';
+import s from './RevealText.module.scss'
 
 const RevealText = ({
   className,
@@ -22,31 +22,28 @@ const RevealText = ({
   stagger,
   ...otherProps
 }) => {
-  const rootRef = useRef(null);
-  const refGsap = useRef(null);
-  const elements = useRef([]);
+  const rootRef = useRef(null)
+  const refGsap = useRef(null)
+  const elements = useRef([])
 
   const words = useMemo(
     () => getWords(children, { tag, innerTag, reduceWhiteSpace }),
-    [children] // eslint-disable-line
-  );
+    [children], // eslint-disable-line
+  )
 
-  const getElements = useCallback(
-    () => rootRef.current.querySelectorAll(`.${s.innerElement}`),
-    []
-  );
+  const getElements = useCallback(() => rootRef.current.querySelectorAll(`.${s.innerElement}`), [])
 
   useEffect(() => {
-    elements.current = getElements();
-  }, [words, getElements]);
+    elements.current = getElements()
+  }, [words, getElements])
 
   const handleAnimateTween = useCallback(
-    newVisible => {
-      const type = newVisible ? 'in' : 'out';
-      const { start, end, ease } = getAnimationProps(type, animation);
-      const { delay, duration } = getTimings(type, durationProp, delayProp);
+    (newVisible) => {
+      const type = newVisible ? 'in' : 'out'
+      const { start, end, ease } = getAnimationProps(type, animation)
+      const { delay, duration } = getTimings(type, durationProp, delayProp)
 
-      const gsapEase = ease || (newVisible ? 'circ.out' : 'sine.inOut');
+      const gsapEase = ease || (newVisible ? 'circ.out' : 'sine.inOut')
 
       refGsap.current = gsap.fromTo(
         elements.current,
@@ -65,38 +62,34 @@ const RevealText = ({
           onComplete: () => {
             gsap.set(rootRef.current, {
               pointerEvents: newVisible ? '' : 'none',
-            });
-            if (onComplete) onComplete(newVisible);
+            })
+            if (onComplete) onComplete(newVisible)
           },
-        }
-      );
+        },
+      )
     },
-    [onComplete, stagger, durationProp, delayProp, animation]
-  );
+    [onComplete, stagger, durationProp, delayProp, animation],
+  )
 
   useEffect(() => {
     if (isVisible) {
-      handleAnimateTween(isVisible);
+      handleAnimateTween(isVisible)
     } else {
-      const { start } = getAnimationProps('in', animation);
-      gsap.set(elements.current, start);
+      const { start } = getAnimationProps('in', animation)
+      gsap.set(elements.current, start)
     }
 
     return () => {
-      refGsap.current?.kill();
-    };
-  }, [isVisible]); // eslint-disable-line
+      refGsap.current?.kill()
+    }
+  }, [isVisible]) // eslint-disable-line
 
   return (
-    <As
-      className={cx(s.root, className)}
-      {...otherProps}
-      ref={rootRef}
-    >
+    <As className={cx(s.root, className)} {...otherProps} ref={rootRef}>
       {words}
     </As>
-  );
-};
+  )
+}
 
 RevealText.propTypes = {
   className: PropTypes.string,
@@ -123,7 +116,7 @@ RevealText.propTypes = {
       out: PropTypes.number,
     }).isRequired,
   ]),
-};
+}
 
 RevealText.defaultProps = {
   as: 'div',
@@ -136,6 +129,6 @@ RevealText.defaultProps = {
     in: 0,
     out: 0,
   },
-};
+}
 
-export default React.memo(RevealText);
+export default React.memo(RevealText)

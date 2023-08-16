@@ -1,1 +1,1 @@
-export { default } from './WordPage';
+export { default } from './WordPage'

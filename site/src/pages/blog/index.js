@@ -1,17 +1,17 @@
-import { REVALIDATE, BLOG_PAGE_SIZE, BLOG_POST_SORT } from 'constants/common';
-import { getCollection, getCollectionAndMeta } from 'src/strapi';
+import { REVALIDATE, BLOG_PAGE_SIZE, BLOG_POST_SORT } from 'constants/common'
+import { getCollection, getCollectionAndMeta } from 'src/strapi'
 
-import BlogPage from 'pages/BlogsPage';
-import MetaLayout from 'components/MetaLayout';
+import BlogPage from 'pages/BlogsPage'
+import MetaLayout from 'components/MetaLayout'
 
-import { seoData } from 'stubs/blogs';
-import { getSiteConfig } from 'src/strapi/getSiteConfig';
+import { seoData } from 'stubs/blogs'
+import { getSiteConfig } from 'src/strapi/getSiteConfig'
 
 const Blogs = ({ cms, seo }) => (
   <MetaLayout seo={seo}>
     <BlogPage data={cms} />
   </MetaLayout>
-);
+)
 
 export async function getStaticProps() {
   const [posts, tags, categories, config] = await Promise.all([
@@ -33,7 +33,7 @@ export async function getStaticProps() {
     }),
     getCollection('categories'),
     getSiteConfig(),
-  ]);
+  ])
 
   return {
     revalidate: REVALIDATE,
@@ -47,7 +47,7 @@ export async function getStaticProps() {
       seo: seoData,
       config,
     },
-  };
+  }
 }
 
-export default Blogs;
+export default Blogs

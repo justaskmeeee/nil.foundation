@@ -1,1 +1,1 @@
-export { default } from './ResearchLayout';
+export { default } from './ResearchLayout'

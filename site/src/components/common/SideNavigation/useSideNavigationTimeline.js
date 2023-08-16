@@ -1,19 +1,19 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useViewport } from 'hooks/useViewport';
-import { useRouter } from 'next/router';
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { useViewport } from 'hooks/useViewport'
+import { useRouter } from 'next/router'
 
 export const useSideNavigationTimeline = (containerRef, options) => {
-  const { isMobile } = useViewport();
-  const router = useRouter();
-  const timelineRef = useRef(null);
+  const { isMobile } = useViewport()
+  const router = useRouter()
+  const timelineRef = useRef(null)
 
   useEffect(() => {
-    const sidebar = containerRef.current;
+    const sidebar = containerRef.current
 
     if (!sidebar || isMobile !== false) {
-      return;
+      return
     }
 
     setTimeout(() => {
@@ -28,20 +28,20 @@ export const useSideNavigationTimeline = (containerRef, options) => {
           invalidateOnRefresh: true,
           ...options,
         },
-      });
-    }, 20);
+      })
+    }, 20)
 
     return () => {
       if (timelineRef.current) {
-        timelineRef.current?.scrollTrigger?.kill?.();
-        timelineRef.current.kill();
+        timelineRef.current?.scrollTrigger?.kill?.()
+        timelineRef.current.kill()
       }
-    };
-  }, [containerRef, isMobile]);
+    }
+  }, [containerRef, isMobile, options])
 
   useEffect(() => {
     setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 100);
-  }, [router.asPath]);
-};
+      ScrollTrigger.refresh()
+    }, 100)
+  }, [router.asPath])
+}

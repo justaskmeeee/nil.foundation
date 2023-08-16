@@ -1,1 +1,1 @@
-export { default } from './RevealText';
+export { default } from './RevealText'

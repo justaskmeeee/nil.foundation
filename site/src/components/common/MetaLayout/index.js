@@ -1,1 +1,1 @@
-export { default } from './MetaLayout';
+export { default } from './MetaLayout'

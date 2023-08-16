@@ -1,5 +1,5 @@
-import { getCollectionAndMeta } from 'src/strapi';
-import { BLOG_PAGE_SIZE, BLOG_POST_SORT } from 'constants/common';
+import { getCollectionAndMeta } from 'src/strapi'
+import { BLOG_PAGE_SIZE, BLOG_POST_SORT } from 'constants/common'
 
 export default async function handler(req, res) {
   try {
@@ -10,9 +10,9 @@ export default async function handler(req, res) {
         page: req.body.page,
         pageSize: BLOG_PAGE_SIZE,
       },
-    });
-    res.json(newData);
+    })
+    res.json(newData)
   } catch (err) {
-    res.status(500).send(err.message);
+    res.status(500).send(err.message)
   }
 }

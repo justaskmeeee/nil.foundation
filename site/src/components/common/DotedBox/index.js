@@ -1,1 +1,1 @@
-export { default } from './DotedBox';
+export { default } from './DotedBox'

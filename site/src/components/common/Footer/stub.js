@@ -1,4 +1,4 @@
-import { socialLinks } from 'constants/socials';
+import { socialLinks } from 'constants/socials'
 
 export const stub = {
   list: [
@@ -63,4 +63,4 @@ export const stub = {
   },
 
   creators: [{ name: 'Designed by Redis', link: 'https://www.redis.agency/' }],
-};
+}

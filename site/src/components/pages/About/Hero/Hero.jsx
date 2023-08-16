@@ -1,22 +1,16 @@
-import { shape, string } from 'prop-types';
-import cx from 'classnames';
+import { shape, string } from 'prop-types'
+import cx from 'classnames'
 
-import HeadingSection from 'components/HeadingSection';
-import WhiteRectangle from 'components/WhiteRectangle';
-import SocialButton from 'components/SocialButton';
+import HeadingSection from 'components/HeadingSection'
+import WhiteRectangle from 'components/WhiteRectangle'
+import SocialButton from 'components/SocialButton'
 
-import s from './Hero.module.scss';
+import s from './Hero.module.scss'
 
-const Hero = ({
-  className,
-  data: { title, description, info, content, future, footer },
-}) => (
+const Hero = ({ className, data: { title, description, info, content, future, footer } }) => (
   <div className={cx(s.root, className)}>
     <div className={s.left}>
-      <HeadingSection
-        title={title}
-        description={description}
-      />
+      <HeadingSection title={title} description={description} />
       <div className={s.box}>
         <WhiteRectangle className={s.line} />
         <div className={s.info}>
@@ -33,25 +27,19 @@ const Hero = ({
       <WhiteRectangle className={s.rect} />
 
       <div className={s.content}>
-        {content.map(el => (
-          <div
-            className={s.card}
-            key={el.title}
-          >
+        {content.map((el) => (
+          <div className={s.card} key={el.title}>
             <h3 className={s.title}>{el.title}</h3>
             <div className={s.desc}>
-              {el.description.map(item => (
+              {el.description.map((item) => (
                 <p key={item}>{item}</p>
               ))}
             </div>
           </div>
         ))}
 
-        {future.map(el => (
-          <div
-            className={cx(s.card, s.grey)}
-            key={el.title}
-          >
+        {future.map((el) => (
+          <div className={cx(s.card, s.grey)} key={el.title}>
             <h3 className={s.title}>{el.title}</h3>
             <div className={s.desc}>
               <p>{el.description}</p>
@@ -63,12 +51,8 @@ const Hero = ({
           <div className={s.footerWrapper}>
             <p className={s.inTouch}>Stay in touch with our news</p>
             <div className={s.socials}>
-              {footer.socials.map(el => (
-                <SocialButton
-                  key={el.icon}
-                  icon={el.icon}
-                  href={el.link}
-                />
+              {footer.socials.map((el) => (
+                <SocialButton key={el.icon} icon={el.icon} href={el.link} />
               ))}
             </div>
           </div>
@@ -77,7 +61,7 @@ const Hero = ({
       </div>
     </div>
   </div>
-);
+)
 
 Hero.propTypes = {
   className: string,
@@ -86,6 +70,6 @@ Hero.propTypes = {
     description: string,
     info: string,
   }),
-};
+}
 
-export default Hero;
+export default Hero

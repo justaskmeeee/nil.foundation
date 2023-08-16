@@ -1,48 +1,33 @@
-import { arrayOf, shape, string } from 'prop-types';
-import cx from 'classnames';
+import { arrayOf, shape, string } from 'prop-types'
+import cx from 'classnames'
 
-import { useViewport } from 'hooks/useViewport';
+import { useViewport } from 'hooks/useViewport'
 
-import WhiteRectangle from 'components/WhiteRectangle';
-import HeadingSection from 'components/HeadingSection';
-import LinkCard from 'components/LinkCard';
-import ListItem from 'components/ListItem';
+import WhiteRectangle from 'components/WhiteRectangle'
+import HeadingSection from 'components/HeadingSection'
+import LinkCard from 'components/LinkCard'
+import ListItem from 'components/ListItem'
 
-import s from './Toolchain.module.scss';
+import s from './Toolchain.module.scss'
 
 const Toolchain = ({ className, data: { title, description, content } }) => {
-  const { isMobile } = useViewport();
+  const { isMobile } = useViewport()
 
   return (
     <div className={cx(s.root, className)}>
       <div className={s.left}>
         <WhiteRectangle />
-        <HeadingSection
-          title={title}
-          description={description}
-        />
+        <HeadingSection title={title} description={description} />
         {!isMobile && <WhiteRectangle />}
       </div>
       <div className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
-          {content.map(el => (
-            <div
-              className={s.box}
-              key={el.title}
-            >
-              <LinkCard
-                className={s.linkCard}
-                title={el.title}
-                description={el.description}
-                linkTo={el.link}
-              />
-              {el.list.map(item => (
-                <ListItem
-                  className={s.listItem}
-                  key={el.title}
-                  title={item.title}
-                />
+          {content.map((el) => (
+            <div className={s.box} key={el.title}>
+              <LinkCard className={s.linkCard} title={el.title} description={el.description} linkTo={el.link} />
+              {el.list.map((item) => (
+                <ListItem className={s.listItem} key={el.title} title={item.title} />
               ))}
             </div>
           ))}
@@ -50,8 +35,8 @@ const Toolchain = ({ className, data: { title, description, content } }) => {
         <WhiteRectangle />
       </div>
     </div>
-  );
-};
+  )
+}
 
 Toolchain.propTypes = {
   className: string,
@@ -64,9 +49,9 @@ Toolchain.propTypes = {
         description: string,
         link: string,
         list: arrayOf(shape({ title: string })),
-      })
+      }),
     ),
   }),
-};
+}
 
-export default Toolchain;
+export default Toolchain

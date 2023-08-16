@@ -1,4 +1,4 @@
-import { number, shape, string } from 'prop-types';
+import { number, shape, string } from 'prop-types'
 
 export const Tag = shape({
   id: number,
@@ -7,4 +7,4 @@ export const Tag = shape({
   createdAt: string,
   publishedAt: string,
   updatedAt: string,
-});
+})

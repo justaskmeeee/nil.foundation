@@ -1,3 +1,3 @@
-export { default } from './FooterAnimationSection';
+export { default } from './FooterAnimationSection'
 
-export * from './data';
+export * from './data'

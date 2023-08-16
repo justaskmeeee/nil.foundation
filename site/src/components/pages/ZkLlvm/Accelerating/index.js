@@ -1,1 +1,1 @@
-export { default } from './Accelerating';
+export { default } from './Accelerating'

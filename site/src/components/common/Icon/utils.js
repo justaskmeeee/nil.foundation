@@ -1,97 +1,97 @@
-import Logo from './icons/Logo';
-import Dh from './icons/Dh';
-import Linkedin from './icons/Linkedin';
-import Twitter from './icons/Twitter';
-import Github from './icons/Github';
-import Telegram from './icons/Telegram';
-import Discord from './icons/Discord';
-import ArrowUp from './icons/ArrowUp';
-import ArrowInCircle from './icons/ArrowInCircle';
-import Key from './icons/Key';
-import Lock from './icons/Lock';
-import Lightning from './icons/Lightning';
-import Pazzle from './icons/Pazzle';
-import Shield from './icons/Shield';
-import Bridges from './icons/Bridges';
-import Gaming from './icons/Gaming';
-import Ml from './icons/Ml';
-import Oracles from './icons/Oracles';
-import Rollup from './icons/Rollup';
-import Cross from './icons/Cross';
-import Squares from './icons/Squares';
+import Logo from './icons/Logo'
+import Dh from './icons/Dh'
+import Linkedin from './icons/Linkedin'
+import Twitter from './icons/Twitter'
+import Github from './icons/Github'
+import Telegram from './icons/Telegram'
+import Discord from './icons/Discord'
+import ArrowUp from './icons/ArrowUp'
+import ArrowInCircle from './icons/ArrowInCircle'
+import Key from './icons/Key'
+import Lock from './icons/Lock'
+import Lightning from './icons/Lightning'
+import Pazzle from './icons/Pazzle'
+import Shield from './icons/Shield'
+import Bridges from './icons/Bridges'
+import Gaming from './icons/Gaming'
+import Ml from './icons/Ml'
+import Oracles from './icons/Oracles'
+import Rollup from './icons/Rollup'
+import Cross from './icons/Cross'
+import Squares from './icons/Squares'
 
 // off DevPortal icon
 // import DevPortal from './icons/DevPortal';
 
-export const getIcon = name => {
+export const getIcon = (name) => {
   switch (name) {
     case 'logo':
-      return Logo;
+      return Logo
 
     case 'dh':
-      return Dh;
+      return Dh
 
     case 'linkedin':
-      return Linkedin;
+      return Linkedin
 
     case 'twitter':
-      return Twitter;
+      return Twitter
 
     case 'github':
-      return Github;
+      return Github
 
     case 'telegram':
-      return Telegram;
+      return Telegram
 
     case 'discord':
-      return Discord;
+      return Discord
 
     // case 'dev-portal':
     //   return DevPortal;
 
     case 'arrow-up':
-      return ArrowUp;
+      return ArrowUp
 
     case 'arrow-in-circle':
-      return ArrowInCircle;
+      return ArrowInCircle
 
     case 'key':
-      return Key;
+      return Key
 
     case 'lock':
-      return Lock;
+      return Lock
 
     case 'lightning':
-      return Lightning;
+      return Lightning
 
     case 'pazzle':
-      return Pazzle;
+      return Pazzle
 
     case 'shield':
-      return Shield;
+      return Shield
 
     case 'bridges':
-      return Bridges;
+      return Bridges
 
     case 'gaming':
-      return Gaming;
+      return Gaming
 
     case 'ml':
-      return Ml;
+      return Ml
 
     case 'oracles':
-      return Oracles;
+      return Oracles
 
     case 'rollup':
-      return Rollup;
+      return Rollup
 
     case 'cross':
-      return Cross;
+      return Cross
 
     case 'squares':
-      return Squares;
+      return Squares
 
     default:
-      return null;
+      return null
   }
-};
+}

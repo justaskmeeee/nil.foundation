@@ -1,1 +1,1 @@
-export { default } from './FullCycle';
+export { default } from './FullCycle'

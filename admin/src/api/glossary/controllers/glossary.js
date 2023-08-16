@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
 /**
  * glossary controller
  */
 
-const { createCoreController } = require('@strapi/strapi').factories;
+const { createCoreController } = require('@strapi/strapi').factories
 
-module.exports = createCoreController('api::glossary.glossary');
+module.exports = createCoreController('api::glossary.glossary')

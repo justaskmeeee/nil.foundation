@@ -1,1 +1,1 @@
-export { default } from './StickyContainer';
+export { default } from './StickyContainer'

@@ -1,6 +1,6 @@
-import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer';
-import ArrowButton from 'components/ArrowButton';
-import s from './FooterAnimationSection.module.scss';
+import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
+import ArrowButton from 'components/ArrowButton'
+import s from './FooterAnimationSection.module.scss'
 
 export const getAnimatedItemList = (text, href, onClick) => {
   return [
@@ -29,14 +29,7 @@ export const getAnimatedItemList = (text, href, onClick) => {
       id: '5',
       ySourceValue: '-42%',
       yTransformValue: '-50%',
-      children: text && (
-        <ArrowButton
-          className={s.arrowButton}
-          text={text}
-          href={href}
-          onClick={onClick}
-        />
-      ),
+      children: text && <ArrowButton className={s.arrowButton} text={text} href={href} onClick={onClick} />,
     },
     {
       id: '6',
@@ -68,8 +61,8 @@ export const getAnimatedItemList = (text, href, onClick) => {
       yTransformValue: '85%',
       alignment: ANIMATION_CARD_ALIGNMENT.bottom,
     },
-  ];
-};
+  ]
+}
 export const getAnimatedItemMobileList = (text, href, onClick) => {
   return [
     {
@@ -79,14 +72,7 @@ export const getAnimatedItemMobileList = (text, href, onClick) => {
     {
       id: 'm2',
       ySourceValue: '0%',
-      children: text && (
-        <ArrowButton
-          className={s.arrowButton}
-          text={text}
-          href={href}
-          onClick={onClick}
-        />
-      ),
+      children: text && <ArrowButton className={s.arrowButton} text={text} href={href} onClick={onClick} />,
     },
     {
       id: 'm3',
@@ -96,5 +82,5 @@ export const getAnimatedItemMobileList = (text, href, onClick) => {
       id: 'm4',
       ySourceValue: '100%',
     },
-  ];
-};
+  ]
+}

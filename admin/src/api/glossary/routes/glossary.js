@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
 /**
  * glossary router
  */
 
-const { createCoreRouter } = require('@strapi/strapi').factories;
+const { createCoreRouter } = require('@strapi/strapi').factories
 
-module.exports = createCoreRouter('api::glossary.glossary');
+module.exports = createCoreRouter('api::glossary.glossary')

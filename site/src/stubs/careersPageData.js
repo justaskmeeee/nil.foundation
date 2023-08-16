@@ -25,8 +25,7 @@ export const careersPageData = {
       {
         linkTo: 'https://github.com/NilFoundation/zkllvm',
         title: 'zkLLVM',
-        description:
-          'Circuit compiler from C++, Rust, or other mainstream languages',
+        description: 'Circuit compiler from C++, Rust, or other mainstream languages',
         text: 'Automatic generation of high-performance circuits for multiple protocols',
       },
       {
@@ -63,14 +62,14 @@ export const careersPageData = {
         'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on decentralized proof generation.',
     },
   },
-};
+}
 
 export const seoData = {
   title: 'Careers at =nil; Foundation',
   description: 'Get to the forefront of zero-knowledge development',
-};
+}
 
 export const jobsSeoData = {
   title: 'Jobs at =nil; Foundation',
   description: 'Join the team',
-};
+}

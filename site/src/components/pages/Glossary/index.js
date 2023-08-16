@@ -1,1 +1,1 @@
-export { default } from './Glossary';
+export { default } from './Glossary'
