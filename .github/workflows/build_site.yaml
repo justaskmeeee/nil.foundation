@@ -2,7 +2,7 @@ on:
   pull_request:
 jobs:
   build_admin:
-    name: Build admin
+    name: Build site
     runs-on: ubuntu-latest
     env:
       NODE_ENV: development
