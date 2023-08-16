@@ -1,3 +1,3 @@
-export { default } from './JoinSection';
+export { default } from './JoinSection'
 
-export { getJoinSectionProps } from './utils';
+export { getJoinSectionProps } from './utils'

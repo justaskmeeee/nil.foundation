@@ -1,2 +1,2 @@
-export { default } from './SideNavigation';
-export { useSideNavigationTimeline } from './useSideNavigationTimeline';
+export { default } from './SideNavigation'
+export { useSideNavigationTimeline } from './useSideNavigationTimeline'

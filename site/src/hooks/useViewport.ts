@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 export enum ViewportEnum {
   desktop = 'desktop',
@@ -7,43 +7,40 @@ export enum ViewportEnum {
 }
 
 export const getViewport = (): ViewportEnum => {
-  const mediaQueryMobile = window.matchMedia(`(max-width: 767px)`);
-  const mediaQueryTablet = window.matchMedia(`(max-width: 1024px)`);
+  const mediaQueryMobile = window.matchMedia(`(max-width: 767px)`)
+  const mediaQueryTablet = window.matchMedia(`(max-width: 1024px)`)
 
   if (mediaQueryMobile.matches) {
-    return ViewportEnum.mobile;
+    return ViewportEnum.mobile
   }
 
   if (mediaQueryTablet.matches) {
-    return ViewportEnum.tablet;
+    return ViewportEnum.tablet
   }
 
-  return ViewportEnum.desktop;
-};
+  return ViewportEnum.desktop
+}
 
 export const useViewport = () => {
-  const [currentViewPort, setCurrentViewport] = useState<ViewportEnum>(ViewportEnum.desktop);
+  const [currentViewPort, setCurrentViewport] = useState<ViewportEnum>(ViewportEnum.desktop)
 
   useEffect(() => {
     const resize = () => {
-      setCurrentViewport(getViewport());
-    };
+      setCurrentViewport(getViewport())
+    }
 
-    resize();
+    resize()
 
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize)
 
     return () => {
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
+      window.removeEventListener('resize', resize)
+    }
+  }, [])
 
   return {
-    isDesktop:
-      currentViewPort != null ? currentViewPort === ViewportEnum.desktop : null,
-    isTablet:
-      currentViewPort != null ? currentViewPort === ViewportEnum.tablet : null,
-    isMobile:
-      currentViewPort != null ? currentViewPort === ViewportEnum.mobile : null,
-  };
-};
+    isDesktop: currentViewPort != null ? currentViewPort === ViewportEnum.desktop : null,
+    isTablet: currentViewPort != null ? currentViewPort === ViewportEnum.tablet : null,
+    isMobile: currentViewPort != null ? currentViewPort === ViewportEnum.mobile : null,
+  }
+}

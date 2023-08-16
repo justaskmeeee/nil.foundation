@@ -1,30 +1,23 @@
-import React from 'react';
-import { string, shape, bool } from 'prop-types';
-import cx from 'classnames';
+import React from 'react'
+import { string, shape, bool } from 'prop-types'
+import cx from 'classnames'
 
-import { useViewport } from 'hooks/useViewport';
+import { useViewport } from 'hooks/useViewport'
 
-import HeadingSection from 'components/HeadingSection';
-import WhiteRectangle from 'components/WhiteRectangle';
-import Button from 'components/ArrowButton';
+import HeadingSection from 'components/HeadingSection'
+import WhiteRectangle from 'components/WhiteRectangle'
+import Button from 'components/ArrowButton'
 
-import s from './Jobs.module.scss';
+import s from './Jobs.module.scss'
 
-const Jobs = ({
-  className,
-  data: { title, description, button },
-  isSkillsSection,
-}) => {
-  const { isMobile } = useViewport();
+const Jobs = ({ className, data: { title, description, button }, isSkillsSection }) => {
+  const { isMobile } = useViewport()
 
   return (
     <div className={cx(s.root, className, { [s.testMargin]: isSkillsSection })}>
       <div className={s.left}>
         <WhiteRectangle />
-        <HeadingSection
-          className={s.titleSection}
-          title={title}
-        />
+        <HeadingSection className={s.titleSection} title={title} />
         {!isMobile && <WhiteRectangle />}
       </div>
       <div className={s.right}>
@@ -39,18 +32,14 @@ const Jobs = ({
         <div className={s.footer}>
           <WhiteRectangle />
           <div>
-            <Button
-              className={s.button}
-              text={button.text}
-              href={button.link}
-            />
+            <Button className={s.button} text={button.text} href={button.link} />
             <WhiteRectangle />
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 Jobs.propTypes = {
   className: string,
@@ -64,10 +53,10 @@ Jobs.propTypes = {
     }),
   }),
   isSkillsSection: bool,
-};
+}
 
 Jobs.defaultProps = {
   isSkillsSection: false,
-};
+}
 
-export default Jobs;
+export default Jobs

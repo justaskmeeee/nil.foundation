@@ -1,22 +1,19 @@
-import { memo, useMemo } from 'react';
-import cx from 'classnames';
-import { string, shape, bool } from 'prop-types';
+import { memo, useMemo } from 'react'
+import cx from 'classnames'
+import { string, shape, bool } from 'prop-types'
 
-import Icon from 'components/Icon';
-import Button from 'components/Button';
+import Icon from 'components/Icon'
+import Button from 'components/Button'
 
-import s from './PostCard.module.scss';
+import s from './PostCard.module.scss'
 
 const PostCard = ({ className, content, linkTo }) => {
   const isFeaturePost = useMemo(() => {
-    return content.isFeature;
-  }, [content.isFeature]);
+    return content.isFeature
+  }, [content.isFeature])
 
   return (
-    <Button
-      href={linkTo}
-      className={cx(s.root, className, { [s.featured]: isFeaturePost })}
-    >
+    <Button href={linkTo} className={cx(s.root, className, { [s.featured]: isFeaturePost })}>
       <div
         className={cx(s.wrapper, {
           [s.featurePost]: isFeaturePost,
@@ -47,14 +44,11 @@ const PostCard = ({ className, content, linkTo }) => {
             </p>
           )}
         </div>
-        <Icon
-          name="arrow-up"
-          className={cx(s.arrow, { [s.bigArrow]: isFeaturePost })}
-        />
+        <Icon name='arrow-up' className={cx(s.arrow, { [s.bigArrow]: isFeaturePost })} />
       </div>
     </Button>
-  );
-};
+  )
+}
 
 PostCard.propTypes = {
   className: string,
@@ -66,6 +60,6 @@ PostCard.propTypes = {
     description: string,
     isFeature: bool,
   }),
-};
+}
 
-export default memo(PostCard);
+export default memo(PostCard)

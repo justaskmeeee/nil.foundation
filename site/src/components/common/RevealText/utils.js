@@ -1,7 +1,7 @@
-import React from 'react';
-import cx from 'classnames';
+import React from 'react'
+import cx from 'classnames'
 
-import s from './RevealText.module.scss';
+import s from './RevealText.module.scss'
 
 const anim = {
   fadeIn: {
@@ -146,73 +146,67 @@ const anim = {
     },
     ease: 'circ.inOut',
   },
-};
+}
 
-const firstLetterUppercase = string => {
-  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-};
+const firstLetterUppercase = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+}
 
 export const getTimings = (type, duration, delay) => {
-  const durationTween = duration instanceof Object ? duration[type] : duration;
-  const delayTween = delay instanceof Object ? delay[type] : delay;
+  const durationTween = duration instanceof Object ? duration[type] : duration
+  const delayTween = delay instanceof Object ? delay[type] : delay
 
   return {
     delay: delayTween / 1000,
     duration: durationTween / 1000,
-  };
-};
+  }
+}
 
 export const getAnimationProps = (type, animation) => {
-  const { start, end, ease } =
-    anim[`${animation}${firstLetterUppercase(type)}`];
+  const { start, end, ease } = anim[`${animation}${firstLetterUppercase(type)}`]
 
   return {
     start,
     end,
     ease,
-  };
-};
+  }
+}
 
 export const getWords = (children, props) => {
-  const arrayChildren = React.Children.toArray(children);
-  const newArrayChildren = [];
+  const arrayChildren = React.Children.toArray(children)
+  const newArrayChildren = []
 
-  const As = props.tag;
-  const InnerAs = props.innerTag || props.tag;
+  const As = props.tag
+  const InnerAs = props.innerTag || props.tag
 
-  arrayChildren.forEach(child => {
+  arrayChildren.forEach((child) => {
     if (typeof child === 'string') {
-      const textString = props.reduceWhiteSpace
-        ? child.replace(/\s+/g, ' ').trim()
-        : child;
+      const textString = props.reduceWhiteSpace ? child.replace(/\s+/g, ' ').trim() : child
 
-      const splitText = textString.split(' ');
+      const splitText = textString.split(' ')
       splitText.forEach((el, i) => {
-        const key = `${el}-${i}-${textString}`;
+        const key = `${el}-${i}-${textString}`
         newArrayChildren.push(
-          <As
-            className={cx(s.element, 'wrap')}
-            key={key}
-          >
+          <As className={cx(s.element, 'wrap')} key={key}>
             <InnerAs className={cx(s.element, s.innerElement)}>{el}</InnerAs>
           </As>,
-          ' '
-        );
-      });
-      return;
+          ' ',
+        )
+      })
+      return
     }
 
     if (child.props?.children) {
       newArrayChildren.push(
         React.cloneElement(child, {
           children: getWords(child.props.children, props),
-        })
-      );
-      return;
+        }),
+      )
+      return
     }
 
-    newArrayChildren.push(child);
-  });
+    newArrayChildren.push(child)
+  })
 
-  return newArrayChildren;
-};
+  return newArrayChildren
+}

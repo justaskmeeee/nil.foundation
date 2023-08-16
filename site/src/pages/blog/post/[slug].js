@@ -1,21 +1,17 @@
-import PostPage from 'pages/PostPage';
-import MetaLayout from 'components/MetaLayout';
+import PostPage from 'pages/PostPage'
+import MetaLayout from 'components/MetaLayout'
 
-import { getAllPath, getCollection, getSingleBySlug, getSiteConfig } from 'src/strapi';
+import { getAllPath, getCollection, getSingleBySlug, getSiteConfig } from 'src/strapi'
 
-import { REVALIDATE } from 'constants/common';
+import { REVALIDATE } from 'constants/common'
 
-import { postPage } from 'stubs/postPageData';
+import { postPage } from 'stubs/postPageData'
 
 const Post = ({ data, recommendedPosts, content }) => (
   <MetaLayout seo={{ title: data.title, description: data.description || '' }}>
-    <PostPage
-      post={data}
-      recommendedPosts={recommendedPosts}
-      content={content}
-    />
+    <PostPage post={data} recommendedPosts={recommendedPosts} content={content} />
   </MetaLayout>
-);
+)
 
 export async function getStaticProps({ params: { slug } }) {
   const [posts, articles, config] = await Promise.all([
@@ -47,40 +43,36 @@ export async function getStaticProps({ params: { slug } }) {
       },
     }),
     getSiteConfig(),
-  ]);
+  ])
 
   if (!articles) {
     return {
       notFound: true,
-    };
+    }
   }
 
   return {
     revalidate: REVALIDATE,
     props: {
       data: articles,
-      recommendedPosts:
-        articles.recommendedPosts.length > 0
-          ? articles.recommendedPosts
-          : posts,
+      recommendedPosts: articles.recommendedPosts.length > 0 ? articles.recommendedPosts : posts,
       content: postPage,
       config,
     },
-  };
+  }
 }
 
 export async function getStaticPaths() {
-  const articles = await getAllPath('blogs');
+  const articles = await getAllPath('blogs')
 
-
-  const paths = articles.map(article => ({
+  const paths = articles.map((article) => ({
     params: { slug: article.slug },
-  }));
+  }))
 
   return {
     paths,
     fallback: 'blocking',
-  };
+  }
 }
 
-export default Post;
+export default Post

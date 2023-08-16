@@ -1,0 +1,27 @@
+on:
+  pull_request:
+jobs:
+  build_admin:
+    name: Build admin
+    runs-on: ubuntu-latest
+    env:
+      NODE_ENV: development
+      REACT_APP_API_MOCK: true
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Nodejs
+      uses: actions/setup-node@v3
+      with: 
+        node-version: 18.x
+    - name: Install dependencies
+      run: npm ci
+      working-directory: site
+    - name: Format
+      working-directory: site
+      run: |
+        npm run format
+    - name: Build
+      working-directory: site
+      run: |
+        npm run build

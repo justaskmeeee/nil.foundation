@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import AnimatedDottedContainer from 'components/AnimatedDottedContainer';
-import classNames from 'classnames';
-import SideNavigation from 'components/SideNavigation';
-import { useViewport } from 'hooks/useViewport';
-import { gsap } from 'gsap';
-import { useScroll } from 'hooks/useScroll';
-import s from './IntroAnimation.module.scss';
+import React, { useEffect, useRef, useState } from 'react'
+import PropTypes from 'prop-types'
+import AnimatedDottedContainer from 'components/AnimatedDottedContainer'
+import classNames from 'classnames'
+import SideNavigation from 'components/SideNavigation'
+import { useViewport } from 'hooks/useViewport'
+import { gsap } from 'gsap'
+import { useScroll } from 'hooks/useScroll'
+import s from './IntroAnimation.module.scss'
 
 const IntroAnimation = ({
   items,
@@ -18,73 +18,68 @@ const IntroAnimation = ({
   className,
   ...props
 }) => {
-  const sideNavigationRef = useRef(null);
-  const [isVisible, setVisible] = useState(false);
-  const [isChildrenVisible, setChildrenVisible] = useState(false);
-  const [timelineInstance, setTimelineInstance] = useState(null);
-  const { isMobile } = useViewport();
-  const { disableScroll, enableScroll, scrollToTop } = useScroll();
+  const sideNavigationRef = useRef(null)
+  const [isVisible, setVisible] = useState(false)
+  const [isChildrenVisible, setChildrenVisible] = useState(false)
+  const [timelineInstance, setTimelineInstance] = useState(null)
+  const { isMobile } = useViewport()
+  const { disableScroll, enableScroll, scrollToTop } = useScroll()
 
   useEffect(() => {
-    scrollToTop().then(disableScroll);
+    scrollToTop().then(disableScroll)
     setTimeout(() => {
-      setVisible(true);
-    }, 700);
+      setVisible(true)
+    }, 700)
 
     return () => {
-      enableScroll();
-    };
-  }, []);
+      enableScroll()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
-    const sideNavigation = sideNavigationRef.current;
+    const sideNavigation = sideNavigationRef.current
 
     if (!sideNavigation || isMobile === false || !isVisible) {
-      return;
+      return
     }
 
     const timeline = gsap.timeline({
       repeat: 0,
       delay: 1,
       defaults: { duration: 1.2 },
-    });
-    timeline.paused();
+    })
+    timeline.paused()
 
     const navigationTimeline = gsap.timeline({
       repeat: 0,
       delay: 1,
       defaults: { duration: 1.2 },
-    });
+    })
 
     navigationTimeline.to(sideNavigation, {
       scale: '0.52',
       ease: 'expo.out',
-    });
+    })
 
     setTimeout(() => {
-      setChildrenVisible(true);
-    }, 1400);
-    setTimelineInstance(timeline);
+      setChildrenVisible(true)
+    }, 1400)
+    setTimelineInstance(timeline)
 
     return () => {
       if (timeline) {
-        timeline?.kill?.();
+        timeline?.kill?.()
       }
       if (navigationTimeline) {
-        navigationTimeline?.kill?.();
+        navigationTimeline?.kill?.()
       }
-    };
-  }, [isMobile, isVisible, sideNavigationRef]);
+    }
+  }, [isMobile, isVisible, sideNavigationRef])
 
   return (
-    <div
-      {...props}
-      className={classNames(s.container, className)}
-    >
-      <div
-        className={s.sideNavigationMobile}
-        ref={sideNavigationRef}
-      >
+    <div {...props} className={classNames(s.container, className)}>
+      <div className={s.sideNavigationMobile} ref={sideNavigationRef}>
         <SideNavigation
           title={navigationTitle}
           linkText={navigationLinkText}
@@ -103,10 +98,7 @@ const IntroAnimation = ({
       />
       <div className={s.wrapper}>
         <AnimatedDottedContainer
-          className={classNames(
-            s.animatedContainer,
-            animatedContainerClassName
-          )}
+          className={classNames(s.animatedContainer, animatedContainerClassName)}
           onInitialAnimationComplete={enableScroll}
           items={items}
           isVisible={isVisible}
@@ -117,12 +109,10 @@ const IntroAnimation = ({
           }}
         />
       </div>
-      {typeof children === 'function'
-        ? children(isMobile ? isChildrenVisible : isVisible)
-        : children}
+      {typeof children === 'function' ? children(isMobile ? isChildrenVisible : isVisible) : children}
     </div>
-  );
-};
+  )
+}
 
 IntroAnimation.propTypes = {
   items: PropTypes.array.isRequired,
@@ -132,6 +122,6 @@ IntroAnimation.propTypes = {
   children: PropTypes.any,
   animatedContainerClassName: PropTypes.string,
   className: PropTypes.string,
-};
+}
 
-export default IntroAnimation;
+export default IntroAnimation

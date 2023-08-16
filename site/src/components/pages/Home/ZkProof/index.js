@@ -1,1 +1,1 @@
-export { default } from './ZkProof';
+export { default } from './ZkProof'

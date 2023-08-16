@@ -1,25 +1,21 @@
-import React from 'react';
-import { string, shape } from 'prop-types';
-import cx from 'classnames';
+import React from 'react'
+import { string, shape } from 'prop-types'
+import cx from 'classnames'
 
-import { useViewport } from 'hooks/useViewport';
+import { useViewport } from 'hooks/useViewport'
 
-import HeadingSection from 'components/HeadingSection';
-import WhiteRectangle from 'components/WhiteRectangle';
+import HeadingSection from 'components/HeadingSection'
+import WhiteRectangle from 'components/WhiteRectangle'
 
-import s from './Intro.module.scss';
+import s from './Intro.module.scss'
 
 const Intro = ({ className, data: { title, description, text } }) => {
-  const { isMobile } = useViewport();
+  const { isMobile } = useViewport()
 
   return (
     <div className={cx(s.wrapper, className)}>
       <div className={s.main}>
-        <HeadingSection
-          className={s.head}
-          title={title}
-          description={description}
-        />
+        <HeadingSection className={s.head} title={title} description={description} />
         <div className={s.footer}>
           <WhiteRectangle />
           <div>
@@ -40,8 +36,8 @@ const Intro = ({ className, data: { title, description, text } }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 Intro.propTypes = {
   className: string,
@@ -50,6 +46,6 @@ Intro.propTypes = {
     description: string,
     text: string,
   }),
-};
+}
 
-export default Intro;
+export default Intro

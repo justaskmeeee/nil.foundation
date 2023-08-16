@@ -1,21 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
-import WhiteRectangle from 'components/WhiteRectangle';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { gsap } from 'gsap';
-import s from './AnimatedDottedContainer.module.scss';
+import React, { useEffect, useRef, useState } from 'react'
+import WhiteRectangle from 'components/WhiteRectangle'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import { gsap } from 'gsap'
+import s from './AnimatedDottedContainer.module.scss'
 
 export const ANIMATION_CARD_ALIGNMENT = Object.freeze({
   top: 'top',
   bottom: 'bottom',
-});
+})
 
-const getTimelineWithMultipleTransform = (
-  timeline,
-  transformValueList,
-  container
-) => {
-  const firstValue = transformValueList[0];
+const getTimelineWithMultipleTransform = (timeline, transformValueList, container) => {
+  const firstValue = transformValueList[0]
   timeline.to(
     container,
     firstValue.duration ?? 1,
@@ -23,11 +19,11 @@ const getTimelineWithMultipleTransform = (
       y: firstValue.value,
       ease: 'sine.out',
     },
-    0
-  );
+    0,
+  )
   for (let index = 1; index < transformValueList.length; ++index) {
-    const currentValue = transformValueList[index];
-    const previousValue = transformValueList[index - 1];
+    const currentValue = transformValueList[index]
+    const previousValue = transformValueList[index - 1]
     timeline.to(
       container,
       currentValue.duration ?? 1,
@@ -36,10 +32,10 @@ const getTimelineWithMultipleTransform = (
         ease: 'sine.out',
         delay: previousValue.duration + 0.3,
       },
-      0
-    );
+      0,
+    )
   }
-};
+}
 
 const AnimatedCard = ({
   alignment,
@@ -55,14 +51,14 @@ const AnimatedCard = ({
   children,
   ...props
 }) => {
-  const containerRef = useRef(null);
-  const [isCompleted, setCompleted] = useState(false);
+  const containerRef = useRef(null)
+  const [isCompleted, setCompleted] = useState(false)
 
   useEffect(() => {
-    const container = containerRef.current;
+    const container = containerRef.current
 
     if (!container || !isVisible) {
-      return;
+      return
     }
 
     const tween = gsap.fromTo(
@@ -73,35 +69,26 @@ const AnimatedCard = ({
         duration,
         ease: 'expo.out',
         onComplete: () => {
-          setCompleted(true);
-          onComplete?.();
+          setCompleted(true)
+          onComplete?.()
         },
-      }
-    );
+      },
+    )
 
     return () => {
       if (tween) {
-        tween.kill();
+        tween.kill()
       }
-    };
-  }, [containerRef, ySourceValue, isVisible]);
+    }
+  }, [containerRef, ySourceValue, isVisible, duration, onComplete])
 
   useEffect(() => {
-    const container = containerRef.current;
+    const container = containerRef.current
 
-    if (
-      timeline &&
-      container &&
-      isCompleted &&
-      (yTransformValue || yTransformValueList)
-    ) {
+    if (timeline && container && isCompleted && (yTransformValue || yTransformValueList)) {
       if (yTransformValueList) {
-        getTimelineWithMultipleTransform(
-          timeline,
-          yTransformValueList,
-          container
-        );
-        return;
+        getTimelineWithMultipleTransform(timeline, yTransformValueList, container)
+        return
       }
       timeline.to(
         container,
@@ -109,28 +96,24 @@ const AnimatedCard = ({
           y: yTransformValue,
           ease: 'sine.out',
         },
-        '<'
-      );
+        '<',
+      )
     }
-  }, [timeline, isCompleted, yTransformValue, yTransformValueList]);
+  }, [timeline, isCompleted, yTransformValue, yTransformValueList])
 
   return (
     <div className={s.cardWrapper}>
       <div
         ref={containerRef}
         {...props}
-        className={classNames(
-          s.card,
-          alignment === 'top' ? s.cardTop : s.cardBottom,
-          className
-        )}
+        className={classNames(s.card, alignment === 'top' ? s.cardTop : s.cardBottom, className)}
       >
         {typeof children === 'function' ? children(isCompleted) : children}
         {!hideLine && <WhiteRectangle className={s.line} />}
       </div>
     </div>
-  );
-};
+  )
+}
 
 AnimatedCard.propTypes = {
   duration: PropTypes.number,
@@ -144,12 +127,12 @@ AnimatedCard.propTypes = {
   hideLine: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.any,
-};
+}
 
 AnimatedCard.defaultProps = {
   duration: 0.8,
   alignment: ANIMATION_CARD_ALIGNMENT.top,
   isVisible: true,
-};
+}
 
-export default AnimatedCard;
+export default AnimatedCard

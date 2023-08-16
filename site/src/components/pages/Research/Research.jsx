@@ -1,24 +1,20 @@
-import { arrayOf, number, shape, string } from 'prop-types';
-import ResearchCard from 'components/ResearchCard';
-import s from './Research.module.scss';
+import { arrayOf, number, shape, string } from 'prop-types'
+import ResearchCard from 'components/ResearchCard'
+import s from './Research.module.scss'
 
 const Research = ({ data }) => {
   return (
     <section className={s.container}>
       <ul className={s.cardList}>
-        {data?.posts.map(el => (
+        {data?.posts.map((el) => (
           <li key={el.id}>
-            <ResearchCard
-              className={s.card}
-              content={el}
-              withTags
-            />
+            <ResearchCard className={s.card} content={el} withTags />
           </li>
         ))}
       </ul>
     </section>
-  );
-};
+  )
+}
 
 Research.propTypes = {
   data: shape({
@@ -37,11 +33,11 @@ Research.propTypes = {
             creataAt: string,
             publishedAt: string,
             updatedAt: string,
-          })
+          }),
         ),
-      })
+      }),
     ),
   }),
-};
+}
 
-export default Research;
+export default Research

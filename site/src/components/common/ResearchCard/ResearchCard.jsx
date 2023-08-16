@@ -1,20 +1,17 @@
-import { memo } from 'react';
-import cx from 'classnames';
-import { string, shape, arrayOf, number, bool } from 'prop-types';
+import { memo } from 'react'
+import cx from 'classnames'
+import { string, shape, arrayOf, number, bool } from 'prop-types'
 
-import Icon from 'components/Icon';
-import Button from 'components/Button';
-import TagButton from 'components/TagButton';
-import { Tag } from 'entities/tag';
+import Icon from 'components/Icon'
+import Button from 'components/Button'
+import TagButton from 'components/TagButton'
+import { Tag } from 'entities/tag'
 
-import s from './ResearchCard.module.scss';
+import s from './ResearchCard.module.scss'
 
 const ResearchCard = ({ className, content, withTags }) => {
   return (
-    <Button
-      href={content.link}
-      className={cx(s.root, className)}
-    >
+    <Button href={content.link} className={cx(s.root, className)}>
       <div>
         <div className={s.info}>
           <p className={s.author}>{content.author}</p>
@@ -24,22 +21,15 @@ const ResearchCard = ({ className, content, withTags }) => {
       </div>
       {withTags && (
         <div className={s.tags}>
-          {content.tags.map(tag => (
-            <TagButton
-              className={s.tag}
-              key={tag.id}
-              tag={tag.name}
-            />
+          {content.tags.map((tag) => (
+            <TagButton className={s.tag} key={tag.id} tag={tag.name} />
           ))}
         </div>
       )}
-      <Icon
-        name="arrow-up"
-        className={s.arrow}
-      />
+      <Icon name='arrow-up' className={s.arrow} />
     </Button>
-  );
-};
+  )
+}
 
 ResearchCard.propTypes = {
   className: string,
@@ -52,6 +42,6 @@ ResearchCard.propTypes = {
     link: string,
     tags: arrayOf(Tag),
   }),
-};
+}
 
-export default memo(ResearchCard);
+export default memo(ResearchCard)

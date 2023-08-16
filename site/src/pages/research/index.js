@@ -1,21 +1,21 @@
-import { REVALIDATE } from 'constants/common';
+import { REVALIDATE } from 'constants/common'
 
-import Research, { ResearchLayout } from 'pages/Research';
-import MetaLayout from 'components/MetaLayout';
+import Research, { ResearchLayout } from 'pages/Research'
+import MetaLayout from 'components/MetaLayout'
 
-import { getCollection, getSiteConfig } from 'src/strapi';
-import { seoData } from 'stubs/researchCards';
+import { getCollection, getSiteConfig } from 'src/strapi'
+import { seoData } from 'stubs/researchCards'
 
 const ResearchPage = ({ cms, seo }) => (
   <MetaLayout seo={seo}>
     <Research data={cms} />
   </MetaLayout>
-);
+)
 
-ResearchPage.getLayout = page => {
-  const tags = page?.props?.cms?.tags ?? [];
-  return <ResearchLayout tags={tags}>{page}</ResearchLayout>;
-};
+ResearchPage.getLayout = (page) => {
+  const tags = page?.props?.cms?.tags ?? []
+  return <ResearchLayout tags={tags}>{page}</ResearchLayout>
+}
 
 export async function getStaticProps() {
   const [posts, tags, config] = await Promise.all([
@@ -34,7 +34,7 @@ export async function getStaticProps() {
       },
     }),
     await getSiteConfig(),
-  ]);
+  ])
 
   return {
     revalidate: REVALIDATE,
@@ -46,7 +46,7 @@ export async function getStaticProps() {
       config,
       seo: seoData,
     },
-  };
+  }
 }
 
-export default ResearchPage;
+export default ResearchPage

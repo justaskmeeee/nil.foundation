@@ -5,4 +5,4 @@ export const seo = {
   url: 'https://nil.foundation',
   image: '/og.jpg',
   theme: '#212121',
-};
+}

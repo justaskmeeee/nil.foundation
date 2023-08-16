@@ -1,30 +1,24 @@
-import React from 'react';
-import { string, shape, arrayOf } from 'prop-types';
-import cx from 'classnames';
+import React from 'react'
+import { string, shape, arrayOf } from 'prop-types'
+import cx from 'classnames'
 
-import { useViewport } from 'hooks/useViewport';
+import { useViewport } from 'hooks/useViewport'
 
-import WhiteRectangle from 'components/WhiteRectangle';
-import HeadingSection from 'components/HeadingSection';
-import ListItem from 'components/ListItem';
-import Button from 'components/ArrowButton';
+import WhiteRectangle from 'components/WhiteRectangle'
+import HeadingSection from 'components/HeadingSection'
+import ListItem from 'components/ListItem'
+import Button from 'components/ArrowButton'
 
-import s from './FullCycle.module.scss';
+import s from './FullCycle.module.scss'
 
-const FullCycle = ({
-  className,
-  data: { title, description, list, footer },
-}) => {
-  const { isMobile } = useViewport();
+const FullCycle = ({ className, data: { title, description, list, footer } }) => {
+  const { isMobile } = useViewport()
 
   return (
     <div className={cx(s.root, className)}>
       <div className={s.left}>
         <WhiteRectangle />
-        <HeadingSection
-          title={title}
-          description={description}
-        />
+        <HeadingSection title={title} description={description} />
         {!isMobile && <WhiteRectangle />}
       </div>
       <div className={s.right}>
@@ -35,30 +29,21 @@ const FullCycle = ({
               className={s.list}
               key={i} // eslint-disable-line
             >
-              <ListItem
-                className={s.item}
-                key={el.title}
-                title={el.title}
-                description={el.description}
-              />
+              <ListItem className={s.item} key={el.title} title={el.title} description={el.description} />
             </div>
           ))}
         </div>
         <div className={s.footer}>
           <WhiteRectangle />
           <div>
-            <Button
-              className={s.button}
-              text={footer.text}
-              href={footer.link}
-            />
+            <Button className={s.button} text={footer.text} href={footer.link} />
             <WhiteRectangle />
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 FullCycle.propTypes = {
   className: string,
@@ -69,10 +54,10 @@ FullCycle.propTypes = {
       shape({
         title: string,
         description: string,
-      })
+      }),
     ),
     footer: shape({ text: string, link: string }),
   }),
-};
+}
 
-export default FullCycle;
+export default FullCycle

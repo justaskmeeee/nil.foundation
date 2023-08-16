@@ -1,4 +1,4 @@
-import { socialLinks } from 'constants/socials';
+import { socialLinks } from 'constants/socials'
 
 export const headingIcons = {
   community: [
@@ -15,4 +15,4 @@ export const headingIcons = {
     },
     { icon: 'twitter', link: socialLinks.twitter },
   ],
-};
+}

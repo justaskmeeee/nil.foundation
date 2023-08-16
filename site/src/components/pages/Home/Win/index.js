@@ -1,1 +1,1 @@
-export { default } from './Win';
+export { default } from './Win'

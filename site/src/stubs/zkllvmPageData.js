@@ -1,8 +1,7 @@
 export const zkllvmPageData = {
   hero: {
     title: 'Experience the zkLLVM circuit compiler',
-    description:
-      'Tap into the potential of a tool that simplifies proving application code to Ethereum.',
+    description: 'Tap into the potential of a tool that simplifies proving application code to Ethereum.',
     info: 'Our compiler automatically transforms mainstream development languages into circuits for efficient proof generation.',
     list: [
       `Compile circuits from existing code, don't start from scratch`,
@@ -92,8 +91,7 @@ export const zkllvmPageData = {
       },
       {
         title: 'Incentives for circuit developers',
-        description:
-          'Developers get rewards for adding new circuits that gain demand.',
+        description: 'Developers get rewards for adding new circuits that gain demand.',
       },
     ],
     footer: {
@@ -120,9 +118,9 @@ export const zkllvmPageData = {
       link: '/about',
     },
   },
-};
+}
 
 export const seoData = {
   title: '=nil; Foundation zkLLVM circuit compiler',
   description: 'Effortless high-performance circuit definition',
-};
+}

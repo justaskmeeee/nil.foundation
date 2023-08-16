@@ -1,1 +1,1 @@
-export { default } from './DottedSection';
+export { default } from './DottedSection'

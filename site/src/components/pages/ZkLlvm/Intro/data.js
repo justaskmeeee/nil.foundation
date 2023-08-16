@@ -1,7 +1,7 @@
-import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer';
-import ArrowButton from 'components/ArrowButton';
-import { IntroDescription } from 'components/IntroAnimation';
-import s from './Intro.module.scss';
+import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
+import ArrowButton from 'components/ArrowButton'
+import { IntroDescription } from 'components/IntroAnimation'
+import s from './Intro.module.scss'
 
 export const animatedItemList = [
   {
@@ -18,10 +18,10 @@ export const animatedItemList = [
     id: 'z3',
     ySourceValue: '-64%',
     yTransformValue: '-99%',
-    children: isCompleted => (
+    children: (isCompleted) => (
       <IntroDescription
         className={s.description}
-        text="Get high-performance circuits straight from C++, Rust, or other mainstream code using this powerful tool designed for developers."
+        text='Get high-performance circuits straight from C++, Rust, or other mainstream code using this powerful tool designed for developers.'
         isVisible={isCompleted}
       />
     ),
@@ -88,19 +88,13 @@ export const animatedItemList = [
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
-];
+]
 
 export const animatedItemMobileList = [
   {
     id: 'm1',
     ySourceValue: '-30%',
-    children: (
-      <ArrowButton
-        className={s.link}
-        text="Discover zkLLVM"
-        href="https://github.com/NilFoundation/zkllvm"
-      />
-    ),
+    children: <ArrowButton className={s.link} text='Discover zkLLVM' href='https://github.com/NilFoundation/zkllvm' />,
   },
   {
     id: 'm2',
@@ -120,4 +114,4 @@ export const animatedItemMobileList = [
       { value: '-65%', duration: 0.8 },
     ],
   },
-];
+]

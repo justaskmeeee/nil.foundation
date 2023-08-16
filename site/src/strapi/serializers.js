@@ -6,34 +6,34 @@ import {
   rebuildBlogAndMeta,
   rebuildGlossaries,
   rebuildSingleWord,
-} from './rebuildCollection';
+} from './rebuildCollection'
 
 export const serializeList = (data, type) => {
   switch (type) {
     case 'blogs':
-      return rebuildBlog(data);
+      return rebuildBlog(data)
     case 'blogs+meta':
-      return rebuildBlogAndMeta(data);
+      return rebuildBlogAndMeta(data)
 
     case 'research':
-      return rebuildResearch(data);
+      return rebuildResearch(data)
     case 'glossaries':
-      return rebuildGlossaries(data);
+      return rebuildGlossaries(data)
     default:
-      return rebuildList(data);
+      return rebuildList(data)
   }
-};
+}
 
 export const serializeSingle = (data, type) => {
   switch (type) {
     case 'blogs':
-      return rebuildSinglePost(data);
+      return rebuildSinglePost(data)
     case 'glossaries':
-      return rebuildSingleWord(data);
+      return rebuildSingleWord(data)
     default:
       return {
         id: data.id,
         ...data.attributes,
-      };
+      }
   }
-};
+}

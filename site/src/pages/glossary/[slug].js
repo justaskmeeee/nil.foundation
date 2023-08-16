@@ -1,7 +1,7 @@
-import { REVALIDATE } from 'constants/common';
-import WordPage from 'pages/WordPage/WordPage';
-import { getSingleBySlug, getAllPath, getSiteConfig } from 'src/strapi';
-import MetaLayout from 'components/MetaLayout/MetaLayout';
+import { REVALIDATE } from 'constants/common'
+import WordPage from 'pages/WordPage/WordPage'
+import { getSingleBySlug, getAllPath, getSiteConfig } from 'src/strapi'
+import MetaLayout from 'components/MetaLayout/MetaLayout'
 
 const Word = ({ data }) => {
   return (
@@ -13,23 +13,23 @@ const Word = ({ data }) => {
     >
       <WordPage data={data} />
     </MetaLayout>
-  );
-};
+  )
+}
 
 export async function getStaticProps({ params: { slug } }) {
   const [words, config] = await Promise.all([
-      getSingleBySlug('glossaries', slug, {
+    getSingleBySlug('glossaries', slug, {
       paragraphs: {
         populate: '*',
       },
     }),
     getSiteConfig(),
-  ]);
+  ])
 
   if (!words) {
     return {
       notFound: true,
-    };
+    }
   }
 
   return {
@@ -38,21 +38,20 @@ export async function getStaticProps({ params: { slug } }) {
       data: words,
       config,
     },
-  };
+  }
 }
 
 export async function getStaticPaths() {
-  const words = await getAllPath('glossaries');
+  const words = await getAllPath('glossaries')
 
-
-  const paths = words.map(word => ({
+  const paths = words.map((word) => ({
     params: { slug: word.slug },
-  }));
+  }))
 
   return {
     paths,
     fallback: 'blocking',
-  };
+  }
 }
 
-export default Word;
+export default Word

@@ -5,4 +5,5 @@ export default {
   IMAGE_URL: process.env.STRAPI_URL || '',
   VIDEO_URL: process.env.STRAPI_URL || '',
   TOKEN: process.env.STRAPI_API_KEY || '',
-};
+  USE_MOCK: !!process.env.USE_MOCK || false,
+}

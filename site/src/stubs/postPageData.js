@@ -8,4 +8,4 @@ export const postPage = {
         'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on decentralized proof generation.',
     },
   },
-};
+}

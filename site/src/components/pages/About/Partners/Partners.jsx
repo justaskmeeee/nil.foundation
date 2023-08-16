@@ -1,42 +1,39 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react'
 
-import { shape, string } from 'prop-types';
-import cx from 'classnames';
-import Image from 'next/image';
+import { shape, string } from 'prop-types'
+import cx from 'classnames'
+import Image from 'next/image'
 
-import { useViewport } from 'hooks/useViewport';
+import { useViewport } from 'hooks/useViewport'
 
-import HeadingSection from 'components/HeadingSection';
-import WhiteRectangle from 'components/WhiteRectangle';
+import HeadingSection from 'components/HeadingSection'
+import WhiteRectangle from 'components/WhiteRectangle'
 
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import s from './Partners.module.scss';
-import Item from './Item';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import s from './Partners.module.scss'
+import Item from './Item'
 
 const Partners = ({ className, data: { title, content } }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const { isMobile } = useViewport();
+  const [activeIndex, setActiveIndex] = useState(0)
+  const { isMobile } = useViewport()
 
   const toggleItem = useCallback(
-    index => {
-      setActiveIndex(index === activeIndex ? -1 : index);
+    (index) => {
+      setActiveIndex(index === activeIndex ? -1 : index)
       if (!isMobile) {
         setTimeout(() => {
-          ScrollTrigger.refresh();
-        }, 400);
+          ScrollTrigger.refresh()
+        }, 400)
       }
     },
-    [activeIndex, isMobile]
-  );
+    [activeIndex, isMobile],
+  )
 
   return (
     <div className={cx(s.root, className)}>
       <div className={s.left}>
         <WhiteRectangle />
-        <HeadingSection
-          className={s.title}
-          title={title}
-        />
+        <HeadingSection className={s.title} title={title} />
         {!isMobile && <WhiteRectangle />}
       </div>
 
@@ -44,24 +41,11 @@ const Partners = ({ className, data: { title, content } }) => {
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
           {content.map((el, index) => (
-            <Item
-              key={el.title}
-              title={el.title}
-              index={index}
-              activeIndex={activeIndex}
-              onClick={toggleItem}
-            >
+            <Item key={el.title} title={el.title} index={index} activeIndex={activeIndex} onClick={toggleItem}>
               <div className={s.box}>
-                {el.logos.map(logo => (
-                  <div
-                    key={logo.url}
-                    className={s.imageWrapper}
-                  >
-                    <Image
-                      src={logo.url}
-                      fill
-                      alt="logo"
-                    />
+                {el.logos.map((logo) => (
+                  <div key={logo.url} className={s.imageWrapper}>
+                    <Image src={logo.url} fill alt='logo' />
                   </div>
                 ))}
               </div>
@@ -71,14 +55,14 @@ const Partners = ({ className, data: { title, content } }) => {
         <WhiteRectangle />
       </div>
     </div>
-  );
-};
+  )
+}
 Partners.propTypes = {
   className: string,
   data: shape({
     title: string,
     description: string,
   }),
-};
+}
 
-export default Partners;
+export default Partners

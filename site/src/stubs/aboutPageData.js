@@ -1,4 +1,4 @@
-import { socialLinks } from 'constants/socials';
+import { socialLinks } from 'constants/socials'
 
 export const aboutPageData = {
   hero: {
@@ -74,8 +74,7 @@ export const aboutPageData = {
   },
 
   toolchain: {
-    title:
-      'Robust toolchain to accelerate the development of zk-enabled applications',
+    title: 'Robust toolchain to accelerate the development of zk-enabled applications',
     description:
       'Implementing zero-knowledge technology into products development and data management is now transparent and cost-effective.',
     content: [
@@ -85,8 +84,7 @@ export const aboutPageData = {
         link: '/blog/post/database-management-system',
         list: [
           {
-            title:
-              'Layer protocol allowing decentralized operation of Proof Market or any other application',
+            title: 'Layer protocol allowing decentralized operation of Proof Market or any other application',
           },
         ],
       },
@@ -96,20 +94,17 @@ export const aboutPageData = {
         link: 'https://github.com/NilFoundation/proof-market-toolchain',
         list: [
           {
-            title:
-              'Outsourcing zkProof generation to optimize time & cost of zk implementation',
+            title: 'Outsourcing zkProof generation to optimize time & cost of zk implementation',
           },
         ],
       },
       {
         title: 'zkLLVM',
-        description:
-          'Circuit compiler from C++, Rust, or other mainstream languages',
+        description: 'Circuit compiler from C++, Rust, or other mainstream languages',
         link: 'https://github.com/NilFoundation/zkllvm',
         list: [
           {
-            title:
-              'Automatic generation of high-performance circuits for multiple protocols',
+            title: 'Automatic generation of high-performance circuits for multiple protocols',
           },
         ],
       },
@@ -120,8 +115,7 @@ export const aboutPageData = {
         link: 'https://github.com/NilFoundation/crypto3',
         list: [
           {
-            title:
-              'Tech & research baseline to enable high performance circuit definition',
+            title: 'Tech & research baseline to enable high performance circuit definition',
           },
         ],
       },
@@ -163,7 +157,7 @@ export const aboutPageData = {
           },
           {
             url: '/images/partners/fabric_logo.svg',
-          }
+          },
         ],
       },
       {
@@ -185,8 +179,7 @@ export const aboutPageData = {
 
   ourTeam: {
     title: 'Become part of our team',
-    description:
-      'Learn more about our team and discover current open positions.',
+    description: 'Learn more about our team and discover current open positions.',
     button: {
       text: 'Go to Careers page',
       link: '/careers',
@@ -202,9 +195,9 @@ export const aboutPageData = {
         'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on decentralized proof generation.',
     },
   },
-};
+}
 
 export const seoData = {
   title: '=nil; Foundation',
   description: 'Zero-knowledge development & research',
-};
+}

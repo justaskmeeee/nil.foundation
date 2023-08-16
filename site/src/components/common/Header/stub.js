@@ -13,4 +13,4 @@ export const links = {
     { name: 'About', link: '/about' },
     { name: 'Careers', link: '/careers' },
   ],
-};
+}

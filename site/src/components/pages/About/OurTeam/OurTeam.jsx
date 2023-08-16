@@ -1,25 +1,22 @@
-import React from 'react';
-import { shape, string } from 'prop-types';
-import cx from 'classnames';
+import React from 'react'
+import { shape, string } from 'prop-types'
+import cx from 'classnames'
 
-import { useViewport } from 'hooks/useViewport';
+import { useViewport } from 'hooks/useViewport'
 
-import HeadingSection from 'components/HeadingSection';
-import WhiteRectangle from 'components/WhiteRectangle';
-import Button from 'components/ArrowButton';
+import HeadingSection from 'components/HeadingSection'
+import WhiteRectangle from 'components/WhiteRectangle'
+import Button from 'components/ArrowButton'
 
-import s from './OurTeam.module.scss';
+import s from './OurTeam.module.scss'
 
 const OurTeam = ({ className, data: { title, description, button } }) => {
-  const { isMobile } = useViewport();
+  const { isMobile } = useViewport()
   return (
     <div className={cx(s.root, className)}>
       <div className={s.left}>
         <WhiteRectangle />
-        <HeadingSection
-          title={title}
-          className={s.head}
-        />
+        <HeadingSection title={title} className={s.head} />
         {!isMobile && <WhiteRectangle />}
       </div>
 
@@ -29,18 +26,14 @@ const OurTeam = ({ className, data: { title, description, button } }) => {
         <div className={s.footer}>
           <WhiteRectangle />
           <div>
-            <Button
-              className={s.button}
-              text={button.text}
-              href={button.link}
-            />
+            <Button className={s.button} text={button.text} href={button.link} />
             <WhiteRectangle />
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 OurTeam.propTypes = {
   className: string,
@@ -52,6 +45,6 @@ OurTeam.propTypes = {
       link: string,
     }),
   }),
-};
+}
 
-export default OurTeam;
+export default OurTeam

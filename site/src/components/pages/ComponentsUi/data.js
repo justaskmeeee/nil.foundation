@@ -7,26 +7,17 @@ export const Icons = [
   'twitter',
   // 'dev-portal',
   'arrow-up',
-];
+]
 
-export const benefitsIcons = [
-  'arrow-in-circle',
-  'key',
-  'lock',
-  'pazzle',
-  'lightning',
-  'shield',
-];
+export const benefitsIcons = ['arrow-in-circle', 'key', 'lock', 'pazzle', 'lightning', 'shield']
 
-export const bgIcons = ['rollup', 'bridges', 'oracles', 'ml', 'gaming'];
+export const bgIcons = ['rollup', 'bridges', 'oracles', 'ml', 'gaming']
 
 export const headingContent = [
   { title: 'Become part of our team', componentTitle: 'HeadingSection title' },
   {
-    title:
-      'Experience the zkLLVM Circuit CompilerCircuit CompilerCircuit Compiler',
-    description:
-      'Tap into the potential of a tool that simplifies proving application code to Ethereum. ',
+    title: 'Experience the zkLLVM Circuit CompilerCircuit CompilerCircuit Compiler',
+    description: 'Tap into the potential of a tool that simplifies proving application code to Ethereum. ',
     componentTitle: 'HeadingSection title with description',
   },
   {
@@ -39,7 +30,7 @@ export const headingContent = [
     socials: 'corporate',
     componentTitle: 'HeadingSection title with corporate icons',
   },
-];
+]
 
 export const cardsStubContent = {
   postCard: {
@@ -52,11 +43,10 @@ export const cardsStubContent = {
   researchCard: {
     author: 'Ivan Karpeev',
     date: '26 Apr 2023',
-    title:
-      '=nil; zkLLVM + Proof Market: Enabling Accessible and Effective zkProofs for All',
+    title: '=nil; zkLLVM + Proof Market: Enabling Accessible and Effective zkProofs for All',
     tags: ['dBMs', 'crypto3'],
   },
-};
+}
 
 export const benefitsCards = [
   {
@@ -95,7 +85,7 @@ export const benefitsCards = [
     description:
       'Zero-knowledge technology lets applications selectively share data with third parties, ensuring privacy without sacrificing the security and trust of your users.',
   },
-];
+]
 
 export const linkCards = [
   {
@@ -106,8 +96,7 @@ export const linkCards = [
   {
     linkTo: '/',
     title: 'zkLLVM',
-    description:
-      'Circuit compiler from C++, Rust, or other mainstream languages',
+    description: 'Circuit compiler from C++, Rust, or other mainstream languages',
   },
   {
     linkTo: '/',
@@ -120,7 +109,7 @@ export const linkCards = [
     description:
       'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping',
   },
-];
+]
 
 export const listItem = [
   {
@@ -133,4 +122,4 @@ export const listItem = [
     description:
       '=nil; Foundation established, aiming to implement best practices of database management systems to the crypto industry through research and development ',
   },
-];
+]

@@ -1,1 +1,1 @@
-export { default } from './ComponentsUi';
+export { default } from './ComponentsUi'

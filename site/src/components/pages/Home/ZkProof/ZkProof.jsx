@@ -1,17 +1,17 @@
-import React from 'react';
-import { string, shape, arrayOf } from 'prop-types';
-import cx from 'classnames';
+import React from 'react'
+import { string, shape, arrayOf } from 'prop-types'
+import cx from 'classnames'
 
-import { useViewport } from 'hooks/useViewport';
+import { useViewport } from 'hooks/useViewport'
 
-import HeadingSection from 'components/HeadingSection';
-import WhiteRectangle from 'components/WhiteRectangle';
-import BenefitsCard from 'components/BenefitsCard';
+import HeadingSection from 'components/HeadingSection'
+import WhiteRectangle from 'components/WhiteRectangle'
+import BenefitsCard from 'components/BenefitsCard'
 
-import s from './ZkProof.module.scss';
+import s from './ZkProof.module.scss'
 
 const ZkProof = ({ className, data: { title, content } }) => {
-  const { isMobile } = useViewport();
+  const { isMobile } = useViewport()
 
   return (
     <div className={cx(s.root, className)}>
@@ -23,7 +23,7 @@ const ZkProof = ({ className, data: { title, content } }) => {
       <div className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div>
-          {content.map(el => (
+          {content.map((el) => (
             <BenefitsCard
               key={el.title}
               className={s.box}
@@ -36,8 +36,8 @@ const ZkProof = ({ className, data: { title, content } }) => {
         <WhiteRectangle />
       </div>
     </div>
-  );
-};
+  )
+}
 
 ZkProof.propTypes = {
   className: string,
@@ -48,9 +48,9 @@ ZkProof.propTypes = {
         title: string,
         icon: string,
         description: string,
-      })
+      }),
     ),
   }),
-};
+}
 
-export default ZkProof;
+export default ZkProof

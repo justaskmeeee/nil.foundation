@@ -1,30 +1,24 @@
-import cx from 'classnames';
+import cx from 'classnames'
 
-import { useViewport } from 'hooks/useViewport';
+import { useViewport } from 'hooks/useViewport'
 
-import Container from 'components/Container';
-import StickyContainer from 'components/StickyContainer';
-import WhiteRectangle from 'components/WhiteRectangle';
-import Button from 'components/Button';
-import Icon from 'components/Icon';
+import Container from 'components/Container'
+import StickyContainer from 'components/StickyContainer'
+import WhiteRectangle from 'components/WhiteRectangle'
+import Button from 'components/Button'
+import Icon from 'components/Icon'
 
-import s from './NotFound.module.scss';
+import s from './NotFound.module.scss'
 
 const NotFound = () => {
-  const { isMobile } = useViewport();
+  const { isMobile } = useViewport()
 
   return (
     <Container className={s.root}>
       {!isMobile && (
         <StickyContainer className={s.navigation}>
-          <Button
-            href="/"
-            className={s.backButton}
-          >
-            <Icon
-              name="arrow-up"
-              className={s.arrow}
-            />
+          <Button href='/' className={s.backButton}>
+            <Icon name='arrow-up' className={s.arrow} />
             <p className={s.paragraph}>Home</p>
           </Button>
         </StickyContainer>
@@ -33,14 +27,8 @@ const NotFound = () => {
         <div className={s.background}>
           <div className={s.wrapper}>
             {isMobile && (
-              <Button
-                href="/"
-                className={s.backButton}
-              >
-                <Icon
-                  name="arrow-up"
-                  className={s.arrow}
-                />
+              <Button href='/' className={s.backButton}>
+                <Icon name='arrow-up' className={s.arrow} />
                 <p className={s.paragraph}>Home</p>
               </Button>
             )}
@@ -68,7 +56,7 @@ const NotFound = () => {
         </div>
       </div>
     </Container>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound
