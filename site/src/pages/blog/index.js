@@ -22,7 +22,15 @@ export async function getStaticProps() {
         pageSize: BLOG_PAGE_SIZE,
       },
     }),
-    getCollection('tags'),
+    getCollection('tags', {
+      filters: {
+        blogs: {
+          id: {
+            $notNull: true,
+          },
+        },
+      },
+    }),
     getCollection('categories'),
     getSiteConfig(),
   ]);
