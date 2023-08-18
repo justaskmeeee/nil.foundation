@@ -59,6 +59,9 @@ globalThis.CKEditorConfig = {
                     CKEditor5.table.TableCaption,
                     CKEditor5.strapiPlugins.StrapiMediaLib,
                     CKEditor5.strapiPlugins.StrapiUploadAdapter,
+                    CKEditor5.blockQuote.BlockQuote,
+                    CKEditor5.basicStyles.Code, 
+                    CKEditor5.codeBlock.CodeBlock,
                   ],
 
                   /* By default, for plugin's UI will use
@@ -82,7 +85,7 @@ globalThis.CKEditorConfig = {
                     '|',
                     'bold', 'italic', 'link', 'bulletedList', 'numberedList',
                     '|',
-                    'strapiMediaLib', 'insertTable',
+                    'insertImage','mediaEmbed','strapiMediaLib','link','blockquote','insertTable','specialCharacters','htmlEmbed','codeBlock',
                     '|',
                     'undo', 'redo'
                   ],
