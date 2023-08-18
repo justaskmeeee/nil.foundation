@@ -72,7 +72,7 @@ const PostPage = ({ post, recommendedPosts, content }) => {
             </div>
             <div className={cx(s.content, s.wrapper)}>
               <h1 className={cx(s.title, s.blogTitle, s.marginBlock)}>{post.title}</h1>
-              {post.subtitle && <h2 className={cx(s.subtitle, s.marginBlock)}>{post.description}</h2>}
+              {post.description && <h2 className={cx(s.subtitle, s.marginBlock)}>{post.description}</h2>}
               {isMobile && (
                 <div className={s.social}>
                   <p className={s.paragraph}>Share this post</p>
