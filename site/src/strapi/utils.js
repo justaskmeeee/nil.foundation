@@ -54,7 +54,7 @@ export const getAttribute = (data) => {
 }
 
 export const getHtml = (data) => {
-  const text = String(data).replace(/\/uploads/g, `${process.env.STRAPI_URL}/uploads`)
+  const text = String(data).replace(/"\/uploads/g, `"${process.env.STRAPI_URL}/uploads`)
 
   return text ? converter.makeHtml(text) : null
 }
