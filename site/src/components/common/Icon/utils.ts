@@ -23,7 +23,7 @@ import Squares from './icons/Squares'
 // off DevPortal icon
 // import DevPortal from './icons/DevPortal';
 
-export const getIcon = (name) => {
+export const getIcon = (name: string) => {
   switch (name) {
     case 'logo':
       return Logo

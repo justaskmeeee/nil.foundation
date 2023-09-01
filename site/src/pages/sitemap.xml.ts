@@ -17,12 +17,12 @@ export const getServerSideProps = async ({ res }) => {
       return ![
         '.DS_Store',
         '_app.js',
-        '_document.js',
+        '_document.ts',
         '404.js',
-        'sitemap.xml.js',
-        'robots.txt.js',
+        'sitemap.xml.ts',
+        'robots.txt.ts',
         'index.js',
-        'components.js',
+        'components.ts',
         'api',
       ].includes(staticPage)
     })

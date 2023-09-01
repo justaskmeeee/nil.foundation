@@ -13,8 +13,9 @@ import useCalcVh from 'hooks/useCalcVh'
 
 import { seo } from 'constants/seo'
 import Hotjar from '@hotjar/browser'
+import { AppProps } from 'next/app'
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
   useCalcVh()
 
@@ -27,7 +28,7 @@ const MyApp = ({ Component, pageProps }) => {
   }, [])
 
   useEffect(() => {
-    const handleRouteChange = (url) => {
+    const handleRouteChange = (url: string) => {
       if (url === '/careers/jobs') {
         router.reload()
       }

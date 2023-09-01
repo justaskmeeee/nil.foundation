@@ -11,9 +11,4 @@ type ContainerProps = {
 
 const Container = ({ className, children }: ContainerProps) => <main className={cx(s.root, className)}>{children}</main>
 
-Container.propTypes = {
-  className: string,
-  children: any,
-}
-
 export default Container

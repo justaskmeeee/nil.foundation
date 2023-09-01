@@ -1,5 +1,5 @@
 import showdown from 'showdown'
-import config from './config'
+import config from './config.js'
 
 const converter = new showdown.Converter()
 

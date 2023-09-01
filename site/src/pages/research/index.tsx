@@ -5,14 +5,15 @@ import MetaLayout from 'components/MetaLayout'
 
 import { getCollection, getSiteConfig } from 'src/strapi'
 import { seoData } from 'stubs/researchCards'
+import { InferGetStaticPropsType } from 'next'
 
-const ResearchPage = ({ cms, seo }) => (
+const ResearchPage = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
     <Research data={cms} />
   </MetaLayout>
 )
 
-ResearchPage.getLayout = (page) => {
+ResearchPage.getLayout = (page: JSX.Element) => {
   const tags = page?.props?.cms?.tags ?? []
   return <ResearchLayout tags={tags}>{page}</ResearchLayout>
 }

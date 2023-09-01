@@ -1,7 +1,8 @@
 import { getCollectionAndMeta } from 'src/strapi'
 import { BLOG_PAGE_SIZE, BLOG_POST_SORT } from 'constants/common'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const newData = await getCollectionAndMeta('blogs', {
       sort: BLOG_POST_SORT,

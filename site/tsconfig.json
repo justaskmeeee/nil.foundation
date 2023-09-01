@@ -19,43 +19,29 @@
     "noEmit": true,
     "incremental": true,
     "jsx": "preserve",
+    "useUnknownInCatchVariables": false,
     "baseUrl": "./",
-  "paths": {
-    "components/*": ["src/components/common/*"],
-    "hooks/*": ["src/hooks/*"],
-    "pages/*": ["src/components/pages/*"],
-    "providers/*": ["src/components/providers/*"],
-    "styles/*": ["src/styles/*"],
-    "utils/*": ["src/utils/*"],
-    "public/*": ["public/*"],
-    "images/*": ["public/images/*"],
-    "constants/*": ["src/constants/*"],
-    "stubs/*": ["src/stubs/*"],
-    "lottie/*": ["public/lottie/*"],
-    "entities/*": ["src/domain/entities/*"]
-  }
+    "paths": {
+      "components/*": ["src/components/common/*"],
+      "hooks/*": ["src/hooks/*"],
+      "pages/*": ["src/components/pages/*"],
+      "providers/*": ["src/components/providers/*"],
+      "styles/*": ["src/styles/*"],
+      "utils/*": ["src/utils/*"],
+      "public/*": ["public/*"],
+      "images/*": ["public/images/*"],
+      "constants/*": ["src/constants/*"],
+      "stubs/*": ["src/stubs/*"],
+      "lottie/*": ["public/lottie/*"],
+      "entities/*": ["src/domain/entities/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/strapi/request.js", "src/components/pages/Error/Error.jsx"  ],
+    "**/*.tsx",
+  ],
   "exclude": [
     "node_modules"
-  ],
-  "baseUrl": "./",
-  "paths": {
-    "components/*": ["src/components/common/*"],
-    "hooks/*": ["src/hooks/*"],
-    "pages/*": ["src/components/pages/*"],
-    "providers/*": ["src/components/providers/*"],
-    "styles/*": ["src/styles/*"],
-    "utils/*": ["src/utils/*"],
-    "public/*": ["public/*"],
-    "images/*": ["public/images/*"],
-    "constants/*": ["src/constants/*"],
-    "stubs/*": ["src/stubs/*"],
-    "lottie/*": ["public/lottie/*"],
-    "entities/*": ["src/domain/entities/*"]
-  }
+  ]
 }

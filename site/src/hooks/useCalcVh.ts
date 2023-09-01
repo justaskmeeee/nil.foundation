@@ -8,10 +8,7 @@ const useCalcVh = () => {
   }, [])
 
   React.useEffect(() => {
-    const debouncedVh = debounce(handleCalcRealVh, 33, {
-      trailing: true,
-      leading: false,
-    })
+    const debouncedVh = debounce(handleCalcRealVh, 33)
 
     debouncedVh()
 

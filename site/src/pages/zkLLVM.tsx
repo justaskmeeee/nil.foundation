@@ -5,8 +5,9 @@ import MetaLayout from 'components/MetaLayout'
 import { getSiteConfig } from 'src/strapi'
 
 import { zkllvmPageData, seoData } from 'stubs/zkllvmPageData'
+import { InferGetStaticPropsType } from 'next'
 
-const ZkLlvmPage = ({ data, seo }) => (
+const ZkLlvmPage = ({ data, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
     <ZkLlvm data={data} />
   </MetaLayout>
