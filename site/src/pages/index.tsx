@@ -5,8 +5,9 @@ import MetaLayout from 'components/MetaLayout'
 
 import { homePageData, seoData } from 'stubs/homePageData'
 import { getSiteConfig } from 'src/strapi/getSiteConfig'
+import { InferGetStaticPropsType } from 'next'
 
-const HomePage = ({ data, seo, config }) => {
+const HomePage = ({ data, seo }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <MetaLayout seo={seo}>
       <Home data={data} />

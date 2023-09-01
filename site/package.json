@@ -31,6 +31,11 @@
     "showdown": "^2.1.0"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.7",
+    "@types/lodash.flatten": "^4.4.7",
+    "@types/node": "^20.5.7",
+    "@types/qs": "^6.9.7",
+    "@types/showdown": "^2.0.1",
     "eslint": "8.16.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "^13.4.7",
@@ -45,7 +50,8 @@
     "stylelint-config-recommended-scss": "^7.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.3.0",
-    "stylelint-webpack-plugin": "^3.3.0"
+    "stylelint-webpack-plugin": "^3.3.0",
+    "typescript": "^5.2.2"
   },
   "pre-commit": [
     "lint"

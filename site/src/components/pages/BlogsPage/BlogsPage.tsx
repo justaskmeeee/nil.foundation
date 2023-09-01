@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { arrayOf, bool, number, shape, string } from 'prop-types'
+import { InferProps, arrayOf, bool, number, shape, string } from 'prop-types'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import cx from 'classnames'
 import axios from 'axios'
@@ -18,7 +18,7 @@ import ArticlesNotFound from './ArticlesNotFound'
 
 import s from './BlogsPage.module.scss'
 
-const BlogsPage = ({ data }) => {
+function BlogsPage ({ data }: InferProps<typeof BlogsPage.propTypes>) {
   const { isMobile } = useViewport()
   const { scrollToTop } = useScroll()
   const router = useRouter()
