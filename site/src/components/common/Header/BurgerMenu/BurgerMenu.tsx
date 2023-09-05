@@ -1,4 +1,4 @@
-import { bool } from 'prop-types'
+import { InferProps, bool } from 'prop-types'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 
@@ -9,7 +9,7 @@ import { links } from '../stub'
 
 import s from './BurgerMenu.module.scss'
 
-const BurgerMenu = ({ isOpen }) => {
+function BurgerMenu({ isOpen }: InferProps<typeof BurgerMenu.propTypes>) {
   const { asPath } = useRouter()
 
   return (

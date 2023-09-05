@@ -2,7 +2,13 @@ import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
 import ArrowButton from 'components/ArrowButton'
 import s from './FooterAnimationSection.module.scss'
 
-export const getAnimatedItemList = (text, href, onClick) => {
+type AnimationGetter = (
+  text: string,
+  href: string,
+  onClick?: (...args: any[]) => any,
+) => any[]
+
+export const getAnimatedItemList: AnimationGetter = (text, href, onClick) => {
   return [
     {
       id: 'footer_nav',
@@ -63,7 +69,7 @@ export const getAnimatedItemList = (text, href, onClick) => {
     },
   ]
 }
-export const getAnimatedItemMobileList = (text, href, onClick) => {
+export const getAnimatedItemMobileList: AnimationGetter = (text, href, onClick) => {
   return [
     {
       id: 'footer_nav',

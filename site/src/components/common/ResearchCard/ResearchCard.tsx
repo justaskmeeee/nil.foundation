@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import cx from 'classnames'
-import { string, shape, arrayOf, number, bool } from 'prop-types'
+import { string, shape, arrayOf, number, bool, InferProps } from 'prop-types'
 
 import Icon from 'components/Icon'
 import Button from 'components/Button'
@@ -9,7 +9,7 @@ import { Tag } from 'entities/tag'
 
 import s from './ResearchCard.module.scss'
 
-const ResearchCard = ({ className, content, withTags }) => {
+function ResearchCard({ className, content, withTags }: InferProps<typeof ResearchCard.propTypes>) {
   return (
     <Button href={content.link} className={cx(s.root, className)}>
       <div>
@@ -21,8 +21,8 @@ const ResearchCard = ({ className, content, withTags }) => {
       </div>
       {withTags && (
         <div className={s.tags}>
-          {content.tags.map((tag) => (
-            <TagButton className={s.tag} key={tag.id} tag={tag.name} />
+          {content.tags?.map((tag) => (
+            <TagButton className={s.tag} key={tag?.id} tag={tag?.name} />
           ))}
         </div>
       )}
@@ -41,7 +41,7 @@ ResearchCard.propTypes = {
     title: string,
     link: string,
     tags: arrayOf(Tag),
-  }),
+  }).isRequired,
 }
 
 export default memo(ResearchCard)

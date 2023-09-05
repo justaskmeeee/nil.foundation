@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { string } from 'prop-types'
+import { InferProps, string } from 'prop-types'
 import cx from 'classnames'
 
 import Button from 'components/Button'
@@ -7,7 +7,7 @@ import Icon from 'components/Icon'
 
 import s from './LinkCard.module.scss'
 
-const LinkCard = ({ className, title, linkTo, description }) => {
+function LinkCard({ className, title, linkTo, description }: InferProps<typeof LinkCard.propTypes>) {
   return (
     <Button className={cx(s.root, className)} href={linkTo} disabled={!linkTo}>
       <h2 className={s.title}>{title}</h2>
@@ -20,7 +20,7 @@ const LinkCard = ({ className, title, linkTo, description }) => {
 LinkCard.propTypes = {
   className: string,
   title: string,
-  linkTo: string,
+  linkTo: string.isRequired,
   description: string,
 }
 

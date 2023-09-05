@@ -15,4 +15,4 @@ export const headingIcons = {
     },
     { icon: 'twitter', link: socialLinks.twitter },
   ],
-}
+} as const

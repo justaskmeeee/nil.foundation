@@ -3,7 +3,7 @@ import { InferProps, string } from 'prop-types'
 
 import { getIcon } from './utils'
 
-function Icon({ className, name, fill, ...props }: InferProps<typeof Icon.propTypes>)) {
+function Icon({ className, name, fill, ...props }: InferProps<typeof Icon.propTypes>) {
   const SVGIcon = getIcon(name)
 
   return <SVGIcon className={className} fill={fill} {...props} />

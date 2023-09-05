@@ -13,7 +13,7 @@ function ArrowInCircle({ className }: InferProps<typeof ArrowInCircle.propTypes>
 }
 
 ArrowInCircle.propTypes = {
-  className: string,
+  className: string.isRequired,
 }
 
 export default memo(ArrowInCircle)

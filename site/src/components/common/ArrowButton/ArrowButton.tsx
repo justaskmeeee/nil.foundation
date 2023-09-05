@@ -2,12 +2,18 @@ import React from 'react'
 import { string, InferProps } from 'prop-types'
 import cx from 'classnames'
 
-import Button from 'components/Button'
+import Button, {ButtonProps} from 'components/Button'
 import Icon from 'components/Icon'
 
 import s from './ArrowButton.module.scss'
 
-function ArrowButton ({ className, text, ...props }: InferProps<typeof ArrowButton.propTypes>) {
+ArrowButton.propTypes = {
+  text: string,
+}
+
+type ArrowButtonProps = InferProps<typeof ArrowButton.propTypes> & ButtonProps;
+
+function ArrowButton ({ className, text, ...props }: ArrowButtonProps) {
   return (
     <Button className={cx(s.root, className)} {...props}>
       {text}
@@ -16,9 +22,6 @@ function ArrowButton ({ className, text, ...props }: InferProps<typeof ArrowButt
   )
 }
 
-ArrowButton.propTypes = {
-  className: string,
-  text: string,
-}
+
 
 export default ArrowButton

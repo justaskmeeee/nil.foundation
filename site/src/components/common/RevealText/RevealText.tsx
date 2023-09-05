@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import cx from 'classnames'
 import { gsap } from 'gsap'
 
@@ -7,7 +7,7 @@ import { getWords, getAnimationProps, getTimings } from './utils'
 
 import s from './RevealText.module.scss'
 
-const RevealText = ({
+function RevealText({
   className,
   children,
   onComplete,
@@ -21,24 +21,28 @@ const RevealText = ({
   reduceWhiteSpace,
   stagger,
   ...otherProps
-}) => {
-  const rootRef = useRef(null)
-  const refGsap = useRef(null)
-  const elements = useRef([])
+}: InferProps<typeof RevealText.propTypes>) {
+  const rootRef = useRef<HTMLElement>(null)
+  const refGsap = useRef<gsap.core.Tween | null>(null)
+  const elements = useRef<NodeListOf<Element>>([])
 
   const words = useMemo(
     () => getWords(children, { tag, innerTag, reduceWhiteSpace }),
     [children], // eslint-disable-line
   )
 
-  const getElements = useCallback(() => rootRef.current.querySelectorAll(`.${s.innerElement}`), [])
+  const getElements = useCallback(() => {
+    if (!rootRef.current) return []
+
+    return rootRef.current.querySelectorAll(`.${s.innerElement}`)
+  }, [])
 
   useEffect(() => {
     elements.current = getElements()
   }, [words, getElements])
 
   const handleAnimateTween = useCallback(
-    (newVisible) => {
+    (newVisible: boolean) => {
       const type = newVisible ? 'in' : 'out'
       const { start, end, ease } = getAnimationProps(type, animation)
       const { delay, duration } = getTimings(type, durationProp, delayProp)

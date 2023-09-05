@@ -5,8 +5,16 @@ import Footer from 'components/Footer'
 import Script from 'next/script'
 
 import s from './Layout.module.scss'
+import { ReactNode } from 'react'
+import { SiteConfig } from 'src/strapi/SiteConfig'
 
-const Layout = ({ children, withFooter, config }) => (
+type LayoutProps = {
+  children: ReactNode
+  withFooter?: boolean
+  config: SiteConfig
+}
+
+const Layout = ({ children, withFooter = true, config }: LayoutProps) => (
   <>
     <Script src='https://www.googletagmanager.com/gtag/js?id=G-CB8D65YWRZ' />
     <Script id='google-analytics'>
@@ -23,14 +31,5 @@ const Layout = ({ children, withFooter, config }) => (
     {withFooter && <Footer />}
   </>
 )
-
-Layout.propTypes = {
-  children: any,
-  withFooter: bool,
-}
-
-Layout.defaultProps = {
-  withFooter: true,
-}
 
 export default Layout

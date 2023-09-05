@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import DottedCard from 'components/DottedCard'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { gsap } from 'gsap'
 import classNames from 'classnames'
 import { useViewport } from 'hooks/useViewport'
 import AnimatedCard from './AnimatedCard'
 import s from './AnimatedDottedContainer.module.scss'
 
-const AnimatedDottedContainer = ({
+function AnimatedDottedContainer({
   items,
   onInitialAnimationComplete,
   isVisible,
@@ -15,10 +15,10 @@ const AnimatedDottedContainer = ({
   className,
   initialAnimationDuration,
   scrollTriggerProps,
-}) => {
+}: InferProps<typeof AnimatedDottedContainer.propTypes>) {
   const containerRef = useRef(null)
   const { isMobile } = useViewport()
-  const [timelineInstance, setTimelineInstance] = useState(null)
+  const [timelineInstance, setTimelineInstance] = useState<gsap.core.Timeline | null>(null)
 
   useEffect(() => {
     const container = containerRef.current

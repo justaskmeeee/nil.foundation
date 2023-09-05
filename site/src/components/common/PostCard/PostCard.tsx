@@ -1,13 +1,13 @@
 import { memo, useMemo } from 'react'
 import cx from 'classnames'
-import { string, shape, bool } from 'prop-types'
+import { string, shape, bool, InferProps } from 'prop-types'
 
 import Icon from 'components/Icon'
 import Button from 'components/Button'
 
 import s from './PostCard.module.scss'
 
-const PostCard = ({ className, content, linkTo }) => {
+function PostCard({ className, content, linkTo }: InferProps<typeof PostCard.propTypes>) {
   const isFeaturePost = useMemo(() => {
     return content.isFeature
   }, [content.isFeature])
@@ -59,7 +59,7 @@ PostCard.propTypes = {
     title: string,
     description: string,
     isFeature: bool,
-  }),
+  }).isRequired,
 }
 
 export default memo(PostCard)

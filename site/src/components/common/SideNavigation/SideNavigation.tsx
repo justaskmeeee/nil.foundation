@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import { useViewport } from 'hooks/useViewport'
 import RevealText from 'components/RevealText'
@@ -9,9 +9,9 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import { useSideNavigationTimeline } from 'components/SideNavigation/useSideNavigationTimeline'
 import s from './SideNavigation.module.scss'
 
-const SideNavigation = ({ title, link, isVisible, linkText, titleAnimation, titleLarge, className, children }) => {
+function SideNavigation({ title, link, isVisible, linkText, titleAnimation, titleLarge, className, children }: InferProps<typeof SideNavigation.propTypes>) {
   const titleRef = useRef(null)
-  const sidebarRef = useRef(null)
+  const sidebarRef = useRef<HTMLDivElement>(null)
   const { isMobile } = useViewport()
   const [isTitleHidden, setTitleHidden] = useState(false)
 
@@ -52,7 +52,7 @@ const SideNavigation = ({ title, link, isVisible, linkText, titleAnimation, titl
 
     return () => {
       if (timeline) {
-        timeline.scrollTrigger.kill()
+        timeline.scrollTrigger?.kill()
         timeline.kill()
       }
     }
@@ -84,7 +84,7 @@ const SideNavigation = ({ title, link, isVisible, linkText, titleAnimation, titl
 SideNavigation.propTypes = {
   title: PropTypes.node,
   linkText: PropTypes.string,
-  link: PropTypes.string,
+  link: PropTypes.string.isRequired,
   className: PropTypes.string,
   isVisible: PropTypes.bool,
   titleAnimation: PropTypes.bool,

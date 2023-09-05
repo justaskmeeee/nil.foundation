@@ -148,7 +148,7 @@ const anim = {
   },
 }
 
-const firstLetterUppercase = (string) => {
+const firstLetterUppercase = (string: string) => {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 }
 

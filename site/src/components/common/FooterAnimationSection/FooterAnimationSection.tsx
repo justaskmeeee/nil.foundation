@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import AnimatedDottedContainer from 'components/AnimatedDottedContainer'
 import { useViewport } from 'hooks/useViewport'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import { getScreenHeight } from 'utils/getScreenSize'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import s from './FooterAnimationSection.module.scss'
 import { getAnimatedItemList, getAnimatedItemMobileList } from './data'
 
-const FooterAnimationSection = ({ link, linkText, onLinkClick, items: baseItems, className }) => {
-  const sectionRef = useRef()
+function FooterAnimationSection({ link, linkText, onLinkClick, items: baseItems, className }: InferProps<typeof FooterAnimationSection.propTypes>) {
+  const sectionRef = useRef<HTMLDivElement>(null)
   const { isMobile } = useViewport()
   const [timelineEnd, setTimelineEnd] = useState('bottom center')
 
@@ -62,10 +62,10 @@ const FooterAnimationSection = ({ link, linkText, onLinkClick, items: baseItems,
 }
 
 FooterAnimationSection.propTypes = {
-  linkText: PropTypes.string,
-  link: PropTypes.string,
+  linkText: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
   className: PropTypes.string,
-  onLinkClick: PropTypes.func,
+  onLinkClick: PropTypes.func.isRequired,
   items: PropTypes.array,
 }
 export default FooterAnimationSection

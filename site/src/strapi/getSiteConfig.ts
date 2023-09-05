@@ -1,10 +1,6 @@
 import { client } from './client'
 import config from './config'
-
-type SiteConfig = {
-  isGlossaryOn: boolean
-  isReserachTagsOn: boolean
-}
+import { SiteConfig } from './SiteConfig'
 
 const defaultConfig = {
   isGlossaryOn: false,

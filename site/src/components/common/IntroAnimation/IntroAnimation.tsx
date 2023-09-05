@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import AnimatedDottedContainer from 'components/AnimatedDottedContainer'
 import classNames from 'classnames'
 import SideNavigation from 'components/SideNavigation'
@@ -8,7 +8,7 @@ import { gsap } from 'gsap'
 import { useScroll } from 'hooks/useScroll'
 import s from './IntroAnimation.module.scss'
 
-const IntroAnimation = ({
+function IntroAnimation({
   items,
   navigationTitle,
   navigationLinkText,
@@ -17,11 +17,11 @@ const IntroAnimation = ({
   animatedContainerClassName,
   className,
   ...props
-}) => {
+}: InferProps<typeof IntroAnimation.propTypes>) {
   const sideNavigationRef = useRef(null)
   const [isVisible, setVisible] = useState(false)
   const [isChildrenVisible, setChildrenVisible] = useState(false)
-  const [timelineInstance, setTimelineInstance] = useState(null)
+  const [timelineInstance, setTimelineInstance] = useState<gsap.core.Timeline | null>(null)
   const { isMobile } = useViewport()
   const { disableScroll, enableScroll, scrollToTop } = useScroll()
 
@@ -118,7 +118,7 @@ IntroAnimation.propTypes = {
   items: PropTypes.array.isRequired,
   navigationTitle: PropTypes.string.isRequired,
   navigationLinkText: PropTypes.string,
-  navigationLink: PropTypes.string,
+  navigationLink: PropTypes.string.isRequired,
   children: PropTypes.any,
   animatedContainerClassName: PropTypes.string,
   className: PropTypes.string,
