@@ -1,4 +1,4 @@
-import { number, shape, string } from 'prop-types'
+import { InferType, number, shape, string } from 'prop-types'
 
 export const Tag = shape({
   id: number,
@@ -8,3 +8,5 @@ export const Tag = shape({
   publishedAt: string,
   updatedAt: string,
 })
+
+export type Tag = InferType<typeof Tag>;

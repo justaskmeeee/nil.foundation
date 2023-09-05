@@ -6,8 +6,9 @@ import { getAllPath, getCollection, getSingleBySlug, getSiteConfig } from 'src/s
 import { REVALIDATE } from 'constants/common'
 
 import { postPage } from 'stubs/postPageData'
+import { InferGetStaticPropsType } from 'next'
 
-const Post = ({ data, recommendedPosts, content }) => (
+const Post = ({ data, recommendedPosts, content }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={{ title: data.title, description: data.description || '' }}>
     <PostPage post={data} recommendedPosts={recommendedPosts} content={content} />
   </MetaLayout>

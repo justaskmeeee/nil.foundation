@@ -1,8 +1,8 @@
-import { GetServerSideProps } from "next"
+import { GetServerSidePropsContext } from "next"
 
 const Robots = () => {}
 
-export const getServerSideProps: GetServerSideProps<{}> = ({ res }) => {
+export const getServerSideProps = ({ res }: GetServerSidePropsContext) => {
   const robots =
     process.env.NODE_ENV === 'development'
       ? `User-agent: *\nDisallow: /`

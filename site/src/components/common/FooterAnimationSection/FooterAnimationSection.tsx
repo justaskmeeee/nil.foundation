@@ -8,7 +8,15 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import s from './FooterAnimationSection.module.scss'
 import { getAnimatedItemList, getAnimatedItemMobileList } from './data'
 
-function FooterAnimationSection({ link, linkText, onLinkClick, items: baseItems, className }: InferProps<typeof FooterAnimationSection.propTypes>) {
+type FooterAnimationSectionProps = {
+  linkText: string
+  link: string
+  className?: string
+  onLinkClick?: () => void
+  items?: ReturnType<typeof getAnimatedItemList>
+}
+
+function FooterAnimationSection({ link, linkText, onLinkClick, items: baseItems, className }: FooterAnimationSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null)
   const { isMobile } = useViewport()
   const [timelineEnd, setTimelineEnd] = useState('bottom center')
@@ -65,7 +73,7 @@ FooterAnimationSection.propTypes = {
   linkText: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   className: PropTypes.string,
-  onLinkClick: PropTypes.func.isRequired,
+  onLinkClick: PropTypes.func,
   items: PropTypes.array,
 }
 export default FooterAnimationSection

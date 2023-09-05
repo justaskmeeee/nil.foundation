@@ -5,8 +5,9 @@ import Careers from 'pages/Careers'
 
 import { careersPageData, seoData } from 'stubs/careersPageData'
 import { getSiteConfig } from 'src/strapi'
+import { InferGetStaticPropsType } from 'next'
 
-const CareersPage = ({ data, seo }) => (
+const CareersPage = ({ data, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
     <Careers data={data} />
   </MetaLayout>

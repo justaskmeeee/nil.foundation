@@ -1,17 +1,24 @@
 import React from 'react'
-import { string, shape, arrayOf } from 'prop-types'
+import { arrayOf, shape, string } from 'prop-types'
 import cx from 'classnames'
 
 import { useViewport } from 'hooks/useViewport'
 
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
-import ListItem from 'components/ListItem'
+// import ListItem from 'components/ListItem';
 import Button from 'components/ArrowButton'
+import Icon from 'components/Icon'
 
-import s from './FullCycle.module.scss'
+import s from './Accelerating.module.scss'
+import { zkllvmPageData } from 'stubs/zkllvmPageData'
 
-const FullCycle = ({ className, data: { title, description, list, footer } }) => {
+type AcceleratingProps = {
+  className?: string
+  data: typeof zkllvmPageData.accelerating
+}
+
+const Accelerating = ({ className, data: { title, description, content, footer } }: AcceleratingProps) => {
   const { isMobile } = useViewport()
 
   return (
@@ -21,18 +28,19 @@ const FullCycle = ({ className, data: { title, description, list, footer } }) =>
         <HeadingSection title={title} description={description} />
         {!isMobile && <WhiteRectangle />}
       </div>
+
       <div className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
-          {list.map((el, i) => (
-            <div
-              className={s.list}
-              key={i} // eslint-disable-line
-            >
-              <ListItem className={s.item} key={el.title} title={el.title} description={el.description} />
+          {content.map((el) => (
+            <div className={s.box} key={el.title}>
+              <Icon name={el.icon} className={s.icon} />
+              <span className={s.title}>{el.title}</span>
+              <p className={s.description}>{el.description}</p>
             </div>
           ))}
         </div>
+
         <div className={s.footer}>
           <WhiteRectangle />
           <div>
@@ -45,19 +53,4 @@ const FullCycle = ({ className, data: { title, description, list, footer } }) =>
   )
 }
 
-FullCycle.propTypes = {
-  className: string,
-  data: shape({
-    title: string,
-    description: string,
-    list: arrayOf(
-      shape({
-        title: string,
-        description: string,
-      }),
-    ),
-    footer: shape({ text: string, link: string }),
-  }),
-}
-
-export default FullCycle
+export default Accelerating

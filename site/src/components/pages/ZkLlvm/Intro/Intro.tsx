@@ -22,7 +22,7 @@ const Intro = () => {
     <section className={s.container}>
       {isMobile ? (
         <IntroAnimationWidget key='introMobile' className={s.animationWidgetMobile} items={animatedItemMobileList}>
-          {(isVisible) => (
+          {(isVisible: boolean) => (
             <IntroDescription
               className={s.descriptionMobile}
               duration={700}

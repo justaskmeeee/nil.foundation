@@ -18,7 +18,7 @@ export const animatedItemList = [
     id: 'z3',
     ySourceValue: '-64%',
     yTransformValue: '-99%',
-    children: (isCompleted) => (
+    children: (isCompleted: boolean) => (
       <IntroDescription
         className={s.description}
         text='Get high-performance circuits straight from C++, Rust, or other mainstream code using this powerful tool designed for developers.'
