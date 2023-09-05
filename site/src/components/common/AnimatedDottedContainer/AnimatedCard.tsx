@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import WhiteRectangle from 'components/WhiteRectangle'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import { gsap } from 'gsap'
 import s from './AnimatedDottedContainer.module.scss'
@@ -10,7 +10,11 @@ export const ANIMATION_CARD_ALIGNMENT = Object.freeze({
   bottom: 'bottom',
 })
 
-const getTimelineWithMultipleTransform = (timeline, transformValueList, container) => {
+const getTimelineWithMultipleTransform = (
+  timeline: gsap.core.Timeline,
+  transformValueList: any[],
+  container: HTMLDivElement
+) => {
   const firstValue = transformValueList[0]
   timeline.to(
     container,
@@ -37,7 +41,7 @@ const getTimelineWithMultipleTransform = (timeline, transformValueList, containe
   }
 }
 
-const AnimatedCard = ({
+function AnimatedCard({
   alignment,
   duration,
   ySourceValue,
@@ -50,8 +54,8 @@ const AnimatedCard = ({
   className,
   children,
   ...props
-}) => {
-  const containerRef = useRef(null)
+}: InferProps<typeof AnimatedCard.propTypes>) {
+  const containerRef = useRef<HTMLDivElement>(null)
   const [isCompleted, setCompleted] = useState(false)
 
   useEffect(() => {
@@ -116,8 +120,8 @@ const AnimatedCard = ({
 }
 
 AnimatedCard.propTypes = {
-  duration: PropTypes.number,
-  ySourceValue: PropTypes.string,
+  duration: PropTypes.number.isRequired,
+  ySourceValue: PropTypes.string.isRequired,
   yTransformValue: PropTypes.string,
   yTransformValueList: PropTypes.array,
   timeline: PropTypes.any,

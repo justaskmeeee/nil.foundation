@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { oneOf, string } from 'prop-types'
+import { InferProps, oneOf, string } from 'prop-types'
 import cx from 'classnames'
 
 import SocialButton from 'components/SocialButton'
@@ -8,9 +8,9 @@ import { headingIcons } from './data'
 
 import s from './HeadingSection.module.scss'
 
-const HeadingSection = ({ className, title, description, socials }) => {
+function HeadingSection({ className, title, description, socials }: InferProps<typeof HeadingSection.propTypes>) {
   const getIcons = useMemo(
-    () => headingIcons[socials]?.map((el) => <SocialButton key={el.icon} href={el.link} icon={el.icon} />),
+    () => headingIcons[socials as keyof typeof headingIcons]?.map((el) => <SocialButton key={el.icon} href={el.link} icon={el.icon} />),
     [socials],
   )
 
@@ -27,7 +27,7 @@ HeadingSection.propTypes = {
   className: string,
   title: string.isRequired,
   description: string,
-  socials: oneOf(['community', 'corporate']),
+  socials: oneOf(['community', 'corporate']).isRequired,
 }
 
 export default HeadingSection

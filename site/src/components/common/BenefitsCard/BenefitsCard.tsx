@@ -1,12 +1,12 @@
 import { memo } from 'react'
-import { string } from 'prop-types'
+import { InferProps, string } from 'prop-types'
 import cx from 'classnames'
 
 import Icon from 'components/Icon'
 
 import s from './BenefitsCard.module.scss'
 
-const BenefitsCard = ({ className, title, icon, description }) => {
+function BenefitsCard({ className, title, icon, description }: InferProps<typeof BenefitsCard.propTypes>) {
   return (
     <div className={cx(s.root, className)}>
       <div className={s.leftPath}>
@@ -21,7 +21,7 @@ const BenefitsCard = ({ className, title, icon, description }) => {
 BenefitsCard.propTypes = {
   className: string,
   title: string,
-  icon: string,
+  icon: string.isRequired,
   description: string,
 }
 

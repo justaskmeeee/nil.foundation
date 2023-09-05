@@ -39,7 +39,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
+    "**/*.tsx", "src/components/common/HeadingSection/index.js",
   ],
   "exclude": [
     "node_modules"

@@ -1,5 +1,4 @@
-import { forwardRef, useMemo } from 'react'
-import { string, any, oneOf, func } from 'prop-types'
+import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from 'react'
 import Link from 'next/link'
 import cx from 'classnames'
 
@@ -8,7 +7,21 @@ import isExternalLink from 'utils/isExternalLink'
 
 import s from './Button.module.scss'
 
-const Button = forwardRef(({ className, cbData, children, as, href, hover, onClick, ...otherProps }, ref) => {
+type ButtonElementProps<T extends ElementType = ElementType> = ComponentProps<T>
+
+type ButtonOwnProps<T extends ElementType = ElementType> = {
+  as?: T
+  hover?: 'underline' | 'none'
+  href?: string
+  children?: ReactNode
+  className?: string
+  onClick?: () => void
+}
+
+export type ButtonProps<T extends ElementType = ElementType> =
+  ButtonOwnProps<T> & Omit<ButtonElementProps<T>, keyof ButtonOwnProps<T>>
+
+const Button = forwardRef<any, ButtonProps>(({ className, children, as, href, hover = 'none', onClick, ...otherProps }, ref) => {
   const CustomTag = useMemo(() => {
     if (as) return as
     if (href) return 'a'
@@ -26,7 +39,7 @@ const Button = forwardRef(({ className, cbData, children, as, href, hover, onCli
   }, [className, hover])
 
   const handleClick = () => {
-    if (onClick) onClick(cbData)
+    if (onClick) onClick()
   }
 
   if (href && !isExternal) {
@@ -51,19 +64,6 @@ const Button = forwardRef(({ className, cbData, children, as, href, hover, onCli
     </CustomTag>
   )
 })
-
-Button.propTypes = {
-  className: string,
-  children: any,
-  as: any,
-  href: string,
-  onClick: func,
-  hover: oneOf(['underline', 'none']),
-}
-
-Button.defaultProps = {
-  hover: 'none',
-}
 
 Button.displayName = 'Button'
 

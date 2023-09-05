@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool } from 'prop-types'
+import { InferProps, bool, string } from 'prop-types'
 import cx from 'classnames'
 
 import { useViewport } from 'hooks/useViewport'
@@ -8,7 +8,7 @@ import WhiteRectangle from 'components/WhiteRectangle'
 
 import s from './LastSection.module.scss'
 
-const LastSection = ({ className, withBackground }) => {
+function LastSection({ className, withBackground }: InferProps<typeof LastSection.propTypes>) {
   const { isMobile } = useViewport()
 
   return (
@@ -30,8 +30,9 @@ const LastSection = ({ className, withBackground }) => {
   )
 }
 
-LastSection.propTyps = {
+LastSection.propTypes = {
   withBackground: bool,
+  className: string,
 }
 
 LastSection.defaultProps = {

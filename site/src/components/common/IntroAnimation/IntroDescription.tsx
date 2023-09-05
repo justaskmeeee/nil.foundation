@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { gsap } from 'gsap'
 import { useViewport } from 'hooks/useViewport'
 import RevealText from 'components/RevealText'
 import classNames from 'classnames'
 import s from './IntroAnimation.module.scss'
 
-const IntroDescription = ({ text, delay, isVisible, duration, className }) => {
+function IntroDescription({ text, delay, isVisible, duration, className }: InferProps<typeof IntroDescription.propTypes>) {
   const ref = useRef(null)
-  const timelineRef = useRef(null)
+  const timelineRef = useRef<gsap.core.Timeline | null>(null)
   const { isMobile } = useViewport()
 
   useEffect(() => {

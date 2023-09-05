@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { string } from 'prop-types'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 
@@ -13,8 +12,14 @@ import BurgerMenu from './BurgerMenu'
 
 import s from './Header.module.scss'
 import { links } from './stub'
+import { SiteConfig } from 'src/strapi/SiteConfig'
 
-const Header = ({ className, config }) => {
+type HeaderProps = {
+  className?: string
+  config: SiteConfig
+}
+
+function Header({ className, config }: HeaderProps) {
   const router = useRouter()
   const { isMobile } = useViewport()
 
@@ -94,16 +99,12 @@ const Header = ({ className, config }) => {
                 name='squares'
               />
             </div>
-            <BurgerMenu isOpen={isBurgerOpen} onClose={handleClickBurger} />
+            <BurgerMenu isOpen={isBurgerOpen} />
           </>
         )}
       </nav>
     </Container>
   )
-}
-
-Header.propTypes = {
-  className: string,
 }
 
 export default Header

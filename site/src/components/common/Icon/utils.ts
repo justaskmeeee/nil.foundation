@@ -19,11 +19,12 @@ import Oracles from './icons/Oracles'
 import Rollup from './icons/Rollup'
 import Cross from './icons/Cross'
 import Squares from './icons/Squares'
+import { ReactElement } from 'react'
 
 // off DevPortal icon
 // import DevPortal from './icons/DevPortal';
 
-export const getIcon = (name: string) => {
+export const getIcon = (name: string): ReactElement => {
   switch (name) {
     case 'logo':
       return Logo
