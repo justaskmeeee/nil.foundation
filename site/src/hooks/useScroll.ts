@@ -5,7 +5,7 @@ export const useScroll = () => {
       resolve(true)
     })
 
-  const scrollTo = (target: string) =>
+  const scrollTo = (target: string | HTMLElement) =>
     new Promise((resolve) => {
       let element;
 
@@ -13,7 +13,7 @@ export const useScroll = () => {
         element = document.querySelector(target)
       }
 
-      element.scrollIntoView({
+      !!element && element.scrollIntoView({
         behavior: 'smooth',
       })
 

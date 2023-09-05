@@ -12,8 +12,13 @@ import Accelerating from './Accelerating'
 import Intro from './Intro'
 
 import s from './ZkLlvm.module.scss'
+import { zkllvmPageData } from 'stubs/zkllvmPageData'
 
-const ZkLlvm = ({ data }) => (
+type ZkLlvmProps = {
+  data: typeof zkllvmPageData
+}
+
+const ZkLlvm = ({ data }: ZkLlvmProps) => (
   <Container>
     <Intro />
     <div className={s.wrapper}>

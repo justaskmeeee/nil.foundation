@@ -12,9 +12,15 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import ListItem from 'components/ListItem'
 
 import s from './Hero.module.scss'
+import { zkllvmPageData } from 'stubs/zkllvmPageData'
 
-const Hero = ({ className, data: { title, description, info, list } }) => {
-  const lottieRef = useRef(null)
+type HeroProps = {
+  className?: string
+  data: typeof zkllvmPageData.hero
+}
+
+const Hero = ({ className, data: { title, description, info, list } }: HeroProps) => {
+  const lottieRef = useRef<Element>(null)
   const lottieInstance = useRef(null)
   const { isMobile } = useViewport()
 
@@ -55,16 +61,6 @@ const Hero = ({ className, data: { title, description, info, list } }) => {
       </div>
     </div>
   )
-}
-
-Hero.propTypes = {
-  className: string,
-  data: shape({
-    title: string,
-    description: string,
-    info: string,
-    list: arrayOf(string),
-  }),
 }
 
 export default Hero

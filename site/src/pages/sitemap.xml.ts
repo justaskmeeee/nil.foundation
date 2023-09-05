@@ -1,5 +1,6 @@
 import fs from 'fs'
 import flatten from 'lodash.flatten'
+import { GetServerSideProps } from 'next'
 import { getAllPath } from 'src/strapi'
 
 const pagesArr = [
@@ -10,7 +11,7 @@ const otherPaths = [{ url: 'careers/jobs' }]
 
 const Sitemap = () => {}
 
-export const getServerSideProps = async ({ res }) => {
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const staticPages = fs
     .readdirSync('src/pages')
     .filter((staticPage) => {
