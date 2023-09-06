@@ -8,6 +8,18 @@ import { gsap } from 'gsap'
 import { useScroll } from 'hooks/useScroll'
 import s from './IntroAnimation.module.scss'
 
+IntroAnimation.propTypes = {
+  items: PropTypes.array.isRequired,
+  navigationTitle: PropTypes.string.isRequired,
+  navigationLinkText: PropTypes.string,
+  navigationLink: PropTypes.string.isRequired,
+  children: PropTypes.any,
+  animatedContainerClassName: PropTypes.string,
+  className: PropTypes.string,
+}
+
+export type IntroAnimationProps = InferProps<typeof IntroAnimation.propTypes>;
+
 function IntroAnimation({
   items,
   navigationTitle,
@@ -17,7 +29,7 @@ function IntroAnimation({
   animatedContainerClassName,
   className,
   ...props
-}: InferProps<typeof IntroAnimation.propTypes>) {
+}: IntroAnimationProps) {
   const sideNavigationRef = useRef(null)
   const [isVisible, setVisible] = useState(false)
   const [isChildrenVisible, setChildrenVisible] = useState(false)
@@ -112,16 +124,6 @@ function IntroAnimation({
       {typeof children === 'function' ? children(isMobile ? isChildrenVisible : isVisible) : children}
     </div>
   )
-}
-
-IntroAnimation.propTypes = {
-  items: PropTypes.array.isRequired,
-  navigationTitle: PropTypes.string.isRequired,
-  navigationLinkText: PropTypes.string,
-  navigationLink: PropTypes.string.isRequired,
-  children: PropTypes.any,
-  animatedContainerClassName: PropTypes.string,
-  className: PropTypes.string,
 }
 
 export default IntroAnimation

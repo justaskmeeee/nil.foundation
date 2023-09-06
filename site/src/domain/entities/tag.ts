@@ -7,6 +7,6 @@ export const Tag = shape({
   createdAt: string,
   publishedAt: string,
   updatedAt: string,
-})
+}).isRequired
 
 export type Tag = InferType<typeof Tag>;

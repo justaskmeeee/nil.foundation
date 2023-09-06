@@ -1,18 +1,17 @@
-import { memo } from 'react'
-import { InferProps, string } from 'prop-types'
+import { HTMLAttributes, memo } from 'react'
 
 import { getIcon } from './utils'
 
-function Icon({ className, name, fill, ...props }: InferProps<typeof Icon.propTypes>) {
+export type IconProps = {
+  className?: string,
+  name: string,
+  fill?: string,
+} & HTMLAttributes<SVGSVGElement>
+
+function Icon({ className, name, fill, ...props }: IconProps) {
   const SVGIcon = getIcon(name)
 
   return <SVGIcon className={className} fill={fill} {...props} />
-}
-
-Icon.propTypes = {
-  className: string,
-  fill: string,
-  name: string.isRequired,
 }
 
 export default memo(Icon)

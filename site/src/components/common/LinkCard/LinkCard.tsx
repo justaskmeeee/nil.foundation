@@ -20,7 +20,7 @@ function LinkCard({ className, title, linkTo, description }: InferProps<typeof L
 LinkCard.propTypes = {
   className: string,
   title: string,
-  linkTo: string.isRequired,
+  linkTo: string,
   description: string,
 }
 

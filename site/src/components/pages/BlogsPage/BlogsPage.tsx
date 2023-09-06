@@ -17,8 +17,23 @@ import FooterAnimationSection from 'components/FooterAnimationSection'
 import ArticlesNotFound from './ArticlesNotFound'
 
 import s from './BlogsPage.module.scss'
+import { Tag } from 'entities/tag'
 
-function BlogsPage ({ data }: InferProps<typeof BlogsPage.propTypes>) {
+type BlogsPageProps = {
+  data: {
+    tags: Tag[],
+    posts: {},
+    category: Tag,
+    meta: {
+      page: number,
+      pageCount: number,
+      pageSize: number,
+      totalCount: number,
+    },
+  }
+}
+
+function BlogsPage ({ data }: BlogsPageProps) {
   const { isMobile } = useViewport()
   const { scrollToTop } = useScroll()
   const router = useRouter()
@@ -26,8 +41,8 @@ function BlogsPage ({ data }: InferProps<typeof BlogsPage.propTypes>) {
   const [activeCategory, setActiveCategory] = useState('All')
   const [activeTag, setActiveTag] = useState('')
 
-  const [currentBlogs, setCurrentBlogs] = useState(data.posts)
-  const [currentMeta, setCurrentMeta] = useState(data.meta)
+  const [currentBlogs, setCurrentBlogs] = useState(data?.posts)
+  const [currentMeta, setCurrentMeta] = useState(data?.meta)
 
   const currentMetaPage = useMemo(() => {
     return currentMeta.page

@@ -3,8 +3,8 @@ import ArrowButton from 'components/ArrowButton'
 import s from './FooterAnimationSection.module.scss'
 
 type AnimationGetter = (
-  text: string,
-  href: string,
+  text?: string,
+  href?: string,
   onClick?: (...args: any[]) => any,
 ) => any[]
 

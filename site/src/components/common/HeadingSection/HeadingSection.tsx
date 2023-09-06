@@ -27,7 +27,7 @@ HeadingSection.propTypes = {
   className: string,
   title: string.isRequired,
   description: string,
-  socials: oneOf(['community', 'corporate']).isRequired,
+  socials: oneOf(['community', 'corporate']),
 }
 
 export default HeadingSection
