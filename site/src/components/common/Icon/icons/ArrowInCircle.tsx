@@ -1,7 +1,7 @@
 import { memo } from 'react'
-import { InferProps, string } from 'prop-types'
+import { SvgIconComponent } from '../SvgIconComponent'
 
-function ArrowInCircle({ className }: InferProps<typeof ArrowInCircle.propTypes>) {
+const ArrowInCircle: SvgIconComponent = ({ className }) => {
   return (
     <svg className={className} width='80' height='80' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
@@ -10,10 +10,6 @@ function ArrowInCircle({ className }: InferProps<typeof ArrowInCircle.propTypes>
       />
     </svg>
   )
-}
-
-ArrowInCircle.propTypes = {
-  className: string.isRequired,
 }
 
 export default memo(ArrowInCircle)

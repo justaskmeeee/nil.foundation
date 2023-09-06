@@ -74,7 +74,7 @@ function SideNavigation({ title, link, isVisible, linkText, titleAnimation, titl
       </div>
       <div className={s.linkWrapper}>
         {children}
-        {linkText && <ArrowButton href={link} className={s.link} text={linkText} />}
+        {linkText && link && <ArrowButton href={link} className={s.link} text={linkText} />}
         <WhiteRectangle className={s.bottomLine} />
       </div>
     </aside>
@@ -84,7 +84,7 @@ function SideNavigation({ title, link, isVisible, linkText, titleAnimation, titl
 SideNavigation.propTypes = {
   title: PropTypes.node,
   linkText: PropTypes.string,
-  link: PropTypes.string.isRequired,
+  link: PropTypes.string,
   className: PropTypes.string,
   isVisible: PropTypes.bool,
   titleAnimation: PropTypes.bool,

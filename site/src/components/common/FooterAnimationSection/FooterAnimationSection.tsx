@@ -9,8 +9,8 @@ import s from './FooterAnimationSection.module.scss'
 import { getAnimatedItemList, getAnimatedItemMobileList } from './data'
 
 type FooterAnimationSectionProps = {
-  linkText: string
-  link: string
+  linkText?: string
+  link?: string
   className?: string
   onLinkClick?: () => void
   items?: ReturnType<typeof getAnimatedItemList>
@@ -69,11 +69,4 @@ function FooterAnimationSection({ link, linkText, onLinkClick, items: baseItems,
   )
 }
 
-FooterAnimationSection.propTypes = {
-  linkText: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  onLinkClick: PropTypes.func,
-  items: PropTypes.array,
-}
 export default FooterAnimationSection

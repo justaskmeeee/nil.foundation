@@ -15,16 +15,16 @@ import Shield from './icons/Shield'
 import Bridges from './icons/Bridges'
 import Gaming from './icons/Gaming'
 import Ml from './icons/Ml'
-import Oracles from './icons/Oracles'
+import Oracles from './icons/Oracles.tsx'
 import Rollup from './icons/Rollup'
 import Cross from './icons/Cross'
 import Squares from './icons/Squares'
-import { ReactElement } from 'react'
+import { SvgIconComponent } from './SvgIconComponent'
 
 // off DevPortal icon
 // import DevPortal from './icons/DevPortal';
 
-export const getIcon = (name: string): ReactElement => {
+export const getIcon = (name: string): SvgIconComponent => {
   switch (name) {
     case 'logo':
       return Logo

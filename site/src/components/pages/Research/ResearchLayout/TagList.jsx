@@ -24,7 +24,7 @@ const TagList = ({ tags, activeTagSlug, onTagClick, className }) => {
 
 TagList.propTypes = {
   tags: arrayOf(Tag).isRequired,
-  activeTagSlug: string,
+  activeTagSlug: string.isRequired,
   className: string,
   onTagClick: func,
 }
