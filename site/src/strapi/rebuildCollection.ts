@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import { getAttribute, getAttributes, getHtml } from './utils'
+import { Post } from '../domain/entities/Post'
 
 export const rebuildList = (data) => {
   return data.map((item) => {
@@ -10,7 +11,7 @@ export const rebuildList = (data) => {
   })
 }
 
-export const rebuildBlog = (data) => {
+export const rebuildBlog = (data): Post[] => {
   return data.map((item) => {
     const { id, attributes: at } = item
 

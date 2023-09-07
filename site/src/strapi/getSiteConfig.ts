@@ -5,7 +5,7 @@ import { Config } from './types/Config'
 const defaultConfig = {
   isGlossaryOn: false,
   isReserachTagsOn: false,
-}
+} satisfies Config
 
 export const getSiteConfig = async (): Promise<Config> => {
   if (config.USE_MOCK) {

@@ -1,11 +1,17 @@
 import React from 'react'
 import s from './ResearchLayout.module.scss'
 import TagButton from 'components/TagButton'
-import { arrayOf, func, string } from 'prop-types'
-import { Tag } from 'entities/tag'
+import type { Tag } from 'entities/tag'
 import cx from 'classnames'
 
-const TagList = ({ tags, activeTagSlug, onTagClick, className }) => {
+type TagListProps = {
+  tags: Tag[]
+  activeTagSlug?: string
+  onTagClick?: (tag: Tag) => void
+  className?: string
+}
+
+const TagList = ({ tags, activeTagSlug, onTagClick, className }: TagListProps) => {
   return (
     <ul className={cx(s.tagList, className)}>
       {tags.map((tagItem) => (
@@ -13,20 +19,13 @@ const TagList = ({ tags, activeTagSlug, onTagClick, className }) => {
           <TagButton
             className={s.tabItem}
             tag={tagItem.name}
-            isActive={activeTagSlug === tagItem.slug.toString()}
+            isActive={activeTagSlug === tagItem.slug?.toString()}
             onClick={() => onTagClick?.(tagItem)}
           />
         </li>
       ))}
     </ul>
   )
-}
-
-TagList.propTypes = {
-  tags: arrayOf(Tag).isRequired,
-  activeTagSlug: string.isRequired,
-  className: string,
-  onTagClick: func,
 }
 
 export default TagList
