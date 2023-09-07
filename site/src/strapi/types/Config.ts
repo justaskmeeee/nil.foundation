@@ -1,5 +1,5 @@
 export interface Config {
-    collectionName?: 'configs';
+    collectionName?: string;
     info?: {
       singularName: 'config';
       pluralName: 'configs';
@@ -9,23 +9,13 @@ export interface Config {
     options?: {
       draftAndPublish: true;
     };
-    attributes: {
+    attributes?: {
       isGlossaryOn: boolean;
       isResearchTagsOn: boolean;
       createdAt?: string;
       updatedAt?: string;
       publishedAt?: string;
-      createdBy: Attribute.Relation<
-        'api::config.config',
-        'oneToOne',
-        'admin::user'
-      > &
-        Attribute.Private;
-      updatedBy: Attribute.Relation<
-        'api::config.config',
-        'oneToOne',
-        'admin::user'
-      > &
-        Attribute.Private;
+      createdBy?: string;
+      updatedBy?: string;
     };
   }

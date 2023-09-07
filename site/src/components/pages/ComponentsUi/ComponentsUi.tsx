@@ -85,7 +85,7 @@ const ComponentsUi = () => (
       <div className={s.title}>DotedBox whiteTop whiteBottom</div>
     </div>
     <div className={cx(s.item)}>
-      <PostCard isBlogPost linkTo='/' content={cardsStubContent.postCard} />
+      <PostCard linkTo='/' content={cardsStubContent.postCard} />
       <div className={s.title}>PostCard isBlogPost</div>
     </div>
     <div className={cx(s.item)}>
@@ -93,7 +93,7 @@ const ComponentsUi = () => (
       <div className={s.title}>PostCard</div>
     </div>
     <div className={cx(s.item)}>
-      <ResearchCard linkTo='/' content={cardsStubContent.researchCard} />
+      <ResearchCard content={cardsStubContent.researchCard} />
       <div className={s.title}>ResearchCard</div>
     </div>
     {headingContent.map((item) => (

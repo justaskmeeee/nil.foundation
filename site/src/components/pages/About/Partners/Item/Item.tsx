@@ -1,12 +1,20 @@
 import { useRef, useState, useEffect, useCallback } from 'react'
-import { string } from 'prop-types'
 import cx from 'classnames'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 import s from './Item.module.scss'
 
-const Item = ({ className, title, children, onClick, index, activeIndex }) => {
-  const wrapRef = useRef()
+type ItemProps = {
+  className?: string
+  title: string
+  children: React.ReactNode
+  onClick: (index: number) => void
+  index: number
+  activeIndex: number
+}
+
+const Item = ({ className, title, children, onClick, index, activeIndex }: ItemProps) => {
+  const wrapRef = useRef<HTMLDivElement>(null)
   const [height, setHeight] = useState(0)
 
   const isActive = activeIndex === index
@@ -21,7 +29,7 @@ const Item = ({ className, title, children, onClick, index, activeIndex }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setHeight(wrapRef.current.scrollHeight)
+      setHeight(wrapRef.current!.scrollHeight)
     }
 
     handleResize()
@@ -41,10 +49,6 @@ const Item = ({ className, title, children, onClick, index, activeIndex }) => {
       </div>
     </div>
   )
-}
-
-Item.propTypes = {
-  className: string,
 }
 
 export default Item

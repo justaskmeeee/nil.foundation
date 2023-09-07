@@ -23,7 +23,6 @@ type BlogsPageProps = {
   data: {
     tags: Tag[],
     posts: {},
-    category: Tag,
     meta: {
       page: number,
       pageCount: number,
