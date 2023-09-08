@@ -1,11 +1,17 @@
-export type Post = {
-    id: string;
-    title: string;
-    description: string;
-    author: string;
-    slug: string;
-    date: string;
-    tags: string[];
-    category: string;
-    isFeature: boolean;
-}
+import { InferType, arrayOf, bool, number, shape, string } from "prop-types";
+import { category } from "./Category";
+import { tag } from "./tag";
+
+export const post = shape({
+    id: number,
+    category: category,
+    date: string,
+    description: string,
+    slug: string,
+    author: string,
+    title: string,
+    isFeature: bool,
+    tags: arrayOf(tag),
+}).isRequired;
+
+export type Post = InferType<typeof post>;

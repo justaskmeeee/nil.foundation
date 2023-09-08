@@ -7,8 +7,9 @@ import {
   rebuildGlossaries,
   rebuildSingleWord,
 } from './rebuildCollection'
+import { CollectionType } from './types/CollectionType'
 
-export const serializeList = (data, type) => {
+export const serializeList = (data: any, type: CollectionType) => {
   switch (type) {
     case 'blogs':
       return rebuildBlog(data)
@@ -24,7 +25,7 @@ export const serializeList = (data, type) => {
   }
 }
 
-export const serializeSingle = (data, type) => {
+export const serializeSingle = (data: any, type: CollectionType) => {
   switch (type) {
     case 'blogs':
       return rebuildSinglePost(data)

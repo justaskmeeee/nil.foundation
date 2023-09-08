@@ -1,9 +1,10 @@
 export const groupArrayByField = <
   T extends Record<string, any>,
->(array: T[], key: keyof T) => {
+  U extends string,
+>(array: T[], key: U) => {
   return array.reduce((result, currentValue) => {
     // eslint-disable-next-line no-param-reassign
     ; (result[currentValue[key]] = result[currentValue[key]] || []).push(currentValue)
     return result
-  }, {} as Record<string, T[]>)
+  }, {} as Record<typeof key, T[]>)
 }

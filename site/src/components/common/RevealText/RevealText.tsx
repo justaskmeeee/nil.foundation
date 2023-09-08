@@ -7,6 +7,48 @@ import { getWords, getAnimationProps, getTimings } from './utils'
 
 import s from './RevealText.module.scss'
 
+RevealText.propTypes = {
+  className: PropTypes.string,
+  as: PropTypes.any,
+  tag: PropTypes.any,
+  innerTag: PropTypes.any,
+  animation: PropTypes.string,
+  onComplete: PropTypes.func,
+  stagger: PropTypes.number,
+  reduceWhiteSpace: PropTypes.bool,
+  isVisible: PropTypes.bool,
+  children: PropTypes.any,
+  duration: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.shape({
+      in: PropTypes.number.isRequired,
+      out: PropTypes.number.isRequired,
+    }).isRequired,
+  ]),
+  delay: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.shape({
+      in: PropTypes.number.isRequired,
+      out: PropTypes.number.isRequired,
+    }).isRequired,
+  ]),
+}
+
+RevealText.defaultProps = {
+  as: 'div',
+  animation: 'split',
+  isVisible: false,
+  reduceWhiteSpace: true,
+  duration: 400,
+  tag: 'span',
+  delay: {
+    in: 0,
+    out: 0,
+  },
+}
+
+export type RevealTextProps = InferProps<typeof RevealText.propTypes>
+
 function RevealText({
   className,
   children,
@@ -21,10 +63,10 @@ function RevealText({
   reduceWhiteSpace,
   stagger,
   ...otherProps
-}: InferProps<typeof RevealText.propTypes>) {
+}: RevealTextProps) {
   const rootRef = useRef<HTMLElement>(null)
   const refGsap = useRef<gsap.core.Tween | null>(null)
-  const elements = useRef<NodeListOf<Element>>([])
+  const elements = useRef<any>([])
 
   const words = useMemo(
     () => getWords(children, { tag, innerTag, reduceWhiteSpace }),
@@ -44,8 +86,8 @@ function RevealText({
   const handleAnimateTween = useCallback(
     (newVisible: boolean) => {
       const type = newVisible ? 'in' : 'out'
-      const { start, end, ease } = getAnimationProps(type, animation)
-      const { delay, duration } = getTimings(type, durationProp, delayProp)
+      const { start, end, ease } = getAnimationProps(type, animation!)
+      const { delay, duration } = getTimings(type, durationProp!, delayProp!)
 
       const gsapEase = ease || (newVisible ? 'circ.out' : 'sine.inOut')
 
@@ -62,7 +104,7 @@ function RevealText({
           ease: gsapEase,
           willChange: 'transform',
           clearProps: newVisible ? 'all' : '',
-          stagger: stagger === undefined ? 0.01 : stagger,
+          stagger: stagger === undefined || stagger === null ? 0.01 : stagger,
           onComplete: () => {
             gsap.set(rootRef.current, {
               pointerEvents: newVisible ? '' : 'none',
@@ -79,7 +121,7 @@ function RevealText({
     if (isVisible) {
       handleAnimateTween(isVisible)
     } else {
-      const { start } = getAnimationProps('in', animation)
+      const { start } = getAnimationProps('in', animation!)
       gsap.set(elements.current, start)
     }
 
@@ -93,46 +135,6 @@ function RevealText({
       {words}
     </As>
   )
-}
-
-RevealText.propTypes = {
-  className: PropTypes.string,
-  as: PropTypes.any,
-  tag: PropTypes.any,
-  innerTag: PropTypes.any,
-  animation: PropTypes.string,
-  onComplete: PropTypes.func,
-  stagger: PropTypes.number,
-  reduceWhiteSpace: PropTypes.bool,
-  isVisible: PropTypes.bool,
-  children: PropTypes.any,
-  duration: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.shape({
-      in: PropTypes.number,
-      out: PropTypes.number,
-    }).isRequired,
-  ]),
-  delay: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.shape({
-      in: PropTypes.number,
-      out: PropTypes.number,
-    }).isRequired,
-  ]),
-}
-
-RevealText.defaultProps = {
-  as: 'div',
-  animation: 'split',
-  isVisible: false,
-  reduceWhiteSpace: true,
-  duration: 400,
-  tag: 'span',
-  delay: {
-    in: 0,
-    out: 0,
-  },
 }
 
 export default React.memo(RevealText)
