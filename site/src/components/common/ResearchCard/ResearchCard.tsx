@@ -5,7 +5,7 @@ import { string, shape, arrayOf, number, bool, InferProps } from 'prop-types'
 import Icon from 'components/Icon'
 import Button from 'components/Button'
 import TagButton from 'components/TagButton'
-import { Tag } from 'entities/tag'
+import { tag } from 'entities/tag'
 
 import s from './ResearchCard.module.scss'
 
@@ -30,7 +30,7 @@ function ResearchCard({ className, content, withTags }: InferProps<typeof Resear
     </Button>
   )
 }
-
+``
 ResearchCard.propTypes = {
   className: string,
   withTags: bool,
@@ -40,7 +40,7 @@ ResearchCard.propTypes = {
     date: string,
     title: string,
     link: string,
-    tags: arrayOf(Tag),
+    tags: arrayOf(tag),
   }).isRequired,
 }
 

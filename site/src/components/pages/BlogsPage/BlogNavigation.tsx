@@ -3,10 +3,10 @@ import Button from 'components/Button/Button'
 import cx from 'classnames'
 import TagButton from 'components/TagButton'
 import SideNavigation from 'components/SideNavigation'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import s from './BlogsPage.module.scss'
 
-const BlogNavigation = ({ activeCategory, onCategoryClick, activeTags, onTagClick, categories, tags, className }) => {
+function BlogNavigation({ activeCategory, onCategoryClick, activeTags, onTagClick, categories, tags, className }: InferProps<typeof BlogNavigation.propTypes>) {
   return (
     <SideNavigation className={cx(s.sideNavigation, className)} titleAnimation={false}>
       <div className={s.sideNavigationInner}>
@@ -20,7 +20,7 @@ const BlogNavigation = ({ activeCategory, onCategoryClick, activeTags, onTagClic
           >
             All
           </Button>
-          {categories.map((button) => (
+          {categories && categories.map((button) => (
             <Button
               key={button.id}
               cbData={button.name}
@@ -33,18 +33,20 @@ const BlogNavigation = ({ activeCategory, onCategoryClick, activeTags, onTagClic
             </Button>
           ))}
         </div>
-        <div className={s.tags}>
-          {tags.map((tag) => (
-            <TagButton
-              className={cx({
-                [s.activeTag]: activeTags.includes(tag.name),
-              })}
-              key={tag.id}
-              tag={tag.name}
-              onClick={onTagClick}
-            />
-          ))}
-        </div>
+        {tags && (
+          <div className={s.tags}>
+            {tags.map((tag) => (
+              <TagButton
+                className={cx({
+                  [s.activeTag]: activeTags && activeTags.includes(tag.name),
+                })}
+                key={tag.id}
+                tag={tag.name}
+                onClick={onTagClick}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </SideNavigation>
   )

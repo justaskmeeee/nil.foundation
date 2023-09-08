@@ -6,7 +6,8 @@ import { getAllPath, getCollection, getSingleBySlug, getSiteConfig } from 'src/s
 import { REVALIDATE } from 'constants/common'
 
 import { postPage } from 'stubs/postPageData'
-import { InferGetStaticPropsType } from 'next'
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { Glossary } from 'entities/Glossary'
 
 const Post = ({ data, recommendedPosts, content }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={{ title: data.title, description: data.description || '' }}>
@@ -14,7 +15,8 @@ const Post = ({ data, recommendedPosts, content }: InferGetStaticPropsType<typeo
   </MetaLayout>
 )
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: string }>) {
+  const slug = params?.slug ?? ''
   const [posts, articles, config] = await Promise.all([
     getCollection('blogs', {
       filters: {
@@ -66,7 +68,7 @@ export async function getStaticProps({ params: { slug } }) {
 export async function getStaticPaths() {
   const articles = await getAllPath('blogs')
 
-  const paths = articles.map((article) => ({
+  const paths = articles.map((article: Glossary) => ({
     params: { slug: article.slug },
   }))
 

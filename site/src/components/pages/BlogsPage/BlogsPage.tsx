@@ -18,17 +18,18 @@ import ArticlesNotFound from './ArticlesNotFound'
 
 import s from './BlogsPage.module.scss'
 import { Tag } from 'entities/tag'
+import { Category } from 'entities/Category'
+import { Post } from 'entities/Post'
 
 type BlogsPageProps = {
   data: {
     tags: Tag[],
-    posts: {},
+    posts: Post[],
+    categories: Category[],
     meta: {
       page: number,
-      pageCount: number,
-      pageSize: number,
-      totalCount: number,
-    },
+      pageCount?: number,
+    }
   }
 }
 
@@ -48,11 +49,11 @@ function BlogsPage ({ data }: BlogsPageProps) {
   }, [currentMeta])
 
   const hasMoreBlogs = useMemo(() => {
-    return currentMetaPage < currentMeta.pageCount
+    return currentMeta.pageCount ? currentMetaPage < currentMeta.pageCount : false
   }, [currentMeta.pageCount, currentMetaPage])
 
   const getFilters = useCallback(
-    (value) => {
+    (value: string | string[]) => {
       const isCategory = data.categories.some((item) => item.name === value)
 
       const filterBy = {
@@ -87,7 +88,7 @@ function BlogsPage ({ data }: BlogsPageProps) {
   }
 
   const fethCurrentBlogs = useCallback(
-    async (value) => {
+    async (value: string) => {
       if (currentMetaPage === 1) {
         const filters = getFilters(value)
 
@@ -110,7 +111,7 @@ function BlogsPage ({ data }: BlogsPageProps) {
   }, [currentBlogs])
 
   const setCurrentCategory = useCallback(
-    (category) => {
+    (category: string) => {
       setActiveCategory(category)
       fethCurrentBlogs(category)
     },
@@ -118,7 +119,7 @@ function BlogsPage ({ data }: BlogsPageProps) {
   )
 
   const setCurrentTag = useCallback(
-    (tag) => {
+    (tag: string) => {
       setActiveTag(tag)
       fethCurrentBlogs(tag)
     },
@@ -126,7 +127,7 @@ function BlogsPage ({ data }: BlogsPageProps) {
   )
 
   const onCategoryClick = useCallback(
-    (category) => {
+    (category: string) => {
       setActiveTag('')
       scrollToTop()
       setCurrentMeta({ page: 1 })
@@ -136,7 +137,7 @@ function BlogsPage ({ data }: BlogsPageProps) {
   )
 
   const onTagClick = useCallback(
-    (tag) => {
+    (tag: string) => {
       setActiveCategory('All')
       scrollToTop()
       setCurrentMeta({ page: 1 })
@@ -151,10 +152,10 @@ function BlogsPage ({ data }: BlogsPageProps) {
 
   useEffect(() => {
     if (router.query.slug) {
-      setCurrentTag(router.query.slug)
+      setCurrentTag(router.query.slug as string)
     }
     if (router.query.category) {
-      setCurrentCategory(router.query.category)
+      setCurrentCategory(router.query.category as string)
     }
   }, [router.query.slug, router.query.category, setCurrentCategory, setCurrentTag])
 
@@ -236,58 +237,6 @@ function BlogsPage ({ data }: BlogsPageProps) {
       />
     </Container>
   )
-}
-
-BlogsPage.propTypes = {
-  data: shape({
-    posts: arrayOf(
-      shape({
-        id: number,
-        category: shape({
-          id: number,
-          name: string,
-          slug: string,
-          creataAt: string,
-          publishedAt: string,
-          updatedAt: string,
-        }),
-        date: string,
-        description: string,
-        slug: string,
-        author: string,
-        title: string,
-        isFeature: bool,
-        tags: arrayOf(
-          shape({
-            id: number,
-            name: string,
-            slug: string,
-            creataAt: string,
-            publishedAt: string,
-            updatedAt: string,
-          }),
-        ),
-      }),
-    ),
-    tags: arrayOf(
-      shape({
-        id: number,
-        name: string,
-        slug: string,
-        creataAt: string,
-        publishedAt: string,
-        updatedAt: string,
-      }),
-    ),
-    category: shape({
-      id: number,
-      name: string,
-      slug: string,
-      creataAt: string,
-      publishedAt: string,
-      updatedAt: string,
-    }),
-  }),
 }
 
 export default BlogsPage

@@ -3,8 +3,9 @@ import Req from './request'
 import { serializeList, serializeSingle } from './serializers'
 import { rebuildList } from './rebuildCollection'
 import config from './config'
+import { Collection, CollectionType } from './types/CollectionType'
 
-export const getCollection = async (type, params = {}) => {
+export const getCollection = async (type: CollectionType, params = {}) => {
   if (config.USE_MOCK) {
     return []
   }
@@ -22,7 +23,7 @@ export const getCollection = async (type, params = {}) => {
   return serializeList(collection.data.data, type)
 }
 
-export const getCollectionAndMeta = async (type, params = {}) => {
+export const getCollectionAndMeta = async (type: Collection, params = {}) => {
   if (config.USE_MOCK) {
     return {
       [type]: [],
@@ -49,7 +50,7 @@ export const getCollectionAndMeta = async (type, params = {}) => {
   return serializeList(collection.data, `${type}+meta`)
 }
 
-export const getSingle = async (type, params = {}) => {
+export const getSingle = async (type: CollectionType, params = {}) => {
   if (config.USE_MOCK) {
     return null
   }
@@ -65,7 +66,7 @@ export const getSingle = async (type, params = {}) => {
   return serializeSingle(document.data.data, type)
 }
 
-export const getSingleBySlug = async (type, slug, populate) => {
+export const getSingleBySlug = async (type: CollectionType, slug: string, populate: any) => {
   if (config.USE_MOCK) {
     return null
   }
@@ -88,7 +89,7 @@ export const getSingleBySlug = async (type, slug, populate) => {
   return serializeSingle(document.data.data[0], type)
 }
 
-export const getAllPath = async (type, params = {}) => {
+export const getAllPath = async (type: CollectionType, params = {}) => {
   if (config.USE_MOCK) {
     return []
   }
@@ -106,7 +107,7 @@ export const getAllPath = async (type, params = {}) => {
     withToken: true,
   })
 
-  return rebuildList(collection.data.data, type)
+  return rebuildList(collection.data.data)
 }
 
 export { getSiteConfig } from './getSiteConfig'

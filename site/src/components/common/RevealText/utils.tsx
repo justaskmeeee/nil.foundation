@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { isValidElement } from 'react'
 import cx from 'classnames'
 
 import s from './RevealText.module.scss'
+import { RevealTextProps } from './RevealText'
+
+type AnimationType = 'in' | 'out'
+type AnimationProp = Record<AnimationType, number> | number;
 
 const anim = {
   fadeIn: {
@@ -146,13 +150,13 @@ const anim = {
     },
     ease: 'circ.inOut',
   },
-}
+} as const
 
 const firstLetterUppercase = (string: string) => {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 }
 
-export const getTimings = (type, duration, delay) => {
+export const getTimings = (type: AnimationType, duration: AnimationProp, delay: AnimationProp) => {
   const durationTween = duration instanceof Object ? duration[type] : duration
   const delayTween = delay instanceof Object ? delay[type] : delay
 
@@ -162,8 +166,8 @@ export const getTimings = (type, duration, delay) => {
   }
 }
 
-export const getAnimationProps = (type, animation) => {
-  const { start, end, ease } = anim[`${animation}${firstLetterUppercase(type)}`]
+export const getAnimationProps = (type: AnimationType, animation: string) => {
+  const { start, end, ease } = anim[`${animation}${firstLetterUppercase(type)}` as keyof typeof anim]
 
   return {
     start,
@@ -172,18 +176,19 @@ export const getAnimationProps = (type, animation) => {
   }
 }
 
-export const getWords = (children, props) => {
+export const getWords = (children: React.ReactNode, props: RevealTextProps) => {
   const arrayChildren = React.Children.toArray(children)
-  const newArrayChildren = []
+  const newArrayChildren: React.ReactNode[] = []
 
   const As = props.tag
   const InnerAs = props.innerTag || props.tag
 
   arrayChildren.forEach((child) => {
-    if (typeof child === 'string') {
-      const textString = props.reduceWhiteSpace ? child.replace(/\s+/g, ' ').trim() : child
+    if (typeof child === 'string' || typeof child === 'number') {
+      const textString = props.reduceWhiteSpace ? String(child).replace(/\s+/g, ' ').trim() : String(child)
 
       const splitText = textString.split(' ')
+
       splitText.forEach((el, i) => {
         const key = `${el}-${i}-${textString}`
         newArrayChildren.push(
@@ -196,11 +201,11 @@ export const getWords = (children, props) => {
       return
     }
 
-    if (child.props?.children) {
+    if (isValidElement(child) && child?.props?.children) {
       newArrayChildren.push(
         React.cloneElement(child, {
           children: getWords(child.props.children, props),
-        }),
+        } as any),
       )
       return
     }

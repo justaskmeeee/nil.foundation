@@ -6,12 +6,12 @@ import Script from 'next/script'
 
 import s from './Layout.module.scss'
 import { ReactNode } from 'react'
-import { SiteConfig } from 'src/strapi/SiteConfig'
+import { Config } from 'src/strapi/types/Config'
 
 type LayoutProps = {
   children: ReactNode
   withFooter?: boolean
-  config: SiteConfig
+  config: Config
 }
 
 const Layout = ({ children, withFooter = true, config }: LayoutProps) => (

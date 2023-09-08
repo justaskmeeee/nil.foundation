@@ -5,11 +5,13 @@ import FooterAnimationSection from 'components/FooterAnimationSection'
 import Button from 'components/Button'
 import LastSection from 'components/LastSection'
 import WhiteRectangle from 'components/WhiteRectangle'
-import { seoData } from 'stubs/glossaryPageData'
 import s from './Glossary.module.scss'
+import { Glossary } from 'entities/Glossary'
 
 type GlossaryProps = {
-  data: typeof seoData
+  data: {
+    letter: Glossary[]
+  }
 }
 
 const Glossary = ({ data }: GlossaryProps) => {
@@ -36,7 +38,7 @@ const Glossary = ({ data }: GlossaryProps) => {
                   <div className={s.primerContainer}>
                     <p className={s.letter}>{el}</p>
                     <ul className={s.wordsContainer}>
-                      {Object.values(data[el]).map((word) => (
+                      {Object.values(data[el as 'letter']).map((word) => (
                         <li key={word.word} className={s.word}>
                           <Button href={`/glossary/${word.slug}`}>{word.word}</Button>
                         </li>

@@ -11,6 +11,10 @@ export type IconProps = {
 function Icon({ className, name, fill, ...props }: IconProps) {
   const SVGIcon = getIcon(name)
 
+  if (!SVGIcon) {
+    return null
+  }
+
   return <SVGIcon className={className} fill={fill} {...props} />
 }
 

@@ -12,11 +12,11 @@ import BurgerMenu from './BurgerMenu'
 
 import s from './Header.module.scss'
 import { links } from './stub'
-import { SiteConfig } from 'src/strapi/SiteConfig'
+import { Config } from 'src/strapi/types/Config'
 
 type HeaderProps = {
   className?: string
-  config: SiteConfig
+  config: Config
 }
 
 function Header({ className, config }: HeaderProps) {
