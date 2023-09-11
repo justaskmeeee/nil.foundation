@@ -5,7 +5,7 @@ import { rebuildList } from './rebuildCollection'
 import config from './config'
 import { Collection, CollectionType } from './types/CollectionType'
 
-export const getCollection = async (type: CollectionType, params = {}) => {
+export const getCollection = async <T>(type: CollectionType, params = {}): Promise<T[]> => {
   if (config.USE_MOCK) {
     return []
   }
@@ -23,7 +23,7 @@ export const getCollection = async (type: CollectionType, params = {}) => {
   return serializeList(collection.data.data, type)
 }
 
-export const getCollectionAndMeta = async (type: Collection, params = {}) => {
+export const getCollectionAndMeta = async <T>(type: Collection, params = {}): Promise<any> => {
   if (config.USE_MOCK) {
     return {
       [type]: [],
@@ -50,7 +50,7 @@ export const getCollectionAndMeta = async (type: Collection, params = {}) => {
   return serializeList(collection.data, `${type}+meta`)
 }
 
-export const getSingle = async (type: CollectionType, params = {}) => {
+export const getSingle = async <T>(type: CollectionType, params = {}): Promise<T | null> => {
   if (config.USE_MOCK) {
     return null
   }
@@ -66,7 +66,7 @@ export const getSingle = async (type: CollectionType, params = {}) => {
   return serializeSingle(document.data.data, type)
 }
 
-export const getSingleBySlug = async (type: CollectionType, slug: string, populate: any) => {
+export const getSingleBySlug = async <T>(type: CollectionType, slug: string, populate: any): Promise<T | null> => {
   if (config.USE_MOCK) {
     return null
   }
@@ -89,7 +89,7 @@ export const getSingleBySlug = async (type: CollectionType, slug: string, popula
   return serializeSingle(document.data.data[0], type)
 }
 
-export const getAllPath = async (type: CollectionType, params = {}) => {
+export const getAllPath = async <T>(type: CollectionType, params = {}): Promise<T[]> => {
   if (config.USE_MOCK) {
     return []
   }

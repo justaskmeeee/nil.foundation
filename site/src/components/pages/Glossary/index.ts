@@ -1,1 +1,1 @@
-export { default } from './Glossary.jsx'
+export { default } from './Glossary'

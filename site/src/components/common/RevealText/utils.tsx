@@ -184,8 +184,8 @@ export const getWords = (children: React.ReactNode, props: RevealTextProps) => {
   const InnerAs = props.innerTag || props.tag
 
   arrayChildren.forEach((child) => {
-    if (typeof child === 'string' || typeof child === 'number') {
-      const textString = props.reduceWhiteSpace ? String(child).replace(/\s+/g, ' ').trim() : String(child)
+    if (typeof child === 'string') {
+      const textString = props.reduceWhiteSpace ? child.replace(/\s+/g, ' ').trim() : child
 
       const splitText = textString.split(' ')
 

@@ -15,6 +15,10 @@ import { seo } from 'constants/seo'
 import Hotjar from '@hotjar/browser'
 import { AppProps } from 'next/app'
 
+type ComponentWithLayout = AppProps['Component'] & {
+  getLayout?: (page: JSX.Element) => JSX.Element
+}
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
   useCalcVh()
@@ -40,7 +44,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     }
   }, [router])
 
-  const getLayout = Component.getLayout || ((page) => page)
+  const getLayout = (Component as ComponentWithLayout).getLayout || ((page: JSX.Element) => page)
 
   return (
     <>

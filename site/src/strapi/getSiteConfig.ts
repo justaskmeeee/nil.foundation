@@ -4,7 +4,7 @@ import { Config } from './types/Config'
 
 const defaultConfig = {
   isGlossaryOn: false,
-  isReserachTagsOn: false,
+  isResearchTagsOn: false,
 } satisfies Config
 
 export const getSiteConfig = async (): Promise<Config> => {

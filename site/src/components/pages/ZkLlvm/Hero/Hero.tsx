@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { arrayOf, shape, string } from 'prop-types'
 import cx from 'classnames'
-import lottie from 'lottie-web'
+import lottie, { AnimationItem } from 'lottie-web'
 
 import * as animationData from 'lottie/zklm.json'
 
@@ -20,20 +20,22 @@ type HeroProps = {
 }
 
 const Hero = ({ className, data: { title, description, info, list } }: HeroProps) => {
-  const lottieRef = useRef<Element>(null)
-  const lottieInstance = useRef(null)
+  const lottieRef = useRef<HTMLDivElement>(null)
+  const lottieInstance = useRef<AnimationItem | null>(null)
   const { isMobile } = useViewport()
 
   useEffect(() => {
-    lottieInstance.current = lottie.loadAnimation({
-      container: lottieRef.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData,
-    })
-
-    return () => lottieInstance.current.destroy()
+    if (lottieRef.current) {
+      lottieInstance.current = lottie.loadAnimation({
+        container: lottieRef.current,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData,
+      })
+  
+      return () => lottieInstance.current?.destroy()
+    }
   }, [])
 
   return (

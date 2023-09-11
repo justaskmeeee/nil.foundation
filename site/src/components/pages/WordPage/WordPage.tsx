@@ -9,6 +9,11 @@ import FooterAnimationSection from 'components/FooterAnimationSection'
 import WhiteRectangle from 'components/WhiteRectangle'
 import LastSection from 'components/LastSection'
 import s from './WordPage.module.scss'
+import { Glossary } from 'entities/Glossary'
+
+type WordPageProps = {
+  data: Glossary
+}
 
 const ArrowButton = () => (
   <Button href='/glossary' className={s.centerItems}>
@@ -17,7 +22,7 @@ const ArrowButton = () => (
   </Button>
 )
 
-const WordPage = ({ data }) => {
+const WordPage = ({ data }: WordPageProps) => {
   const router = useRouter()
   const stubSocialLinks = [
     {
@@ -59,8 +64,8 @@ const WordPage = ({ data }) => {
             </div>
             <div className={s.textWrapper}>
               <p className={s.pageSubtitle}>{data.description}</p>
-              {data.paragraphs?.map((el) => (
-                <p key={el.id} className={s.pageParagraph}>
+              {data.paragraphs?.map((el, i) => (
+                <p key={el.id ?? i} className={s.pageParagraph}>
                   {el.Paragraph}
                 </p>
               ))}

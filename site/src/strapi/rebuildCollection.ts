@@ -2,8 +2,8 @@ import dayjs from 'dayjs'
 import { getAttribute, getAttributes, getHtml } from './utils'
 import { Post } from '../domain/entities/Post'
 
-export const rebuildList = (data) => {
-  return data.map((item) => {
+export const rebuildList = <T>(data: any): T[] => {
+  return data.map((item: any) => {
     return {
       id: item.id,
       ...item.attributes,
@@ -11,8 +11,8 @@ export const rebuildList = (data) => {
   })
 }
 
-export const rebuildBlog = (data): Post[] => {
-  return data.map((item) => {
+export const rebuildBlog = (data: any) => {
+  return data.map((item: any) => {
     const { id, attributes: at } = item
 
     return {
@@ -29,8 +29,8 @@ export const rebuildBlog = (data): Post[] => {
   })
 }
 
-export const rebuildBlogAndMeta = (data) => {
-  const blogs = data.data.map((item) => {
+export const rebuildBlogAndMeta = (data: any) => {
+  const blogs = data.data.map((item: any) => {
     const { id, attributes: at } = item
 
     return {
@@ -49,8 +49,8 @@ export const rebuildBlogAndMeta = (data) => {
   return { blogs, meta: data.meta.pagination }
 }
 
-export const rebuildResearch = (data) => {
-  return data.map((item) => {
+export const rebuildResearch = (data: any) => {
+  return data.map((item: any) => {
     const { id, attributes: at } = item
 
     return {
@@ -64,7 +64,7 @@ export const rebuildResearch = (data) => {
   })
 }
 
-export const rebuildSinglePost = (data) => {
+export const rebuildSinglePost = (data: any) => {
   const { id, attributes: at } = data
 
   return {
@@ -81,8 +81,8 @@ export const rebuildSinglePost = (data) => {
   }
 }
 
-export const rebuildGlossaries = (data) => {
-  return data.map((item) => {
+export const rebuildGlossaries = (data: any) => {
+  return data.map((item: any) => {
     const { attributes: at } = item
 
     return {
@@ -95,7 +95,7 @@ export const rebuildGlossaries = (data) => {
   })
 }
 
-export const rebuildSingleWord = (data) => {
+export const rebuildSingleWord = (data: any) => {
   const { id, attributes: at } = data
 
   return {

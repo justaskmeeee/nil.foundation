@@ -6,6 +6,8 @@ import MetaLayout from 'components/MetaLayout'
 import { getCollection, getSiteConfig } from 'src/strapi'
 import { seoData } from 'stubs/researchCards'
 import { InferGetStaticPropsType } from 'next'
+import { Post } from 'entities/Post'
+import { Tag } from 'entities/tag'
 
 const ResearchPage = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
@@ -20,12 +22,12 @@ ResearchPage.getLayout = (page: JSX.Element) => {
 
 export async function getStaticProps() {
   const [posts, tags, config] = await Promise.all([
-    getCollection('research', {
+    getCollection<Post>('research', {
       tags: {
         populate: '*',
       },
     }),
-    getCollection('tags', {
+    getCollection<Tag>('tags', {
       filters: {
         research: {
           id: {

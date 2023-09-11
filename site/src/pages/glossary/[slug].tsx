@@ -2,8 +2,10 @@ import { REVALIDATE } from 'constants/common'
 import WordPage from 'pages/WordPage/WordPage'
 import { getSingleBySlug, getAllPath, getSiteConfig } from 'src/strapi'
 import MetaLayout from 'components/MetaLayout/MetaLayout'
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { Glossary } from 'entities/Glossary'
 
-const Word = ({ data }) => {
+const Word = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <MetaLayout
       seo={{
@@ -16,9 +18,10 @@ const Word = ({ data }) => {
   )
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: string }>) {
+  const slug = params?.slug ?? ''
   const [words, config] = await Promise.all([
-    getSingleBySlug('glossaries', slug, {
+    getSingleBySlug<Glossary>('glossaries', slug, {
       paragraphs: {
         populate: '*',
       },
@@ -42,7 +45,7 @@ export async function getStaticProps({ params: { slug } }) {
 }
 
 export async function getStaticPaths() {
-  const words = await getAllPath('glossaries')
+  const words = await getAllPath<Glossary>('glossaries')
 
   const paths = words.map((word) => ({
     params: { slug: word.slug },

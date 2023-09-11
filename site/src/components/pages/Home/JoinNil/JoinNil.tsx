@@ -7,17 +7,26 @@ import HeadingSection from 'components/HeadingSection'
 import WhiteRectangle from 'components/WhiteRectangle'
 
 import s from './JoinNil.module.scss'
-import { homePageData } from 'stubs/homePageData'
+import { JoinNilBaseData } from './JoinNilBaseData'
 
-type JoinNilProps = {
+type JoinNilProps<T extends JoinNilBaseData> = {
   className?: string,
-  data: typeof homePageData.joinNil,
+  data: T,
   withMargin?: boolean,
 }
 
-const JoinNil = ({ className, data: { title, social, content }, withMargin }: JoinNilProps) => {
+function getContent(isMobile: boolean | null, content: JoinNilBaseData['content']) {
+  if (typeof content.right === 'string') {
+    return content.right
+  }
+
+  return !isMobile ? content.right.isDesktop : content.right.isMobile
+}
+
+
+const JoinNil = <T extends JoinNilBaseData>({ className, data: { title, social, content }, withMargin }: JoinNilProps<T>) => {
   const { isMobile } = useViewport()
-  const contentRight = !isMobile ? content.right.isDesktop : content.right.isMobile
+  const contentRight = getContent(isMobile, content)
 
   return (
     <div

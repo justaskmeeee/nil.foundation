@@ -74,9 +74,7 @@ function RevealText({
   )
 
   const getElements = useCallback(() => {
-    if (!rootRef.current) return []
-
-    return rootRef.current.querySelectorAll(`.${s.innerElement}`)
+    return rootRef.current!.querySelectorAll(`.${s.innerElement}`)
   }, [])
 
   useEffect(() => {

@@ -8,17 +8,18 @@ import { REVALIDATE } from 'constants/common'
 import { postPage } from 'stubs/postPageData'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { Glossary } from 'entities/Glossary'
+import { Post } from 'entities/Post'
 
 const Post = ({ data, recommendedPosts, content }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={{ title: data.title, description: data.description || '' }}>
-    <PostPage post={data} recommendedPosts={recommendedPosts} content={content} />
+    <PostPage post={data} recommendedPosts={recommendedPosts as any} content={content} />
   </MetaLayout>
 )
 
 export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: string }>) {
   const slug = params?.slug ?? ''
   const [posts, articles, config] = await Promise.all([
-    getCollection('blogs', {
+    getCollection<Post>('blogs', {
       filters: {
         $or: [
           {
@@ -34,7 +35,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
       },
       sort: ['date:desc'],
     }),
-    getSingleBySlug('blogs', slug, {
+    getSingleBySlug<Post>('blogs', slug, {
       tags: {
         populate: '*',
       },
@@ -66,7 +67,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
 }
 
 export async function getStaticPaths() {
-  const articles = await getAllPath('blogs')
+  const articles = await getAllPath<Glossary>('blogs')
 
   const paths = articles.map((article: Glossary) => ({
     params: { slug: article.slug },

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { RefObject, useCallback, useEffect, useRef, useState } from 'react'
 import AnimatedDottedContainer from 'components/AnimatedDottedContainer'
 import { useViewport } from 'hooks/useViewport'
 import PropTypes, { InferProps } from 'prop-types'
@@ -17,7 +17,7 @@ type FooterAnimationSectionProps = {
 }
 
 function FooterAnimationSection({ link, linkText, onLinkClick, items: baseItems, className }: FooterAnimationSectionProps) {
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>()
   const { isMobile } = useViewport()
   const [timelineEnd, setTimelineEnd] = useState('bottom center')
 
@@ -54,7 +54,7 @@ function FooterAnimationSection({ link, linkText, onLinkClick, items: baseItems,
   }, [onResizeHandler])
 
   return (
-    <section ref={sectionRef} className={classNames(s.container, className)}>
+    <section ref={sectionRef as RefObject<HTMLDivElement>} className={classNames(s.container, className)}>
       <AnimatedDottedContainer
         key={timelineEnd}
         className={s.animatedContainer}

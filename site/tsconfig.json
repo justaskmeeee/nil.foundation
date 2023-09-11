@@ -20,6 +20,7 @@
     "incremental": true,
     "jsx": "preserve",
     "useUnknownInCatchVariables": false,
+    "downlevelIteration": true,
     "baseUrl": "./",
     "paths": {
       "components/*": ["src/components/common/*"],

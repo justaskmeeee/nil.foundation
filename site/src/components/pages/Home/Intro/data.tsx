@@ -18,7 +18,7 @@ export const animatedItemList = [
     id: '3',
     ySourceValue: '-76%',
     yTransformValue: '-70%',
-    children: (isCompleted) => (
+    children: (isCompleted: boolean) => (
       <IntroDescription
         className={s.description}
         text='Get Ethereum-verifiable proofs tailored to your application requirements.'
@@ -30,7 +30,7 @@ export const animatedItemList = [
     id: '4',
     ySourceValue: '-62%',
     yTransformValue: '-86%',
-    children: (isCompleted) => (
+    children: (isCompleted: boolean) => (
       <IntroDescription
         className={s.description}
         text='Benefit from decentralized network of proof producers with the first marketplace for zkProof generation.'

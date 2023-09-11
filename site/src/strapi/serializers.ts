@@ -9,7 +9,7 @@ import {
 } from './rebuildCollection'
 import { CollectionType } from './types/CollectionType'
 
-export const serializeList = (data: any, type: CollectionType) => {
+export const serializeList = <T>(data: T, type: CollectionType) => {
   switch (type) {
     case 'blogs':
       return rebuildBlog(data)
