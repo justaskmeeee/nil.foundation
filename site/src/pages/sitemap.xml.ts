@@ -1,7 +1,9 @@
+import { Post } from 'entities/Post'
 import fs from 'fs'
 import flatten from 'lodash.flatten'
 import { GetServerSideProps } from 'next'
 import { getAllPath } from 'src/strapi'
+import { CollectionType } from 'src/strapi/types/CollectionType'
 
 const pagesArr = [
   { type: 'blogs', url: '/blog/post' },
@@ -33,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 
   const dynamicPages = await Promise.all(
     pagesArr.map(async (item) => {
-      return getAllPath(`${item.type}`).then((re) => re.map((el) => `${item.url}/${el.slug}`))
+      return getAllPath<Post>(`${item.type}` as CollectionType).then((re) => re.map((el) => `${item.url}/${el.slug}`))
     }),
   )
 

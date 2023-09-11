@@ -6,6 +6,9 @@ import MetaLayout from 'components/MetaLayout'
 
 import { seoData } from 'stubs/blogs'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { Tag } from 'entities/tag'
+import { Post } from 'entities/Post'
+import { Category } from 'entities/Category'
 
 const Blogs = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
@@ -17,7 +20,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
   const slug = params?.slug;
 
   const [posts, tags, categories, config] = await Promise.all([
-    getCollectionAndMeta('blogs', {
+    getCollectionAndMeta<Post>('blogs', {
       sort: BLOG_POST_SORT,
       filters: {
         tags: {
@@ -31,7 +34,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
         pageSize: BLOG_PAGE_SIZE,
       },
     }),
-    getCollection('tags', {
+    getCollection<Tag>('tags', {
       filters: {
         blogs: {
           id: {
@@ -40,7 +43,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
         },
       },
     }),
-    getCollection('categories'),
+    getCollection<Category>('categories'),
     getSiteConfig(),
   ])
 
@@ -60,9 +63,9 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
 }
 
 export async function getStaticPaths() {
-  const tags = await getAllPath('tags')
+  const tags = await getAllPath<Tag>('tags')
 
-  const paths = tags.map((tag) => ({
+  const paths = tags.map((tag: Tag) => ({
     params: { slug: tag.slug },
   }))
 

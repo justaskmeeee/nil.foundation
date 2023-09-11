@@ -6,7 +6,7 @@ import cx from 'classnames'
 
 type TagListProps = {
   tags: Tag[]
-  activeTagSlug?: string
+  activeTagSlug?: string | string[]
   onTagClick?: (tag: Tag) => void
   className?: string
 }

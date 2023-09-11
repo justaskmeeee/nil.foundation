@@ -7,6 +7,9 @@ import MetaLayout from 'components/MetaLayout'
 import { seoData } from 'stubs/blogs'
 import { getSiteConfig } from 'src/strapi/getSiteConfig'
 import { InferGetStaticPropsType } from 'next'
+import { Post } from 'entities/Post'
+import { Tag } from 'entities/tag'
+import { Category } from 'entities/Category'
 
 const Blogs = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
@@ -16,14 +19,14 @@ const Blogs = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => 
 
 export async function getStaticProps() {
   const [posts, tags, categories, config] = await Promise.all([
-    getCollectionAndMeta('blogs', {
+    getCollectionAndMeta<Post>('blogs', {
       sort: BLOG_POST_SORT,
       pagination: {
         page: 1,
         pageSize: BLOG_PAGE_SIZE,
       },
     }),
-    getCollection('tags', {
+    getCollection<Tag>('tags', {
       filters: {
         blogs: {
           id: {
@@ -32,7 +35,7 @@ export async function getStaticProps() {
         },
       },
     }),
-    getCollection('categories'),
+    getCollection<Category>('categories'),
     getSiteConfig(),
   ])
 

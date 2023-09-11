@@ -20,16 +20,14 @@ import s from './BlogsPage.module.scss'
 import { Tag } from 'entities/tag'
 import { Category } from 'entities/Category'
 import { Post } from 'entities/Post'
+import { Meta } from 'entities/Meta'
 
 type BlogsPageProps = {
   data: {
     tags: Tag[],
     posts: Post[],
     categories: Category[],
-    meta: {
-      page: number,
-      pageCount?: number,
-    }
+    meta: Meta,
   }
 }
 

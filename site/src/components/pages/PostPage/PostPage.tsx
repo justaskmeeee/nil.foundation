@@ -1,5 +1,4 @@
 import cx from 'classnames'
-import { arrayOf, number, shape, string } from 'prop-types'
 import { useRouter } from 'next/router'
 
 import { useViewport } from 'hooks/useViewport'
@@ -17,12 +16,19 @@ import SideNavigation from 'components/SideNavigation'
 import FooterAnimationSection from 'components/FooterAnimationSection'
 import LastSection from 'components/LastSection'
 import s from './PostPage.module.scss'
+import { Post } from 'entities/Post'
+import type { JoinNilBaseData } from 'pages/Home/JoinNil/JoinNilBaseData'
 
 type ArrowButtonProps = {
   className?: string,
 }
 
 type PostPageProps = {
+  post: Post,
+  recommendedPosts?: Post[],
+  content: {
+    joinNil: JoinNilBaseData,
+  },
 }
 
 const ArrowButton = ({ className }: ArrowButtonProps) => (
@@ -32,7 +38,7 @@ const ArrowButton = ({ className }: ArrowButtonProps) => (
   </Button>
 )
 
-const PostPage = ({ post, recommendedPosts, content }) => {
+const PostPage = ({ post, recommendedPosts, content }: PostPageProps) => {
   const router = useRouter()
   const { isMobile } = useViewport()
 
@@ -105,12 +111,11 @@ const PostPage = ({ post, recommendedPosts, content }) => {
             <WhiteRectangle />
             <div className={s.moreBlogsWrapper}>
               <h1 className={cx(s.title, s.otherBlogsTitle)}>Read other articles</h1>
-              {recommendedPosts.map((item) => (
+              {recommendedPosts && recommendedPosts.map((item) => (
                 <PostCard
                   linkTo={`/blog/post/${item.slug}`}
                   key={item.id}
                   className={s.blog}
-                  isBlogPost
                   content={{ ...item, isFeature: false }}
                 />
               ))}
@@ -127,74 +132,6 @@ const PostPage = ({ post, recommendedPosts, content }) => {
       <FooterAnimationSection className={s.footerSection} />
     </Container>
   )
-}
-
-PostPage.propTypes = {
-  post: shape({
-    id: number,
-    category: shape({
-      id: number,
-      name: string,
-      slug: string,
-      creataAt: string,
-      publishedAt: string,
-      updatedAt: string,
-    }),
-    content: string,
-    date: string,
-    description: string,
-    slug: string,
-    author: string,
-    title: string,
-    tags: arrayOf(
-      shape({
-        id: number,
-        name: string,
-        slug: string,
-        creataAt: string,
-        publishedAt: string,
-        updatedAt: string,
-      }),
-    ),
-  }),
-  recommendedPosts: arrayOf(
-    shape({
-      id: number,
-      category: shape({
-        id: number,
-        name: string,
-        slug: string,
-        creataAt: string,
-        publishedAt: string,
-        updatedAt: string,
-      }),
-      date: string,
-      description: string,
-      slug: string,
-      author: string,
-      title: string,
-      tags: arrayOf(
-        shape({
-          id: number,
-          name: string,
-          slug: string,
-          creataAt: string,
-          publishedAt: string,
-          updatedAt: string,
-        }),
-      ),
-    }),
-  ),
-  content: shape({
-    joinNil: shape({
-      content: shape({
-        left: string,
-        right: string,
-      }),
-      social: string,
-      title: string,
-    }),
-  }),
 }
 
 export default PostPage

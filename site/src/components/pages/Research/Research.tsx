@@ -1,8 +1,14 @@
-import { arrayOf, number, shape, string } from 'prop-types'
 import ResearchCard from 'components/ResearchCard'
 import s from './Research.module.scss'
+import { Post } from 'entities/Post'
 
-const Research = ({ data }) => {
+type ResearchProps = {
+  data: {
+    posts: Post[]
+  }
+}
+
+const Research = ({ data }: ResearchProps) => {
   return (
     <section className={s.container}>
       <ul className={s.cardList}>
@@ -14,30 +20,6 @@ const Research = ({ data }) => {
       </ul>
     </section>
   )
-}
-
-Research.propTypes = {
-  data: shape({
-    posts: arrayOf(
-      shape({
-        id: number,
-        date: string,
-        author: string,
-        link: string,
-        title: string,
-        tags: arrayOf(
-          shape({
-            id: number,
-            name: string,
-            slug: string,
-            creataAt: string,
-            publishedAt: string,
-            updatedAt: string,
-          }),
-        ),
-      }),
-    ),
-  }),
 }
 
 export default Research
