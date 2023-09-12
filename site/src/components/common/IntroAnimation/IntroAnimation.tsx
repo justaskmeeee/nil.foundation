@@ -18,7 +18,7 @@ IntroAnimation.propTypes = {
   className: PropTypes.string,
 }
 
-export type IntroAnimationProps = InferProps<typeof IntroAnimation.propTypes>;
+export type IntroAnimationProps = InferProps<typeof IntroAnimation.propTypes>
 
 function IntroAnimation({
   items,

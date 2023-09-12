@@ -10,7 +10,10 @@ import s from './HeadingSection.module.scss'
 
 function HeadingSection({ className, title, description, socials }: InferProps<typeof HeadingSection.propTypes>) {
   const getIcons = useMemo(
-    () => headingIcons[socials as keyof typeof headingIcons]?.map((el) => <SocialButton key={el.icon} href={el.link} icon={el.icon} />),
+    () =>
+      headingIcons[socials as keyof typeof headingIcons]?.map((el) => (
+        <SocialButton key={el.icon} href={el.link} icon={el.icon} />
+      )),
     [socials],
   )
 

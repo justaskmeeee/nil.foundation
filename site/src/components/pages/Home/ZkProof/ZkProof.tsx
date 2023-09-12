@@ -11,8 +11,8 @@ import s from './ZkProof.module.scss'
 import { homePageData } from 'stubs/homePageData'
 
 type ZkProofProps = {
-  className?: string,
-  data: typeof homePageData.zkProof,
+  className?: string
+  data: typeof homePageData.zkProof
 }
 
 const ZkProof = ({ className, data: { title, content } }: ZkProofProps) => {

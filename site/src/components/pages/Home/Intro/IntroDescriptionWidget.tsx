@@ -4,7 +4,7 @@ import { IntroDescription } from 'components/IntroAnimation'
 import s from './Intro.module.scss'
 
 type IntroDescriptionWidgetProps = {
-  isVisible: boolean,
+  isVisible: boolean
 }
 
 const IntroDescriptionWidget = ({ isVisible }: IntroDescriptionWidgetProps) => {

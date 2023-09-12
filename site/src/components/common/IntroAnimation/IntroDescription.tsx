@@ -6,7 +6,13 @@ import RevealText from 'components/RevealText'
 import classNames from 'classnames'
 import s from './IntroAnimation.module.scss'
 
-function IntroDescription({ text, delay, isVisible, duration, className }: InferProps<typeof IntroDescription.propTypes>) {
+function IntroDescription({
+  text,
+  delay,
+  isVisible,
+  duration,
+  className,
+}: InferProps<typeof IntroDescription.propTypes>) {
   const ref = useRef(null)
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
   const { isMobile } = useViewport()

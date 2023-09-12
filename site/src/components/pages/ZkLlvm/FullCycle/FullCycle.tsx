@@ -17,7 +17,7 @@ type FullCycleProps = {
 }
 
 function FullCycle({ className, data }: FullCycleProps) {
-  const { title, description, list, footer } = data;
+  const { title, description, list, footer } = data
   const { isMobile } = useViewport()
 
   return (

@@ -7,15 +7,16 @@ export const useScroll = () => {
 
   const scrollTo = (target: string | HTMLElement) =>
     new Promise((resolve) => {
-      let element;
+      let element
 
       if (typeof target === 'string') {
         element = document.querySelector(target)
       }
 
-      !!element && element.scrollIntoView({
-        behavior: 'smooth',
-      })
+      !!element &&
+        element.scrollIntoView({
+          behavior: 'smooth',
+        })
 
       setTimeout(() => {
         resolve(true)

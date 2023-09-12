@@ -13,8 +13,8 @@ import s from './Hero.module.scss'
 import { homePageData } from 'stubs/homePageData'
 
 type HeroProps = {
-  className?: string,
-  data: typeof homePageData.hero,
+  className?: string
+  data: typeof homePageData.hero
 }
 
 const Hero = ({ className, data: { title, description } }: HeroProps) => {

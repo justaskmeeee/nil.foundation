@@ -11,8 +11,8 @@ import TagList from './TagList'
 import { useRouter } from 'next/router'
 
 type ResearchLayoutProps = {
-  children: React.ReactNode,
-  tags: Tag[],
+  children: React.ReactNode
+  tags: Tag[]
 }
 
 const ResearchLayout = ({ children, tags }: ResearchLayoutProps) => {

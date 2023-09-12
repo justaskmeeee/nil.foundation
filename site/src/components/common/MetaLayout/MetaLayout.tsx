@@ -24,7 +24,7 @@ function MetaLayout({ seo, children }: InferProps<typeof MetaLayout.propTypes>) 
       </Head>
       {children}
     </>
-  );
+  )
 }
 
 MetaLayout.propTypes = {

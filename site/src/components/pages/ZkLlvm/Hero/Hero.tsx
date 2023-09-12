@@ -33,7 +33,7 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
         autoplay: true,
         animationData,
       })
-  
+
       return () => lottieInstance.current?.destroy()
     }
   }, [])

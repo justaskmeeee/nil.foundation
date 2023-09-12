@@ -18,52 +18,54 @@ type ButtonOwnProps<T extends ElementType = ElementType> = {
   onClick?: () => void
 }
 
-export type ButtonProps<T extends ElementType = ElementType> =
-  ButtonOwnProps<T> & Omit<ButtonElementProps<T>, keyof ButtonOwnProps<T>>
+export type ButtonProps<T extends ElementType = ElementType> = ButtonOwnProps<T> &
+  Omit<ButtonElementProps<T>, keyof ButtonOwnProps<T>>
 
-const Button = forwardRef<any, ButtonProps>(({ className, children, as, href, hover = 'none', onClick, ...otherProps }, ref) => {
-  const CustomTag = useMemo(() => {
-    if (as) return as
-    if (href) return 'a'
-    return 'button'
-  }, [href, as])
+const Button = forwardRef<any, ButtonProps>(
+  ({ className, children, as, href, hover = 'none', onClick, ...otherProps }, ref) => {
+    const CustomTag = useMemo(() => {
+      if (as) return as
+      if (href) return 'a'
+      return 'button'
+    }, [href, as])
 
-  const isExternal = useMemo(() => isExternalLink(href || ''), [href])
+    const isExternal = useMemo(() => isExternalLink(href || ''), [href])
 
-  const classNames = useMemo(() => {
-    const classes = modsClasses(s, {
-      hover,
-    })
+    const classNames = useMemo(() => {
+      const classes = modsClasses(s, {
+        hover,
+      })
 
-    return cx(className, s.root, classes, {})
-  }, [className, hover])
+      return cx(className, s.root, classes, {})
+    }, [className, hover])
 
-  const handleClick = () => {
-    if (onClick) onClick()
-  }
+    const handleClick = () => {
+      if (onClick) onClick()
+    }
 
-  if (href && !isExternal) {
+    if (href && !isExternal) {
+      return (
+        <Link href={href} className={classNames} ref={ref} {...otherProps}>
+          {children}
+        </Link>
+      )
+    }
+
     return (
-      <Link href={href} className={classNames} ref={ref} {...otherProps}>
+      <CustomTag
+        className={classNames}
+        href={href}
+        ref={ref}
+        rel={href && isExternal && 'noopener noreferrer'}
+        target={href && isExternal && '_blank'}
+        onClick={handleClick}
+        {...otherProps}
+      >
         {children}
-      </Link>
+      </CustomTag>
     )
-  }
-
-  return (
-    <CustomTag
-      className={classNames}
-      href={href}
-      ref={ref}
-      rel={href && isExternal && 'noopener noreferrer'}
-      target={href && isExternal && '_blank'}
-      onClick={handleClick}
-      {...otherProps}
-    >
-      {children}
-    </CustomTag>
-  )
-})
+  },
+)
 
 Button.displayName = 'Button'
 

@@ -11,9 +11,9 @@ import s from './Jobs.module.scss'
 import { careersPageData } from 'stubs/careersPageData'
 
 type JobsProps = {
-  className?: string,
-  data: typeof careersPageData.jobs,
-  isSkillsSection?: boolean,
+  className?: string
+  data: typeof careersPageData.jobs
+  isSkillsSection?: boolean
 }
 
 const Jobs = ({ className, data: { title, description, button }, isSkillsSection = false }: JobsProps) => {

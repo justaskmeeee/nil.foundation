@@ -10,8 +10,8 @@ import s from './About.module.scss'
 import { homePageData } from 'stubs/homePageData'
 
 type AboutProps = {
-  className?: string,
-  data: typeof homePageData.about,
+  className?: string
+  data: typeof homePageData.about
 }
 
 const About = ({ className, data: { title, social, description } }: AboutProps) => {

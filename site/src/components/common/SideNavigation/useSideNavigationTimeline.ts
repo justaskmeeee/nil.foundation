@@ -5,14 +5,11 @@ import { useViewport } from 'hooks/useViewport'
 import { useRouter } from 'next/router'
 
 type Options = {
-  onLeave: () => void;
-  onEnterBack: () => void;
+  onLeave: () => void
+  onEnterBack: () => void
 }
 
-export const useSideNavigationTimeline = (
-  containerRef: React.RefObject<HTMLDivElement>,
-  options: Options,
-) => {
+export const useSideNavigationTimeline = (containerRef: React.RefObject<HTMLDivElement>, options: Options) => {
   const { isMobile } = useViewport()
   const router = useRouter()
   const timelineRef = useRef<gsap.core.Timeline | null>(null)

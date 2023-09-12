@@ -30,7 +30,7 @@ function ResearchCard({ className, content, withTags }: InferProps<typeof Resear
     </Button>
   )
 }
-``
+;``
 ResearchCard.propTypes = {
   className: string,
   withTags: bool,

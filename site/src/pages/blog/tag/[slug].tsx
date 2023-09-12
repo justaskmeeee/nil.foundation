@@ -16,8 +16,8 @@ const Blogs = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => 
   </MetaLayout>
 )
 
-export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: string}>) {
-  const slug = params?.slug;
+export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: string }>) {
+  const slug = params?.slug
 
   const [posts, tags, categories, config] = await Promise.all([
     getCollectionAndMeta<Post>('blogs', {

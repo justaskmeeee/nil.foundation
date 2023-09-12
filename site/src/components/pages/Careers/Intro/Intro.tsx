@@ -11,8 +11,8 @@ import s from './Intro.module.scss'
 import { careersPageData } from 'stubs/careersPageData'
 
 type IntroProps = {
-  className?: string,
-  data: typeof careersPageData.intro,
+  className?: string
+  data: typeof careersPageData.intro
 }
 
 const Intro = ({ className, data: { title, description, text } }: IntroProps) => {

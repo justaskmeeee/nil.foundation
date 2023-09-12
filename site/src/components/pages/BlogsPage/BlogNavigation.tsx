@@ -6,7 +6,15 @@ import SideNavigation from 'components/SideNavigation'
 import PropTypes, { InferProps } from 'prop-types'
 import s from './BlogsPage.module.scss'
 
-function BlogNavigation({ activeCategory, onCategoryClick, activeTags, onTagClick, categories, tags, className }: InferProps<typeof BlogNavigation.propTypes>) {
+function BlogNavigation({
+  activeCategory,
+  onCategoryClick,
+  activeTags,
+  onTagClick,
+  categories,
+  tags,
+  className,
+}: InferProps<typeof BlogNavigation.propTypes>) {
   return (
     <SideNavigation className={cx(s.sideNavigation, className)} titleAnimation={false}>
       <div className={s.sideNavigationInner}>
@@ -20,18 +28,19 @@ function BlogNavigation({ activeCategory, onCategoryClick, activeTags, onTagClic
           >
             All
           </Button>
-          {categories && categories.map((button) => (
-            <Button
-              key={button.id}
-              cbData={button.name}
-              onClick={onCategoryClick}
-              className={cx(s.filterButtons, {
-                [s.activeButton]: activeCategory === button.name,
-              })}
-            >
-              {button.name}
-            </Button>
-          ))}
+          {categories &&
+            categories.map((button) => (
+              <Button
+                key={button.id}
+                cbData={button.name}
+                onClick={onCategoryClick}
+                className={cx(s.filterButtons, {
+                  [s.activeButton]: activeCategory === button.name,
+                })}
+              >
+                {button.name}
+              </Button>
+            ))}
         </div>
         {tags && (
           <div className={s.tags}>

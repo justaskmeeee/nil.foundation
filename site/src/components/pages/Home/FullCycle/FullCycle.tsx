@@ -13,8 +13,8 @@ import s from './FullCycle.module.scss'
 import { homePageData } from 'stubs/homePageData'
 
 type FullCycleProps = {
-  className?: string,
-  data: typeof homePageData.fullCycle,
+  className?: string
+  data: typeof homePageData.fullCycle
 }
 
 const FullCycle = ({ className, data: { title, description, list, footer } }: FullCycleProps) => {

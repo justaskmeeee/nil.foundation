@@ -5,7 +5,7 @@ import s from './RevealText.module.scss'
 import { RevealTextProps } from './RevealText'
 
 type AnimationType = 'in' | 'out'
-type AnimationProp = Record<AnimationType, number> | number;
+type AnimationProp = Record<AnimationType, number> | number
 
 const anim = {
   fadeIn: {

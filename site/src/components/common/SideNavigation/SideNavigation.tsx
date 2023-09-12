@@ -9,7 +9,16 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import { useSideNavigationTimeline } from 'components/SideNavigation/useSideNavigationTimeline'
 import s from './SideNavigation.module.scss'
 
-function SideNavigation({ title, link, isVisible, linkText, titleAnimation, titleLarge, className, children }: InferProps<typeof SideNavigation.propTypes>) {
+function SideNavigation({
+  title,
+  link,
+  isVisible,
+  linkText,
+  titleAnimation,
+  titleLarge,
+  className,
+  children,
+}: InferProps<typeof SideNavigation.propTypes>) {
   const titleRef = useRef(null)
   const sidebarRef = useRef<HTMLDivElement>(null)
   const { isMobile } = useViewport()
