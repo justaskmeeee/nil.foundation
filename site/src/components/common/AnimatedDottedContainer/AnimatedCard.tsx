@@ -13,7 +13,7 @@ export const ANIMATION_CARD_ALIGNMENT = Object.freeze({
 const getTimelineWithMultipleTransform = (
   timeline: gsap.core.Timeline,
   transformValueList: any[],
-  container: HTMLDivElement
+  container: HTMLDivElement,
 ) => {
   const firstValue = transformValueList[0]
   timeline.to(

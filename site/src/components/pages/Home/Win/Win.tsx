@@ -13,8 +13,8 @@ import s from './Win.module.scss'
 import { homePageData } from 'stubs/homePageData'
 
 type WinProps = {
-  className?: string,
-  data: typeof homePageData.win,
+  className?: string
+  data: typeof homePageData.win
 }
 
 const Win = ({ className, data: { title, description, content, footer } }: WinProps) => {

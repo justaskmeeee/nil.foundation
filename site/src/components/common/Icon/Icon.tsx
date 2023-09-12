@@ -3,9 +3,9 @@ import { HTMLAttributes, memo } from 'react'
 import { getIcon } from './utils'
 
 export type IconProps = {
-  className?: string,
-  name: string,
-  fill?: string,
+  className?: string
+  name: string
+  fill?: string
 } & HTMLAttributes<SVGSVGElement>
 
 function Icon({ className, name, fill, ...props }: IconProps) {

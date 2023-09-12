@@ -9,4 +9,4 @@ export const tag = shape({
   updatedAt: string,
 }).isRequired
 
-export type Tag = InferType<typeof tag>;
+export type Tag = InferType<typeof tag>

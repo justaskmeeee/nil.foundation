@@ -10,9 +10,9 @@ import s from './JoinNil.module.scss'
 import { JoinNilBaseData } from './JoinNilBaseData'
 
 type JoinNilProps<T extends JoinNilBaseData> = {
-  className?: string,
-  data: T,
-  withMargin?: boolean,
+  className?: string
+  data: T
+  withMargin?: boolean
 }
 
 function getContent(isMobile: boolean | null, content: JoinNilBaseData['content']) {
@@ -23,8 +23,11 @@ function getContent(isMobile: boolean | null, content: JoinNilBaseData['content'
   return !isMobile ? content.right.isDesktop : content.right.isMobile
 }
 
-
-const JoinNil = <T extends JoinNilBaseData>({ className, data: { title, social, content }, withMargin }: JoinNilProps<T>) => {
+const JoinNil = <T extends JoinNilBaseData>({
+  className,
+  data: { title, social, content },
+  withMargin,
+}: JoinNilProps<T>) => {
   const { isMobile } = useViewport()
   const contentRight = getContent(isMobile, content)
 

@@ -13,7 +13,7 @@ import s from './Careers.module.scss'
 import { careersPageData } from 'stubs/careersPageData'
 
 type CareersProps = {
-  data: typeof careersPageData,
+  data: typeof careersPageData
 }
 
 const Careers = ({ data }: CareersProps) => {

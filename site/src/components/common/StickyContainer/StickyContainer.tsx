@@ -11,10 +11,7 @@ type StickyContainerProps = {
   className?: string
 }
 
-const StickyContainer = forwardRef<
-  HTMLDivElement,
-  StickyContainerProps
->(({ className, children }, ref) => (
+const StickyContainer = forwardRef<HTMLDivElement, StickyContainerProps>(({ className, children }, ref) => (
   <div ref={ref} className={cx(s.root, className)}>
     {children}
     <WhiteRectangle className={s.whiteRectangle} />

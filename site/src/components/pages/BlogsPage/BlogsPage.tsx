@@ -24,14 +24,14 @@ import { Meta } from 'entities/Meta'
 
 type BlogsPageProps = {
   data: {
-    tags: Tag[],
-    posts: Post[],
-    categories: Category[],
-    meta: Meta,
+    tags: Tag[]
+    posts: Post[]
+    categories: Category[]
+    meta: Meta
   }
 }
 
-function BlogsPage ({ data }: BlogsPageProps) {
+function BlogsPage({ data }: BlogsPageProps) {
   const { isMobile } = useViewport()
   const { scrollToTop } = useScroll()
   const router = useRouter()

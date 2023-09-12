@@ -13,7 +13,7 @@ import s from './Home.module.scss'
 import { homePageData } from 'stubs/homePageData'
 
 type HomeProps = {
-  data: typeof homePageData,
+  data: typeof homePageData
 }
 
 const Home = ({ data }: HomeProps) => (

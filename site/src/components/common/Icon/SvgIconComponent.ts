@@ -1,3 +1,3 @@
-import { IconProps } from "./Icon";
+import { IconProps } from './Icon'
 
-export type SvgIconComponent = React.FC<Omit<IconProps, 'name'>>;
+export type SvgIconComponent = React.FC<Omit<IconProps, 'name'>>

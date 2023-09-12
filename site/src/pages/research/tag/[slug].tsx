@@ -21,8 +21,8 @@ TagPage.getLayout = (page: JSX.Element) => {
 }
 
 export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: string }>) {
-  const slug = params?.slug ?? '';
-  
+  const slug = params?.slug ?? ''
+
   const [posts, tags, config] = await Promise.all([
     getCollection<Post>('research', {
       filters: {

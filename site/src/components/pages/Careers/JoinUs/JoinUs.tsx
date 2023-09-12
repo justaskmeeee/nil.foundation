@@ -9,8 +9,8 @@ import s from './JoinUs.module.scss'
 import { careersPageData } from 'stubs/careersPageData'
 
 type JoinUsProps = {
-  className?: string,
-  data: typeof careersPageData.joinUs,
+  className?: string
+  data: typeof careersPageData.joinUs
 }
 
 const JoinUs = ({ className, data: { title, cards } }: JoinUsProps) => {

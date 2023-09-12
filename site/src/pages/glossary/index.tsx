@@ -17,8 +17,7 @@ const GlossaryPage = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProp
 
 export async function getStaticProps() {
   const [glossary, config] = await Promise.all([
-
-  // here generic should be
+    // here generic should be
     getCollection<GlossaryType>('glossaries', {
       populate: '*',
       pagination: {

@@ -6,10 +6,12 @@ import s from './Intro.module.scss'
 import { animatedItemList, animatedItemMobileList } from './data'
 import { IntroAnimationProps } from 'components/IntroAnimation/IntroAnimation'
 
-const IntroAnimationWidget = ({ ...props }: Omit<
+const IntroAnimationWidget = ({
+  ...props
+}: Omit<
   IntroAnimationProps,
   'navigationTitle' | 'navigationLinkText' | 'navigationLink' | 'animatedContainerClassName'
-  >) => (
+>) => (
   <IntroAnimation
     {...props}
     navigationTitle='Effortless high-performance circuit definition'

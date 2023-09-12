@@ -20,15 +20,15 @@ import { Post } from 'entities/Post'
 import type { JoinNilBaseData } from 'pages/Home/JoinNil/JoinNilBaseData'
 
 type ArrowButtonProps = {
-  className?: string,
+  className?: string
 }
 
 type PostPageProps = {
-  post: Post,
-  recommendedPosts?: Post[],
+  post: Post
+  recommendedPosts?: Post[]
   content: {
-    joinNil: JoinNilBaseData,
-  },
+    joinNil: JoinNilBaseData
+  }
 }
 
 const ArrowButton = ({ className }: ArrowButtonProps) => (
@@ -111,14 +111,15 @@ const PostPage = ({ post, recommendedPosts, content }: PostPageProps) => {
             <WhiteRectangle />
             <div className={s.moreBlogsWrapper}>
               <h1 className={cx(s.title, s.otherBlogsTitle)}>Read other articles</h1>
-              {recommendedPosts && recommendedPosts.map((item) => (
-                <PostCard
-                  linkTo={`/blog/post/${item.slug}`}
-                  key={item.id}
-                  className={s.blog}
-                  content={{ ...item, isFeature: false }}
-                />
-              ))}
+              {recommendedPosts &&
+                recommendedPosts.map((item) => (
+                  <PostCard
+                    linkTo={`/blog/post/${item.slug}`}
+                    key={item.id}
+                    className={s.blog}
+                    content={{ ...item, isFeature: false }}
+                  />
+                ))}
             </div>
           </div>
         </div>

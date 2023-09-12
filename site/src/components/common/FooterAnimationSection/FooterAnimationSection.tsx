@@ -16,7 +16,13 @@ type FooterAnimationSectionProps = {
   items?: ReturnType<typeof getAnimatedItemList>
 }
 
-function FooterAnimationSection({ link, linkText, onLinkClick, items: baseItems, className }: FooterAnimationSectionProps) {
+function FooterAnimationSection({
+  link,
+  linkText,
+  onLinkClick,
+  items: baseItems,
+  className,
+}: FooterAnimationSectionProps) {
   const sectionRef = useRef<HTMLDivElement>()
   const { isMobile } = useViewport()
   const [timelineEnd, setTimelineEnd] = useState('bottom center')

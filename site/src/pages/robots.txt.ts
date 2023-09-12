@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext } from "next"
+import { GetServerSidePropsContext } from 'next'
 
 const Robots = () => {}
 

@@ -7,10 +7,13 @@ import s from './Intro.module.scss'
 import { animatedItemList, animatedItemMobileList } from './data'
 import { IntroAnimationProps } from 'components/IntroAnimation/IntroAnimation'
 
-const IntroAnimationWidget = ({ items, ...props }: Omit<
+const IntroAnimationWidget = ({
+  items,
+  ...props
+}: Omit<
   IntroAnimationProps,
   'navigationTitle' | 'navigationLinkText' | 'navigationLink' | 'animatedContainerClassName'
-  >) => {
+>) => {
   return (
     <IntroAnimation
       {...props}
