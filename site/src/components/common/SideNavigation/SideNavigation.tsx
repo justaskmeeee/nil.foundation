@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
@@ -28,7 +28,7 @@ function SideNavigation({ title, link, isVisible, linkText, titleAnimation, titl
 
   useSideNavigationTimeline(sidebarRef, options)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const titleElement = titleRef.current
 
     if (!titleElement || isMobile !== false || !titleAnimation) {
@@ -52,7 +52,7 @@ function SideNavigation({ title, link, isVisible, linkText, titleAnimation, titl
 
     return () => {
       if (timeline) {
-        timeline.scrollTrigger?.kill()
+        timeline.scrollTrigger!.kill()
         timeline.kill()
       }
     }
@@ -74,7 +74,7 @@ function SideNavigation({ title, link, isVisible, linkText, titleAnimation, titl
       </div>
       <div className={s.linkWrapper}>
         {children}
-        {linkText && link && <ArrowButton href={link} className={s.link} text={linkText} />}
+        {linkText && <ArrowButton href={link!} className={s.link} text={linkText} />}
         <WhiteRectangle className={s.bottomLine} />
       </div>
     </aside>

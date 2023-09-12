@@ -1,6 +1,5 @@
 import dayjs from 'dayjs'
 import { getAttribute, getAttributes, getHtml } from './utils'
-import { Post } from '../domain/entities/Post'
 
 export const rebuildList = <T>(data: any): T[] => {
   return data.map((item: any) => {

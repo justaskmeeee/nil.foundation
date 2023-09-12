@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { useViewport } from 'hooks/useViewport'
@@ -17,14 +17,14 @@ export const useSideNavigationTimeline = (
   const router = useRouter()
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const sidebar = containerRef.current
 
     if (!sidebar || isMobile !== false) {
       return
     }
 
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       timelineRef.current = gsap.timeline({
         scrollTrigger: {
           trigger: 'body',
@@ -40,6 +40,8 @@ export const useSideNavigationTimeline = (
     }, 20)
 
     return () => {
+      clearTimeout(timeout)
+
       if (timelineRef.current) {
         timelineRef.current?.scrollTrigger?.kill?.()
         timelineRef.current.kill()
@@ -47,7 +49,7 @@ export const useSideNavigationTimeline = (
     }
   }, [containerRef, isMobile, options])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTimeout(() => {
       ScrollTrigger.refresh()
     }, 100)
