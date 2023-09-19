@@ -4,6 +4,7 @@
  * category service
  */
 
-const { createCoreService } = require('@strapi/strapi').factories
+import { factories } from '@strapi/strapi'
+const { createCoreService } = factories
 
 module.exports = createCoreService('api::category.category')

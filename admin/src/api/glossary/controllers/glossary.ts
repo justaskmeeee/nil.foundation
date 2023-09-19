@@ -1,9 +1,9 @@
 'use strict'
 
 /**
- * blog controller
+ * glossary controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories
 
-module.exports = createCoreController('api::blog.blog')
+export default createCoreController('api::glossary.glossary')

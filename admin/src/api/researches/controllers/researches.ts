@@ -4,6 +4,6 @@
  * researches controller
  */
 
-const { createCoreController } = require('@strapi/strapi').factories
-
+import { factories } from '@strapi/strapi'
+const { createCoreController } = factories
 module.exports = createCoreController('api::researches.researches')
