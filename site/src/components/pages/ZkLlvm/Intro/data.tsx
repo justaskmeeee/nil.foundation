@@ -3,7 +3,7 @@ import ArrowButton from 'components/ArrowButton'
 import { IntroDescription } from 'components/IntroAnimation'
 import s from './Intro.module.scss'
 
-export const getAnimatedItemList = (prefersReduceMotion: boolean) => [
+export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   {
     id: 'z1',
     ySourceValue: '-32%',
