@@ -5,9 +5,7 @@ import {bg, font} from './file'
 
 
 
-const handleUpdate = async (event) => {
-
-  
+const handleUpdate = async (event) => {  
   const { result } = event;
   const fontfile = path.join(__dirname, 'font.ttf')
   if (result.title && result.title !== result.generated_share_text) {
@@ -36,23 +34,23 @@ const handleUpdate = async (event) => {
     const metaBg = await sharpBg.metadata()
     const genImage = await sharpBg
     .composite([
-        {
-            input: {
-                text: {
-                    text,
-                    fontfile,
-                    width: 1078,
-                    align: 'left',
-                    // @ts-ignore
-                    dpi: 72*fontSize/12,
-                    rgba: true,
-                    spacing,
-                },
-            },
-            gravity: 'southeast',
-            top: metaBg.height - textImage.height - 132,
-            left: 62,
-        }
+      {
+        input: {
+          text: {
+            text,
+            fontfile,
+            width: 1078,
+            align: 'left',
+            // @ts-ignore
+            dpi: 72*fontSize/12,
+            rgba: true,
+            spacing,
+          },
+        },
+        gravity: 'southeast',
+        top: metaBg.height - textImage.height - 132,
+        left: 62,
+      }
     ]).toFormat('jpeg').toBuffer();
 
     const hash = Math.random().toString(36).substring(7);
