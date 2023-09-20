@@ -13,6 +13,7 @@ import ListItem from 'components/ListItem'
 
 import s from './Hero.module.scss'
 import { zkllvmPageData } from 'stubs/zkllvmPageData'
+import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 
 type HeroProps = {
   className?: string
@@ -23,20 +24,23 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
   const lottieRef = useRef<HTMLDivElement>(null)
   const lottieInstance = useRef<AnimationItem | null>(null)
   const { isMobile } = useViewport()
+  const prefersReduceMotion = usePrefersReducedMotion()
 
   useEffect(() => {
     if (lottieRef.current) {
       lottieInstance.current = lottie.loadAnimation({
         container: lottieRef.current,
         renderer: 'svg',
-        loop: true,
-        autoplay: true,
+        loop: !prefersReduceMotion,
+        autoplay: !prefersReduceMotion,
         animationData,
       })
 
+      lottieInstance.current.goToAndPlay(1000, true)
+
       return () => lottieInstance.current?.destroy()
     }
-  }, [])
+  }, [prefersReduceMotion])
 
   return (
     <div className={cx(s.root, className)}>

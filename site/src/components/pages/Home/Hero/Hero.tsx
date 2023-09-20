@@ -11,6 +11,7 @@ import WhiteRectangle from 'components/WhiteRectangle'
 
 import s from './Hero.module.scss'
 import { homePageData } from 'stubs/homePageData'
+import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 
 type HeroProps = {
   className?: string
@@ -21,20 +22,21 @@ const Hero = ({ className, data: { title, description } }: HeroProps) => {
   const lottieRef = useRef<HTMLDivElement | null>(null)
   const lottieInstance = useRef<AnimationItem | null>(null)
   const { isMobile } = useViewport()
+  const prefersReducedMotion = usePrefersReducedMotion()
 
   useEffect(() => {
     if (lottieRef.current) {
       lottieInstance.current = lottie.loadAnimation({
         container: lottieRef.current,
         renderer: 'svg',
-        loop: true,
-        autoplay: true,
+        loop: !prefersReducedMotion,
+        autoplay: !prefersReducedMotion,
         animationData,
       })
 
       return () => lottieInstance.current?.destroy()
     }
-  }, [])
+  }, [prefersReducedMotion])
 
   return (
     <div className={cx(s.root, className)}>

@@ -2,9 +2,9 @@ import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
 import ArrowButton from 'components/ArrowButton'
 import s from './FooterAnimationSection.module.scss'
 
-type AnimationGetter = (text?: string, href?: string, onClick?: (...args: any[]) => any) => any[]
+type AnimationGetter = (text?: string, href?: string, prefersReducedMotion?: boolean, onClick?: (...args: any[]) => any) => any[]
 
-export const getAnimatedItemList: AnimationGetter = (text, href, onClick) => {
+export const getAnimatedItemList: AnimationGetter = (text, href, prefersReducedMotion, onClick) => {
   return [
     {
       id: 'footer_nav',
@@ -35,37 +35,37 @@ export const getAnimatedItemList: AnimationGetter = (text, href, onClick) => {
     },
     {
       id: '6',
-      ySourceValue: '10%',
+      ySourceValue: prefersReducedMotion ? '90%' : '10%',
       yTransformValue: '85%',
       alignment: ANIMATION_CARD_ALIGNMENT.bottom,
     },
     {
       id: '7',
-      ySourceValue: '40%',
+      ySourceValue: prefersReducedMotion ? '90%' : '40%',
       yTransformValue: '85%',
       alignment: ANIMATION_CARD_ALIGNMENT.bottom,
     },
     {
       id: '8',
-      ySourceValue: '94%',
+      ySourceValue: prefersReducedMotion ? '90%' : '94%',
       yTransformValue: '85%',
       alignment: ANIMATION_CARD_ALIGNMENT.bottom,
     },
     {
       id: '9',
-      ySourceValue: '55%',
+      ySourceValue: prefersReducedMotion ? '90%' : '55%',
       yTransformValue: '85%',
       alignment: ANIMATION_CARD_ALIGNMENT.bottom,
     },
     {
       id: '10',
-      ySourceValue: '43%',
+      ySourceValue: prefersReducedMotion ? '90%' : '43%',
       yTransformValue: '85%',
       alignment: ANIMATION_CARD_ALIGNMENT.bottom,
     },
   ]
 }
-export const getAnimatedItemMobileList: AnimationGetter = (text, href, onClick) => {
+export const getAnimatedItemMobileList: AnimationGetter = (text, href, prefersReducedMotion, onClick) => {
   return [
     {
       id: 'footer_nav',

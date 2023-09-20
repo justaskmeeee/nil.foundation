@@ -8,6 +8,7 @@ import ArrowButton from 'components/ArrowButton'
 import WhiteRectangle from 'components/WhiteRectangle'
 import { useSideNavigationTimeline } from 'components/SideNavigation/useSideNavigationTimeline'
 import s from './SideNavigation.module.scss'
+import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 
 function SideNavigation({
   title,
@@ -23,6 +24,7 @@ function SideNavigation({
   const sidebarRef = useRef<HTMLDivElement>(null)
   const { isMobile } = useViewport()
   const [isTitleHidden, setTitleHidden] = useState(false)
+  const prefersReduceMotion = usePrefersReducedMotion()
 
   const options = useMemo(() => {
     return {
@@ -35,7 +37,7 @@ function SideNavigation({
     }
   }, [setTitleHidden])
 
-  useSideNavigationTimeline(sidebarRef, options)
+  useSideNavigationTimeline(sidebarRef, options, prefersReduceMotion)
 
   useLayoutEffect(() => {
     const titleElement = titleRef.current
@@ -65,7 +67,7 @@ function SideNavigation({
         timeline.kill()
       }
     }
-  }, [titleRef, isMobile, titleAnimation])
+  }, [titleRef, isMobile, titleAnimation, prefersReduceMotion])
 
   return (
     <aside ref={sidebarRef} className={classNames(s.container, className)}>

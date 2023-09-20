@@ -3,7 +3,7 @@ import ArrowButton from 'components/ArrowButton'
 import { IntroDescription } from 'components/IntroAnimation'
 import s from './Intro.module.scss'
 
-export const animatedItemList = [
+export const getAnimatedItemList = (prefersReduceMotion: boolean) => [
   {
     id: '1',
     ySourceValue: '-20%',
@@ -50,13 +50,13 @@ export const animatedItemList = [
   },
   {
     id: '7',
-    ySourceValue: '10%',
+    ySourceValue: prefersReduceMotion ? '0%' : '10%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '8',
-    ySourceValue: '18%',
+    ySourceValue: prefersReduceMotion ? '0%' : '18%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
@@ -68,19 +68,19 @@ export const animatedItemList = [
   },
   {
     id: '10',
-    ySourceValue: '12%',
+    ySourceValue: prefersReduceMotion ? '0%' : '12%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '11',
-    ySourceValue: '5%',
+    ySourceValue: prefersReduceMotion ? '0%' : '5%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '12',
-    ySourceValue: '10%',
+    ySourceValue: prefersReduceMotion ? '0%' : '10%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
