@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { CSSProperties, useEffect, useRef, useState } from 'react'
 import WhiteRectangle from 'components/WhiteRectangle'
 import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import { gsap } from 'gsap'
 import s from './AnimatedDottedContainer.module.scss'
+import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 
 export const ANIMATION_CARD_ALIGNMENT = Object.freeze({
   top: 'top',
@@ -57,11 +58,18 @@ function AnimatedCard({
 }: InferProps<typeof AnimatedCard.propTypes>) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isCompleted, setCompleted] = useState(false)
+  const prefersReduceMotion = usePrefersReducedMotion()
 
   useEffect(() => {
     const container = containerRef.current
 
     if (!container || !isVisible) {
+      return
+    }
+
+    if (prefersReduceMotion) {
+      setCompleted(true)
+      onComplete?.()
       return
     }
 
@@ -84,10 +92,14 @@ function AnimatedCard({
         tween.kill()
       }
     }
-  }, [containerRef, ySourceValue, isVisible, duration, onComplete])
+  }, [containerRef, ySourceValue, isVisible, duration, onComplete, prefersReduceMotion])
 
   useEffect(() => {
     const container = containerRef.current
+
+    if (prefersReduceMotion) {
+      return
+    }
 
     if (timeline && container && isCompleted && (yTransformValue || yTransformValueList)) {
       if (yTransformValueList) {
@@ -103,7 +115,7 @@ function AnimatedCard({
         '<',
       )
     }
-  }, [timeline, isCompleted, yTransformValue, yTransformValueList])
+  }, [timeline, isCompleted, yTransformValue, yTransformValueList, prefersReduceMotion])
 
   return (
     <div className={s.cardWrapper}>
@@ -111,6 +123,7 @@ function AnimatedCard({
         ref={containerRef}
         {...props}
         className={classNames(s.card, alignment === 'top' ? s.cardTop : s.cardBottom, className)}
+        style={{ transform: `translateY(${ySourceValue})` }}
       >
         {typeof children === 'function' ? children(isCompleted) : children}
         {!hideLine && <WhiteRectangle className={s.line} />}

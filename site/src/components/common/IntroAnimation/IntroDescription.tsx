@@ -5,6 +5,7 @@ import { useViewport } from 'hooks/useViewport'
 import RevealText from 'components/RevealText'
 import classNames from 'classnames'
 import s from './IntroAnimation.module.scss'
+import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 
 function IntroDescription({
   text,
@@ -16,6 +17,7 @@ function IntroDescription({
   const ref = useRef(null)
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
   const { isMobile } = useViewport()
+  const prefersReduceMotion = usePrefersReducedMotion()
 
   useEffect(() => {
     if (isMobile) {
@@ -48,7 +50,7 @@ function IntroDescription({
     const description = ref.current
     const timeline = timelineRef.current
 
-    if (!description || !isVisible || !timeline) {
+    if (!description || !isVisible || !timeline || prefersReduceMotion) {
       return
     }
 
@@ -57,7 +59,7 @@ function IntroDescription({
       y: '-20%',
       ease: 'power3.out',
     })
-  }, [ref, timelineRef, isVisible])
+  }, [ref, timelineRef, isVisible, prefersReduceMotion])
 
   if (!isVisible) {
     return null

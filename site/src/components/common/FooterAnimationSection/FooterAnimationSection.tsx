@@ -7,6 +7,7 @@ import { getScreenHeight } from 'utils/getScreenSize'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import s from './FooterAnimationSection.module.scss'
 import { getAnimatedItemList, getAnimatedItemMobileList } from './data'
+import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 
 type FooterAnimationSectionProps = {
   linkText?: string
@@ -26,10 +27,11 @@ function FooterAnimationSection({
   const sectionRef = useRef<HTMLDivElement>()
   const { isMobile } = useViewport()
   const [timelineEnd, setTimelineEnd] = useState('bottom center')
+  const prefersReduceMotion = usePrefersReducedMotion()
 
   const items = isMobile
-    ? getAnimatedItemMobileList(linkText, link, onLinkClick)
-    : getAnimatedItemList(linkText, link, onLinkClick)
+    ? getAnimatedItemMobileList(linkText, link, prefersReduceMotion, onLinkClick)
+    : getAnimatedItemList(linkText, link, prefersReduceMotion, onLinkClick)
 
   const onResizeHandler = useCallback(() => {
     const section = sectionRef.current

@@ -3,7 +3,7 @@ import ArrowButton from 'components/ArrowButton'
 import { IntroDescription } from 'components/IntroAnimation'
 import s from './Intro.module.scss'
 
-export const animatedItemList = [
+export const getAnimatedItemList = (prefersReduceMotion: boolean) => [
   {
     id: 'z1',
     ySourceValue: '-32%',
@@ -48,13 +48,13 @@ export const animatedItemList = [
   },
   {
     id: 'z8',
-    ySourceValue: '8%',
+    ySourceValue: prefersReduceMotion ? '0%' : '8%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z9',
-    ySourceValue: '18%',
+    ySourceValue: prefersReduceMotion ? '0%' : '18%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
@@ -66,25 +66,25 @@ export const animatedItemList = [
   },
   {
     id: 'z11',
-    ySourceValue: '9%',
+    ySourceValue: prefersReduceMotion ? '0%' : '9%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z12',
-    ySourceValue: '15%',
+    ySourceValue: prefersReduceMotion ? '0%' : '15%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z13',
-    ySourceValue: '4%',
+    ySourceValue: prefersReduceMotion ? '0%' : '4%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z14',
-    ySourceValue: '20%',
+    ySourceValue: prefersReduceMotion ? '0%' : '20%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },

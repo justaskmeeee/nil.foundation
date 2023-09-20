@@ -9,7 +9,11 @@ type Options = {
   onEnterBack: () => void
 }
 
-export const useSideNavigationTimeline = (containerRef: React.RefObject<HTMLDivElement>, options: Options) => {
+export const useSideNavigationTimeline = (
+  containerRef: React.RefObject<HTMLDivElement>,
+  options: Options,
+  prefersReducedMotion: boolean,
+) => {
   const { isMobile } = useViewport()
   const router = useRouter()
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
@@ -44,7 +48,7 @@ export const useSideNavigationTimeline = (containerRef: React.RefObject<HTMLDivE
         timelineRef.current.kill()
       }
     }
-  }, [containerRef, isMobile, options])
+  }, [containerRef, isMobile, options, prefersReducedMotion])
 
   useLayoutEffect(() => {
     setTimeout(() => {

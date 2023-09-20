@@ -33,3 +33,9 @@ $mobile: 767;
     }
   }
 }
+
+@mixin reducedMotion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { InferProps, arrayOf, bool, number, shape, string } from 'prop-types'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import cx from 'classnames'
 import axios from 'axios'

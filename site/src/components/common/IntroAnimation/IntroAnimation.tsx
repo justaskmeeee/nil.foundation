@@ -7,6 +7,7 @@ import { useViewport } from 'hooks/useViewport'
 import { gsap } from 'gsap'
 import { useScroll } from 'hooks/useScroll'
 import s from './IntroAnimation.module.scss'
+import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 
 IntroAnimation.propTypes = {
   items: PropTypes.array.isRequired,
@@ -36,12 +37,13 @@ function IntroAnimation({
   const [timelineInstance, setTimelineInstance] = useState<gsap.core.Timeline | null>(null)
   const { isMobile } = useViewport()
   const { disableScroll, enableScroll, scrollToTop } = useScroll()
+  const prefersReduceMotion = usePrefersReducedMotion()
 
   useEffect(() => {
     scrollToTop().then(disableScroll)
     setTimeout(() => {
       setVisible(true)
-    }, 700)
+    }, prefersReduceMotion ? 0 : 700)
 
     return () => {
       enableScroll()

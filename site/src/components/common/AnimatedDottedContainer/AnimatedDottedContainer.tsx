@@ -6,6 +6,7 @@ import classNames from 'classnames'
 import { useViewport } from 'hooks/useViewport'
 import AnimatedCard from './AnimatedCard'
 import s from './AnimatedDottedContainer.module.scss'
+import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 
 function AnimatedDottedContainer({
   items,
@@ -19,11 +20,12 @@ function AnimatedDottedContainer({
   const containerRef = useRef(null)
   const { isMobile } = useViewport()
   const [timelineInstance, setTimelineInstance] = useState<gsap.core.Timeline | null>(null)
+  const prefersReduceMotion = usePrefersReducedMotion()
 
   useEffect(() => {
     const container = containerRef.current
 
-    if (!container || isMobile == null || isMobile) {
+    if (!container || isMobile == null || isMobile || prefersReduceMotion) {
       return
     }
 
@@ -38,7 +40,7 @@ function AnimatedDottedContainer({
       },
     })
     setTimelineInstance(currentTimeline)
-  }, [isMobile, scrollTriggerProps])
+  }, [isMobile, scrollTriggerProps, prefersReduceMotion])
 
   useEffect(() => {
     if (isMobile && timelineInstance) {
