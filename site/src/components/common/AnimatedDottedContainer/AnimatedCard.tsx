@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import WhiteRectangle from 'components/WhiteRectangle'
 import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'

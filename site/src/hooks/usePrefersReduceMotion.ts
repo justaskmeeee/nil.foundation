@@ -6,6 +6,7 @@ function getPrefersReducedMotion() {
   if (typeof window === 'undefined') {
     return false
   }
+
   const mediaQueryList = window.matchMedia(query)
 
   return !mediaQueryList.matches
@@ -19,6 +20,7 @@ export function usePrefersReducedMotion() {
     const listener = () => {
       setPrefersReducedMotion(getPrefersReducedMotion)
     }
+
     mediaQueryList.addEventListener('change', listener)
     return () => {
       mediaQueryList.addEventListener('change', listener)
