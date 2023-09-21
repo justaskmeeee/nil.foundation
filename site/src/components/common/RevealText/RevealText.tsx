@@ -6,6 +6,7 @@ import { gsap } from 'gsap'
 import { getWords, getAnimationProps, getTimings } from './utils'
 
 import s from './RevealText.module.scss'
+import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 
 RevealText.propTypes = {
   className: PropTypes.string,
@@ -67,6 +68,9 @@ function RevealText({
   const rootRef = useRef<HTMLElement>(null)
   const refGsap = useRef<gsap.core.Tween | null>(null)
   const elements = useRef<any>([])
+  const prefersReduceMotion = usePrefersReducedMotion()
+
+  console.log('RevealText', isVisible)
 
   const words = useMemo(
     () => getWords(children, { tag, innerTag, reduceWhiteSpace }),
@@ -116,6 +120,10 @@ function RevealText({
   )
 
   useEffect(() => {
+    if (prefersReduceMotion) {
+      return
+    }
+
     if (isVisible) {
       handleAnimateTween(isVisible)
     } else {

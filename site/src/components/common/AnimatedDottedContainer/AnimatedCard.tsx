@@ -123,7 +123,7 @@ function AnimatedCard({
         ref={containerRef}
         {...props}
         className={classNames(s.card, alignment === 'top' ? s.cardTop : s.cardBottom, className)}
-        style={{ transform: `translateY(${ySourceValue})` }}
+        style={prefersReduceMotion ? { transform: `translateY(${ySourceValue})` } : {}}
       >
         {typeof children === 'function' ? children(isCompleted) : children}
         {!hideLine && <WhiteRectangle className={s.line} />}
