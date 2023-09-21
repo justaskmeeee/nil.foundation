@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
@@ -39,7 +39,7 @@ function SideNavigation({
 
   useSideNavigationTimeline(sidebarRef, options, prefersReduceMotion)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const titleElement = titleRef.current
 
     if (!titleElement || isMobile !== false || !titleAnimation) {

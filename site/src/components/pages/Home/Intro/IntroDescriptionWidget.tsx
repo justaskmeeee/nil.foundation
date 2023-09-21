@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { IntroDescription } from 'components/IntroAnimation'
 import s from './Intro.module.scss'
 

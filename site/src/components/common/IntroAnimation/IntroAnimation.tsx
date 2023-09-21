@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import AnimatedDottedContainer from 'components/AnimatedDottedContainer'
 import classNames from 'classnames'
 import SideNavigation from 'components/SideNavigation'
 import { useViewport } from 'hooks/useViewport'
@@ -8,6 +7,9 @@ import { gsap } from 'gsap'
 import { useScroll } from 'hooks/useScroll'
 import s from './IntroAnimation.module.scss'
 import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
+import dynamic from 'next/dynamic'
+
+const AnimatedDottedContainer = dynamic(() => import("components/AnimatedDottedContainer"), { ssr: false });
 
 IntroAnimation.propTypes = {
   items: PropTypes.array.isRequired,
