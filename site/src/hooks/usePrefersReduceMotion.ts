@@ -23,7 +23,7 @@ export function usePrefersReducedMotion() {
 
     mediaQueryList.addEventListener('change', listener)
     return () => {
-      mediaQueryList.addEventListener('change', listener)
+      mediaQueryList.removeEventListener('change', listener)
     }
   }, [])
 
