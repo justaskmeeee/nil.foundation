@@ -1,32 +1,3 @@
-import { InferType, arrayOf, bool, number, shape, string } from 'prop-types'
-import { category } from './Category'
-import { tag } from './tag'
+import type { Blog_Plain } from '../../../../admin/src/api/blog/content-types/blog/blog'
 
-export const post = shape({
-  id: number,
-  category: category,
-  date: string,
-  description: string,
-  slug: string,
-  author: string,
-  title: string,
-  isFeature: bool,
-  tags: arrayOf(tag).isRequired,
-  content: string.isRequired,
-  recommendedPosts: arrayOf(
-    shape({
-      id: number,
-      category: category,
-      date: string,
-      description: string,
-      slug: string,
-      author: string,
-      title: string,
-      isFeature: bool,
-      tags: arrayOf(tag).isRequired,
-      content: string,
-    }).isRequired,
-  ).isRequired,
-}).isRequired
-
-export type Post = InferType<typeof post>
+export type Post = Blog_Plain

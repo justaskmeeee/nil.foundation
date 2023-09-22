@@ -18,14 +18,15 @@ import LastSection from 'components/LastSection'
 import s from './PostPage.module.scss'
 import { Post } from 'entities/Post'
 import type { JoinNilBaseData } from 'pages/Home/JoinNil/JoinNilBaseData'
+import { MappedBlog, MappedBlogExtend } from 'src/strapi/types/entities'
 
 type ArrowButtonProps = {
   className?: string
 }
 
 type PostPageProps = {
-  post: Post
-  recommendedPosts?: Post[]
+  post: MappedBlogExtend
+  recommendedPosts?: MappedBlog[]
   content: {
     joinNil: JoinNilBaseData
   }
@@ -38,7 +39,7 @@ const ArrowButton = ({ className }: ArrowButtonProps) => (
   </Button>
 )
 
-const PostPage = ({ post, recommendedPosts, content }: PostPageProps) => {
+const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
   const router = useRouter()
   const { isMobile } = useViewport()
 
@@ -77,15 +78,20 @@ const PostPage = ({ post, recommendedPosts, content }: PostPageProps) => {
               <div className={cx(s.centerItems, s.types)}>
                 {post.category && <p className={s.type}>{post.category.name}</p>}
                 <div className={s.tagsWrapper}>
-                  {post.tags.map((tag) => (
-                    <TagButton key={tag.id} className={s.tag} tag={tag.name} />
+                  {post.tags?.map((tag) => (
+                    <TagButton
+                      key={tag.slug}
+                      className={s.tag}
+                      tag={tag.name}
+                      onClick={(tag) => router.push(`/blog/tag/${tag}`)}
+                    />
                   ))}
                 </div>
               </div>
             </div>
             <div className={cx(s.content, s.wrapper)}>
               <h1 className={cx(s.title, s.blogTitle, s.marginBlock)}>{post.title}</h1>
-              {post.description && <h2 className={cx(s.subtitle, s.marginBlock)}>{post.description}</h2>}
+              {post.subtitle && <h2 className={cx(s.subtitle, s.marginBlock)}>{post.subtitle}</h2>}
               {isMobile && (
                 <div className={s.social}>
                   <p className={s.paragraph}>Share this post</p>
@@ -99,7 +105,7 @@ const PostPage = ({ post, recommendedPosts, content }: PostPageProps) => {
               {!isMobile && (
                 <div className={s.info}>
                   <p className={cx(s.author, s.paragraph)}>{post.author}</p>
-                  <p className={cx(s.date, s.paragraph)}>{post.date}</p>
+                  <p className={cx(s.date, s.paragraph)}>{post.date ? post.date + '' : 'Invalid date'}</p>
                 </div>
               )}
             </div>
@@ -111,15 +117,9 @@ const PostPage = ({ post, recommendedPosts, content }: PostPageProps) => {
             <WhiteRectangle />
             <div className={s.moreBlogsWrapper}>
               <h1 className={cx(s.title, s.otherBlogsTitle)}>Read other articles</h1>
-              {recommendedPosts &&
-                recommendedPosts.map((item) => (
-                  <PostCard
-                    linkTo={`/blog/post/${item.slug}`}
-                    key={item.id}
-                    className={s.blog}
-                    content={{ ...item, isFeature: false }}
-                  />
-                ))}
+              {recommendedPosts?.map((item) => (
+                <PostCard key={item.id} className={s.blog} post={{ ...item, isFeature: false }} />
+              ))}
             </div>
           </div>
         </div>

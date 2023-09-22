@@ -106,6 +106,8 @@ fabric.properties
 # Ignore Byebug command history file.
 .byebug_history
 
+.DS_Store
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history

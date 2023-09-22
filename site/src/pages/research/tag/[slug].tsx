@@ -3,11 +3,10 @@ import { REVALIDATE } from 'constants/common'
 import Research, { ResearchLayout } from 'pages/Research'
 import MetaLayout from 'components/MetaLayout'
 
-import { getCollection, getAllPath, getSiteConfig } from 'src/strapi'
+import { getAllPath, getSiteConfig, getResearches, getTags } from 'src/strapi'
 import { seoData } from 'stubs/researchCards'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { Tag } from 'entities/tag'
-import { Post } from 'entities/Post'
+import { Tag } from '../../../../../admin/src/api/tag/content-types/tag/tag'
 
 const TagPage = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
@@ -24,7 +23,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
   const slug = params?.slug ?? ''
 
   const [posts, tags, config] = await Promise.all([
-    getCollection<Post>('research', {
+    getResearches({
       filters: {
         tags: {
           name: {
@@ -33,7 +32,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
         },
       },
     }),
-    getCollection<Tag>('tags', {
+    getTags({
       filters: {
         research: {
           id: {
@@ -69,8 +68,8 @@ export async function getStaticPaths() {
     },
   })
 
-  const paths = tags.map((tag: Tag) => ({
-    params: { slug: tag.slug },
+  const paths = tags.map((slug) => ({
+    params: { slug },
   }))
 
   return {

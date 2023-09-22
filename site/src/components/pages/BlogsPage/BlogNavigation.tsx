@@ -5,25 +5,28 @@ import TagButton from 'components/TagButton'
 import SideNavigation from 'components/SideNavigation'
 import PropTypes, { InferProps } from 'prop-types'
 import s from './BlogsPage.module.scss'
+import { MappedCategory, MappedTag } from 'src/strapi/types/entities'
+import { useRouter } from 'next/router'
 
-function BlogNavigation({
-  activeCategory,
-  onCategoryClick,
-  activeTags,
-  onTagClick,
-  categories,
-  tags,
-  className,
-}: InferProps<typeof BlogNavigation.propTypes>) {
+type BlogNavigationProps = {
+  activeCategory?: string
+  activeTag?: string
+  categories?: MappedCategory[]
+  tags?: MappedTag[]
+  className?: string
+}
+
+function BlogNavigation({ activeCategory, activeTag, categories, tags, className }: BlogNavigationProps) {
+  const router = useRouter()
+
   return (
     <SideNavigation className={cx(s.sideNavigation, className)} titleAnimation={false}>
       <div className={s.sideNavigationInner}>
         <div className={s.buttonsWrapper}>
           <Button
-            cbData='All'
-            onClick={onCategoryClick}
+            href='/blog'
             className={cx(s.filterButtons, {
-              [s.activeButton]: activeCategory === 'All',
+              [s.activeButton]: !activeTag && !activeCategory,
             })}
           >
             All
@@ -31,11 +34,10 @@ function BlogNavigation({
           {categories &&
             categories.map((button) => (
               <Button
-                key={button.id}
-                cbData={button.name}
-                onClick={onCategoryClick}
+                key={button.slug}
+                onClick={() => router.push(`/blog/category/${button.slug}`)}
                 className={cx(s.filterButtons, {
-                  [s.activeButton]: activeCategory === button.name,
+                  [s.activeButton]: activeCategory === button.slug,
                 })}
               >
                 {button.name}
@@ -47,11 +49,11 @@ function BlogNavigation({
             {tags.map((tag) => (
               <TagButton
                 className={cx({
-                  [s.activeTag]: activeTags && activeTags.includes(tag.name),
+                  [s.activeTag]: tag.slug === activeTag,
                 })}
-                key={tag.id}
+                key={tag.slug}
                 tag={tag.name}
-                onClick={onTagClick}
+                href={`/blog/tag/${tag.slug}`}
               />
             ))}
           </div>
@@ -59,16 +61,6 @@ function BlogNavigation({
       </div>
     </SideNavigation>
   )
-}
-
-BlogNavigation.propTypes = {
-  activeCategory: PropTypes.string,
-  onCategoryClick: PropTypes.func,
-  activeTags: PropTypes.array,
-  onTagClick: PropTypes.func,
-  categories: PropTypes.array,
-  tags: PropTypes.array,
-  className: PropTypes.string,
 }
 
 export default BlogNavigation

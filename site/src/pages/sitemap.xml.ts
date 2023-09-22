@@ -4,10 +4,37 @@ import flatten from 'lodash.flatten'
 import { GetServerSideProps } from 'next'
 import { getAllPath } from 'src/strapi'
 import { CollectionType } from 'src/strapi/types/CollectionType'
+import { Blog } from '../../../admin/src/api/blog/content-types/blog/blog'
 
 const pagesArr = [
-  { type: 'blogs', url: '/blog/post' },
-  { type: 'tags', url: '/blog/tag' },
+  { type: 'blogs', url: '/blog/post', params: {} },
+  {
+    type: 'tags',
+    url: '/blog/tag',
+    params: {
+      filters: {
+        blogs: {
+          id: {
+            $notNull: true,
+          },
+        },
+      },
+    },
+  },
+  {
+    type: 'tags',
+    url: '/research/tag',
+    params: {
+      filters: {
+        research: {
+          id: {
+            $notNull: true,
+          },
+        },
+      },
+    },
+  },
+  { type: 'categories', url: '/blog/category', params: {} },
 ]
 const otherPaths = [{ url: 'careers/jobs' }]
 
@@ -35,7 +62,9 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 
   const dynamicPages = await Promise.all(
     pagesArr.map(async (item) => {
-      return getAllPath<Post>(`${item.type}` as CollectionType).then((re) => re.map((el) => `${item.url}/${el.slug}`))
+      return getAllPath<Blog>(`${item.type}` as CollectionType, item.params).then((re) =>
+        re.map((slug) => `${item.url}/${slug}`),
+      )
     }),
   )
 

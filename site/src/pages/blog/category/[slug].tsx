@@ -6,11 +6,11 @@ import MetaLayout from 'components/MetaLayout'
 
 import { seoData } from 'stubs/blogs'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { Tag } from '../../../../../admin/src/api/tag/content-types/tag/tag'
+import { Category } from '../../../../../admin/src/api/category/content-types/category/category'
 
 const Blogs = ({ cms, seo, slug }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
-    <BlogsPage data={cms} activeTag={slug} />;
+    <BlogsPage data={cms} activeCategory={slug} />;
   </MetaLayout>
 )
 
@@ -21,8 +21,8 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
     getBlogPosts({
       sort: BLOG_POST_SORT,
       filters: {
-        tags: {
-          name: {
+        category: {
+          slug: {
             $eq: slug,
           },
         },
@@ -57,7 +57,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
 }
 
 export async function getStaticPaths() {
-  const tags = await getAllPath<Tag>('tags', {
+  const tags = await getAllPath<Category>('categories', {
     filters: {
       blogs: {
         id: {

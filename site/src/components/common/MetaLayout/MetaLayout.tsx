@@ -2,7 +2,16 @@ import { string, shape, any, InferProps } from 'prop-types'
 import Head from 'next/head'
 import React from 'react'
 
-function MetaLayout({ seo, children }: InferProps<typeof MetaLayout.propTypes>) {
+type MetaLayoutProps = {
+  seo?: {
+    title?: string
+    description?: string
+    image?: string | null
+  }
+  children: React.ReactNode
+}
+
+function MetaLayout({ seo, children }: MetaLayoutProps) {
   return (
     <>
       <Head>
@@ -21,18 +30,16 @@ function MetaLayout({ seo, children }: InferProps<typeof MetaLayout.propTypes>) 
             <meta name='twitter:description' content={seo.description} key='twitter:description' />
           </>
         )}
+        {seo?.image && (
+          <>
+            <meta property='og:image' content={seo.image} key='og:image' />
+            <meta name='twitter:image' content={seo.image} key='twitter:image' />
+          </>
+        )}
       </Head>
       {children}
     </>
   )
-}
-
-MetaLayout.propTypes = {
-  children: any,
-  seo: shape({
-    title: string,
-    description: string,
-  }),
 }
 
 export default MetaLayout

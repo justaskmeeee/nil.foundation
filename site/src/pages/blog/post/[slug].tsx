@@ -1,25 +1,24 @@
 import PostPage from 'pages/PostPage'
 import MetaLayout from 'components/MetaLayout'
 
-import { getAllPath, getCollection, getSingleBySlug, getSiteConfig } from 'src/strapi'
+import { getAllPath, getBlogPostBySlug, getBlogPosts, getSiteConfig } from 'src/strapi'
 
 import { REVALIDATE } from 'constants/common'
 
 import { postPage } from 'stubs/postPageData'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { Glossary } from 'entities/Glossary'
-import { Post } from 'entities/Post'
+import { Blog } from '../../../../../admin/src/api/blog/content-types/blog/blog'
 
 const Post = ({ data, recommendedPosts, content }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <MetaLayout seo={{ title: data.title, description: data.description || '' }}>
-    <PostPage post={data} recommendedPosts={recommendedPosts as any} content={content} />
+  <MetaLayout seo={{ title: data.title, description: data.subtitle, image: data.share_image }}>
+    <PostPage post={data} recommendedPosts={recommendedPosts} content={content} />
   </MetaLayout>
 )
 
 export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: string }>) {
   const slug = params?.slug ?? ''
-  const [posts, articles, config] = await Promise.all([
-    getCollection<Post>('blogs', {
+  const [posts, article, config] = await Promise.all([
+    getBlogPosts({
       filters: {
         $or: [
           {
@@ -29,27 +28,16 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
           },
         ],
       },
+      sort: ['date:desc'],
       pagination: {
-        start: 0,
         limit: 3,
       },
-      sort: ['date:desc'],
     }),
-    getSingleBySlug<Post>('blogs', slug, {
-      tags: {
-        populate: '*',
-      },
-      category: {
-        populate: '*',
-      },
-      recommendedBlogs: {
-        populate: '*',
-      },
-    }),
+    getBlogPostBySlug(slug),
     getSiteConfig(),
   ])
 
-  if (!articles) {
+  if (!article) {
     return {
       notFound: true,
     }
@@ -58,8 +46,8 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
   return {
     revalidate: REVALIDATE,
     props: {
-      data: articles,
-      recommendedPosts: articles.recommendedPosts.length > 0 ? articles.recommendedPosts : posts,
+      data: article,
+      recommendedPosts: posts,
       content: postPage,
       config,
     },
@@ -67,10 +55,10 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
 }
 
 export async function getStaticPaths() {
-  const articles = await getAllPath<Glossary>('blogs')
+  const articles = await getAllPath<Blog>('blogs')
 
-  const paths = articles.map((article: Glossary) => ({
-    params: { slug: article.slug },
+  const paths = articles.map((slug) => ({
+    params: { slug },
   }))
 
   return {

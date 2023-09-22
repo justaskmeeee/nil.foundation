@@ -37,37 +37,41 @@ function SideNavigation({
     }
   }, [setTitleHidden])
 
-  useSideNavigationTimeline(sidebarRef, options, prefersReduceMotion)
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  if (process.browser) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useSideNavigationTimeline(sidebarRef, options, prefersReduceMotion)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+      const titleElement = titleRef.current
 
-  useEffect(() => {
-    const titleElement = titleRef.current
-
-    if (!titleElement || isMobile !== false || !titleAnimation) {
-      return
-    }
-
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        invalidateOnRefresh: true,
-        end: `+=80%`,
-        scrub: 0.5,
-      },
-    })
-
-    timeline.to(titleElement, {
-      scale: '0.48',
-      ease: 'expo.out',
-    })
-
-    return () => {
-      if (timeline) {
-        timeline.scrollTrigger!.kill()
-        timeline.kill()
+      if (!titleElement || isMobile !== false || !titleAnimation) {
+        return
       }
-    }
-  }, [titleRef, isMobile, titleAnimation, prefersReduceMotion])
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          invalidateOnRefresh: true,
+          end: `+=80%`,
+          scrub: 0.5,
+        },
+      })
+
+      timeline.to(titleElement, {
+        scale: '0.48',
+        ease: 'expo.out',
+      })
+
+      return () => {
+        if (timeline) {
+          timeline.scrollTrigger!.kill()
+          timeline.kill()
+        }
+      }
+    }, [titleRef, isMobile, titleAnimation, prefersReduceMotion])
+  }
 
   return (
     <aside ref={sidebarRef} className={classNames(s.container, className)}>

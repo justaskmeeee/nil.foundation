@@ -1,7 +1,7 @@
 import { REVALIDATE, BLOG_PAGE_SIZE, BLOG_POST_SORT } from 'constants/common'
-import { getCollection, getCollectionAndMeta } from 'src/strapi'
+import { getBlogPosts, getCategories, getTags } from 'src/strapi'
 
-import BlogPage from 'pages/BlogsPage'
+import BlogsPage from 'pages/BlogsPage'
 import MetaLayout from 'components/MetaLayout'
 
 import { seoData } from 'stubs/blogs'
@@ -13,20 +13,14 @@ import { Category } from 'entities/Category'
 
 const Blogs = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
-    <BlogPage data={cms} />
+    <BlogsPage data={cms} />
   </MetaLayout>
 )
 
 export async function getStaticProps() {
   const [posts, tags, categories, config] = await Promise.all([
-    getCollectionAndMeta<Post>('blogs', {
-      sort: BLOG_POST_SORT,
-      pagination: {
-        page: 1,
-        pageSize: BLOG_PAGE_SIZE,
-      },
-    }),
-    getCollection<Tag>('tags', {
+    getBlogPosts(),
+    getTags({
       filters: {
         blogs: {
           id: {
@@ -35,7 +29,7 @@ export async function getStaticProps() {
         },
       },
     }),
-    getCollection<Category>('categories'),
+    getCategories(),
     getSiteConfig(),
   ])
 
@@ -43,10 +37,9 @@ export async function getStaticProps() {
     revalidate: REVALIDATE,
     props: {
       cms: {
-        posts: posts.blogs,
+        posts: posts,
         tags,
         categories,
-        meta: posts.meta,
       },
       seo: seoData,
       config,

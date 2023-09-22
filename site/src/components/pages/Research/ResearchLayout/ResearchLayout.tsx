@@ -6,13 +6,13 @@ import SideNavigation from 'components/SideNavigation'
 import FooterAnimationSection from 'components/FooterAnimationSection'
 import LastSection from 'components/LastSection'
 import WhiteRectangle from 'components/WhiteRectangle'
-import { Tag } from 'entities/tag'
 import TagList from './TagList'
 import { useRouter } from 'next/router'
+import { MappedTag } from 'src/strapi/types/entities'
 
 type ResearchLayoutProps = {
   children: React.ReactNode
-  tags: Tag[]
+  tags: MappedTag[]
 }
 
 const ResearchLayout = ({ children, tags }: ResearchLayoutProps) => {
@@ -20,7 +20,7 @@ const ResearchLayout = ({ children, tags }: ResearchLayoutProps) => {
 
   const activeTagSlug = router.query?.slug ?? ''
 
-  const onTagClickHandler = async (tagItem: Tag) => {
+  const onTagClickHandler = async (tagItem: MappedTag) => {
     if (tagItem.slug === activeTagSlug) {
       await router.push(`/research`)
       return

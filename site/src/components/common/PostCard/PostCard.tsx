@@ -6,14 +6,21 @@ import Icon from 'components/Icon'
 import Button from 'components/Button'
 
 import s from './PostCard.module.scss'
+import { getBlogPosts } from 'src/strapi'
+import { MappedBlog } from 'src/strapi/types/entities'
 
-function PostCard({ className, content, linkTo }: InferProps<typeof PostCard.propTypes>) {
+type PostCardProps = {
+  className?: string
+  post: MappedBlog
+}
+
+function PostCard({ className, post }: PostCardProps) {
   const isFeaturePost = useMemo(() => {
-    return content.isFeature
-  }, [content.isFeature])
+    return post.isFeature
+  }, [post.isFeature])
 
   return (
-    <Button href={linkTo} className={cx(s.root, className, { [s.featured]: isFeaturePost })}>
+    <Button href={`/blog/post/${post.slug}`} className={cx(s.root, className, { [s.featured]: isFeaturePost })}>
       <div
         className={cx(s.wrapper, {
           [s.featurePost]: isFeaturePost,
@@ -21,26 +28,26 @@ function PostCard({ className, content, linkTo }: InferProps<typeof PostCard.pro
         })}
       >
         <div className={cx(s.info, { [s.featureInfo]: isFeaturePost })}>
-          <p className={cx(s.author, s.onHoverBlock)}>{content.author}</p>
-          <p className={s.date}>{content.date}</p>
+          <p className={cx(s.author, s.onHoverBlock)}>{post.author}</p>
+          <p className={s.date}>{post.date}</p>
         </div>
         <div className={cx({ [s.content]: !isFeaturePost })}>
-          <h2
+          <p
             className={cx({
               [s.featureTitle]: isFeaturePost,
               [s.title]: !isFeaturePost,
             })}
           >
-            {content.title}
-          </h2>
-          {content.description && (
+            {post.title}
+          </p>
+          {post.subtitle && (
             <p
               className={cx({
                 [s.featureDescription]: isFeaturePost,
                 [s.description]: !isFeaturePost,
               })}
             >
-              {content.description}
+              {post.subtitle}
             </p>
           )}
         </div>
@@ -48,18 +55,6 @@ function PostCard({ className, content, linkTo }: InferProps<typeof PostCard.pro
       </div>
     </Button>
   )
-}
-
-PostCard.propTypes = {
-  className: string,
-  linkTo: string,
-  content: shape({
-    author: string,
-    date: string,
-    title: string,
-    description: string,
-    isFeature: bool,
-  }).isRequired,
 }
 
 export default memo(PostCard)

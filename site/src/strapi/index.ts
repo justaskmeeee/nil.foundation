@@ -1,53 +1,85 @@
 import qs from 'qs'
 import Req from './request'
-import { serializeList, serializeSingle } from './serializers'
-import { rebuildList } from './rebuildCollection'
+import { serializeSingle } from './serializers'
+import { rebuildBlog } from './rebuildCollection'
 import config from './config'
 import { Collection, CollectionType } from './types/CollectionType'
+import { Blog, Blog_Plain } from '../../../admin/src/api/blog/content-types/blog/blog'
+import { client, queryList } from './client'
+import { Tag } from '../../../admin/src/api/tag/content-types/tag/tag'
+import { StrapiParamters } from './types/parameters'
+import { mapBlogItem, mapBlogItemExtend, mapCategory, mapGlossary, mapResearch, mapTag } from './mapping'
+import { Researches } from '../../../admin/src/api/researches/content-types/researches/researches'
+import { Category } from '../../../admin/src/api/category/content-types/category/category'
+import { Glossary, Glossary_Plain } from '../../../admin/src/api/glossary/content-types/glossary/glossary'
+import { MappedGlossary } from './types/entities'
 
-export const getCollection = async <T>(type: CollectionType, params = {}): Promise<T[]> => {
+export const getBlogPosts = async (params: StrapiParamters = {}) => {
   if (config.USE_MOCK) {
     return []
   }
 
-  const collection = await Req.GET({
-    url: `/${type}/`,
-    params: {
-      populate: '*',
-      ...params,
-    },
-    paramsSerializer: qs.stringify,
-    withToken: true,
-  })
+  const blogs = await queryList<Blog>('blogs', params)
 
-  return serializeList(collection.data.data, type)
+  return blogs.map((blog) => mapBlogItem(blog))
 }
 
-export const getCollectionAndMeta = async <T>(type: Collection, params = {}): Promise<any> => {
+export const getBlogPostBySlug = async (slug: string) => {
   if (config.USE_MOCK) {
-    return {
-      [type]: [],
-      meta: {
-        pagination: {
-          page: 1,
-          pageSize: 1,
-          total: 1,
-          totalPages: 1,
-        },
-      },
-    }
+    return null
   }
-  const collection = await Req.GET({
-    url: `/${type}/`,
-    params: {
-      populate: '*',
-      ...params,
+
+  const blog = await queryList<Blog>(`blogs`, {
+    filters: {
+      slug: {
+        $eq: slug,
+      },
     },
-    paramsSerializer: qs.stringify,
-    withToken: true,
   })
 
-  return serializeList(collection.data, `${type}+meta`)
+  if (!blog[0]) return null
+
+  return mapBlogItemExtend(blog[0])
+}
+
+export const getTags = async (params: StrapiParamters = {}) => {
+  if (config.USE_MOCK) {
+    return []
+  }
+
+  const collection = await queryList<Tag>('tags', params)
+
+  return collection.map((tag) => mapTag(tag))
+}
+
+export const getResearches = async (params: StrapiParamters = {}) => {
+  if (config.USE_MOCK) {
+    return []
+  }
+
+  const collection = await queryList<Researches>('research', params)
+
+  return collection.map((research) => mapResearch(research))
+}
+
+export const getCategories = async (params: StrapiParamters = {}) => {
+  if (config.USE_MOCK) {
+    return []
+  }
+
+  const collection = await queryList<Category>('categories', params)
+
+  return collection.map((category) => mapCategory(category))
+}
+
+export const getGlossary = async (params: StrapiParamters = {}): Promise<MappedGlossary[]> => {
+  if (config.USE_MOCK) {
+    return []
+  }
+
+  const collection = await queryList<Glossary>('glossaries', params)
+
+  return collection.map((x) => mapGlossary(x))
 }
 
 export const getSingle = async <T>(type: CollectionType, params = {}): Promise<T | null> => {
@@ -89,25 +121,16 @@ export const getSingleBySlug = async <T>(type: CollectionType, slug: string, pop
   return serializeSingle(document.data.data[0], type)
 }
 
-export const getAllPath = async <T>(type: CollectionType, params = {}): Promise<T[]> => {
+export const getAllPath = async <T extends { attributes: { slug?: string } }>(
+  type: CollectionType,
+  params: StrapiParamters = {},
+): Promise<string[]> => {
   if (config.USE_MOCK) {
     return []
   }
-  const collection = await Req.GET({
-    url: `/${type}/`,
-    params: {
-      fields: ['id', 'slug'],
-      pagination: {
-        page: 1,
-        pageSize: 100,
-      },
-      ...params,
-    },
-    paramsSerializer: qs.stringify,
-    withToken: true,
-  })
+  const collection = await queryList<T>(type, params)
 
-  return rebuildList(collection.data.data)
+  return collection.map((x) => x.attributes.slug || '')
 }
 
 export { getSiteConfig } from './getSiteConfig'

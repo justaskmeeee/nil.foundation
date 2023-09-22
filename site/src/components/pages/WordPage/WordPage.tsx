@@ -10,9 +10,10 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import LastSection from 'components/LastSection'
 import s from './WordPage.module.scss'
 import { Glossary } from 'entities/Glossary'
+import { MappedGlossary } from 'src/strapi/types/entities'
 
 type WordPageProps = {
-  data: Glossary
+  data: MappedGlossary
 }
 
 const ArrowButton = () => (
@@ -65,7 +66,7 @@ const WordPage = ({ data }: WordPageProps) => {
             <div className={s.textWrapper}>
               <p className={s.pageSubtitle}>{data.description}</p>
               {data.paragraphs?.map((el, i) => (
-                <p key={el.id ?? i} className={s.pageParagraph}>
+                <p key={i} className={s.pageParagraph}>
                   {el.Paragraph}
                 </p>
               ))}
