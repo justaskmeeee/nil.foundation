@@ -2,7 +2,12 @@ import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
 import ArrowButton from 'components/ArrowButton'
 import s from './FooterAnimationSection.module.scss'
 
-type AnimationGetter = (text?: string, href?: string, prefersReducedMotion?: boolean, onClick?: (...args: any[]) => any) => any[]
+type AnimationGetter = (
+  text?: string,
+  href?: string,
+  prefersReducedMotion?: boolean,
+  onClick?: (...args: any[]) => any,
+) => any[]
 
 export const getAnimatedItemList: AnimationGetter = (text, href, prefersReducedMotion, onClick) => {
   return [
