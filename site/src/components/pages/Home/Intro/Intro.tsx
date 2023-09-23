@@ -38,7 +38,11 @@ const Intro = () => {
           {(isVisible: boolean) => <IntroDescriptionWidget isVisible={isVisible} />}
         </IntroAnimationWidget>
       ) : (
-        <IntroAnimationWidget key='introDefault' className={s.animationWidget} items={getAnimatedItemList(prefersReduceMotion)} />
+        <IntroAnimationWidget
+          key='introDefault'
+          className={s.animationWidget}
+          items={getAnimatedItemList(prefersReduceMotion)}
+        />
       )}
       <WhiteRectangle className={s.underPatternLine} />
     </section>

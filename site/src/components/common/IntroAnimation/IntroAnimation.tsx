@@ -9,7 +9,7 @@ import s from './IntroAnimation.module.scss'
 import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 import dynamic from 'next/dynamic'
 
-const AnimatedDottedContainer = dynamic(() => import("components/AnimatedDottedContainer"), { ssr: false });
+const AnimatedDottedContainer = dynamic(() => import('components/AnimatedDottedContainer'), { ssr: false })
 
 IntroAnimation.propTypes = {
   items: PropTypes.array.isRequired,
@@ -43,9 +43,12 @@ function IntroAnimation({
 
   useEffect(() => {
     scrollToTop().then(disableScroll)
-    setTimeout(() => {
-      setVisible(true)
-    }, prefersReduceMotion ? 0 : 700)
+    setTimeout(
+      () => {
+        setVisible(true)
+      },
+      prefersReduceMotion ? 0 : 700,
+    )
 
     return () => {
       enableScroll()

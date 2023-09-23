@@ -41,7 +41,11 @@ const Intro = () => {
           )}
         </IntroAnimationWidget>
       ) : (
-        <IntroAnimationWidget key='introDefault' className={s.animationWidget} items={getAnimatedItemList(prefersReduceMotion)} />
+        <IntroAnimationWidget
+          key='introDefault'
+          className={s.animationWidget}
+          items={getAnimatedItemList(prefersReduceMotion)}
+        />
       )}
       <WhiteRectangle className={s.underPatternLine} />
     </section>
