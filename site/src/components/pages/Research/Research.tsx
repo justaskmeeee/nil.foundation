@@ -1,10 +1,10 @@
 import ResearchCard from 'components/ResearchCard'
 import s from './Research.module.scss'
-import { Post } from 'entities/Post'
+import { MappedResearch } from 'src/strapi/types/entities'
 
 type ResearchProps = {
   data: {
-    posts: Post[]
+    posts: MappedResearch[]
   }
 }
 

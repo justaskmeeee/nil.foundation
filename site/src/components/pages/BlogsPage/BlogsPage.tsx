@@ -20,151 +20,32 @@ import { Tag } from 'entities/tag'
 import { Category } from 'entities/Category'
 import { Post } from 'entities/Post'
 import { Meta } from 'entities/Meta'
+import { MappedBlog, MappedCategory, MappedTag } from 'src/strapi/types/entities'
 
 type BlogsPageProps = {
   data: {
-    tags: Tag[]
-    posts: Post[]
-    categories: Category[]
-    meta: Meta
+    tags: MappedTag[]
+    posts: MappedBlog[]
+    categories: MappedCategory[]
   }
+  activeTag?: string
+  activeCategory?: string
 }
 
-function BlogsPage({ data }: BlogsPageProps) {
+function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
   const { isMobile } = useViewport()
   const { scrollToTop } = useScroll()
   const router = useRouter()
-
-  const [activeCategory, setActiveCategory] = useState('All')
-  const [activeTag, setActiveTag] = useState('')
-
-  const [currentBlogs, setCurrentBlogs] = useState(data?.posts)
-  const [currentMeta, setCurrentMeta] = useState(data?.meta)
-
-  const currentMetaPage = useMemo(() => {
-    return currentMeta.page
-  }, [currentMeta])
-
-  const hasMoreBlogs = useMemo(() => {
-    return currentMeta.pageCount ? currentMetaPage < currentMeta.pageCount : false
-  }, [currentMeta.pageCount, currentMetaPage])
-
-  const getFilters = useCallback(
-    (value: string | string[]) => {
-      const isCategory = data.categories.some((item) => item.name === value)
-
-      const filterBy = {
-        [isCategory ? 'category' : 'tags']: {
-          name: {
-            $eq: value,
-          },
-        },
-      }
-
-      if (value === '' || value === 'All') {
-        return {}
-      }
-
-      return filterBy
-    },
-    [data.categories],
-  )
-
-  const handleLoadMore = async () => {
-    if (!hasMoreBlogs) return
-
-    const filters = getFilters(router.query.category || router.query.slug || '')
-
-    const newBlogs = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`, {
-      page: currentMetaPage + 1,
-      filters,
-    })
-
-    setCurrentBlogs([...currentBlogs, ...newBlogs.data.blogs])
-    setCurrentMeta(newBlogs.data.meta)
-  }
-
-  const fethCurrentBlogs = useCallback(
-    async (value: string) => {
-      if (currentMetaPage === 1) {
-        const filters = getFilters(value)
-
-        const newBlogs = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`, {
-          page: 1,
-          filters,
-        })
-
-        setCurrentBlogs(newBlogs.data.blogs)
-        setCurrentMeta(newBlogs.data.meta)
-      }
-    },
-    [currentMetaPage, getFilters],
-  )
 
   useEffect(() => {
     setTimeout(() => {
       ScrollTrigger.refresh()
     }, 100)
-  }, [currentBlogs])
-
-  const setCurrentCategory = useCallback(
-    (category: string) => {
-      setActiveCategory(category)
-      fethCurrentBlogs(category)
-    },
-    [fethCurrentBlogs],
-  )
-
-  const setCurrentTag = useCallback(
-    (tag: string) => {
-      setActiveTag(tag)
-      fethCurrentBlogs(tag)
-    },
-    [fethCurrentBlogs],
-  )
-
-  const onCategoryClick = useCallback(
-    (category: string) => {
-      setActiveTag('')
-      scrollToTop()
-      setCurrentMeta({ page: 1 })
-      router.push({ pathname: '/blog', query: { category } }, '/blog')
-    },
-    [router, scrollToTop],
-  )
-
-  const onTagClick = useCallback(
-    (tag: string) => {
-      setActiveCategory('All')
-      scrollToTop()
-      setCurrentMeta({ page: 1 })
-      router.push(`/blog/tag/${tag}`)
-
-      if (tag === activeTag) {
-        onCategoryClick('All')
-      }
-    },
-    [activeTag, onCategoryClick, router, scrollToTop],
-  )
-
-  useEffect(() => {
-    if (router.query.slug) {
-      setCurrentTag(router.query.slug as string)
-    }
-    if (router.query.category) {
-      setCurrentCategory(router.query.category as string)
-    }
-  }, [router.query.slug, router.query.category, setCurrentCategory, setCurrentTag])
+  }, [])
 
   return (
     <Container className={s.container}>
-      <BlogNavigation
-        onTagClick={onTagClick}
-        onCategoryClick={onCategoryClick}
-        activeTags={[activeTag]}
-        activeCategory={activeCategory}
-        {...data}
-      />
+      <BlogNavigation activeTag={activeTag} activeCategory={activeCategory} {...data} />
       <div className={s.root}>
         <div className={s.inner}>
           <div className={s.pageHead}>
@@ -178,20 +59,19 @@ function BlogsPage({ data }: BlogsPageProps) {
                   <div className={s.buttonsWrapper}>
                     <Button
                       cbData='All'
-                      onClick={onCategoryClick}
+                      onClick={() => router.push('/blog')}
                       className={cx(s.filterButtons, {
-                        [s.activeButton]: activeCategory === 'All',
+                        [s.activeButton]: !activeCategory && !activeTag,
                       })}
                     >
                       All
                     </Button>
                     {data.categories.map((button) => (
                       <Button
-                        key={button.id}
-                        cbData={button.name}
-                        onClick={onCategoryClick}
+                        key={button.slug}
+                        onClick={() => router.push(`/blog/category/${button.slug}`)}
                         className={cx(s.filterButtons, {
-                          [s.activeButton]: activeCategory === button.name,
+                          [s.activeButton]: activeCategory === button.slug,
                         })}
                       >
                         {button.name}
@@ -206,9 +86,11 @@ function BlogsPage({ data }: BlogsPageProps) {
                         className={cx({
                           [s.activeTag]: activeTag === tag.name,
                         })}
-                        key={tag.id}
+                        key={tag.slug}
                         tag={tag.name}
-                        onClick={onTagClick}
+                        onClick={(tag) => {
+                          router.push(`/blog/tag/${tag}`)
+                        }}
                       />
                     ))}
                   </div>
@@ -217,21 +99,15 @@ function BlogsPage({ data }: BlogsPageProps) {
             )}
           </div>
           <div className={cx(s.content, s.centeredItems)}>
-            {currentBlogs && currentBlogs.length > 0 ? (
-              currentBlogs.map((post) => (
-                <PostCard key={post.id} className={s.blogPost} linkTo={`/blog/post/${post.slug}`} content={post} />
-              ))
+            {data.posts && data.posts.length > 0 ? (
+              data.posts.map((post) => <PostCard key={post.id} className={s.blogPost} post={post} />)
             ) : (
               <ArticlesNotFound title='Articles not found' />
             )}
           </div>
         </div>
       </div>
-      <FooterAnimationSection
-        linkText={hasMoreBlogs ? 'Load more' : ''}
-        onLinkClick={handleLoadMore}
-        className={s.footerSection}
-      />
+      <FooterAnimationSection className={s.footerSection} />
     </Container>
   )
 }

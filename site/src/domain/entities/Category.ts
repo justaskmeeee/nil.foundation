@@ -1,12 +1,3 @@
-import { InferType, number, shape, string } from 'prop-types'
+import { Category_Plain } from '../../../../admin/src/api/category/content-types/category/category'
 
-export const category = shape({
-  id: number.isRequired,
-  name: string.isRequired,
-  slug: string.isRequired,
-  creataAt: string.isRequired,
-  publishedAt: string.isRequired,
-  updatedAt: string.isRequired,
-}).isRequired
-
-export type Category = InferType<typeof category>
+export type Category = Category_Plain

@@ -1,18 +1,16 @@
 import { REVALIDATE, BLOG_PAGE_SIZE, BLOG_POST_SORT } from 'constants/common'
-import { getAllPath, getCollection, getCollectionAndMeta, getSiteConfig } from 'src/strapi'
+import { getAllPath, getBlogPosts, getCategories, getSiteConfig, getTags } from 'src/strapi'
 
-import BlogPage from 'pages/BlogsPage'
+import BlogsPage from 'pages/BlogsPage'
 import MetaLayout from 'components/MetaLayout'
 
 import { seoData } from 'stubs/blogs'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { Tag } from 'entities/tag'
-import { Post } from 'entities/Post'
-import { Category } from 'entities/Category'
+import { Tag } from '../../../../../admin/src/api/tag/content-types/tag/tag'
 
-const Blogs = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Blogs = ({ cms, seo, slug }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
-    <BlogPage data={cms} />;
+    <BlogsPage data={cms} activeTag={slug} />;
   </MetaLayout>
 )
 
@@ -20,7 +18,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
   const slug = params?.slug
 
   const [posts, tags, categories, config] = await Promise.all([
-    getCollectionAndMeta<Post>('blogs', {
+    getBlogPosts({
       sort: BLOG_POST_SORT,
       filters: {
         tags: {
@@ -29,12 +27,8 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
           },
         },
       },
-      pagination: {
-        page: 1,
-        pageSize: BLOG_PAGE_SIZE,
-      },
     }),
-    getCollection<Tag>('tags', {
+    getTags({
       filters: {
         blogs: {
           id: {
@@ -43,7 +37,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
         },
       },
     }),
-    getCollection<Category>('categories'),
+    getCategories(),
     getSiteConfig(),
   ])
 
@@ -51,22 +45,30 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
     revalidate: REVALIDATE,
     props: {
       cms: {
-        posts: posts.blogs,
+        posts: posts,
         tags,
         categories,
-        meta: posts.meta,
       },
       seo: seoData,
       config,
+      slug,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const tags = await getAllPath<Tag>('tags')
+  const tags = await getAllPath<Tag>('tags', {
+    filters: {
+      blogs: {
+        id: {
+          $notNull: true,
+        },
+      },
+    },
+  })
 
-  const paths = tags.map((tag: Tag) => ({
-    params: { slug: tag.slug },
+  const paths = tags.map((slug: string) => ({
+    params: { slug },
   }))
 
   return {

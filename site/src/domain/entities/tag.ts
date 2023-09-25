@@ -1,12 +1,3 @@
-import { InferType, number, shape, string } from 'prop-types'
+import { Tag_Plain } from '../../../../admin/src/api/tag/content-types/tag/tag'
 
-export const tag = shape({
-  id: number,
-  name: string,
-  slug: string,
-  createdAt: string,
-  publishedAt: string,
-  updatedAt: string,
-}).isRequired
-
-export type Tag = InferType<typeof tag>
+export type Tag = Tag_Plain

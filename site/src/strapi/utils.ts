@@ -1,36 +1,5 @@
-import showdown from 'showdown'
 import config from './config'
 import { Tag } from 'entities/tag'
-
-const converter = new showdown.Converter()
-
-export const getSingleFile = (image: any) => {
-  if (!image || !image.data) return null
-
-  const { url, formats, caption, mime, height, width, alternativeText } = image.data.attributes
-
-  const newFormats: Record<string, any> = {}
-
-  if (formats) {
-    formats.forEach((item: any) => {
-      newFormats[item] = {
-        media: item,
-        src: `${config.STRAPI_URL}${item.url}`,
-      }
-    })
-  }
-
-  return {
-    url: `${config.STRAPI_URL}${url}` || '',
-    caption: caption || '',
-    mime: mime || '',
-    height: height || '',
-    width: width || '',
-    srcSet: newFormats || null,
-    alt: alternativeText || '',
-    // type: getFileType(ext),
-  }
-}
 
 export const getAttributes = <T>(data: any): T | null => {
   if (!data.data) return null
@@ -54,10 +23,10 @@ export const getAttribute = <T>(data: any): T | null => {
   }
 }
 
-export const getHtml = (data: any): string | null => {
-  const text = String(data).replace(/"\/uploads/g, `"${process.env.STRAPI_URL}/uploads`)
+export const processHtml = (data: any): string => {
+  const text = String(data).replace(/"\/uploads/g, `"${config.STRAPI_URL}/uploads`)
 
-  return text ? converter.makeHtml(text) : null
+  return text || ''
 }
 
 export const getCurrentTags = (data: any): Tag[] | null => {

@@ -64,7 +64,8 @@ echo Token: $token
 if [ ! -f site/.env ]; then
   echo "create .env for site"
   echo "STRAPI_API_URL=http://localhost:1337/api" > site/.env
-  # add token
+  echo "STRAPI_URL=http://localhost:1337" > site/.env
+  # add token 
   echo "STRAPI_API_KEY=$token" >> site/.env
   echo "NEXT_PUBLIC_BASE_URL=http://localhost:3000" >> site/.env
 fi

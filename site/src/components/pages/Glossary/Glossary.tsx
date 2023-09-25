@@ -6,11 +6,11 @@ import Button from 'components/Button'
 import LastSection from 'components/LastSection'
 import WhiteRectangle from 'components/WhiteRectangle'
 import s from './Glossary.module.scss'
-import { Glossary } from 'entities/Glossary'
+import { MappedGlossary } from 'src/strapi/types/entities'
 
 type GlossaryProps = {
   data: {
-    letter: Glossary[]
+    letter: MappedGlossary[]
   }
 }
 

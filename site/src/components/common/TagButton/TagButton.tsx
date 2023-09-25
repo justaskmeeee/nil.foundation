@@ -7,7 +7,11 @@ import s from './TagButton.module.scss'
 
 function TagButton({ tag, className, onClick, href, isActive }: InferProps<typeof TagButton.propTypes>) {
   return (
-    <Button cbData={tag} onClick={onClick} className={cx(s.root, isActive && s.rootActive, className)} href={href}>
+    <Button
+      onClick={onClick ? () => onClick(tag) : undefined}
+      className={cx(s.root, isActive && s.rootActive, className)}
+      href={href}
+    >
       {tag}
     </Button>
   )
