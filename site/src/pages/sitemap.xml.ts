@@ -48,11 +48,10 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
         '.DS_Store',
         '_app.js',
         '_document.ts',
-        '404.js',
+        '404.tsx',
         'sitemap.xml.ts',
         'robots.txt.ts',
-        'index.js',
-        'components.ts',
+        'index.tsx',
         'api',
       ].includes(staticPage)
     })
@@ -96,7 +95,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
                 <loc>${process.env.NEXT_PUBLIC_BASE_URL}${el}</loc>
                 <lastmod>${new Date().toISOString()}</lastmod>
                 <changefreq>monthly</changefreq>
-                <priority>1.0</priority>
+                <priority>0.7</priority>
               </url>
             `
           })
@@ -109,7 +108,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
             <loc>${process.env.NEXT_PUBLIC_BASE_URL}/${el.url}</loc>
             <lastmod>${new Date().toISOString()}</lastmod>
             <changefreq>monthly</changefreq>
-            <priority>1.0</priority>
+            <priority>0.7</priority>
           </url>
           `,
             )
