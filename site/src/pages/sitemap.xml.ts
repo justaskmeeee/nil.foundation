@@ -44,8 +44,8 @@ const Sitemap = () => {}
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const staticPages = fs
     .readdirSync('src/pages')
-    .map(x => x.replace(fileExtensionsRegexp, ''))
-    .filter(x => isNaN(parseFloat(x)))
+    .map(x => x.replace(fileExtensionsRegexp, '')) // removing all file extensions
+    .filter(x => isNaN(parseFloat(x))) // removing all numeric names
     .filter((staticPage) => {
       return ![
         '.DS_Store',
@@ -56,10 +56,10 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
         'index',
         'api',
       ].includes(staticPage)
-    })
+    }) // removing all blacklisted names
     .map((staticPagePath) => {
       return `${process.env.NEXT_PUBLIC_BASE_URL}/${staticPagePath}`
-    })
+    }) // adding base url
 
   const dynamicPages = await Promise.all(
     pagesArr.map(async (item) => {
