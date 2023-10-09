@@ -1,10 +1,11 @@
-import { Post } from 'entities/Post'
 import fs from 'fs'
 import flatten from 'lodash.flatten'
 import { GetServerSideProps } from 'next'
 import { getAllPath } from 'src/strapi'
 import { CollectionType } from 'src/strapi/types/CollectionType'
 import { Blog } from '../../../admin/src/api/blog/content-types/blog/blog'
+
+const fileExtensionsRegexp = /\.(js|jsx|ts|tsx)$/gi;
 
 const pagesArr = [
   { type: 'blogs', url: '/blog/post', params: {} },
@@ -43,15 +44,16 @@ const Sitemap = () => {}
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const staticPages = fs
     .readdirSync('src/pages')
+    .map(x => x.replace(fileExtensionsRegexp, ''))
+    .filter(x => isNaN(parseFloat(x)))
     .filter((staticPage) => {
       return ![
         '.DS_Store',
-        '_app.js',
-        '_document.ts',
-        '404.tsx',
-        'sitemap.xml.ts',
-        'robots.txt.ts',
-        'index.tsx',
+        '_app',
+        '_document',
+        'sitemap.xml',
+        'robots.txt',
+        'index',
         'api',
       ].includes(staticPage)
     })
@@ -77,40 +79,46 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       </url>
       ${staticPages
         .map((url) => {
-          return `
+          return (
+            `
             <url>
-              <loc>${url.replace('.js', '')}</loc>
+              <loc>${url}</loc>
               <lastmod>${new Date().toISOString()}</lastmod>
               <changefreq>monthly</changefreq>
               <priority>1.0</priority>
             </url>
-          `
+            `
+          )
         })
         .join('')}
 
         ${flatten(dynamicPages)
           .map((el) => {
-            return `
+            return (
+              `
               <url>
                 <loc>${process.env.NEXT_PUBLIC_BASE_URL}${el}</loc>
                 <lastmod>${new Date().toISOString()}</lastmod>
                 <changefreq>monthly</changefreq>
                 <priority>0.7</priority>
               </url>
-            `
+              `
+            )
           })
           .join('')}
 
           ${otherPaths
             .map(
-              (el) => `
-          <url>
-            <loc>${process.env.NEXT_PUBLIC_BASE_URL}/${el.url}</loc>
-            <lastmod>${new Date().toISOString()}</lastmod>
-            <changefreq>monthly</changefreq>
-            <priority>0.7</priority>
-          </url>
-          `,
+              (el) => (
+                `
+                <url>
+                  <loc>${process.env.NEXT_PUBLIC_BASE_URL}/${el.url}</loc>
+                  <lastmod>${new Date().toISOString()}</lastmod>
+                  <changefreq>monthly</changefreq>
+                  <priority>0.7</priority>
+                </url>
+                `
+              )
             )
             .join('')}
     </urlset>
