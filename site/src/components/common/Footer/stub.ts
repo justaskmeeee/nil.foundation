@@ -17,7 +17,7 @@ export const stub = {
         { name: 'Research', link: '/research' },
         {
           name: 'Documentation',
-          link: 'https://docs.nil.foundation/proof-market/',
+          link: 'https://docs.nil.foundation/',
         },
         { name: 'About', link: '/about' },
         // TODO: return after create this page
