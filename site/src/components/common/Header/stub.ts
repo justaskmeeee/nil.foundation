@@ -7,7 +7,7 @@ export const links = {
     { name: 'Blog', link: '/blog' },
     {
       name: 'Documentation',
-      link: 'https://docs.nil.foundation/proof-market/',
+      link: 'https://docs.nil.foundation/',
     },
     { name: 'Research', link: '/research' },
     { name: 'About', link: '/about' },
