@@ -17,8 +17,8 @@ type WordPageProps = {
 }
 
 const ArrowButton = () => (
-  <Button href='/glossary' className={s.centerItems}>
-    <Icon name='arrow-up' className={s.arrow} />
+  <Button href="/glossary" className={s.centerItems}>
+    <Icon name="arrow-up" className={s.arrow} />
     <p className={s.paragraph}>Glossary</p>
   </Button>
 )
@@ -54,8 +54,8 @@ const WordPage = ({ data }: WordPageProps) => {
       <div className={s.root}>
         <div className={s.pageContent}>
           <div className={s.backButton}>
-            <Button href='/glossary' className={s.centerItems}>
-              <Icon name='arrow-up' className={s.arrow} />
+            <Button href="/glossary" className={s.centerItems}>
+              <Icon name="arrow-up" className={s.arrow} />
               <p className={s.paragraph}>Glossary</p>
             </Button>
           </div>

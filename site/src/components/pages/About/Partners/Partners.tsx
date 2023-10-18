@@ -51,7 +51,7 @@ const Partners = ({ className, data: { title, content } }: PartnersProps) => {
               <div className={s.box}>
                 {el.logos.map((logo) => (
                   <div key={logo.url} className={s.imageWrapper}>
-                    <Image src={logo.url} fill alt='logo' />
+                    <Image src={logo.url} fill alt="logo" />
                   </div>
                 ))}
               </div>

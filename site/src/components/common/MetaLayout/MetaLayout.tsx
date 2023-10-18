@@ -17,23 +17,23 @@ function MetaLayout({ seo, children }: MetaLayoutProps) {
       <Head>
         {seo?.title && (
           <>
-            <title key='title'>{seo?.title}</title>
-            <meta property='og:title' content={seo?.title} key='og:title' />
-            <meta name='twitter:title' content={seo.title} key='twitter:title' />
+            <title key="title">{seo?.title}</title>
+            <meta property="og:title" content={seo?.title} key="og:title" />
+            <meta name="twitter:title" content={seo.title} key="twitter:title" />
           </>
         )}
 
         {seo?.description && (
           <>
-            <meta name='description' content={seo.description} key='description' />
-            <meta property='og:description' content={seo.description} key='og:description' />
-            <meta name='twitter:description' content={seo.description} key='twitter:description' />
+            <meta name="description" content={seo.description} key="description" />
+            <meta property="og:description" content={seo.description} key="og:description" />
+            <meta name="twitter:description" content={seo.description} key="twitter:description" />
           </>
         )}
         {seo?.image && (
           <>
-            <meta property='og:image' content={seo.image} key='og:image' />
-            <meta name='twitter:image' content={seo.image} key='twitter:image' />
+            <meta property="og:image" content={seo.image} key="og:image" />
+            <meta name="twitter:image" content={seo.image} key="twitter:image" />
           </>
         )}
       </Head>

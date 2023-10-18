@@ -17,8 +17,8 @@ const NotFound = () => {
     <Container className={s.root}>
       {!isMobile && (
         <StickyContainer className={s.navigation}>
-          <Button href='/' className={s.backButton}>
-            <Icon name='arrow-up' className={s.arrow} />
+          <Button href="/" className={s.backButton}>
+            <Icon name="arrow-up" className={s.arrow} />
             <p className={s.paragraph}>Home</p>
           </Button>
         </StickyContainer>
@@ -27,8 +27,8 @@ const NotFound = () => {
         <div className={s.background}>
           <div className={s.wrapper}>
             {isMobile && (
-              <Button href='/' className={s.backButton}>
-                <Icon name='arrow-up' className={s.arrow} />
+              <Button href="/" className={s.backButton}>
+                <Icon name="arrow-up" className={s.arrow} />
                 <p className={s.paragraph}>Home</p>
               </Button>
             )}

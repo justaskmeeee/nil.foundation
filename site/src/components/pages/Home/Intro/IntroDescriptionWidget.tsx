@@ -11,12 +11,12 @@ const IntroDescriptionWidget = ({ isVisible }: IntroDescriptionWidgetProps) => {
     <div className={s.descriptionMobile}>
       <IntroDescription
         isVisible={isVisible}
-        text='Get Ethereum-verifiable proofs tailored to your application requirements.'
+        text="Get Ethereum-verifiable proofs tailored to your application requirements."
       />
       <IntroDescription
         isVisible={isVisible}
         className={s.descriptionItem}
-        text='Benefit from decentralized network of proof producers with the first marketplace for zkProof generation.'
+        text="Benefit from decentralized network of proof producers with the first marketplace for zkProof generation."
         delay={300}
       />
     </div>

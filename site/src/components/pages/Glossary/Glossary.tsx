@@ -17,7 +17,7 @@ type GlossaryProps = {
 const Glossary = ({ data }: GlossaryProps) => {
   return (
     <Container className={s.container}>
-      <SideNavigation title='Glossary' className={s.sideNavigation} titleAnimation={false} />
+      <SideNavigation title="Glossary" className={s.sideNavigation} titleAnimation={false} />
       <div className={s.root}>
         <div className={s.pageContent}>
           <div className={s.info}>

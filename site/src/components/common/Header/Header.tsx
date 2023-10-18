@@ -55,8 +55,8 @@ function Header({ className, config }: HeaderProps) {
   return (
     <Container className={cx(s.root, className)}>
       <nav className={s.wrapper}>
-        <Button href='/'>
-          <Icon name='logo' className={s.logo} />
+        <Button href="/">
+          <Icon name="logo" className={s.logo} />
         </Button>
         {realLinks.main.map((el) => (
           <Button
@@ -90,13 +90,13 @@ function Header({ className, config }: HeaderProps) {
                 className={cx(s.burgerBtn, {
                   [s.isBurgerOpen]: isBurgerOpen,
                 })}
-                name='cross'
+                name="cross"
               />
               <Icon
                 className={cx(s.burgerBtn, {
                   [s.isBurgerOpen]: !isBurgerOpen,
                 })}
-                name='squares'
+                name="squares"
               />
             </div>
             <BurgerMenu isOpen={isBurgerOpen} />

@@ -29,7 +29,7 @@ const Home = ({ data }: HomeProps) => (
         <About data={data.about} />
       </div>
     </div>
-    <FooterAnimationSection link='/about' linkText='Learn more' />
+    <FooterAnimationSection link="/about" linkText="Learn more" />
   </Container>
 )
 

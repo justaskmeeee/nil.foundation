@@ -5,7 +5,7 @@ import { getAllPath } from 'src/strapi'
 import { CollectionType } from 'src/strapi/types/CollectionType'
 import { Blog } from '../../../admin/src/api/blog/content-types/blog/blog'
 
-const fileExtensionsRegexp = /\.(js|jsx|ts|tsx)$/gi;
+const fileExtensionsRegexp = /\.(js|jsx|ts|tsx)$/gi
 
 const pagesArr = [
   { type: 'blogs', url: '/blog/post', params: {} },
@@ -44,18 +44,10 @@ const Sitemap = () => {}
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const staticPages = fs
     .readdirSync('src/pages')
-    .map(x => x.replace(fileExtensionsRegexp, '')) // removing all file extensions
-    .filter(x => isNaN(parseFloat(x))) // removing all numeric names
+    .map((x) => x.replace(fileExtensionsRegexp, '')) // removing all file extensions
+    .filter((x) => isNaN(parseFloat(x))) // removing all numeric names
     .filter((staticPage) => {
-      return ![
-        '.DS_Store',
-        '_app',
-        '_document',
-        'sitemap.xml',
-        'robots.txt',
-        'index',
-        'api',
-      ].includes(staticPage)
+      return !['.DS_Store', '_app', '_document', 'sitemap.xml', 'robots.txt', 'index', 'api'].includes(staticPage)
     }) // removing all blacklisted names
     .map((staticPagePath) => {
       return `${process.env.NEXT_PUBLIC_BASE_URL}/${staticPagePath}`
@@ -79,8 +71,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       </url>
       ${staticPages
         .map((url) => {
-          return (
-            `
+          return `
             <url>
               <loc>${url}</loc>
               <lastmod>${new Date().toISOString()}</lastmod>
@@ -88,14 +79,12 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
               <priority>1.0</priority>
             </url>
             `
-          )
         })
         .join('')}
 
         ${flatten(dynamicPages)
           .map((el) => {
-            return (
-              `
+            return `
               <url>
                 <loc>${process.env.NEXT_PUBLIC_BASE_URL}${el}</loc>
                 <lastmod>${new Date().toISOString()}</lastmod>
@@ -103,22 +92,19 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
                 <priority>0.7</priority>
               </url>
               `
-            )
           })
           .join('')}
 
           ${otherPaths
             .map(
-              (el) => (
-                `
+              (el) => `
                 <url>
                   <loc>${process.env.NEXT_PUBLIC_BASE_URL}/${el.url}</loc>
                   <lastmod>${new Date().toISOString()}</lastmod>
                   <changefreq>monthly</changefreq>
                   <priority>0.7</priority>
                 </url>
-                `
-              )
+                `,
             )
             .join('')}
     </urlset>

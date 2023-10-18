@@ -19,7 +19,7 @@ type CareersProps = {
 const Careers = ({ data }: CareersProps) => {
   return (
     <Container className={s.container}>
-      <SideNavigation className={s.sideNavigation} title='Careers' titleAnimation={false} />
+      <SideNavigation className={s.sideNavigation} title="Careers" titleAnimation={false} />
       <div className={s.root}>
         <div className={s.content}>
           <Intro data={data.intro} />

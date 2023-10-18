@@ -51,7 +51,7 @@ function PostCard({ className, post }: PostCardProps) {
             </p>
           )}
         </div>
-        <Icon name='arrow-up' className={cx(s.arrow, { [s.bigArrow]: isFeaturePost })} />
+        <Icon name="arrow-up" className={cx(s.arrow, { [s.bigArrow]: isFeaturePost })} />
       </div>
     </Button>
   )

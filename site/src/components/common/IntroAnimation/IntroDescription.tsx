@@ -67,7 +67,7 @@ function IntroDescription({
 
   return (
     <div ref={ref} className={classNames(s.descriptionWrapper, className)}>
-      <RevealText as='p' isVisible className={classNames(s.description)} delay={delay} duration={duration}>
+      <RevealText as="p" isVisible className={classNames(s.description)} delay={delay} duration={duration}>
         {text}
       </RevealText>
     </div>

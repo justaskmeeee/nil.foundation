@@ -12,7 +12,7 @@ const DottedSection = () => {
           <div className={s.titleWrapper}>
             <p className={s.title}>
               Interested in =nil; but don&apos;t&nbsp;see a&nbsp;fitting position? Contact us at{' '}
-              <Button className={s.link} href='mailto:hr@nil.foundation'>
+              <Button className={s.link} href="mailto:hr@nil.foundation">
                 hr@nil.foundation
               </Button>
             </p>
