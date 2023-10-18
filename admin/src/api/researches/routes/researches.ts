@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * researches router
  */

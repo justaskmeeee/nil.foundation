@@ -10,6 +10,7 @@
     "strapi": "strapi",
     "default_user": "strapi admin:create-user --firstname=Admin --lastname=Adin --email=admin@nil.foundation --password=XYgiXDOcg4Lfpv6g",
     "lint": "npx @biomejs/biome check src",
+    "lint:fix": "npx @biomejs/biome check src --apply",
     "format": "npx @biomejs/biome format src",
     "format:fix": "npx @biomejs/biome format src --write"
   },
