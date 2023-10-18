@@ -17,7 +17,7 @@ function ArrowButton({ className, text, ...props }: ArrowButtonProps) {
   return (
     <Button className={cx(s.root, className)} {...props}>
       {text}
-      <Icon name='arrow-up' className={s.icon} />
+      <Icon name="arrow-up" className={s.icon} />
     </Button>
   )
 }
