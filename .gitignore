@@ -164,3 +164,6 @@ tags
 [._]*.un~
 
 *.pid
+
+.vscode/*
+!.vscode/settings.json
