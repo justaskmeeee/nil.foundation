@@ -19,9 +19,9 @@ const IntroAnimationWidget = ({
     <IntroAnimation
       {...props}
       items={items}
-      navigationTitle='Marketplace for zero-knowledge proofs'
-      navigationLinkText='Go to Proof Market'
-      navigationLink='https://proof.market/#/market/account_mina'
+      navigationTitle="Marketplace for zero-knowledge proofs"
+      navigationLinkText="Go to Proof Market"
+      navigationLink="https://proof.market/#/market/account_mina"
       animatedContainerClassName={s.animatedContainer}
     />
   )
@@ -34,12 +34,12 @@ const Intro = () => {
   return (
     <section className={s.container}>
       {isMobile ? (
-        <IntroAnimationWidget key='introMobile' className={s.animationWidgetMobile} items={animatedItemMobileList}>
+        <IntroAnimationWidget key="introMobile" className={s.animationWidgetMobile} items={animatedItemMobileList}>
           {(isVisible: boolean) => <IntroDescriptionWidget isVisible={isVisible} />}
         </IntroAnimationWidget>
       ) : (
         <IntroAnimationWidget
-          key='introDefault'
+          key="introDefault"
           className={s.animationWidget}
           items={getAnimatedItemList(prefersReduceMotion)}
         />

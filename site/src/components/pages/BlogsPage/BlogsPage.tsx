@@ -58,7 +58,7 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
                 <div className={s.scrollWrapper}>
                   <div className={s.buttonsWrapper}>
                     <Button
-                      cbData='All'
+                      cbData="All"
                       onClick={() => router.push('/blog')}
                       className={cx(s.filterButtons, {
                         [s.activeButton]: !activeCategory && !activeTag,
@@ -102,7 +102,7 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
             {data.posts && data.posts.length > 0 ? (
               data.posts.map((post) => <PostCard key={post.id} className={s.blogPost} post={post} />)
             ) : (
-              <ArticlesNotFound title='Articles not found' />
+              <ArticlesNotFound title="Articles not found" />
             )}
           </div>
         </div>

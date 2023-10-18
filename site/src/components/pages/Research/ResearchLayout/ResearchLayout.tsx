@@ -31,7 +31,7 @@ const ResearchLayout = ({ children, tags }: ResearchLayoutProps) => {
 
   return (
     <Container className={s.container}>
-      <SideNavigation title='Research' className={s.sideNavigation} titleAnimation={false}>
+      <SideNavigation title="Research" className={s.sideNavigation} titleAnimation={false}>
         <TagList tags={tags} activeTagSlug={activeTagSlug} onTagClick={onTagClickHandler} />
       </SideNavigation>
       <div className={s.wrapper}>

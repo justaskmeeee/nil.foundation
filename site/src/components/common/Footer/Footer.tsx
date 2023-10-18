@@ -27,7 +27,7 @@ function Footer({ className }: InferProps<typeof Footer.propTypes>) {
     <div className={cx(s.root, className)}>
       <div className={s.head}>
         {isMobile && <WhiteRectangle />}
-        <Icon name='logo' />
+        <Icon name="logo" />
         <WhiteRectangle />
       </div>
       <Container className={s.wrapper}>
@@ -80,7 +80,7 @@ function Footer({ className }: InferProps<typeof Footer.propTypes>) {
             </div>
           ))}
           <Button className={s.arrow} onClick={scrollTop}>
-            <Icon name='arrow-up' />
+            <Icon name="arrow-up" />
           </Button>
         </div>
       </Container>

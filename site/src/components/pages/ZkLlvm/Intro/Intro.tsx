@@ -15,9 +15,9 @@ const IntroAnimationWidget = ({
 >) => (
   <IntroAnimation
     {...props}
-    navigationTitle='Effortless high-performance circuit definition'
-    navigationLinkText='Discover zkLLVM'
-    navigationLink='https://github.com/NilFoundation/zkllvm'
+    navigationTitle="Effortless high-performance circuit definition"
+    navigationLinkText="Discover zkLLVM"
+    navigationLink="https://github.com/NilFoundation/zkllvm"
     animatedContainerClassName={s.animatedContainer}
   />
 )
@@ -29,20 +29,20 @@ const Intro = () => {
   return (
     <section className={s.container}>
       {isMobile ? (
-        <IntroAnimationWidget key='introMobile' className={s.animationWidgetMobile} items={animatedItemMobileList}>
+        <IntroAnimationWidget key="introMobile" className={s.animationWidgetMobile} items={animatedItemMobileList}>
           {(isVisible: boolean) => (
             <IntroDescription
               className={s.descriptionMobile}
               duration={700}
               delay={500}
               isVisible={isVisible}
-              text='Get high-performance circuits straight from C++, Rust, or other mainstream code using this powerful tool designed for developers.'
+              text="Get high-performance circuits straight from C++, Rust, or other mainstream code using this powerful tool designed for developers."
             />
           )}
         </IntroAnimationWidget>
       ) : (
         <IntroAnimationWidget
-          key='introDefault'
+          key="introDefault"
           className={s.animationWidget}
           items={getAnimatedItemList(prefersReduceMotion)}
         />

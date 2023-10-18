@@ -21,7 +21,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
     children: (isCompleted: boolean) => (
       <IntroDescription
         className={s.description}
-        text='Get Ethereum-verifiable proofs tailored to your application requirements.'
+        text="Get Ethereum-verifiable proofs tailored to your application requirements."
         isVisible={isCompleted}
       />
     ),
@@ -33,7 +33,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
     children: (isCompleted: boolean) => (
       <IntroDescription
         className={s.description}
-        text='Benefit from decentralized network of proof producers with the first marketplace for zkProof generation.'
+        text="Benefit from decentralized network of proof producers with the first marketplace for zkProof generation."
         isVisible={isCompleted}
       />
     ),
@@ -91,7 +91,7 @@ export const animatedItemMobileList = [
     id: 'm1',
     ySourceValue: '-30%',
     children: (
-      <ArrowButton className={s.link} text='Go to Proof Market' href='https://proof.market/#/market/account_mina' />
+      <ArrowButton className={s.link} text="Go to Proof Market" href="https://proof.market/#/market/account_mina" />
     ),
   },
   {

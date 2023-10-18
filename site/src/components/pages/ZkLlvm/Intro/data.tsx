@@ -21,7 +21,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
     children: (isCompleted: boolean) => (
       <IntroDescription
         className={s.description}
-        text='Get high-performance circuits straight from C++, Rust, or other mainstream code using this powerful tool designed for developers.'
+        text="Get high-performance circuits straight from C++, Rust, or other mainstream code using this powerful tool designed for developers."
         isVisible={isCompleted}
       />
     ),
@@ -94,7 +94,7 @@ export const animatedItemMobileList = [
   {
     id: 'm1',
     ySourceValue: '-30%',
-    children: <ArrowButton className={s.link} text='Discover zkLLVM' href='https://github.com/NilFoundation/zkllvm' />,
+    children: <ArrowButton className={s.link} text="Discover zkLLVM" href="https://github.com/NilFoundation/zkllvm" />,
   },
   {
     id: 'm2',

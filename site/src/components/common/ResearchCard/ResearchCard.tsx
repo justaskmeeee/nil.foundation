@@ -31,7 +31,7 @@ function ResearchCard({ className, content, withTags }: ResearchCardProps) {
           ))}
         </div>
       )}
-      <Icon name='arrow-up' className={s.arrow} />
+      <Icon name="arrow-up" className={s.arrow} />
     </Button>
   )
 }

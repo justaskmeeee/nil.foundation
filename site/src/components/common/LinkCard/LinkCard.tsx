@@ -12,7 +12,7 @@ function LinkCard({ className, title, linkTo, description }: InferProps<typeof L
     <Button className={cx(s.root, className)} href={linkTo} disabled={!linkTo}>
       <h2 className={s.title}>{title}</h2>
       <p className={s.description}>{description}</p>
-      <Icon className={s.arrow} name='arrow-up' />
+      <Icon className={s.arrow} name="arrow-up" />
     </Button>
   )
 }

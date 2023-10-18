@@ -78,7 +78,7 @@ function SideNavigation({
       <div ref={titleRef} className={classNames(s.titleWrapper, (isTitleHidden || !isVisible) && s.titleWrapperHidden)}>
         {title && (
           <RevealText
-            as='h1'
+            as="h1"
             isVisible={isVisible}
             className={classNames(s.title, titleLarge && s.titleLarge)}
             stagger={0.08}

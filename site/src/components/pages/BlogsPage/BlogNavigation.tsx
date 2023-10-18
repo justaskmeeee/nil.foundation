@@ -24,7 +24,7 @@ function BlogNavigation({ activeCategory, activeTag, categories, tags, className
       <div className={s.sideNavigationInner}>
         <div className={s.buttonsWrapper}>
           <Button
-            href='/blog'
+            href="/blog"
             className={cx(s.filterButtons, {
               [s.activeButton]: !activeTag && !activeCategory,
             })}

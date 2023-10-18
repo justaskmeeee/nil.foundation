@@ -18,7 +18,7 @@ type AboutProps = {
 const About = ({ data }: AboutProps) => {
   return (
     <Container className={s.container}>
-      <SideNavigation className={s.sideNavigation} title='About' titleAnimation={false} />
+      <SideNavigation className={s.sideNavigation} title="About" titleAnimation={false} />
       <div className={s.root}>
         <div className={s.content}>
           <Hero data={data.hero} />

@@ -16,8 +16,8 @@ type LayoutProps = {
 
 const Layout = ({ children, withFooter = true, config }: LayoutProps) => (
   <>
-    <Script src='https://www.googletagmanager.com/gtag/js?id=G-CB8D65YWRZ' />
-    <Script id='google-analytics'>
+    <Script src="https://www.googletagmanager.com/gtag/js?id=G-CB8D65YWRZ" />
+    <Script id="google-analytics">
       {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}

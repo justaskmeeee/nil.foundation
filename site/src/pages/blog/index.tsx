@@ -20,7 +20,7 @@ const Blogs = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => 
 export async function getStaticProps() {
   const [posts, tags, categories, config] = await Promise.all([
     getBlogPosts({
-      sort: BLOG_POST_SORT
+      sort: BLOG_POST_SORT,
     }),
     getTags({
       filters: {
