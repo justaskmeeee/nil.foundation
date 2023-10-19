@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "../biome.json"
+  ],
+  "files": {
+    "ignore": [
+      "src/api/**/*.ts",
+      "src/common/schemas-to-ts/**/*.ts",
+      "src/components/**/*.ts"
+    ]
+  }
+}
