@@ -1,19 +1,22 @@
-import React, { use } from 'react'
-import IntroAnimation from 'components/IntroAnimation'
-import { useViewport } from 'hooks/useViewport'
-import WhiteRectangle from 'components/WhiteRectangle/WhiteRectangle'
-import IntroDescriptionWidget from 'pages/Home/Intro/IntroDescriptionWidget'
-import s from './Intro.module.scss'
-import { getAnimatedItemList, animatedItemMobileList } from './data'
-import { IntroAnimationProps } from 'components/IntroAnimation/IntroAnimation'
-import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
+import React, { use } from 'react';
+import IntroAnimation from 'components/IntroAnimation';
+import { useViewport } from 'hooks/useViewport';
+import WhiteRectangle from 'components/WhiteRectangle/WhiteRectangle';
+import IntroDescriptionWidget from 'pages/Home/Intro/IntroDescriptionWidget';
+import s from './Intro.module.scss';
+import { getAnimatedItemList, animatedItemMobileList } from './data';
+import { IntroAnimationProps } from 'components/IntroAnimation/IntroAnimation';
+import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion';
 
 const IntroAnimationWidget = ({
   items,
   ...props
 }: Omit<
   IntroAnimationProps,
-  'navigationTitle' | 'navigationLinkText' | 'navigationLink' | 'animatedContainerClassName'
+  | 'navigationTitle'
+  | 'navigationLinkText'
+  | 'navigationLink'
+  | 'animatedContainerClassName'
 >) => {
   return (
     <IntroAnimation
@@ -24,18 +27,24 @@ const IntroAnimationWidget = ({
       navigationLink="https://proof.market/#/market/account_mina"
       animatedContainerClassName={s.animatedContainer}
     />
-  )
-}
+  );
+};
 
 const Intro = () => {
-  const { isMobile } = useViewport()
-  const prefersReduceMotion = usePrefersReducedMotion()
+  const { isMobile } = useViewport();
+  const prefersReduceMotion = usePrefersReducedMotion();
 
   return (
     <section className={s.container}>
       {isMobile ? (
-        <IntroAnimationWidget key="introMobile" className={s.animationWidgetMobile} items={animatedItemMobileList}>
-          {(isVisible: boolean) => <IntroDescriptionWidget isVisible={isVisible} />}
+        <IntroAnimationWidget
+          key="introMobile"
+          className={s.animationWidgetMobile}
+          items={animatedItemMobileList}
+        >
+          {(isVisible: boolean) => (
+            <IntroDescriptionWidget isVisible={isVisible} />
+          )}
         </IntroAnimationWidget>
       ) : (
         <IntroAnimationWidget
@@ -46,7 +55,7 @@ const Intro = () => {
       )}
       <WhiteRectangle className={s.underPatternLine} />
     </section>
-  )
-}
+  );
+};
 
-export default Intro
+export default Intro;

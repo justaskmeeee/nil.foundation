@@ -58,7 +58,7 @@
     margin-bottom: size(16);
   }
 
-  @include heading-02;
+  @include heading-03;
 
   @include hover {
     color: $white;
@@ -80,7 +80,7 @@
 
 .activeTag {
   background-color: $white;
-  color: $black;
+  color: $gray900;
 }
 
 .mobileSortButtons {
@@ -172,7 +172,7 @@
 }
 
 .pageDescription {
-  @include heading-02;
+  @include heading-03;
 
   @include mobile {
     padding-bottom: size(10);
