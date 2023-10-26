@@ -23,17 +23,16 @@ function PostCard({ className, post }: PostCardProps) {
   return (
     <Card
       href={`/blog/post/${post.slug}`}
-      className={s.root}
+      className={cx(s.root, { [s.featured]: isFeaturePost })}
     >
       <div className={cx(s.info, { [s.featureInfo]: isFeaturePost })}>
         <p className={cx(s.author, s.onHoverBlock)}>{post.author}</p>
         <p className={s.date}>{post.date}</p>
       </div>
-      <div className={cx(s.content, { [s.featuredContent]: !isFeaturePost })}>
+      <div className={cx(s.content, { [s.featuredContent]: isFeaturePost })}>
         <p
-          className={cx({
+          className={cx(s.title, {
             [s.featureTitle]: isFeaturePost,
-            [s.title]: !isFeaturePost,
           })}
         >
           {post.title}

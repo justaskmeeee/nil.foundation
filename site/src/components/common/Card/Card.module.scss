@@ -6,7 +6,7 @@
 
 .root {
   position: relative;
-  padding: size($spacing32);
+  padding: size(calc($spacing32 - 4));
 
   border: 4px dashed $gray500;
 
@@ -43,8 +43,8 @@
   transition: opacity 0.3s, color 0.3s ease;
   transform: rotate(45deg);
 
-  @include mobile {
-    opacity: 1;
-    right: 0;
-  }
+  // @include mobile {
+  //   opacity: 1;
+  //   right: 0;
+  // }
 }

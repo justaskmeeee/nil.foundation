@@ -9,22 +9,31 @@
   width: 100%;
   cursor: pointer;
   color: $secondary;
-  // transition: color 0.3s ease;
 
   svg {
-    width: size(16);
-    height: size(16);
+    width: size(18);
+    height: size(18);
+    top: size(28);
+    right: size(28);
   }
 
   &.featured {
     svg {
-      width: size(12);
-      height: size(12);
+      width: size(22);
+      height: size(22);
+      top: size(30);
+      right: size(28);
     }
   }
 
   &:not(:last-child) {
     margin-bottom: size($spacing32);
+  }
+
+  @include mobile {
+    &:not(:last-child) {
+      margin-bottom: size($spacing24);
+    }
   }
 }
 
@@ -68,21 +77,32 @@
 .info {
   display: flex;
 
+  gap: size(10);
+
   margin-bottom: size($spacing32);
 
   p {
-    &:not(:last-child) {
-      margin-right: size(10);
-    }
-
     @include sm-paragraph;
   }
 
-  &.featureInfo {
-    p {
-      @include paragraph;
-    }
+  @include mobile {
+    margin-bottom: size($spacing16);
   }
+}
+
+.featureInfo {
+  gap: size($spacing12);
+  margin-bottom: size($spacing48);
+
+  @include mobile {
+    margin-bottom: size($spacing16);
+  }
+
+  // p {
+  //   &:not(:last-child) {
+  //     margin-right: size($spacing12);
+  //   }
+  // }
 }
 
 // .date {
@@ -92,13 +112,24 @@
 .content {
   display: flex;
   gap: size($spacing32);
-  align-items: center;
+  align-items: flex-start;
   // width: 100%;
   // margin-top: size(40);
 
   @include mobile {
     flex-direction: column;
+    gap: size($spacing16);
     // margin-top: size(30);
+  }
+}
+
+.featuredContent {
+  flex-direction: column;
+
+  gap: size($spacing48);
+
+  @include mobile {
+    gap: size($spacing16);
   }
 }
 
@@ -109,12 +140,40 @@
 
   color: $gray50;
 
-  @include heading-02;
+  @include heading-03;
 
   @include mobile {
-    // width: 100%;
+    flex-basis: initial;
+    width: 100%;
     // margin: 0 0 size(20) 0;
     // color: $white;
+  }
+}
+
+.featureTitle {
+  @include heading-01;
+
+  flex-basis: initial;
+
+  width: size(683);
+
+  @include mobile {
+    width: 100%;
+    // color: $white;
+
+    // @include heading-02;
+  }
+}
+
+.featureDescription {
+  flex-grow: initial;
+
+  width: size(616);
+
+  @include paragraph;
+
+  @include mobile {
+    width: 100%;
   }
 }
 
@@ -124,36 +183,12 @@
   @include paragraph;
 
   @include mobile {
+    @include main;
     // width: 100%;
     // color: $grey;
     // margin-bottom: size(20);
   }
 }
-
-// .featureTitle {
-//   width: 70%;
-//   margin-top: size(40);
-
-//   @include heading-01;
-
-//   @include mobile {
-//     width: 100%;
-//     color: $white;
-
-//     @include heading-02;
-//   }
-// }
-
-// .featureDescription {
-//   width: 60%;
-//   margin-top: size(40);
-
-//   @include paragraph;
-
-//   @include mobile {
-//     width: 100%;
-//   }
-// }
 
 // .author {
 //   @include mobile {
