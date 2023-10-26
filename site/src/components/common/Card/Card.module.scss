@@ -1,0 +1,38 @@
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  position: relative;
+  padding: size(32);
+
+  border: 4px dashed $gray500;
+
+  transition: border-color 0.3s ease;
+
+  @include hover {
+    border-color: $gray50;
+
+    .arrow {
+      opacity: 1;
+      color: $buttonGray50;
+    }
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: size(32);
+  right: size(32);
+  width: size(14);
+  height: size(14);
+  opacity: 0.5;
+  transition: opacity 0.3s, color 0.3s ease;
+  transform: rotate(45deg);
+
+  @include mobile {
+    opacity: 1;
+    right: 0;
+  }
+}
