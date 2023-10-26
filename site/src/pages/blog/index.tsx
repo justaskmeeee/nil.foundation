@@ -1,21 +1,24 @@
-import { REVALIDATE, BLOG_PAGE_SIZE, BLOG_POST_SORT } from 'constants/common'
-import { getBlogPosts, getCategories, getTags } from 'src/strapi'
+import { REVALIDATE, BLOG_PAGE_SIZE, BLOG_POST_SORT } from 'constants/common';
+import { getBlogPosts, getCategories, getTags } from 'src/strapi';
 
-import BlogsPage from 'pages/BlogsPage'
-import MetaLayout from 'components/MetaLayout'
+import BlogsPage from 'pages/BlogsPage';
+import MetaLayout from 'components/MetaLayout';
 
-import { seoData } from 'stubs/blogs'
-import { getSiteConfig } from 'src/strapi/getSiteConfig'
-import { InferGetStaticPropsType } from 'next'
-import { Post } from 'entities/Post'
-import { Tag } from 'entities/tag'
-import { Category } from 'entities/Category'
+import { seoData } from 'stubs/blogs';
+import { getSiteConfig } from 'src/strapi/getSiteConfig';
+import { InferGetStaticPropsType } from 'next';
+import { Post } from 'entities/Post';
+import { Tag } from 'entities/tag';
+import { Category } from 'entities/Category';
 
-const Blogs = ({ cms, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Blogs = ({
+  cms,
+  seo,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
     <BlogsPage data={cms} />
   </MetaLayout>
-)
+);
 
 export async function getStaticProps() {
   const [posts, tags, categories, config] = await Promise.all([
@@ -33,7 +36,7 @@ export async function getStaticProps() {
     }),
     getCategories(),
     getSiteConfig(),
-  ])
+  ]);
 
   return {
     revalidate: REVALIDATE,
@@ -46,7 +49,7 @@ export async function getStaticProps() {
       seo: seoData,
       config,
     },
-  }
+  };
 }
 
-export default Blogs
+export default Blogs;

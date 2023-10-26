@@ -18,7 +18,7 @@ const Card = ({ children, href, onClick, className }: CardProps) => {
     <Button
       href={href}
       onClick={onClick}
-      className={cx(s.root)}
+      className={cx(s.root, className)}
     >
       {children}
       <Icon

@@ -110,13 +110,13 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
               </div>
             )}
           </div>
-          <Card>
+          {/* <Card>
             <h1>TITLE</h1>
             <p>DESCRIPTION</p>
-          </Card>
+          </Card> */}
           <div className={cx(s.content, s.centeredItems)}>
             {data.posts && data.posts.length > 0 ? (
-              data.posts.map(post => (
+              new Array(10).fill(data.posts[0]).map(post => (
                 <PostCard
                   key={post.id}
                   className={s.blogPost}
