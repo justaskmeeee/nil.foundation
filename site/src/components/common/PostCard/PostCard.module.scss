@@ -37,43 +37,6 @@
   }
 }
 
-// .wrapper {
-//   display: flex;
-//   flex-direction: column;
-//   width: 100%;
-//   transition: border-color 0.3s ease;
-//   padding: size(30) 0;
-
-//   @include hover {
-//     border-color: $white;
-//   }
-
-//   @include mobile {
-//     padding: size(20) 0 0;
-//   }
-// }
-
-// .blogPost {
-//   border-bottom: size(4) dashed $grey;
-
-//   @include hover {
-//     border-bottom: size(4) solid $white;
-//   }
-// }
-
-// .featurePost {
-//   padding: size(30) size(27);
-//   border: size(4) dashed $grey;
-
-//   @include hover {
-//     border: size(4) solid $white;
-//   }
-
-//   @include mobile {
-//     padding: size(30) size(20);
-//   }
-// }
-
 .info {
   display: flex;
 
@@ -97,24 +60,12 @@
   @include mobile {
     margin-bottom: size($spacing16);
   }
-
-  // p {
-  //   &:not(:last-child) {
-  //     margin-right: size($spacing12);
-  //   }
-  // }
 }
-
-// .date {
-//   color: $grey;
-// }
 
 .content {
   display: flex;
   gap: size($spacing32);
   align-items: flex-start;
-  // width: 100%;
-  // margin-top: size(40);
 
   @include mobile {
     flex-direction: column;
@@ -145,8 +96,6 @@
   @include mobile {
     flex-basis: initial;
     width: 100%;
-    // margin: 0 0 size(20) 0;
-    // color: $white;
   }
 }
 
@@ -159,9 +108,6 @@
 
   @include mobile {
     width: 100%;
-    // color: $white;
-
-    // @include heading-02;
   }
 }
 
@@ -184,42 +130,5 @@
 
   @include mobile {
     @include main;
-    // width: 100%;
-    // color: $grey;
-    // margin-bottom: size(20);
   }
 }
-
-// .author {
-//   @include mobile {
-//     color: $white;
-//     max-width: size(250);
-//   }
-// }
-
-// .arrow {
-//   position: absolute;
-//   right: size(30);
-//   width: size(14);
-//   height: size(14);
-//   opacity: 0.5;
-//   transition: opacity 0.3s;
-//   transform: rotate(45deg);
-
-//   @include mobile {
-//     opacity: 1;
-//     right: 0;
-//   }
-// }
-
-// .bigArrow {
-//   right: size(25);
-//   width: size(18);
-//   height: size(18);
-
-//   @include mobile {
-//     right: size(18);
-//     width: size(14);
-//     height: size(14);
-//   }
-// }
