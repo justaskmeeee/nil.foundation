@@ -8,16 +8,16 @@
   position: relative;
   padding: size(calc($spacing32 - 4));
 
-  border: 4px dashed $gray500;
+  border: 4px dashed $gray-500;
 
-  color: $gray200;
+  color: $gray-200;
 
   transition: border-color 0.3s ease, color 0.3s ease;
 
   @include hover {
-    border-color: $gray50;
+    border-color: $gray-50;
 
-    color: $gray50;
+    color: $gray-50;
 
     .arrow {
       opacity: 1;
@@ -28,7 +28,7 @@
   &:focus,
   &:focus-visible {
     border-style: solid;
-    border-color: $gray50;
+    border-color: $gray-50;
     outline: none;
   }
 }
