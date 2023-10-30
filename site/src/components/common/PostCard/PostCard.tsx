@@ -1,25 +1,22 @@
-import { memo, useMemo } from 'react';
-import cx from 'classnames';
+import { memo, useMemo } from 'react'
+import cx from 'classnames'
 
-import s from './PostCard.module.scss';
-import { MappedBlog } from 'src/strapi/types/entities';
-import Card from 'components/Card';
+import s from './PostCard.module.scss'
+import { MappedBlog } from 'src/strapi/types/entities'
+import Card from 'components/Card'
 
 type PostCardProps = {
-  className?: string;
-  post: MappedBlog;
-};
+  className?: string
+  post: MappedBlog
+}
 
 function PostCard({ className, post }: PostCardProps) {
   const isFeaturePost = useMemo(() => {
-    return post.isFeature;
-  }, [post.isFeature]);
+    return post.isFeature
+  }, [post.isFeature])
 
   return (
-    <Card
-      href={`/blog/post/${post.slug}`}
-      className={cx(s.root, { [s.featured]: isFeaturePost })}
-    >
+    <Card href={`/blog/post/${post.slug}`} className={cx(s.root, { [s.featured]: isFeaturePost })}>
       <div className={cx(s.info, { [s.featureInfo]: isFeaturePost })}>
         <p className={cx(s.author, s.onHoverBlock)}>{post.author}</p>
         <p>{post.date}</p>
@@ -44,7 +41,7 @@ function PostCard({ className, post }: PostCardProps) {
         )}
       </div>
     </Card>
-  );
+  )
 }
 
-export default memo(PostCard);
+export default memo(PostCard)
