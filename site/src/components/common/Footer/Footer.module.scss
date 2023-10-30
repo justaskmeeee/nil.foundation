@@ -4,7 +4,7 @@
 @use '~styles/mixins' as *;
 
 .root {
-  color: $gray50;
+  color: $gray-50;
 
   @include sm-paragraph;
 }
