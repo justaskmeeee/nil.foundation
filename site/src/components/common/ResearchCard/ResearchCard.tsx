@@ -5,7 +5,7 @@ import TagButton from 'components/TagButton'
 
 import s from './ResearchCard.module.scss'
 import { MappedResearch } from 'src/strapi/types/entities'
-import Card from 'components/Card'
+import { Card } from 'components/Card'
 
 type ResearchCardProps = {
   className?: string

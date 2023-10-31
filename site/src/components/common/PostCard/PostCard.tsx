@@ -3,7 +3,7 @@ import cx from 'classnames'
 
 import s from './PostCard.module.scss'
 import { MappedBlog } from 'src/strapi/types/entities'
-import Card from 'components/Card'
+import { Card } from 'components/Card'
 
 type PostCardProps = {
   className?: string
