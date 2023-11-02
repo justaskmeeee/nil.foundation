@@ -11,7 +11,7 @@
   max-width: size(1075) !important;
   min-height: 100vh;
   margin-left: auto !important;
-  background-color: $black !important;
+  background-color: $gray900 !important;
   color: $grey !important;
 
   .content {
@@ -120,17 +120,17 @@
   }
 
   .job-details-header {
-    background-color: $black !important;
+    background-color: $gray900 !important;
   }
 
   .btn-primary {
     border: size(1) solid $white !important;
-    background: $black !important;
+    background: $gray900 !important;
     transition: all 0.1s ease-in-out !important;
 
     @include hover {
       background: $white !important;
-      color: $black !important;
+      color: $gray900 !important;
     }
   }
 
@@ -535,7 +535,7 @@
 
   .advanced-search {
     padding: 0 !important;
-    background-color: $black !important;
+    background-color: $gray900 !important;
 
     @include mobile {
       max-width: size(340);
@@ -647,6 +647,7 @@
 
 .select2-results {
   &__options {
+    background-color: $gray900 !important;
     width: size(336) !important;
     max-height: size(200) !important;
     color: $black !important;
@@ -706,7 +707,7 @@
 
 .select2-selection--multiple {
   color: $grey !important;
-  background-color: $gray-50 !important;
+  background-color: $gray900 !important;
   border: none !important;
 }
 
@@ -793,7 +794,7 @@
 .form-control {
   border-color: $grey !important;
   color: $white !important;
-  background-color: $black !important;
+  background-color: $gray900 !important;
 
   @include mobile {
     bottom: 0 !important;
@@ -824,6 +825,9 @@
 
     @include fontType(H);
 
+    background: $gray900 !important;
+    box-shadow: 0 0 2px 0 rgba(255, 255, 255, 1) !important;
+    
     &:last-child {
       margin-bottom: 0 !important;
     }
