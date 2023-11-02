@@ -216,10 +216,10 @@
   .location-icon {
     width: size(12) !important;
     height: size(12) !important;
-    background: url(../../public/icons/arrow-link.svg) no-repeat;
-    background-size: contain;
     margin-left: 0 !important;
     margin-right: size(1) !important;
+    background: url(/icons/arrow-link.svg) no-repeat;
+    background-size: contain;
 
     svg {
       display: none;
@@ -261,8 +261,8 @@
 
   .text-color {
     display: flex !important;
-    gap: size(10) !important;
     align-self: flex-end !important;
+    gap: size(10) !important;
     text-align: center !important;
 
     @include mobile {
@@ -345,9 +345,9 @@
     display: flex !important;
     flex: 1 !important;
     gap: size(16) !important;
+    height: 100% !important;
     margin-bottom: 0 !important;
     padding-top: size(8) !important;
-    height: 100% !important;
   }
 }
 
@@ -371,9 +371,9 @@
 }
 
 .toggle-and-clear {
+  z-index: 10;
   display: flex !important;
   justify-content: flex-start !important;
-  z-index: 10;
   flex: 0 100% !important;
   gap: size(5) !important;
   height: 20px !important;
@@ -475,7 +475,7 @@
       border: none !important;
       width: 12px !important;
       height: 100% !important;
-      background: url(../../public/icons/arrow-down.svg) no-repeat !important;
+      background: url(/icons/arrow-down.svg) no-repeat !important;
       background-size: contain !important;
       background-position: center !important;
       transform: rotate(270deg) !important ;
@@ -507,7 +507,7 @@
       border: none !important;
       width: size(12) !important;
       height: 100% !important;
-      background: url(../../public/icons/arrow-down.svg) no-repeat !important;
+      background: url(/icons/arrow-down.svg) no-repeat !important;
       background-size: contain !important;
       background-position: center !important;
 
@@ -550,14 +550,14 @@
       }
 
       &::before {
+        content: '';
         position: absolute;
         left: size(16);
         top: size(10);
-        content: '';
-        background: url(../../public/icons/search.svg) no-repeat;
-        background-size: contain;
         width: size(18) !important;
         height: size(18) !important;
+        background: url(/icons/search.svg) no-repeat;
+        background-size: contain;
       }
 
       svg {
@@ -691,12 +691,12 @@
 }
 
 .select2-search__field {
+  padding: 0 !important;
+  margin: 0 !important;
   font-family: HelveticaNeue !important;
   font-size: size(15) !important;
   line-height: size(15) !important;
   letter-spacing: size(-0.54) !important;
-  padding: 0 !important;
-  margin: 0 !important;
 
   @include mobile {
     padding-left: 0 !important;
