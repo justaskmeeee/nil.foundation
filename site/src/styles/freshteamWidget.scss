@@ -322,7 +322,7 @@
     font-size: size(15) !important;
     line-height: size(15) !important;
     letter-spacing: size(-0.54) !important;
-    color: $black !important;
+    color: $gray900 !important;
 
     @include mobile {
       margin-top: 0 !important;
@@ -636,7 +636,7 @@
   .select2-search--inline {
     .select2-search__field {
       width: max-content !important;
-      color: $black !important;
+      color: $gray900 !important;
 
       &::placeholder {
         color: $secondary !important;
@@ -650,7 +650,7 @@
     background-color: $gray900 !important;
     width: size(336) !important;
     max-height: size(200) !important;
-    color: $black !important;
+    color: $gray900 !important;
     background-color: $gray-50 !important;
 
     @include mobile {
